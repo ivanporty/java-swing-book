@@ -1,5 +1,5 @@
 // InvokeLater.java
-// Метод invokeLater() и работа с потоком рассылки событий
+// РњРµС‚РѕРґ invokeLater() Рё СЂР°Р±РѕС‚Р° СЃ РїРѕС‚РѕРєРѕРј СЂР°СЃСЃС‹Р»РєРё СЃРѕР±С‹С‚РёР№
 
 import java.awt.*;
 import java.awt.event.*;
@@ -8,18 +8,18 @@ import javax.swing.*;
 public class InvokeLater extends JFrame {
   public InvokeLater() {
     super("InvokeLater");
-    // при закрытии окна - выход
+    // РїСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР° - РІС‹С…РѕРґ
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // добавим кнопку со слушателем
-    button = new JButton("Выполнить сложную работу");
+    // РґРѕР±Р°РІРёРј РєРЅРѕРїРєСѓ СЃРѕ СЃР»СѓС€Р°С‚РµР»РµРј
+    button = new JButton("Р’С‹РїРѕР»РЅРёС‚СЊ СЃР»РѕР¶РЅСѓСЋ СЂР°Р±РѕС‚Сѓ");
     button.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        // запустим отдельный поток
+        // Р·Р°РїСѓСЃС‚РёРј РѕС‚РґРµР»СЊРЅС‹Р№ РїРѕС‚РѕРє
         new ComplexJobThread().start();
-        button.setText("Подождите...");
+        button.setText("РџРѕРґРѕР¶РґРёС‚Рµ...");
       }
     });
-    // настроим панель содержимого и выведем окно на экран
+    // РЅР°СЃС‚СЂРѕРёРј РїР°РЅРµР»СЊ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ Рё РІС‹РІРµРґРµРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setLayout(new FlowLayout());
     add(new JTextField(20));
     add(button);
@@ -29,16 +29,16 @@ public class InvokeLater extends JFrame {
 
   private JButton button;
 
-  // поток, выполняющий "сложную работу"
+  // РїРѕС‚РѕРє, РІС‹РїРѕР»РЅСЏСЋС‰РёР№ "СЃР»РѕР¶РЅСѓСЋ СЂР°Р±РѕС‚Сѓ"
   class ComplexJobThread extends Thread {
     public void run() {
       try {
-        // изобразим задержку
+        // РёР·РѕР±СЂР°Р·РёРј Р·Р°РґРµСЂР¶РєСѓ
         sleep(3000);
-        // работа закончена, нужно изменить интерфейс
+        // СЂР°Р±РѕС‚Р° Р·Р°РєРѕРЅС‡РµРЅР°, РЅСѓР¶РЅРѕ РёР·РјРµРЅРёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ
         SwingUtilities.invokeLater(new Runnable() {
           public void run() {
-            button.setText("Работа завершена");
+            button.setText("Р Р°Р±РѕС‚Р° Р·Р°РІРµСЂС€РµРЅР°");
           }
         });
       } catch (Exception ex) {

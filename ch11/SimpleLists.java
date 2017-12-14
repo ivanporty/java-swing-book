@@ -1,37 +1,37 @@
 // SimpleLists.java
-// Простейший способ создания списков
+// РџСЂРѕСЃС‚РµР№С€РёР№ СЃРїРѕСЃРѕР± СЃРѕР·РґР°РЅРёСЏ СЃРїРёСЃРєРѕРІ
 import javax.swing.*;
 import java.util.*;
 import java.awt.*;
 
 public class SimpleLists extends JFrame {
-  // данные для списков
-  private String[] data1 = { "Один", "Два",
-      "Три", "Четыре", "Пять"};
-  private String[] data2 = { "Просто", "Легко",
-      "Элементарно", "Как дважды два"};
+  // РґР°РЅРЅС‹Рµ РґР»СЏ СЃРїРёСЃРєРѕРІ
+  private String[] data1 = { "РћРґРёРЅ", "Р”РІР°",
+      "РўСЂРё", "Р§РµС‚С‹СЂРµ", "РџСЏС‚СЊ"};
+  private String[] data2 = { "РџСЂРѕСЃС‚Рѕ", "Р›РµРіРєРѕ",
+      "Р­Р»РµРјРµРЅС‚Р°СЂРЅРѕ", "РљР°Рє РґРІР°Р¶РґС‹ РґРІР°"};
   public SimpleLists() {
     super("SimpleLists");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем списки
+    // СЃРѕР·РґР°РµРј СЃРїРёСЃРєРё
     JList list1 = new JList(data1);
-    // для второго списка используем вектор
+    // РґР»СЏ РІС‚РѕСЂРѕРіРѕ СЃРїРёСЃРєР° РёСЃРїРѕР»СЊР·СѓРµРј РІРµРєС‚РѕСЂ
     Vector<String> data = new Vector<String>();
     data.addAll(Arrays.asList(data2));
     JList list2 = new JList(data);
-    // динамически наполним вектор
+    // РґРёРЅР°РјРёС‡РµСЃРєРё РЅР°РїРѕР»РЅРёРј РІРµРєС‚РѕСЂ
     Vector<String> big = new Vector<String>();
     for (int i=0; i<50; i++) {
       big.add("# " + i);
     }
     JList bigList = new JList(big);
     bigList.setPrototypeCellValue("12345");
-    // добавим списки в панель
+    // РґРѕР±Р°РІРёРј СЃРїРёСЃРєРё РІ РїР°РЅРµР»СЊ
     setLayout(new FlowLayout());
     add(list1);
     add(list2);
     add(new JScrollPane(bigList));
-    // выведем окно на экран
+    // РІС‹РІРµРґРµРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(300, 200);
     setVisible(true);
   }

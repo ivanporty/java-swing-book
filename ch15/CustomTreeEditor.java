@@ -1,5 +1,5 @@
 // CustomTreeEditor.java
-// Создание специализированного редактора узлов
+// РЎРѕР·РґР°РЅРёРµ СЃРїРµС†РёР°Р»РёР·РёСЂРѕРІР°РЅРЅРѕРіРѕ СЂРµРґР°РєС‚РѕСЂР° СѓР·Р»РѕРІ
 import javax.swing.*;
 import javax.swing.tree.*;
 import javax.swing.text.*;
@@ -11,9 +11,9 @@ public class CustomTreeEditor extends JFrame {
   public CustomTreeEditor() {
     super("CustomTreeEditor");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // настраиваем дерево
+    // РЅР°СЃС‚СЂР°РёРІР°РµРј РґРµСЂРµРІРѕ
     JTree tree = new JTree(createTreeModel());
-    // включаем редактирование узлов
+    // РІРєР»СЋС‡Р°РµРј СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ СѓР·Р»РѕРІ
     tree.setEditable(true);
     DefaultTreeCellRenderer renderer =
         new DefaultTreeCellRenderer();
@@ -21,38 +21,38 @@ public class CustomTreeEditor extends JFrame {
         new DefaultTreeCellEditor(tree, renderer,
             new MaskTreeEditor(tree));
     tree.setCellEditor(editor);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     add(new JScrollPane(tree));
     setSize(400, 300);
     setVisible(true);
   }
-  // список телефонов
+  // СЃРїРёСЃРѕРє С‚РµР»РµС„РѕРЅРѕРІ
   private String[] phoneDirectory = {
       "123-13-13", "444-55-67", "111-23-45"};
-  // создает модель дерева
+  // СЃРѕР·РґР°РµС‚ РјРѕРґРµР»СЊ РґРµСЂРµРІР°
   private TreeModel createTreeModel() {
     DefaultMutableTreeNode root =
-        new DefaultMutableTreeNode("Компания");
+        new DefaultMutableTreeNode("РљРѕРјРїР°РЅРёСЏ");
     DefaultMutableTreeNode node =
-        new DefaultMutableTreeNode("Отдел кадров");
+        new DefaultMutableTreeNode("РћС‚РґРµР» РєР°РґСЂРѕРІ");
     root.add(node);
-    // присоединяем листья
+    // РїСЂРёСЃРѕРµРґРёРЅСЏРµРј Р»РёСЃС‚СЊСЏ
     for (String phone : phoneDirectory) {
       node.add(new DefaultMutableTreeNode(phone));
     }
     return new DefaultTreeModel(root);
   }
-  // специальный редактор узлов дерева
+  // СЃРїРµС†РёР°Р»СЊРЅС‹Р№ СЂРµРґР°РєС‚РѕСЂ СѓР·Р»РѕРІ РґРµСЂРµРІР°
   class MaskTreeEditor extends AbstractCellEditor
       implements TreeCellEditor {
-    // дерево
+    // РґРµСЂРµРІРѕ
     private JTree tree;
-    // текстовое поле, применяемое для редактирования
+    // С‚РµРєСЃС‚РѕРІРѕРµ РїРѕР»Рµ, РїСЂРёРјРµРЅСЏРµРјРѕРµ РґР»СЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ
     private JFormattedTextField editor;
-    // конструктор редактора
+    // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЂРµРґР°РєС‚РѕСЂР°
     public MaskTreeEditor(JTree tree) {
       this.tree = tree;
-      // создаем форматирующий объект
+      // СЃРѕР·РґР°РµРј С„РѕСЂРјР°С‚РёСЂСѓСЋС‰РёР№ РѕР±СЉРµРєС‚
       try {
         MaskFormatter phone =
             new MaskFormatter("###-##-##");
@@ -60,28 +60,28 @@ public class CustomTreeEditor extends JFrame {
       } catch (Exception ex) {
         ex.printStackTrace();
       }
-      // присоединяем к полю слушателя
+      // РїСЂРёСЃРѕРµРґРёРЅСЏРµРј Рє РїРѕР»СЋ СЃР»СѓС€Р°С‚РµР»СЏ
       editor.addActionListener(new ActionListener() {
-        // вызывается при окончании редактирования
+        // РІС‹Р·С‹РІР°РµС‚СЃСЏ РїСЂРё РѕРєРѕРЅС‡Р°РЅРёРё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ
         public void actionPerformed(ActionEvent e) {
           stopCellEditing();
         }
       });
     }
-    // возвращает компонент, используемый как редактор
+    // РІРѕР·РІСЂР°С‰Р°РµС‚ РєРѕРјРїРѕРЅРµРЅС‚, РёСЃРїРѕР»СЊР·СѓРµРјС‹Р№ РєР°Рє СЂРµРґР°РєС‚РѕСЂ
     public Component getTreeCellEditorComponent(
         JTree tree, Object value, boolean selected,
         boolean expanded, boolean leaf, int row) {
-      // устанавливаем новое значение
+      // СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј РЅРѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ
       editor.setText(value.toString());
-      // возвращаем текстовое поле
+      // РІРѕР·РІСЂР°С‰Р°РµРј С‚РµРєСЃС‚РѕРІРѕРµ РїРѕР»Рµ
       return editor;
     }
-    // возращает текущее значение в редакторе
+    // РІРѕР·СЂР°С‰Р°РµС‚ С‚РµРєСѓС‰РµРµ Р·РЅР°С‡РµРЅРёРµ РІ СЂРµРґР°РєС‚РѕСЂРµ
     public Object getCellEditorValue() {
       return editor.getText();
     }
-    // определяет, можно ли проводить редактирование
+    // РѕРїСЂРµРґРµР»СЏРµС‚, РјРѕР¶РЅРѕ Р»Рё РїСЂРѕРІРѕРґРёС‚СЊ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ
     public boolean isCellEditable(EventObject event) {
       MutableTreeNode node = (MutableTreeNode)
           tree.getLastSelectedPathComponent();

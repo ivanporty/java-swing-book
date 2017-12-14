@@ -1,5 +1,5 @@
 // ChoosingDates.java
-// Выбор дат с помощью SpinnerDateModel
+// Р’С‹Р±РѕСЂ РґР°С‚ СЃ РїРѕРјРѕС‰СЊСЋ SpinnerDateModel
 import javax.swing.*;
 import java.util.*;
 import java.awt.*;
@@ -8,40 +8,40 @@ public class ChoosingDates extends JFrame {
   public ChoosingDates() {
     super("ChoosingDates");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // настраиваем модель для выбора дня месяца
+    // РЅР°СЃС‚СЂР°РёРІР°РµРј РјРѕРґРµР»СЊ РґР»СЏ РІС‹Р±РѕСЂР° РґРЅСЏ РјРµСЃСЏС†Р°
     SpinnerModel monthDay = new SpinnerDateModel(
         new Date(), null, null, Calendar.DAY_OF_MONTH);
     JSpinner spinner1 = new JSpinner(monthDay);
-    // модель для выбора месяца, с ограничениями
+    // РјРѕРґРµР»СЊ РґР»СЏ РІС‹Р±РѕСЂР° РјРµСЃСЏС†Р°, СЃ РѕРіСЂР°РЅРёС‡РµРЅРёСЏРјРё
     SpinnerModel month = new SpinnerDateModel(
         new Date(), new MinDate(), new MaxDate(), Calendar.MONTH);
     JSpinner spinner2 = new JSpinner(month);
-    // добавляем списки в панель
+    // РґРѕР±Р°РІР»СЏРµРј СЃРїРёСЃРєРё РІ РїР°РЅРµР»СЊ
     setLayout(new FlowLayout());
     add(spinner1);
     add(spinner2);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(350, 300);
     setVisible(true);
   }
-  // вспомогательный объект для проверок дат
+  // РІСЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Р№ РѕР±СЉРµРєС‚ РґР»СЏ РїСЂРѕРІРµСЂРѕРє РґР°С‚
   private Calendar calendar = Calendar.getInstance();
-  // проверяет минимальную дату (по году)
+  // РїСЂРѕРІРµСЂСЏРµС‚ РјРёРЅРёРјР°Р»СЊРЅСѓСЋ РґР°С‚Сѓ (РїРѕ РіРѕРґСѓ)
   class MinDate extends Date implements Comparable<Date> {
     public int compareTo(Date d) {
       calendar.setTime(d);
       int year = calendar.get(Calendar.YEAR);
-      // год не меньше 2005
+      // РіРѕРґ РЅРµ РјРµРЅСЊС€Рµ 2005
       return (year < 2005) ? 1 : -1;
     }
   }
-  // проверяет максимальную дату (по году)
+  // РїСЂРѕРІРµСЂСЏРµС‚ РјР°РєСЃРёРјР°Р»СЊРЅСѓСЋ РґР°С‚Сѓ (РїРѕ РіРѕРґСѓ)
   class MaxDate extends Date implements Comparable<Date> {
     public int compareTo(Date d) {
       calendar.setTime(d);
       calendar.get(Calendar.YEAR);
       int year = calendar.get(Calendar.YEAR);
-      // год не больше 2011
+      // РіРѕРґ РЅРµ Р±РѕР»СЊС€Рµ 2011
       if ( year > 2011 ) return -1;
       else return 1;
     }

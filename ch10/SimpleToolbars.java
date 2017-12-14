@@ -1,5 +1,5 @@
 // SimpleToolbars.java
-// Простые панели инструментов
+// РџСЂРѕСЃС‚С‹Рµ РїР°РЅРµР»Рё РёРЅСЃС‚СЂСѓРјРµРЅС‚РѕРІ
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
@@ -8,43 +8,43 @@ public class SimpleToolbars extends JFrame {
   public SimpleToolbars() {
     super("SimpleToolbars");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // первая панель инструментов
+    // РїРµСЂРІР°СЏ РїР°РЅРµР»СЊ РёРЅСЃС‚СЂСѓРјРµРЅС‚РѕРІ
     JToolBar toolbar1 = new JToolBar();
-    // добавим кнопки
+    // РґРѕР±Р°РІРёРј РєРЅРѕРїРєРё
     toolbar1.add(new JButton(
         new ImageIcon("images/New16.gif")));
     toolbar1.add(new JButton(
         new ImageIcon("images/Open16.gif")));
-    // разделитель
+    // СЂР°Р·РґРµР»РёС‚РµР»СЊ
     toolbar1.addSeparator();
-    // добавим команду
+    // РґРѕР±Р°РІРёРј РєРѕРјР°РЅРґСѓ
     toolbar1.add(new SaveAction());
-    // вторая панель инструментов
+    // РІС‚РѕСЂР°СЏ РїР°РЅРµР»СЊ РёРЅСЃС‚СЂСѓРјРµРЅС‚РѕРІ
     JToolBar toolbar2 = new JToolBar();
-    // добавим команду
+    // РґРѕР±Р°РІРёРј РєРѕРјР°РЅРґСѓ
     toolbar2.add(new SaveAction());
-    // раскрывающийся список
+    // СЂР°СЃРєСЂС‹РІР°СЋС‰РёР№СЃСЏ СЃРїРёСЃРѕРє
     toolbar2.add(new JComboBox(new String[] {
-        "Жирный", "Обычный" }));
-    // добавим панели инструментов в окно
+        "Р–РёСЂРЅС‹Р№", "РћР±С‹С‡РЅС‹Р№" }));
+    // РґРѕР±Р°РІРёРј РїР°РЅРµР»Рё РёРЅСЃС‚СЂСѓРјРµРЅС‚РѕРІ РІ РѕРєРЅРѕ
     add(toolbar1, "North");
     add(toolbar2, "South");
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(400, 300);
     setVisible(true);
   }
-  // команда для панели инструментов
+  // РєРѕРјР°РЅРґР° РґР»СЏ РїР°РЅРµР»Рё РёРЅСЃС‚СЂСѓРјРµРЅС‚РѕРІ
   class SaveAction extends AbstractAction {
     public SaveAction() {
-      // настроим значок команды
+      // РЅР°СЃС‚СЂРѕРёРј Р·РЅР°С‡РѕРє РєРѕРјР°РЅРґС‹
       putValue(AbstractAction.SMALL_ICON,
           new ImageIcon("images/Save16.gif"));
-      // текст подсказки
+      // С‚РµРєСЃС‚ РїРѕРґСЃРєР°Р·РєРё
       putValue(AbstractAction.SHORT_DESCRIPTION,
-          "Сохранить документ...");
+          "РЎРѕС…СЂР°РЅРёС‚СЊ РґРѕРєСѓРјРµРЅС‚...");
     }
     public void actionPerformed(ActionEvent e) {
-      // ничего не делаем
+      // РЅРёС‡РµРіРѕ РЅРµ РґРµР»Р°РµРј
     }
   }
   public static void main(String[] args) {

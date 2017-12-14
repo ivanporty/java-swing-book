@@ -1,20 +1,20 @@
 // ListSelectionModes.java
-// Различные режимы выделения
+// Р Р°Р·Р»РёС‡РЅС‹Рµ СЂРµР¶РёРјС‹ РІС‹РґРµР»РµРЅРёСЏ
 import javax.swing.*;
 import java.awt.*;
 
 public class ListSelectionModes extends JFrame {
-  private String[] data = { "Красный", "Синий",
-      "Зеленый", "Желтый", "Белый"};
+  private String[] data = { "РљСЂР°СЃРЅС‹Р№", "РЎРёРЅРёР№",
+      "Р—РµР»РµРЅС‹Р№", "Р–РµР»С‚С‹Р№", "Р‘РµР»С‹Р№"};
   public ListSelectionModes() {
     super("ListSelectionModes");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // заполним модель данными
+    // Р·Р°РїРѕР»РЅРёРј РјРѕРґРµР»СЊ РґР°РЅРЅС‹РјРё
     DefaultListModel dlm =
         new DefaultListModel();
     for (String next : data)
       dlm.addElement(next);
-    // три списка с разным типом выделения
+    // С‚СЂРё СЃРїРёСЃРєР° СЃ СЂР°Р·РЅС‹Рј С‚РёРїРѕРј РІС‹РґРµР»РµРЅРёСЏ
     JList list1 = new JList(dlm);
     list1.setSelectionMode(
         ListSelectionModel.SINGLE_SELECTION);
@@ -22,15 +22,15 @@ public class ListSelectionModes extends JFrame {
     list2.setSelectionMode(
         ListSelectionModel.SINGLE_INTERVAL_SELECTION);
     JList list3 = new JList(dlm);
-    // аналогично предыдущему вызову
+    // Р°РЅР°Р»РѕРіРёС‡РЅРѕ РїСЂРµРґС‹РґСѓС‰РµРјСѓ РІС‹Р·РѕРІСѓ
     list3.getSelectionModel().setSelectionMode(
         ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-    // добавляем компоненты
+    // РґРѕР±Р°РІР»СЏРµРј РєРѕРјРїРѕРЅРµРЅС‚С‹
     setLayout(new FlowLayout());
     add(new JScrollPane(list1));
     add(new JScrollPane(list2));
     add(new JScrollPane(list3));
-    // выведем окно на экран
+    // РІС‹РІРµРґРµРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(300, 200);
     setVisible(true);
   }

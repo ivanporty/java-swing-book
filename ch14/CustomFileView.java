@@ -1,5 +1,5 @@
 // CustomFileView.java
-// Внешний вид файлов в компоненте JFileChooser
+// Р’РЅРµС€РЅРёР№ РІРёРґ С„Р°Р№Р»РѕРІ РІ РєРѕРјРїРѕРЅРµРЅС‚Рµ JFileChooser
 import javax.swing.*;
 import javax.swing.filechooser.*;
 import java.awt.*;
@@ -8,30 +8,30 @@ public class CustomFileView extends JFrame {
   public CustomFileView() {
     super("CustomFileView");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(300, 200);
     setVisible(true);
-    // настраиваем компонент для выбора файлов
+    // РЅР°СЃС‚СЂР°РёРІР°РµРј РєРѕРјРїРѕРЅРµРЅС‚ РґР»СЏ РІС‹Р±РѕСЂР° С„Р°Р№Р»РѕРІ
     JFileChooser chooser = new JFileChooser();
-    chooser.setDialogTitle("Выберите файл");
+    chooser.setDialogTitle("Р’С‹Р±РµСЂРёС‚Рµ С„Р°Р№Р»");
     chooser.setFileView(new NewFileView(
         chooser.getFileSystemView()));
-    // показываем диалоговое окно
+    // РїРѕРєР°Р·С‹РІР°РµРј РґРёР°Р»РѕРіРѕРІРѕРµ РѕРєРЅРѕ
     int res = chooser.showOpenDialog(this);
   }
-  // объект, определяющий внешний вид файлов
+  // РѕР±СЉРµРєС‚, РѕРїСЂРµРґРµР»СЏСЋС‰РёР№ РІРЅРµС€РЅРёР№ РІРёРґ С„Р°Р№Р»РѕРІ
   class NewFileView extends FileView {
-    // значки, применяемые для файлов
+    // Р·РЅР°С‡РєРё, РїСЂРёРјРµРЅСЏРµРјС‹Рµ РґР»СЏ С„Р°Р№Р»РѕРІ
     private Icon fileIcon = new ImageIcon("file.gif");
     private Icon folderIcon = new ImageIcon("folder.gif");
-    // конструктору необходимо описание файловой системы
+    // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂСѓ РЅРµРѕР±С…РѕРґРёРјРѕ РѕРїРёСЃР°РЅРёРµ С„Р°Р№Р»РѕРІРѕР№ СЃРёСЃС‚РµРјС‹
     public NewFileView(FileSystemView fileSystem) {
       this.fileSystem = fileSystem;
     }
     private FileSystemView fileSystem;
-    // возвращает значок для файла
+    // РІРѕР·РІСЂР°С‰Р°РµС‚ Р·РЅР°С‡РѕРє РґР»СЏ С„Р°Р№Р»Р°
     public Icon getIcon(java.io.File file) {
-      // основные части файловой системы пропускаем
+      // РѕСЃРЅРѕРІРЅС‹Рµ С‡Р°СЃС‚Рё С„Р°Р№Р»РѕРІРѕР№ СЃРёСЃС‚РµРјС‹ РїСЂРѕРїСѓСЃРєР°РµРј
       if ( fileSystem.isRoot(file) ||
           fileSystem.isDrive(file) )
         return null;

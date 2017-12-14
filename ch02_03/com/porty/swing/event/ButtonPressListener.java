@@ -1,10 +1,10 @@
 // com/porty/swing/event/ButtonPressListener.java
-// Интерфейс слушателя события нажатия кнопки
+// РРЅС‚РµСЂС„РµР№СЃ СЃР»СѓС€Р°С‚РµР»СЏ СЃРѕР±С‹С‚РёСЏ РЅР°Р¶Р°С‚РёСЏ РєРЅРѕРїРєРё
 package com.porty.swing.event;
 
 import java.util.EventListener;
 
 public interface ButtonPressListener extends EventListener {
-  // данный метод будет вызываться при нажатии кнопки
+  // РґР°РЅРЅС‹Р№ РјРµС‚РѕРґ Р±СѓРґРµС‚ РІС‹Р·С‹РІР°С‚СЊСЃСЏ РїСЂРё РЅР°Р¶Р°С‚РёРё РєРЅРѕРїРєРё
   void buttonPressed(ButtonPressEvent e);
 }

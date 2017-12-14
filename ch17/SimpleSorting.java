@@ -1,5 +1,5 @@
 // SimpleSorting.java
-// Сортировка таблицы по умолчанию
+// РЎРѕСЂС‚РёСЂРѕРІРєР° С‚Р°Р±Р»РёС†С‹ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -9,10 +9,10 @@ public class SimpleSorting extends JFrame {
   public SimpleSorting() {
     super("SimpleSorting");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем таблицу на основе модели по умолчанию
+    // СЃРѕР·РґР°РµРј С‚Р°Р±Р»РёС†Сѓ РЅР° РѕСЃРЅРѕРІРµ РјРѕРґРµР»Рё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
     SortModel sm = new SortModel();
     sm.setColumnCount(4);
-    // добавляем сто строк случайных чисел
+    // РґРѕР±Р°РІР»СЏРµРј СЃС‚Рѕ СЃС‚СЂРѕРє СЃР»СѓС‡Р°Р№РЅС‹С… С‡РёСЃРµР»
     for ( int i = 0; i < 100; i++ ) {
       sm.addRow(new Integer[] { i,
           (int)(5*Math.random()),
@@ -20,19 +20,19 @@ public class SimpleSorting extends JFrame {
           (int)(5*Math.random())} );
     }
     JTable table = new JTable();
-    // автоматическое включение сортировки
+    // Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРµ РІРєР»СЋС‡РµРЅРёРµ СЃРѕСЂС‚РёСЂРѕРІРєРё
     table.setAutoCreateRowSorter(true);
-    // ограничение по количеству столбцов
+    // РѕРіСЂР°РЅРёС‡РµРЅРёРµ РїРѕ РєРѕР»РёС‡РµСЃС‚РІСѓ СЃС‚РѕР»Р±С†РѕРІ
     ((TableRowSorter)table.getRowSorter()).setMaxSortKeys(2);
     table.setModel(sm);
     add(new JScrollPane(table));
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(400, 300);
     setVisible(true);
   }
-  // модель для демонстрации сортировки и фильтрации
+  // РјРѕРґРµР»СЊ РґР»СЏ РґРµРјРѕРЅСЃС‚СЂР°С†РёРё СЃРѕСЂС‚РёСЂРѕРІРєРё Рё С„РёР»СЊС‚СЂР°С†РёРё
   static class SortModel extends DefaultTableModel {
-    // тип данных, хранимых в столбце
+    // С‚РёРї РґР°РЅРЅС‹С…, С…СЂР°РЅРёРјС‹С… РІ СЃС‚РѕР»Р±С†Рµ
     public Class getColumnClass(int column) {
       return Integer.class;
     }

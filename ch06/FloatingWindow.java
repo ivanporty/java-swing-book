@@ -1,22 +1,22 @@
 // FloatingWindow.java
-// Окно без рамки, всегда остающееся
-// выше основного окна приложения
+// РћРєРЅРѕ Р±РµР· СЂР°РјРєРё, РІСЃРµРіРґР° РѕСЃС‚Р°СЋС‰РµРµСЃСЏ
+// РІС‹С€Рµ РѕСЃРЅРѕРІРЅРѕРіРѕ РѕРєРЅР° РїСЂРёР»РѕР¶РµРЅРёСЏ
 import javax.swing.*;
 
 public class FloatingWindow extends JFrame {
   public FloatingWindow() {
     super("FloatingWindow");
-    // выход при закрытии окна
+    // РІС‹С…РѕРґ РїСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР°
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // выведем главное окно на экран
+    // РІС‹РІРµРґРµРј РіР»Р°РІРЅРѕРµ РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(400, 300);
     setVisible(true);
-    // добавим плавающее окно
+    // РґРѕР±Р°РІРёРј РїР»Р°РІР°СЋС‰РµРµ РѕРєРЅРѕ
     JWindow window = new JWindow(this);
-    // всегда над другими окнами
+    // РІСЃРµРіРґР° РЅР°Рґ РґСЂСѓРіРёРјРё РѕРєРЅР°РјРё
     window.setAlwaysOnTop(true);
     window.setType(Type.UTILITY);
-    // выведем окно на экран
+    // РІС‹РІРµРґРµРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     window.setSize(100, 300);
     window.setVisible(true);
 

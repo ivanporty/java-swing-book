@@ -1,41 +1,41 @@
 // ListSelectionEvents.java
-// Слежение за выделением списка
+// РЎР»РµР¶РµРЅРёРµ Р·Р° РІС‹РґРµР»РµРЅРёРµРј СЃРїРёСЃРєР°
 import javax.swing.*;
 import javax.swing.event.*;
 import java.awt.*;
 
 public class ListSelectionEvents extends JFrame {
-  // данные списка
+  // РґР°РЅРЅС‹Рµ СЃРїРёСЃРєР°
   private String[] data =
-      { "Красный", "Желтый", "Зеленый"};
+      { "РљСЂР°СЃРЅС‹Р№", "Р–РµР»С‚С‹Р№", "Р—РµР»РµРЅС‹Р№"};
   private JTextArea jta;
   public ListSelectionEvents() {
     super("ListSelectionEvents");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем список и текстовое поле
+    // СЃРѕР·РґР°РµРј СЃРїРёСЃРѕРє Рё С‚РµРєСЃС‚РѕРІРѕРµ РїРѕР»Рµ
     setLayout(new FlowLayout());
     JList list = new JList(data);
     list.setSelectionMode(
         ListSelectionModel.SINGLE_SELECTION);
     jta = new JTextArea(5, 20);
-    // добавим слушателя событий выделения
+    // РґРѕР±Р°РІРёРј СЃР»СѓС€Р°С‚РµР»СЏ СЃРѕР±С‹С‚РёР№ РІС‹РґРµР»РµРЅРёСЏ
     list.addListSelectionListener(new SelectionL());
-    // добавляем компоненты
+    // РґРѕР±Р°РІР»СЏРµРј РєРѕРјРїРѕРЅРµРЅС‚С‹
     add(new JScrollPane(list));
     add(new JScrollPane(jta));
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(300, 200);
     setVisible(true);
   }
-  // слушатель событий от модели выделения
+  // СЃР»СѓС€Р°С‚РµР»СЊ СЃРѕР±С‹С‚РёР№ РѕС‚ РјРѕРґРµР»Рё РІС‹РґРµР»РµРЅРёСЏ
   class SelectionL implements ListSelectionListener {
     public void valueChanged(ListSelectionEvent lse) {
       int selected =
           ((JList)lse.getSource()).getSelectedIndex();
       switch ( selected ) {
-        case 0: jta.setText("Переходить нельзя"); break;
-        case 1: jta.setText("Будьте готовы"); break;
-        case 2: jta.setText("Переходите улицу");
+        case 0: jta.setText("РџРµСЂРµС…РѕРґРёС‚СЊ РЅРµР»СЊР·СЏ"); break;
+        case 1: jta.setText("Р‘СѓРґСЊС‚Рµ РіРѕС‚РѕРІС‹"); break;
+        case 2: jta.setText("РџРµСЂРµС…РѕРґРёС‚Рµ СѓР»РёС†Сѓ");
       }
     }
   }

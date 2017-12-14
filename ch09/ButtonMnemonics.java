@@ -1,5 +1,5 @@
 // ButtonMnemonics.java
-// Поддержка кнопками клавиатурных мнемоник
+// РџРѕРґРґРµСЂР¶РєР° РєРЅРѕРїРєР°РјРё РєР»Р°РІРёР°С‚СѓСЂРЅС‹С… РјРЅРµРјРѕРЅРёРє
 import javax.swing.*;
 import java.awt.*;
 
@@ -7,20 +7,20 @@ public class ButtonMnemonics extends JFrame {
   public ButtonMnemonics() {
     super("ButtonMnemonics");
     setDefaultCloseOperation( EXIT_ON_CLOSE );
-    // используем последовательное расположение
+    // РёСЃРїРѕР»СЊР·СѓРµРј РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕРµ СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ
     setLayout(new FlowLayout());
-    // создаем кнопку
-    JButton button = new JButton("Нажмите меня!");
-    // мнемоника (русский символ)
-    button.setMnemonic('Н');
+    // СЃРѕР·РґР°РµРј РєРЅРѕРїРєСѓ
+    JButton button = new JButton("РќР°Р¶РјРёС‚Рµ РјРµРЅСЏ!");
+    // РјРЅРµРјРѕРЅРёРєР° (СЂСѓСЃСЃРєРёР№ СЃРёРјРІРѕР»)
+    button.setMnemonic('Рќ');
     add(button);
-    // еще одна кнопка, только надпись на английском
+    // РµС‰Рµ РѕРґРЅР° РєРЅРѕРїРєР°, С‚РѕР»СЊРєРѕ РЅР°РґРїРёСЃСЊ РЅР° Р°РЅРіР»РёР№СЃРєРѕРј
     button = new JButton("All Right!");
     button.setMnemonic('L');
-    button.setToolTipText("Жмите смело");
+    button.setToolTipText("Р–РјРёС‚Рµ СЃРјРµР»Рѕ");
     button.setDisplayedMnemonicIndex(2);
     add(button);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     pack();
     setVisible(true);
   }

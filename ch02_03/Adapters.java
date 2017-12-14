@@ -1,5 +1,5 @@
 // Adapters.java
-// Использование адаптеров вместо интерфейсов
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ Р°РґР°РїС‚РµСЂРѕРІ РІРјРµСЃС‚Рѕ РёРЅС‚РµСЂС„РµР№СЃРѕРІ
 
 import javax.swing.*;
 import java.awt.event.*;
@@ -8,18 +8,18 @@ import java.awt.*;
 public class Adapters extends JFrame {
   public Adapters() {
     super("Adapters");
-    // при закрытии окна - выход
+    // РїСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР° - РІС‹С…РѕРґ
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // регистрируем слушателя
+    // СЂРµРіРёСЃС‚СЂРёСЂСѓРµРј СЃР»СѓС€Р°С‚РµР»СЏ
     addMouseListener(new MouseL());
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(200, 200);
     setVisible(true);
   }
 
-  // наследуем от адаптера
+  // РЅР°СЃР»РµРґСѓРµРј РѕС‚ Р°РґР°РїС‚РµСЂР°
   class MouseL extends MouseAdapter {
-    // следим за щелчками мыши в окне
+    // СЃР»РµРґРёРј Р·Р° С‰РµР»С‡РєР°РјРё РјС‹С€Рё РІ РѕРєРЅРµ
     @Override
     public void mouseClicked(MouseEvent e) {
       System.out.println(e);

@@ -1,5 +1,5 @@
 // AnonymousClassEvents.java
-// Анонимные классы для обработки событий
+// РђРЅРѕРЅРёРјРЅС‹Рµ РєР»Р°СЃСЃС‹ РґР»СЏ РѕР±СЂР°Р±РѕС‚РєРё СЃРѕР±С‹С‚РёР№
 
 import javax.swing.*;
 import java.awt.event.*;
@@ -8,24 +8,24 @@ import java.awt.*;
 public class AnonymousClassEvents extends JFrame {
   public AnonymousClassEvents() {
     super("AnonymousClassEvents");
-    // анонимный класс присоединяется прямо на месте
-    // выход из приложения при закрытии окна
+    // Р°РЅРѕРЅРёРјРЅС‹Р№ РєР»Р°СЃСЃ РїСЂРёСЃРѕРµРґРёРЅСЏРµС‚СЃСЏ РїСЂСЏРјРѕ РЅР° РјРµСЃС‚Рµ
+    // РІС‹С…РѕРґ РёР· РїСЂРёР»РѕР¶РµРЅРёСЏ РїСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР°
     addWindowListener(new WindowAdapter() {
       public void windowClosing(WindowEvent e) {
         System.exit(0);
       }
     });
-    // добавим кнопку
-    JButton button = new JButton("Нажмите меня");
+    // РґРѕР±Р°РІРёРј РєРЅРѕРїРєСѓ
+    JButton button = new JButton("РќР°Р¶РјРёС‚Рµ РјРµРЅСЏ");
     getContentPane().add(button);
-    // слушатель создается в методе
+    // СЃР»СѓС€Р°С‚РµР»СЊ СЃРѕР·РґР°РµС‚СЃСЏ РІ РјРµС‚РѕРґРµ
     button.addActionListener(getButtonL());
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     pack();
     setVisible(true);
   }
 
-  // этот метод создает слушателя для кнопки
+  // СЌС‚РѕС‚ РјРµС‚РѕРґ СЃРѕР·РґР°РµС‚ СЃР»СѓС€Р°С‚РµР»СЏ РґР»СЏ РєРЅРѕРїРєРё
   public ActionListener getButtonL() {
     return new ActionListener() {
       public void actionPerformed(ActionEvent e) {

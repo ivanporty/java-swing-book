@@ -1,5 +1,5 @@
 // PreProcessMouse.java
-// Перехват событий от мыши до их поступления к слушателям
+// РџРµСЂРµС…РІР°С‚ СЃРѕР±С‹С‚РёР№ РѕС‚ РјС‹С€Рё РґРѕ РёС… РїРѕСЃС‚СѓРїР»РµРЅРёСЏ Рє СЃР»СѓС€Р°С‚РµР»СЏРј
 
 import javax.swing.*;
 import java.awt.event.*;
@@ -7,26 +7,26 @@ import java.awt.event.*;
 public class PreProcessMouse extends JFrame {
   PreProcessMouse() {
     super("PreProcessMouse");
-    // при закрытии окна - выход
+    // РїСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР° - РІС‹С…РѕРґ
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // добавим слушателя событий от мыши
+    // РґРѕР±Р°РІРёРј СЃР»СѓС€Р°С‚РµР»СЏ СЃРѕР±С‹С‚РёР№ РѕС‚ РјС‹С€Рё
     addMouseListener(new MouseL());
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(200, 200);
     setVisible(true);
   }
 
-  // перехват событий от мыши
+  // РїРµСЂРµС…РІР°С‚ СЃРѕР±С‹С‚РёР№ РѕС‚ РјС‹С€Рё
   public void processMouseEvent(MouseEvent e) {
     if (e.getClickCount() == 1) {
-      // один щелчок не пропускаем к слушателям
+      // РѕРґРёРЅ С‰РµР»С‡РѕРє РЅРµ РїСЂРѕРїСѓСЃРєР°РµРј Рє СЃР»СѓС€Р°С‚РµР»СЏРј
       return;
     }
-    // иначе вызываем метод базового класса
+    // РёРЅР°С‡Рµ РІС‹Р·С‹РІР°РµРј РјРµС‚РѕРґ Р±Р°Р·РѕРІРѕРіРѕ РєР»Р°СЃСЃР°
     else super.processMouseEvent(e);
   }
 
-  // в этом слушателе будем следить за щелчками мыши
+  // РІ СЌС‚РѕРј СЃР»СѓС€Р°С‚РµР»Рµ Р±СѓРґРµРј СЃР»РµРґРёС‚СЊ Р·Р° С‰РµР»С‡РєР°РјРё РјС‹С€Рё
   class MouseL extends MouseAdapter {
     @Override
     public void mouseClicked(MouseEvent e) {

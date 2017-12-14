@@ -1,5 +1,5 @@
 // SliderAdditionalFeatures.java
-// Дополнительные возможности ползунков
+// Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РІРѕР·РјРѕР¶РЅРѕСЃС‚Рё РїРѕР»Р·СѓРЅРєРѕРІ
 import javax.swing.*;
 import java.util.*;
 import java.awt.*;
@@ -8,36 +8,36 @@ public class SliderAdditionalFeatures extends JFrame {
   public SliderAdditionalFeatures() {
     super("SliderAdditionalFeatures");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // используем стандартную модель
+    // РёСЃРїРѕР»СЊР·СѓРµРј СЃС‚Р°РЅРґР°СЂС‚РЅСѓСЋ РјРѕРґРµР»СЊ
     BoundedRangeModel model =
         new DefaultBoundedRangeModel(10, 0, 0, 60);
-    // таблица с надписями
+    // С‚Р°Р±Р»РёС†Р° СЃ РЅР°РґРїРёСЃСЏРјРё
     Dictionary labels = new Hashtable();
     labels.put(0, new JLabel(
-        "<html><font color=red size=4>Ноль"));
+        "<html><font color=red size=4>РќРѕР»СЊ"));
     labels.put(10, new JLabel(
-        "<html><font color=green size=3>Двадцать"));
+        "<html><font color=green size=3>Р”РІР°РґС†Р°С‚СЊ"));
     labels.put(50, new JLabel(
-        "<html><font color=yellow size=5>Много"));
+        "<html><font color=yellow size=5>РњРЅРѕРіРѕ"));
     labels.put(60, new JLabel(
         new ImageIcon("caution.gif")));
-    // настройка первого ползунка
+    // РЅР°СЃС‚СЂРѕР№РєР° РїРµСЂРІРѕРіРѕ РїРѕР»Р·СѓРЅРєР°
     JSlider slider1 = new JSlider(JSlider.VERTICAL);
     slider1.setModel(model);
     slider1.setLabelTable(labels);
     slider1.setPaintLabels(true);
-    // "наполняемый" инвертированный ползунок
+    // "РЅР°РїРѕР»РЅСЏРµРјС‹Р№" РёРЅРІРµСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ РїРѕР»Р·СѓРЅРѕРє
     JSlider slider2 = new JSlider(model);
     slider2.putClientProperty(
         "JSlider.isFilled", Boolean.TRUE);
     slider2.setInverted(true);
     slider2.setPaintTicks(true);
     slider2.setMajorTickSpacing(10);
-    // добавляем компоненты в окно
+    // РґРѕР±Р°РІР»СЏРµРј РєРѕРјРїРѕРЅРµРЅС‚С‹ РІ РѕРєРЅРѕ
     setLayout(new FlowLayout());
     add(slider1);
     add(slider2);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(300, 300);
     setVisible(true);
   }

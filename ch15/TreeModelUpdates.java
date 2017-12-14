@@ -1,6 +1,6 @@
 // TreeModelUpdates.java
-// Пример эффективного обновления большого
-// дерева с переменными данными
+// РџСЂРёРјРµСЂ СЌС„С„РµРєС‚РёРІРЅРѕРіРѕ РѕР±РЅРѕРІР»РµРЅРёСЏ Р±РѕР»СЊС€РѕРіРѕ
+// РґРµСЂРµРІР° СЃ РїРµСЂРµРјРµРЅРЅС‹РјРё РґР°РЅРЅС‹РјРё
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreePath;
@@ -10,26 +10,26 @@ import java.awt.event.ActionEvent;
 import java.awt.*;
 
 public class TreeModelUpdates extends JFrame {
-  // дерево
+  // РґРµСЂРµРІРѕ
   private JTree tree;
-  // стандартная модель дерева
+  // СЃС‚Р°РЅРґР°СЂС‚РЅР°СЏ РјРѕРґРµР»СЊ РґРµСЂРµРІР°
   private DefaultTreeModel model;
   public TreeModelUpdates() {
     super("TreeModelUpdates");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем дерево на основе модели
+    // СЃРѕР·РґР°РµРј РґРµСЂРµРІРѕ РЅР° РѕСЃРЅРѕРІРµ РјРѕРґРµР»Рё
     tree = new JTree(model = createTreeModel());
     add(new JScrollPane(tree));
     setSize(400, 300);
     setVisible(true);
   }
-  // создание несложной, но большой модели дерева
+  // СЃРѕР·РґР°РЅРёРµ РЅРµСЃР»РѕР¶РЅРѕР№, РЅРѕ Р±РѕР»СЊС€РѕР№ РјРѕРґРµР»Рё РґРµСЂРµРІР°
   private DefaultTreeModel createTreeModel() {
-    // корень нашего дерева
+    // РєРѕСЂРµРЅСЊ РЅР°С€РµРіРѕ РґРµСЂРµРІР°
     DefaultMutableTreeNode root =
         new DefaultMutableTreeNode(
-            "Большоооое Дерево");
-    // присоединяем листья
+            "Р‘РѕР»СЊС€РѕРѕРѕРѕРµ Р”РµСЂРµРІРѕ");
+    // РїСЂРёСЃРѕРµРґРёРЅСЏРµРј Р»РёСЃС‚СЊСЏ
     for (int i=0; i<100; i++) {
       DefaultMutableTreeNode node = new ChangeableColorNode();
       root.add(node);
@@ -37,39 +37,39 @@ public class TreeModelUpdates extends JFrame {
         node.add(new ChangeableColorNode());
       }
     }
-    // создаем стандартную модель
+    // СЃРѕР·РґР°РµРј СЃС‚Р°РЅРґР°СЂС‚РЅСѓСЋ РјРѕРґРµР»СЊ
     return new DefaultTreeModel(root);
   }
-  // узел дерева, динамически обновляющий свое содержимое
+  // СѓР·РµР» РґРµСЂРµРІР°, РґРёРЅР°РјРёС‡РµСЃРєРё РѕР±РЅРѕРІР»СЏСЋС‰РёР№ СЃРІРѕРµ СЃРѕРґРµСЂР¶РёРјРѕРµ
   class ChangeableColorNode
       extends DefaultMutableTreeNode implements ActionListener {
-    // случайная задержка обновления
+    // СЃР»СѓС‡Р°Р№РЅР°СЏ Р·Р°РґРµСЂР¶РєР° РѕР±РЅРѕРІР»РµРЅРёСЏ
     private int delay = (int) (Math.random()*3000 + 500);
-    // цвета текста, хранимого в узле
+    // С†РІРµС‚Р° С‚РµРєСЃС‚Р°, С…СЂР°РЅРёРјРѕРіРѕ РІ СѓР·Р»Рµ
     private int r,g,b;
     public ChangeableColorNode() {
-      // генерируем цвета и запускаем таймер обновления
+      // РіРµРЅРµСЂРёСЂСѓРµРј С†РІРµС‚Р° Рё Р·Р°РїСѓСЃРєР°РµРј С‚Р°Р№РјРµСЂ РѕР±РЅРѕРІР»РµРЅРёСЏ
       generateColors();
       new Timer(delay, this).start();
     }
-    // этот метод вызывается таймером
+    // СЌС‚РѕС‚ РјРµС‚РѕРґ РІС‹Р·С‹РІР°РµС‚СЃСЏ С‚Р°Р№РјРµСЂРѕРј
     public void actionPerformed(ActionEvent e) {
-      // обновляем цвета и текст
+      // РѕР±РЅРѕРІР»СЏРµРј С†РІРµС‚Р° Рё С‚РµРєСЃС‚
       generateColors();
-      // обновляем узел если он развернут
+      // РѕР±РЅРѕРІР»СЏРµРј СѓР·РµР» РµСЃР»Рё РѕРЅ СЂР°Р·РІРµСЂРЅСѓС‚
       TreePath path = new TreePath(
           model.getPathToRoot(this));
       if ( tree.isVisible(path) ) {
         model.nodeChanged(this);
       }
     }
-    // метод генерирует случайные цвета и обновляет текст
+    // РјРµС‚РѕРґ РіРµРЅРµСЂРёСЂСѓРµС‚ СЃР»СѓС‡Р°Р№РЅС‹Рµ С†РІРµС‚Р° Рё РѕР±РЅРѕРІР»СЏРµС‚ С‚РµРєСЃС‚
     public void generateColors() {
       r = (int) (Math.random()*255);
       g = (int) (Math.random()*255);
       b = (int) (Math.random()*255);
       setUserObject("<html><font color=rgb("
-          +r+","+g+","+b+")>Какой-то цвет!");
+          +r+","+g+","+b+")>РљР°РєРѕР№-С‚Рѕ С†РІРµС‚!");
     }
   }
   public static void main(String[] args) {

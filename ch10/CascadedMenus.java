@@ -1,5 +1,5 @@
 // CascadedMenus.java
-// Создание вложенных меню любой сложности
+// РЎРѕР·РґР°РЅРёРµ РІР»РѕР¶РµРЅРЅС‹С… РјРµРЅСЋ Р»СЋР±РѕР№ СЃР»РѕР¶РЅРѕСЃС‚Рё
 import javax.swing.*;
 import java.awt.*;
 
@@ -7,33 +7,33 @@ public class CascadedMenus extends JFrame {
   public CascadedMenus() {
     super("CascadedMenus");
     setDefaultCloseOperation( EXIT_ON_CLOSE );
-    // создаем строку главного меню
+    // СЃРѕР·РґР°РµРј СЃС‚СЂРѕРєСѓ РіР»Р°РІРЅРѕРіРѕ РјРµРЅСЋ
     JMenuBar menuBar = new JMenuBar();
-    // создаем выпадающее меню
-    JMenu text = new JMenu("Текст");
-    // и несколько вложенных меню
-    JMenu style = new JMenu("Стиль");
-    JMenuItem bold = new JMenuItem("Жирный");
-    JMenuItem italic = new JMenuItem("Курсив");
-    JMenu font = new JMenu("Шрифт");
+    // СЃРѕР·РґР°РµРј РІС‹РїР°РґР°СЋС‰РµРµ РјРµРЅСЋ
+    JMenu text = new JMenu("РўРµРєСЃС‚");
+    // Рё РЅРµСЃРєРѕР»СЊРєРѕ РІР»РѕР¶РµРЅРЅС‹С… РјРµРЅСЋ
+    JMenu style = new JMenu("РЎС‚РёР»СЊ");
+    JMenuItem bold = new JMenuItem("Р–РёСЂРЅС‹Р№");
+    JMenuItem italic = new JMenuItem("РљСѓСЂСЃРёРІ");
+    JMenu font = new JMenu("РЁСЂРёС„С‚");
     JMenuItem arial = new JMenuItem("Arial");
     JMenuItem times = new JMenuItem("Times");
     font.add(arial);
     font.add(times);
-    // размещаем все в нужном порядке
+    // СЂР°Р·РјРµС‰Р°РµРј РІСЃРµ РІ РЅСѓР¶РЅРѕРј РїРѕСЂСЏРґРєРµ
     style.add(bold);
     style.add(italic);
     style.addSeparator();
     style.add(font);
     text.add(style);
     menuBar.add(text);
-    // помещаем меню в окно
+    // РїРѕРјРµС‰Р°РµРј РјРµРЅСЋ РІ РѕРєРЅРѕ
     setJMenuBar(menuBar);
-    // разделитель может быть полезен не только в меню
+    // СЂР°Р·РґРµР»РёС‚РµР»СЊ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїРѕР»РµР·РµРЅ РЅРµ С‚РѕР»СЊРєРѕ РІ РјРµРЅСЋ
     ((JComponent)getContentPane()).setBorder(
       BorderFactory.createEmptyBorder(0, 5, 0, 0));
     add(new JSeparator(SwingConstants.VERTICAL), "West");
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(300, 200);
     setVisible(true);
   }

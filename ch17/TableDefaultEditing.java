@@ -1,31 +1,31 @@
 // TableDefaultEditing.java
-// Применение стандартного редактора для таблиц
+// РџСЂРёРјРµРЅРµРЅРёРµ СЃС‚Р°РЅРґР°СЂС‚РЅРѕРіРѕ СЂРµРґР°РєС‚РѕСЂР° РґР»СЏ С‚Р°Р±Р»РёС†
 import javax.swing.*;
 import java.awt.*;
 
 public class TableDefaultEditing extends JFrame {
-  // название столбцов
+  // РЅР°Р·РІР°РЅРёРµ СЃС‚РѕР»Р±С†РѕРІ
   private String[] columns = {
-      "Имя", "Любимый Цвет" };
-  // данные для таблицы
+      "РРјСЏ", "Р›СЋР±РёРјС‹Р№ Р¦РІРµС‚" };
+  // РґР°РЅРЅС‹Рµ РґР»СЏ С‚Р°Р±Р»РёС†С‹
   private String[][] data = {
-      { "Иван", "Зеленый" },
-      { "Александр", "Красный"},
-      { "Петр", "Синий"}
+      { "РРІР°РЅ", "Р—РµР»РµРЅС‹Р№" },
+      { "РђР»РµРєСЃР°РЅРґСЂ", "РљСЂР°СЃРЅС‹Р№"},
+      { "РџРµС‚СЂ", "РЎРёРЅРёР№"}
   };
   public TableDefaultEditing() {
     super("TableDefaultEditing");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем таблицу
+    // СЃРѕР·РґР°РµРј С‚Р°Р±Р»РёС†Сѓ
     JTable table = new JTable(data, columns);
-    // настраиваем стандартный редактор
+    // РЅР°СЃС‚СЂР°РёРІР°РµРј СЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№ СЂРµРґР°РєС‚РѕСЂ
     JComboBox combo = new JComboBox(
-        new String[] { "Зеленый", "Желтый", "Белый"});
+        new String[] { "Р—РµР»РµРЅС‹Р№", "Р–РµР»С‚С‹Р№", "Р‘РµР»С‹Р№"});
     DefaultCellEditor editor =
         new DefaultCellEditor(combo);
     table.getColumnModel().getColumn(1).
         setCellEditor(editor);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     add(new JScrollPane(table));
     setSize(400, 300);
     setVisible(true);

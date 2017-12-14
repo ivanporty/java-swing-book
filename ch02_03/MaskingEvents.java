@@ -1,5 +1,5 @@
 // MaskingEvents.java
-// Маскирование событий
+// РњР°СЃРєРёСЂРѕРІР°РЅРёРµ СЃРѕР±С‹С‚РёР№
 
 import java.awt.*;
 import javax.swing.*;
@@ -7,24 +7,24 @@ import javax.swing.*;
 public class MaskingEvents extends JFrame {
   public MaskingEvents() {
     super("MaskingEvents");
-    // при закрытии окна - выход
+    // РїСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР° - РІС‹С…РѕРґ
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // отключим события от окна
+    // РѕС‚РєР»СЋС‡РёРј СЃРѕР±С‹С‚РёСЏ РѕС‚ РѕРєРЅР°
     disableEvents(AWTEvent.WINDOW_EVENT_MASK);
-    // добавим особую кнопку
+    // РґРѕР±Р°РІРёРј РѕСЃРѕР±СѓСЋ РєРЅРѕРїРєСѓ
     JPanel contents = new JPanel();
-    contents.add(new CustomButton("Привет!"));
+    contents.add(new CustomButton("РџСЂРёРІРµС‚!"));
     setContentPane(contents);
-    // выведем окно на экран
+    // РІС‹РІРµРґРµРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(400, 300);
     setVisible(true);
   }
 
-  // особая кнопка
+  // РѕСЃРѕР±Р°СЏ РєРЅРѕРїРєР°
   class CustomButton extends JButton {
     public CustomButton(String label) {
       super(label);
-      // отключаем события с клавиатуры и от мыши
+      // РѕС‚РєР»СЋС‡Р°РµРј СЃРѕР±С‹С‚РёСЏ СЃ РєР»Р°РІРёР°С‚СѓСЂС‹ Рё РѕС‚ РјС‹С€Рё
       disableEvents(AWTEvent.KEY_EVENT_MASK);
       disableEvents(AWTEvent.MOUSE_EVENT_MASK);
     }

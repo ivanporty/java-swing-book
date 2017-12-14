@@ -1,5 +1,5 @@
 // Borders.java
-// Рамки Swing
+// Р Р°РјРєРё Swing
 import javax.swing.*;
 import javax.swing.border.*;
 import java.awt.*;
@@ -8,11 +8,11 @@ public class Borders extends JFrame {
   public Borders() {
     super("Borders");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем панели с всевозможными рамками
+    // СЃРѕР·РґР°РµРј РїР°РЅРµР»Рё СЃ РІСЃРµРІРѕР·РјРѕР¶РЅС‹РјРё СЂР°РјРєР°РјРё
     JPanel contents = new JPanel(
         new GridLayout(3, 2, 5, 5));
     contents.add(createPanel(new TitledBorder(
-        "Рамка с заголовком"), "TitledBorder"));
+        "Р Р°РјРєР° СЃ Р·Р°РіРѕР»РѕРІРєРѕРј"), "TitledBorder"));
     contents.add(createPanel(new EtchedBorder(),
         "EtchedBorder"));
     contents.add(createPanel(new BevelBorder(
@@ -23,12 +23,12 @@ public class Borders extends JFrame {
         Color.BLACK, 5), "LineBorder"));
     contents.add(createPanel(new MatteBorder(
         new ImageIcon("matte.gif")), "MatteBorder"));
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     add(contents);
     pack();
     setVisible(true);
   }
-  // метод создает панель с рамкой и надписью
+  // РјРµС‚РѕРґ СЃРѕР·РґР°РµС‚ РїР°РЅРµР»СЊ СЃ СЂР°РјРєРѕР№ Рё РЅР°РґРїРёСЃСЊСЋ
   private JPanel createPanel(Border b, String text) {
     JPanel panel = new JPanel(new BorderLayout());
     panel.add(new JLabel(text));

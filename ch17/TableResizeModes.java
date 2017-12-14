@@ -1,33 +1,33 @@
 // TableResizeModes.java
-// Режимы перераспределения пространства таблицы
-// при изменении размеров столбцов
+// Р РµР¶РёРјС‹ РїРµСЂРµСЂР°СЃРїСЂРµРґРµР»РµРЅРёСЏ РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІР° С‚Р°Р±Р»РёС†С‹
+// РїСЂРё РёР·РјРµРЅРµРЅРёРё СЂР°Р·РјРµСЂРѕРІ СЃС‚РѕР»Р±С†РѕРІ
 import javax.swing.*;
 import java.awt.*;
 
 public class TableResizeModes extends JFrame {
-  // названия столбцов таблицы
+  // РЅР°Р·РІР°РЅРёСЏ СЃС‚РѕР»Р±С†РѕРІ С‚Р°Р±Р»РёС†С‹
   private String[] columnNames = {
-      "Название", "Вкус", "Цвет"
+      "РќР°Р·РІР°РЅРёРµ", "Р’РєСѓСЃ", "Р¦РІРµС‚"
   };
-  // данные для таблицы
+  // РґР°РЅРЅС‹Рµ РґР»СЏ С‚Р°Р±Р»РёС†С‹
   private String[][] data = {
-      { "Апельсин", "Кисло-сладкий", "Оранжевый"},
-      { "Лимон", "Кислый", "Желтый"}
+      { "РђРїРµР»СЊСЃРёРЅ", "РљРёСЃР»Рѕ-СЃР»Р°РґРєРёР№", "РћСЂР°РЅР¶РµРІС‹Р№"},
+      { "Р›РёРјРѕРЅ", "РљРёСЃР»С‹Р№", "Р–РµР»С‚С‹Р№"}
   };
-  // массив таблиц
+  // РјР°СЃСЃРёРІ С‚Р°Р±Р»РёС†
   private JTable[] tables = new JTable[5];
   public TableResizeModes() {
     super("TableResizeModes");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // окно делим на пять ячеек
+    // РѕРєРЅРѕ РґРµР»РёРј РЅР° РїСЏС‚СЊ СЏС‡РµРµРє
     setLayout(new GridLayout(5, 1));
-    // создаем массив таблиц
+    // СЃРѕР·РґР°РµРј РјР°СЃСЃРёРІ С‚Р°Р±Р»РёС†
     for (int i=0; i<tables.length; i++) {
       tables[i] =
           new JTable(data, columnNames);
       add(new JScrollPane(tables[i]));
     }
-    // меняем режимы распределения пространства
+    // РјРµРЅСЏРµРј СЂРµР¶РёРјС‹ СЂР°СЃРїСЂРµРґРµР»РµРЅРёСЏ РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІР°
     tables[1].setAutoResizeMode(
         JTable.AUTO_RESIZE_OFF);
     tables[2].setAutoResizeMode(
@@ -36,8 +36,8 @@ public class TableResizeModes extends JFrame {
         JTable.AUTO_RESIZE_LAST_COLUMN);
     tables[4].setAutoResizeMode(
         JTable.AUTO_RESIZE_ALL_COLUMNS);
-    // придаем окну оптимальный размер и
-    // выводим его на экран
+    // РїСЂРёРґР°РµРј РѕРєРЅСѓ РѕРїС‚РёРјР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ Рё
+    // РІС‹РІРѕРґРёРј РµРіРѕ РЅР° СЌРєСЂР°РЅ
     pack();
     setVisible(true);
 

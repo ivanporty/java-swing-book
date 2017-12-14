@@ -1,5 +1,5 @@
 // AWTLightweights.java
-// Использование легковесных компонентов в AWT
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ Р»РµРіРєРѕРІРµСЃРЅС‹С… РєРѕРјРїРѕРЅРµРЅС‚РѕРІ РІ AWT
 import java.awt.*;
 import java.awt.event.*;
 
@@ -7,21 +7,21 @@ public class AWTLightweights extends Frame {
 
   public AWTLightweights() {
     super("AWTLightweights");
-    // при закрытии окна приложение завершается
+    // РїСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР° РїСЂРёР»РѕР¶РµРЅРёРµ Р·Р°РІРµСЂС€Р°РµС‚СЃСЏ
     addWindowListener(new WindowAdapter() {
       public void windowClosing(WindowEvent e) {
         System.exit(0);
       }
     });
-    // добавляем пару легковесных компонентов
+    // РґРѕР±Р°РІР»СЏРµРј РїР°СЂСѓ Р»РµРіРєРѕРІРµСЃРЅС‹С… РєРѕРјРїРѕРЅРµРЅС‚РѕРІ
     LightweightRect rect1 =
         new LightweightRect(Color.BLUE, true);
     LightweightRect rect2 =
         new LightweightRect(Color.RED, true);
     LightweightRect transparentRect =
         new LightweightRect(Color.BLACK, false);
-    // укажем координаты вручную, чтобы компоненты
-    // перекрывались
+    // СѓРєР°Р¶РµРј РєРѕРѕСЂРґРёРЅР°С‚С‹ РІСЂСѓС‡РЅСѓСЋ, С‡С‚РѕР±С‹ РєРѕРјРїРѕРЅРµРЅС‚С‹
+    // РїРµСЂРµРєСЂС‹РІР°Р»РёСЃСЊ
     setLayout(null);
     rect1.setBounds(40, 40, 100, 100);
     rect2.setBounds(50, 50, 100, 100);
@@ -29,21 +29,21 @@ public class AWTLightweights extends Frame {
     add(transparentRect);
     add(rect1);
     add(rect2);
-    // последним добавляем тяжеловесный компонент
-    Button button = new Button("Тяжелая!");
+    // РїРѕСЃР»РµРґРЅРёРј РґРѕР±Р°РІР»СЏРµРј С‚СЏР¶РµР»РѕРІРµСЃРЅС‹Р№ РєРѕРјРїРѕРЅРµРЅС‚
+    Button button = new Button("РўСЏР¶РµР»Р°СЏ!");
     button.setBounds(50, 175, 80, 30);
     add(button);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(250, 250);
     setVisible(true);
   }
 
-  // легковесный компонент - цветной прямоугольник
+  // Р»РµРіРєРѕРІРµСЃРЅС‹Р№ РєРѕРјРїРѕРЅРµРЅС‚ - С†РІРµС‚РЅРѕР№ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє
   class LightweightRect extends Component {
     private Color color;
     private boolean fill;
 
-    // параметы - цвет и нужно ли зарисовывать всю область
+    // РїР°СЂР°РјРµС‚С‹ - С†РІРµС‚ Рё РЅСѓР¶РЅРѕ Р»Рё Р·Р°СЂРёСЃРѕРІС‹РІР°С‚СЊ РІСЃСЋ РѕР±Р»Р°СЃС‚СЊ
     public LightweightRect(Color color, boolean fill) {
       this.color = color;
       this.fill = fill;

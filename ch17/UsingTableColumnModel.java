@@ -1,6 +1,6 @@
 // UsingTableColumnModel.java
-// Использование стандартной модели столбцов
-// таблицы и объектов TableColumn
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ СЃС‚Р°РЅРґР°СЂС‚РЅРѕР№ РјРѕРґРµР»Рё СЃС‚РѕР»Р±С†РѕРІ
+// С‚Р°Р±Р»РёС†С‹ Рё РѕР±СЉРµРєС‚РѕРІ TableColumn
 import javax.swing.*;
 import javax.swing.table.*;
 import java.awt.event.*;
@@ -8,25 +8,25 @@ import java.awt.*;
 import java.util.Enumeration;
 
 public class UsingTableColumnModel extends JFrame {
-  // модель столбцов
+  // РјРѕРґРµР»СЊ СЃС‚РѕР»Р±С†РѕРІ
   private TableColumnModel columnModel;
-  // названия столбцов таблицы
+  // РЅР°Р·РІР°РЅРёСЏ СЃС‚РѕР»Р±С†РѕРІ С‚Р°Р±Р»РёС†С‹
   private String[] columnNames = {
-      "Имя", "Любимый цвет", "Напиток"
+      "РРјСЏ", "Р›СЋР±РёРјС‹Р№ С†РІРµС‚", "РќР°РїРёС‚РѕРє"
   };
-  // данные для таблицы
+  // РґР°РЅРЅС‹Рµ РґР»СЏ С‚Р°Р±Р»РёС†С‹
   private String[][] data = {
-      { "Иван", "Зеленый", "Апельсиновый сок"},
-      { "Александр", "Бежевый", "Зеленый чай"}
+      { "РРІР°РЅ", "Р—РµР»РµРЅС‹Р№", "РђРїРµР»СЊСЃРёРЅРѕРІС‹Р№ СЃРѕРє"},
+      { "РђР»РµРєСЃР°РЅРґСЂ", "Р‘РµР¶РµРІС‹Р№", "Р—РµР»РµРЅС‹Р№ С‡Р°Р№"}
   };
   public UsingTableColumnModel() {
     super("UsingTableColumnModel");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // наша таблица
+    // РЅР°С€Р° С‚Р°Р±Р»РёС†Р°
     JTable table = new JTable(data, columnNames);
-    // получаем стандартную модель
+    // РїРѕР»СѓС‡Р°РµРј СЃС‚Р°РЅРґР°СЂС‚РЅСѓСЋ РјРѕРґРµР»СЊ
     columnModel = table.getColumnModel();
-    // меняем размеры столбцов
+    // РјРµРЅСЏРµРј СЂР°Р·РјРµСЂС‹ СЃС‚РѕР»Р±С†РѕРІ
     Enumeration e = columnModel.getColumns();
     while ( e.hasMoreElements() ) {
       TableColumn column =
@@ -34,28 +34,28 @@ public class UsingTableColumnModel extends JFrame {
       column.setMinWidth(30);
       column.setMaxWidth(90);
     }
-    // создадим пару кнопок
+    // СЃРѕР·РґР°РґРёРј РїР°СЂСѓ РєРЅРѕРїРѕРє
     JPanel buttons = new JPanel();
-    JButton move = new JButton("Поменять местами");
+    JButton move = new JButton("РџРѕРјРµРЅСЏС‚СЊ РјРµСЃС‚Р°РјРё");
     move.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        // меняем местами первые два столбца
+        // РјРµРЅСЏРµРј РјРµСЃС‚Р°РјРё РїРµСЂРІС‹Рµ РґРІР° СЃС‚РѕР»Р±С†Р°
         columnModel.moveColumn(0, 1);
       }
     });
     buttons.add(move);
-    JButton add = new JButton("Добавить");
+    JButton add = new JButton("Р”РѕР±Р°РІРёС‚СЊ");
     add.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        // добавляем столбец
+        // РґРѕР±Р°РІР»СЏРµРј СЃС‚РѕР»Р±РµС†
         TableColumn newColumn =
             new TableColumn(1, 100);
-        newColumn.setHeaderValue("<html><b>Новый!");
+        newColumn.setHeaderValue("<html><b>РќРѕРІС‹Р№!");
         columnModel.addColumn(newColumn);
       }
     });
     buttons.add(add);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     add(new JScrollPane(table));
     add(buttons, "South");
     setSize(400, 300);

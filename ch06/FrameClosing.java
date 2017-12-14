@@ -1,15 +1,15 @@
 // FrameClosing.java
-// Использование окна с рамкой
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РѕРєРЅР° СЃ СЂР°РјРєРѕР№
 import javax.swing.*;
 
 public class FrameClosing extends JFrame {
   public FrameClosing() {
-    super("Заголовок Окна");
-    // операция при закрытии окна
+    super("Р—Р°РіРѕР»РѕРІРѕРє РћРєРЅР°");
+    // РѕРїРµСЂР°С†РёСЏ РїСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР°
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // значок для окна
+    // Р·РЅР°С‡РѕРє РґР»СЏ РѕРєРЅР°
     setIconImage(getToolkit().getImage("icon.gif"));
-    // вывод на экран
+    // РІС‹РІРѕРґ РЅР° СЌРєСЂР°РЅ
     setSize(300, 100);
     setVisible(true);
   }

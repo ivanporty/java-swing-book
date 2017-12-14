@@ -1,24 +1,24 @@
 // SliderDefaultModel.java
-// Использование в ползунках стандартной модели
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РІ РїРѕР»Р·СѓРЅРєР°С… СЃС‚Р°РЅРґР°СЂС‚РЅРѕР№ РјРѕРґРµР»Рё
 import javax.swing.*;
 import java.awt.*;
 
 public class SliderDefaultModel extends JFrame {
-  // наша модель
+  // РЅР°С€Р° РјРѕРґРµР»СЊ
   private BoundedRangeModel model;
   public SliderDefaultModel() {
     super("SliderDefaultModel");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создадем модель и пару ползунков
+    // СЃРѕР·РґР°РґРµРј РјРѕРґРµР»СЊ Рё РїР°СЂСѓ РїРѕР»Р·СѓРЅРєРѕРІ
     model = new DefaultBoundedRangeModel(10, 10, 0, 100);
     JSlider slider1 = new JSlider(model);
     JSlider slider2 = new JSlider(JSlider.VERTICAL);
     slider2.setModel(model);
-    // добавляем ползунки в окно
+    // РґРѕР±Р°РІР»СЏРµРј РїРѕР»Р·СѓРЅРєРё РІ РѕРєРЅРѕ
     setLayout(new FlowLayout());
     add(slider1);
     add(slider2);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(300, 300);
     setVisible(true);
   }

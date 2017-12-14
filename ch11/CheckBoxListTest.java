@@ -1,25 +1,25 @@
 // CheckBoxListTest.java
-// Проверка работы списка с флажками
+// РџСЂРѕРІРµСЂРєР° СЂР°Р±РѕС‚С‹ СЃРїРёСЃРєР° СЃ С„Р»Р°Р¶РєР°РјРё
 import javax.swing.*;
 import com.porty.swing.*;
 import java.awt.*;
 
 public class CheckBoxListTest {
-  // данные списка
+  // РґР°РЅРЅС‹Рµ СЃРїРёСЃРєР°
   private static Object[] data = {
-      new CheckBoxListElement(false, "Корпус"),
+      new CheckBoxListElement(false, "РљРѕСЂРїСѓСЃ"),
       new CheckBoxListElement(false,
-          "<html><h3><font color=red>Колонки"),
-      new CheckBoxListElement(false, "Набор шлейфов"),
-      new CheckBoxListElement(true, "Системная плата")
+          "<html><h3><font color=red>РљРѕР»РѕРЅРєРё"),
+      new CheckBoxListElement(false, "РќР°Р±РѕСЂ С€Р»РµР№С„РѕРІ"),
+      new CheckBoxListElement(true, "РЎРёСЃС‚РµРјРЅР°СЏ РїР»Р°С‚Р°")
   };
   public static void main(String[] args) {
     SwingUtilities.invokeLater(
         new Runnable() {
           public void run() {
-            // создаем список и настраиваем его
+            // СЃРѕР·РґР°РµРј СЃРїРёСЃРѕРє Рё РЅР°СЃС‚СЂР°РёРІР°РµРј РµРіРѕ
             JList list = new CheckBoxList(data);
-            // добавляем в окно
+            // РґРѕР±Р°РІР»СЏРµРј РІ РѕРєРЅРѕ
             JFrame frame = new JFrame("CheckBoxListTest");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setSize(200, 200);

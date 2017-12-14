@@ -1,12 +1,12 @@
 // HelpSystemDemo.java
-// Как прозрачная панель может помочь в создании
-// системы помощи
+// РљР°Рє РїСЂРѕР·СЂР°С‡РЅР°СЏ РїР°РЅРµР»СЊ РјРѕР¶РµС‚ РїРѕРјРѕС‡СЊ РІ СЃРѕР·РґР°РЅРёРё
+// СЃРёСЃС‚РµРјС‹ РїРѕРјРѕС‰Рё
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
 public class HelpSystemDemo extends JFrame {
-  // необходимые нам поля
+  // РЅРµРѕР±С…РѕРґРёРјС‹Рµ РЅР°Рј РїРѕР»СЏ
   private JButton button1, button2, help;
   private HelpSystem hs = new HelpSystem();
   private InterceptPane ip = new InterceptPane();
@@ -15,75 +15,75 @@ public class HelpSystemDemo extends JFrame {
   public HelpSystemDemo() {
     super("HelpSystemDemo");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем нащ интерфейс
-    button1 = new JButton("Что-то делает");
-    button2 = new JButton("Тоже что-то делает");
+    // СЃРѕР·РґР°РµРј РЅР°С‰ РёРЅС‚РµСЂС„РµР№СЃ
+    button1 = new JButton("Р§С‚Рѕ-С‚Рѕ РґРµР»Р°РµС‚");
+    button2 = new JButton("РўРѕР¶Рµ С‡С‚Рѕ-С‚Рѕ РґРµР»Р°РµС‚");
     JPanel contents = new JPanel();
     contents.add(button1);
     contents.add(button2);
-    // кнопка вызова помощи
+    // РєРЅРѕРїРєР° РІС‹Р·РѕРІР° РїРѕРјРѕС‰Рё
     help = new JButton(helpIcon);
     help.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        // при нажатии включаем прозрачную панель
+        // РїСЂРё РЅР°Р¶Р°С‚РёРё РІРєР»СЋС‡Р°РµРј РїСЂРѕР·СЂР°С‡РЅСѓСЋ РїР°РЅРµР»СЊ
         ip.setVisible(true);
-        // и специальный указатель мыши
+        // Рё СЃРїРµС†РёР°Р»СЊРЅС‹Р№ СѓРєР°Р·Р°С‚РµР»СЊ РјС‹С€Рё
         getRootPane().setCursor(getToolkit().
             createCustomCursor(helpIcon.getImage(),
             new Point(0, 0), ""));
       }
     });
     contents.add(help);
-    // настраиваем наш интерфейс и прозрачную панель
+    // РЅР°СЃС‚СЂР°РёРІР°РµРј РЅР°С€ РёРЅС‚РµСЂС„РµР№СЃ Рё РїСЂРѕР·СЂР°С‡РЅСѓСЋ РїР°РЅРµР»СЊ
     setContentPane(contents);
     setGlassPane(ip);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(200, 200);
     setVisible(true);
   }
-  // компонент, перехватывающий события
+  // РєРѕРјРїРѕРЅРµРЅС‚, РїРµСЂРµС…РІР°С‚С‹РІР°СЋС‰РёР№ СЃРѕР±С‹С‚РёСЏ
   class InterceptPane extends JComponent {
     InterceptPane() {
-      // надо включить события от мыши
+      // РЅР°РґРѕ РІРєР»СЋС‡РёС‚СЊ СЃРѕР±С‹С‚РёСЏ РѕС‚ РјС‹С€Рё
       enableEvents(MouseEvent.MOUSE_EVENT_MASK);
       enableEvents(KeyEvent.KEY_EVENT_MASK);
-      // по умолчанию невидим и прозрачен
+      // РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РЅРµРІРёРґРёРј Рё РїСЂРѕР·СЂР°С‡РµРЅ
       setVisible(false);
       setOpaque(false);
     }
-    // перехватываем события от мыши
+    // РїРµСЂРµС…РІР°С‚С‹РІР°РµРј СЃРѕР±С‹С‚РёСЏ РѕС‚ РјС‹С€Рё
     public void processMouseEvent(MouseEvent e) {
-      // отслеживаем нажатия мыши
+      // РѕС‚СЃР»РµР¶РёРІР°РµРј РЅР°Р¶Р°С‚РёСЏ РјС‹С€Рё
       if ( e.getID() == MouseEvent.MOUSE_PRESSED) {
-        // определяем, какой компонент был выбран
+        // РѕРїСЂРµРґРµР»СЏРµРј, РєР°РєРѕР№ РєРѕРјРїРѕРЅРµРЅС‚ Р±С‹Р» РІС‹Р±СЂР°РЅ
         Component contentPane = getContentPane();
         MouseEvent ne =
             SwingUtilities.convertMouseEvent(
                 this, e, contentPane);
-        // видимый компонент в указанных координатах
+        // РІРёРґРёРјС‹Р№ РєРѕРјРїРѕРЅРµРЅС‚ РІ СѓРєР°Р·Р°РЅРЅС‹С… РєРѕРѕСЂРґРёРЅР°С‚Р°С…
         Component visibleComp =
             SwingUtilities.getDeepestComponentAt(
                 contentPane, ne.getX(), ne.getY());
-        // показываем справочную информацию
+        // РїРѕРєР°Р·С‹РІР°РµРј СЃРїСЂР°РІРѕС‡РЅСѓСЋ РёРЅС„РѕСЂРјР°С†РёСЋ
         JOptionPane.showMessageDialog(
             null, hs.getHelpFor(visibleComp));
-        // отключаемся
+        // РѕС‚РєР»СЋС‡Р°РµРјСЃСЏ
         setVisible(false);
-        // возвращаем на место обычный указатель мыши
+        // РІРѕР·РІСЂР°С‰Р°РµРј РЅР° РјРµСЃС‚Рѕ РѕР±С‹С‡РЅС‹Р№ СѓРєР°Р·Р°С‚РµР»СЊ РјС‹С€Рё
         getRootPane().setCursor(
             Cursor.getDefaultCursor());
       }
     }
   }
-  // прототип системы помощи
+  // РїСЂРѕС‚РѕС‚РёРї СЃРёСЃС‚РµРјС‹ РїРѕРјРѕС‰Рё
   class HelpSystem {
-    // получает помощь для компонентов
+    // РїРѕР»СѓС‡Р°РµС‚ РїРѕРјРѕС‰СЊ РґР»СЏ РєРѕРјРїРѕРЅРµРЅС‚РѕРІ
     public String getHelpFor(Component comp) {
       if ( comp == button1)
-        return "Останавливает реактор. Лучше не жмите";
+        return "РћСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ СЂРµР°РєС‚РѕСЂ. Р›СѓС‡С€Рµ РЅРµ Р¶РјРёС‚Рµ";
       else if ( comp == button2 )
-        return "Хотите лимонада? Тогда жмите смело!";
-      return "Даже и не знаю, что это такое";
+        return "РҐРѕС‚РёС‚Рµ Р»РёРјРѕРЅР°РґР°? РўРѕРіРґР° Р¶РјРёС‚Рµ СЃРјРµР»Рѕ!";
+      return "Р”Р°Р¶Рµ Рё РЅРµ Р·РЅР°СЋ, С‡С‚Рѕ СЌС‚Рѕ С‚Р°РєРѕРµ";
     }
   }
   public static void main(String[] args) {

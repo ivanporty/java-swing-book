@@ -1,5 +1,5 @@
 // PopupMenus.java
-// Работа с всплывающими меню
+// Р Р°Р±РѕС‚Р° СЃ РІСЃРїР»С‹РІР°СЋС‰РёРјРё РјРµРЅСЋ
 import javax.swing.*;
 import java.awt.*;
 
@@ -7,27 +7,27 @@ public class PopupMenus extends JFrame {
   public PopupMenus() {
     super("PopupMenus");
     setDefaultCloseOperation( EXIT_ON_CLOSE );
-    // получаем всплывающее меню
+    // РїРѕР»СѓС‡Р°РµРј РІСЃРїР»С‹РІР°СЋС‰РµРµ РјРµРЅСЋ
     JPopupMenu popup = createPopupMenu();
-    // и привязываем к нашей панели содержимого
+    // Рё РїСЂРёРІСЏР·С‹РІР°РµРј Рє РЅР°С€РµР№ РїР°РЅРµР»Рё СЃРѕРґРµСЂР¶РёРјРѕРіРѕ
     ((JComponent)getContentPane()).
         setComponentPopupMenu(popup);
-    // "прозрачная" для меню кнопка
-    JButton button = new JButton("Проба пера");
+    // "РїСЂРѕР·СЂР°С‡РЅР°СЏ" РґР»СЏ РјРµРЅСЋ РєРЅРѕРїРєР°
+    JButton button = new JButton("РџСЂРѕР±Р° РїРµСЂР°");
     button.setInheritsPopupMenu(true);
     add(button, "South");
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(300, 200);
     setVisible(true);
   }
-  // создаем наше всплывающее меню
+  // СЃРѕР·РґР°РµРј РЅР°С€Рµ РІСЃРїР»С‹РІР°СЋС‰РµРµ РјРµРЅСЋ
   private JPopupMenu createPopupMenu() {
-    // создаем само всплывающее меню
+    // СЃРѕР·РґР°РµРј СЃР°РјРѕ РІСЃРїР»С‹РІР°СЋС‰РµРµ РјРµРЅСЋ
     JPopupMenu pm = new JPopupMenu();
-    // создаем его пункты
-    JMenuItem good = new JMenuItem("Отлично");
-    JMenuItem excellent = new JMenuItem("Замечательно");
-    // и добавдяем все тем же методом add()
+    // СЃРѕР·РґР°РµРј РµРіРѕ РїСѓРЅРєС‚С‹
+    JMenuItem good = new JMenuItem("РћС‚Р»РёС‡РЅРѕ");
+    JMenuItem excellent = new JMenuItem("Р—Р°РјРµС‡Р°С‚РµР»СЊРЅРѕ");
+    // Рё РґРѕР±Р°РІРґСЏРµРј РІСЃРµ С‚РµРј Р¶Рµ РјРµС‚РѕРґРѕРј add()
     pm.add(good);
     pm.add(excellent);
     return pm;

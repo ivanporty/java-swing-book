@@ -1,51 +1,51 @@
 // UsingTableHeader.java
-// Настройка заголовка таблицы JTableHeader
+// РќР°СЃС‚СЂРѕР№РєР° Р·Р°РіРѕР»РѕРІРєР° С‚Р°Р±Р»РёС†С‹ JTableHeader
 import javax.swing.*;
 import javax.swing.table.*;
 import javax.swing.border.*;
 import java.awt.*;
 
 public class UsingTableHeader extends JFrame {
-  // данные для таблицы
+  // РґР°РЅРЅС‹Рµ РґР»СЏ С‚Р°Р±Р»РёС†С‹
   private String[][] data = {
-      { "Июнь", "+18 С" },
-      { "Июль", "+22 С" },
-      { "Август", "+19 С" }
+      { "РСЋРЅСЊ", "+18 РЎ" },
+      { "РСЋР»СЊ", "+22 РЎ" },
+      { "РђРІРіСѓСЃС‚", "+19 РЎ" }
   };
-  // названия столбцов
+  // РЅР°Р·РІР°РЅРёСЏ СЃС‚РѕР»Р±С†РѕРІ
   private String[] columnNames = {
-      "Месяц", "Средняя температура"
+      "РњРµСЃСЏС†", "РЎСЂРµРґРЅСЏСЏ С‚РµРјРїРµСЂР°С‚СѓСЂР°"
   };
   public UsingTableHeader() {
     super("UsingTableHeader");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем таблицу
+    // СЃРѕР·РґР°РµРј С‚Р°Р±Р»РёС†Сѓ
     JTable table = new JTable(data, columnNames);
     table.setAutoCreateRowSorter(true);
-    // настраиваем заголовок таблицы
+    // РЅР°СЃС‚СЂР°РёРІР°РµРј Р·Р°РіРѕР»РѕРІРѕРє С‚Р°Р±Р»РёС†С‹
     JTableHeader header = table.getTableHeader();
     header.setReorderingAllowed(false);
     header.setResizingAllowed(false);
-    // присоединяем отображающий объект
+    // РїСЂРёСЃРѕРµРґРёРЅСЏРµРј РѕС‚РѕР±СЂР°Р¶Р°СЋС‰РёР№ РѕР±СЉРµРєС‚
     header.setDefaultRenderer(new HeaderRenderer());
-    // добавляем таблицы в панель прокрутки
+    // РґРѕР±Р°РІР»СЏРµРј С‚Р°Р±Р»РёС†С‹ РІ РїР°РЅРµР»СЊ РїСЂРѕРєСЂСѓС‚РєРё
     add(new JScrollPane(table));
     setSize(400, 300);
     setVisible(true);
   }
-  // специальный отображающий объект для заголовка
+  // СЃРїРµС†РёР°Р»СЊРЅС‹Р№ РѕС‚РѕР±СЂР°Р¶Р°СЋС‰РёР№ РѕР±СЉРµРєС‚ РґР»СЏ Р·Р°РіРѕР»РѕРІРєР°
   class HeaderRenderer
       extends DefaultTableCellRenderer {
-    // метод возвращает компонент для прорисовки
+    // РјРµС‚РѕРґ РІРѕР·РІСЂР°С‰Р°РµС‚ РєРѕРјРїРѕРЅРµРЅС‚ РґР»СЏ РїСЂРѕСЂРёСЃРѕРІРєРё
     public Component getTableCellRendererComponent(
         JTable table, Object value, boolean isSelected,
         boolean hasFocus, int row, int column) {
-      // получаем настроенную надпись от базового класса
+      // РїРѕР»СѓС‡Р°РµРј РЅР°СЃС‚СЂРѕРµРЅРЅСѓСЋ РЅР°РґРїРёСЃСЊ РѕС‚ Р±Р°Р·РѕРІРѕРіРѕ РєР»Р°СЃСЃР°
       JLabel label = (JLabel)super.
           getTableCellRendererComponent(table,
               value, isSelected, hasFocus,
               row, column);
-      // настраиваем особую рамку и цвет фона
+      // РЅР°СЃС‚СЂР°РёРІР°РµРј РѕСЃРѕР±СѓСЋ СЂР°РјРєСѓ Рё С†РІРµС‚ С„РѕРЅР°
       label.setBackground(Color.gray);
       label.setBorder(border);
       return label;

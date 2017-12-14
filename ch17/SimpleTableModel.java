@@ -1,5 +1,5 @@
 // SimpleTableModel.java
-// Создание простой модели для таблицы
+// РЎРѕР·РґР°РЅРёРµ РїСЂРѕСЃС‚РѕР№ РјРѕРґРµР»Рё РґР»СЏ С‚Р°Р±Р»РёС†С‹
 import javax.swing.*;
 import javax.swing.table.*;
 import java.awt.*;
@@ -8,25 +8,25 @@ public class SimpleTableModel extends JFrame {
   public SimpleTableModel() {
     super("SimpleTableModel");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем таблицу на основе нашей модели
+    // СЃРѕР·РґР°РµРј С‚Р°Р±Р»РёС†Сѓ РЅР° РѕСЃРЅРѕРІРµ РЅР°С€РµР№ РјРѕРґРµР»Рё
     JTable table = new JTable(new SimpleModel());
     table.setRowHeight(32);
     add(new JScrollPane(table));
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(400, 300);
     setVisible(true);
   }
-  // наша модель
+  // РЅР°С€Р° РјРѕРґРµР»СЊ
   class SimpleModel extends AbstractTableModel {
-    // количество строк
+    // РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє
     public int getRowCount() {
       return 100000;
     }
-    // количество столбцов
+    // РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚РѕР»Р±С†РѕРІ
     public int getColumnCount() {
       return 3;
     }
-    // тип данных, хранимых в столбце
+    // С‚РёРї РґР°РЅРЅС‹С…, С…СЂР°РЅРёРјС‹С… РІ СЃС‚РѕР»Р±С†Рµ
     public Class getColumnClass(int column) {
       switch (column) {
         case 1: return Boolean.class;
@@ -34,16 +34,16 @@ public class SimpleTableModel extends JFrame {
         default: return Object.class;
       }
     }
-    // данные в ячейке
+    // РґР°РЅРЅС‹Рµ РІ СЏС‡РµР№РєРµ
     public Object getValueAt(int row, int column) {
       boolean isEven = (row % 2 == 0);
-      // разные данные для разных стобцов
+      // СЂР°Р·РЅС‹Рµ РґР°РЅРЅС‹Рµ РґР»СЏ СЂР°Р·РЅС‹С… СЃС‚РѕР±С†РѕРІ
       switch (column) {
         case 0: return "" + row;
         case 1: return isEven;
         case 2: return new ImageIcon("Table.gif");
       }
-      return "Пусто";
+      return "РџСѓСЃС‚Рѕ";
     }
   }
   public static void main(String[] args) {

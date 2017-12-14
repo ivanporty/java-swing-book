@@ -1,5 +1,5 @@
 // FormattedFields.java
-// Применение полей JFormattedTextField
+// РџСЂРёРјРµРЅРµРЅРёРµ РїРѕР»РµР№ JFormattedTextField
 import javax.swing.*;
 import javax.swing.text.*;
 import java.text.*;
@@ -7,14 +7,14 @@ import java.util.Date;
 import java.awt.*;
 
 public class FormattedFields extends JFrame {
-  // поля для форматированного ввода данных
+  // РїРѕР»СЏ РґР»СЏ С„РѕСЂРјР°С‚РёСЂРѕРІР°РЅРЅРѕРіРѕ РІРІРѕРґР° РґР°РЅРЅС‹С…
   private JFormattedTextField
       phoneField, dateField, numberField;
   public FormattedFields() {
     super("FormattedFields");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // ограниченный ввод на основе маски
-    // телефонный номер
+    // РѕРіСЂР°РЅРёС‡РµРЅРЅС‹Р№ РІРІРѕРґ РЅР° РѕСЃРЅРѕРІРµ РјР°СЃРєРё
+    // С‚РµР»РµС„РѕРЅРЅС‹Р№ РЅРѕРјРµСЂ
     try {
       MaskFormatter phone =
           new MaskFormatter("+#-###-###-##-##");
@@ -24,35 +24,35 @@ public class FormattedFields extends JFrame {
     } catch (Exception ex) {
       ex.printStackTrace();
     }
-    // редактирование даты
-    // формат даты
+    // СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РґР°С‚С‹
+    // С„РѕСЂРјР°С‚ РґР°С‚С‹
     DateFormat date =
         new SimpleDateFormat("dd MMMM yyyy, EEEE");
-    // настройка форматирующего объекта
+    // РЅР°СЃС‚СЂРѕР№РєР° С„РѕСЂРјР°С‚РёСЂСѓСЋС‰РµРіРѕ РѕР±СЉРµРєС‚Р°
     DateFormatter formatter = new DateFormatter(date);
     formatter.setAllowsInvalid(false);
     formatter.setOverwriteMode(true);
-    // настройка текстового поля
+    // РЅР°СЃС‚СЂРѕР№РєР° С‚РµРєСЃС‚РѕРІРѕРіРѕ РїРѕР»СЏ
     dateField = new JFormattedTextField(formatter);
     dateField.setColumns(15);
     dateField.setValue(new Date());
-    // редактирование чисел
-    // формат числа с экспонентой
+    // СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С‡РёСЃРµР»
+    // С„РѕСЂРјР°С‚ С‡РёСЃР»Р° СЃ СЌРєСЃРїРѕРЅРµРЅС‚РѕР№
     NumberFormat number = new DecimalFormat("##0.##E0");
     numberField = new JFormattedTextField(
         new NumberFormatter(number));
-    // настройка поля
+    // РЅР°СЃС‚СЂРѕР№РєР° РїРѕР»СЏ
     numberField.setColumns(10);
     numberField.setValue(1500);
-    // добавляем поля в панель содержимого
+    // РґРѕР±Р°РІР»СЏРµРј РїРѕР»СЏ РІ РїР°РЅРµР»СЊ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ
     setLayout(new FlowLayout());
-    add(new JLabel("Телефон:"));
+    add(new JLabel("РўРµР»РµС„РѕРЅ:"));
     add(phoneField);
-    add(new JLabel("Дата:"));
+    add(new JLabel("Р”Р°С‚Р°:"));
     add(dateField);
-    add(new JLabel("Число:"));
+    add(new JLabel("Р§РёСЃР»Рѕ:"));
     add(numberField);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(400, 300);
     setVisible(true);
   }

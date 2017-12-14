@@ -1,5 +1,5 @@
 // ControllingCaret.java
-// Управление текстовым курсором
+// РЈРїСЂР°РІР»РµРЅРёРµ С‚РµРєСЃС‚РѕРІС‹Рј РєСѓСЂСЃРѕСЂРѕРј
 import javax.swing.*;
 import javax.swing.event.CaretListener;
 import javax.swing.event.CaretEvent;
@@ -10,26 +10,26 @@ public class ControllingCaret extends JFrame {
   public ControllingCaret() {
     super("ControllingCaret");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // многострочное текстовое поле
+    // РјРЅРѕРіРѕСЃС‚СЂРѕС‡РЅРѕРµ С‚РµРєСЃС‚РѕРІРѕРµ РїРѕР»Рµ
     final JTextArea textArea = new JTextArea();
-    // добавим текст
-    textArea.append("Просто какой-то текст");
-    // настройка курсора и выделение текста
+    // РґРѕР±Р°РІРёРј С‚РµРєСЃС‚
+    textArea.append("РџСЂРѕСЃС‚Рѕ РєР°РєРѕР№-С‚Рѕ С‚РµРєСЃС‚");
+    // РЅР°СЃС‚СЂРѕР№РєР° РєСѓСЂСЃРѕСЂР° Рё РІС‹РґРµР»РµРЅРёРµ С‚РµРєСЃС‚Р°
     Caret caret = textArea.getCaret();
     caret.setBlinkRate(50);
     caret.setDot(5);
     caret.moveDot(10);
-    // добавим текстовое поле в окно
+    // РґРѕР±Р°РІРёРј С‚РµРєСЃС‚РѕРІРѕРµ РїРѕР»Рµ РІ РѕРєРЅРѕ
     add(new JScrollPane(textArea));
-    // надпись для слова у курсора
+    // РЅР°РґРїРёСЃСЊ РґР»СЏ СЃР»РѕРІР° Сѓ РєСѓСЂСЃРѕСЂР°
     final JLabel label = new JLabel();
     add(label, "South");
-    // слушатель перемещений курсора
+    // СЃР»СѓС€Р°С‚РµР»СЊ РїРµСЂРµРјРµС‰РµРЅРёР№ РєСѓСЂСЃРѕСЂР°
     textArea.addCaretListener(new CaretListener() {
       public void caretUpdate(CaretEvent e) {
-        // выведем слово у курсора
+        // РІС‹РІРµРґРµРј СЃР»РѕРІРѕ Сѓ РєСѓСЂСЃРѕСЂР°
         try {
-          // начало и конец слова на позиции
+          // РЅР°С‡Р°Р»Рѕ Рё РєРѕРЅРµС† СЃР»РѕРІР° РЅР° РїРѕР·РёС†РёРё
           int wordStart =
               Utilities.getWordStart(textArea, e.getDot());
           int wordEnd =
@@ -41,7 +41,7 @@ public class ControllingCaret extends JFrame {
         }
       }
     });
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(400, 300);
     setVisible(true);
   }

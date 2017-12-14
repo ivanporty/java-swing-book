@@ -1,5 +1,5 @@
 // SimpleTreeModel.java
-// Создание простой модели для дерева
+// РЎРѕР·РґР°РЅРёРµ РїСЂРѕСЃС‚РѕР№ РјРѕРґРµР»Рё РґР»СЏ РґРµСЂРµРІР°
 import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.tree.*;
@@ -10,41 +10,41 @@ public class SimpleTreeModel extends JFrame {
   public SimpleTreeModel() {
     super("SimpleTreeModel");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // дерево на основе нашей модели
+    // РґРµСЂРµРІРѕ РЅР° РѕСЃРЅРѕРІРµ РЅР°С€РµР№ РјРѕРґРµР»Рё
     JTree tree = new JTree(new SimpleModel());
-    // добавляем его в окно
+    // РґРѕР±Р°РІР»СЏРµРј РµРіРѕ РІ РѕРєРЅРѕ
     add(new JScrollPane(tree));
     setSize(300, 200);
     setVisible(true);
   }
 
-  // наша модель для дерева
+  // РЅР°С€Р° РјРѕРґРµР»СЊ РґР»СЏ РґРµСЂРµРІР°
   class SimpleModel implements TreeModel {
-    // корень дерева и основные узлы
-    private String root = "Кое-что интересное";
+    // РєРѕСЂРµРЅСЊ РґРµСЂРµРІР° Рё РѕСЃРЅРѕРІРЅС‹Рµ СѓР·Р»С‹
+    private String root = "РљРѕРµ-С‡С‚Рѕ РёРЅС‚РµСЂРµСЃРЅРѕРµ";
     private String
-        colors = "Цвета",
-        food = "Еда";
-    // хранилища данных
+        colors = "Р¦РІРµС‚Р°",
+        food = "Р•РґР°";
+    // С…СЂР°РЅРёР»РёС‰Р° РґР°РЅРЅС‹С…
     private ArrayList<String> rootList = new ArrayList<String>(),
         colorsList = new ArrayList<String>(),
         foodList = new ArrayList<String>();
     public SimpleModel() {
-      // заполняем списки данными
+      // Р·Р°РїРѕР»РЅСЏРµРј СЃРїРёСЃРєРё РґР°РЅРЅС‹РјРё
       rootList.add(colors);
       rootList.add(food);
-      colorsList.add("Красный");
-      colorsList.add("Зеленый");
-      foodList.add("Мороженое");
-      foodList.add("Бутерброд");
+      colorsList.add("РљСЂР°СЃРЅС‹Р№");
+      colorsList.add("Р—РµР»РµРЅС‹Р№");
+      foodList.add("РњРѕСЂРѕР¶РµРЅРѕРµ");
+      foodList.add("Р‘СѓС‚РµСЂР±СЂРѕРґ");
     }
 
-    // возвращает корень дерева
+    // РІРѕР·РІСЂР°С‰Р°РµС‚ РєРѕСЂРµРЅСЊ РґРµСЂРµРІР°
     public Object getRoot() {
       return root;
     }
 
-    // сообщает о количестве потомков узла
+    // СЃРѕРѕР±С‰Р°РµС‚ Рѕ РєРѕР»РёС‡РµСЃС‚РІРµ РїРѕС‚РѕРјРєРѕРІ СѓР·Р»Р°
     public int getChildCount(Object parent) {
       if ( parent == root ) return rootList.size();
       else if ( parent == colors )
@@ -53,7 +53,7 @@ public class SimpleTreeModel extends JFrame {
       return 0;
     }
 
-    // возвращает потомка узла по порядковому номеру
+    // РІРѕР·РІСЂР°С‰Р°РµС‚ РїРѕС‚РѕРјРєР° СѓР·Р»Р° РїРѕ РїРѕСЂСЏРґРєРѕРІРѕРјСѓ РЅРѕРјРµСЂСѓ
     public Object getChild(Object parent, int index) {
       if ( parent == root )
         return rootList.get(index);
@@ -64,7 +64,7 @@ public class SimpleTreeModel extends JFrame {
       return null;
     }
 
-    // позволяет получить порядковый номер потомка
+    // РїРѕР·РІРѕР»СЏРµС‚ РїРѕР»СѓС‡РёС‚СЊ РїРѕСЂСЏРґРєРѕРІС‹Р№ РЅРѕРјРµСЂ РїРѕС‚РѕРјРєР°
     public int getIndexOfChild(
         Object parent, Object child) {
       if ( parent == root )
@@ -76,21 +76,21 @@ public class SimpleTreeModel extends JFrame {
       return 0;
     }
 
-    // определяет, какие узлы являются листьями
+    // РѕРїСЂРµРґРµР»СЏРµС‚, РєР°РєРёРµ СѓР·Р»С‹ СЏРІР»СЏСЋС‚СЃСЏ Р»РёСЃС‚СЊСЏРјРё
     public boolean isLeaf(Object node) {
       if ( colorsList.contains(node) ||
           foodList.contains(node) ) return true;
       else return false;
     }
 
-    // вызывается при изменении значения некоторого узла
-    // для нашей модели не понадобится
+    // РІС‹Р·С‹РІР°РµС‚СЃСЏ РїСЂРё РёР·РјРµРЅРµРЅРёРё Р·РЅР°С‡РµРЅРёСЏ РЅРµРєРѕС‚РѕСЂРѕРіРѕ СѓР·Р»Р°
+    // РґР»СЏ РЅР°С€РµР№ РјРѕРґРµР»Рё РЅРµ РїРѕРЅР°РґРѕР±РёС‚СЃСЏ
     public void valueForPathChanged(
         TreePath path, Object value) {
     }
 
-    // методы для присоединения и удаления слушателей
-    // нашей простой модели не потребуются
+    // РјРµС‚РѕРґС‹ РґР»СЏ РїСЂРёСЃРѕРµРґРёРЅРµРЅРёСЏ Рё СѓРґР°Р»РµРЅРёСЏ СЃР»СѓС€Р°С‚РµР»РµР№
+    // РЅР°С€РµР№ РїСЂРѕСЃС‚РѕР№ РјРѕРґРµР»Рё РЅРµ РїРѕС‚СЂРµР±СѓСЋС‚СЃСЏ
     public void addTreeModelListener(
         TreeModelListener tml) {
     }

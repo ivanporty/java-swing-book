@@ -1,28 +1,28 @@
 // UsingSpinnerModels.java
-// Использование стандартных моделей счетчика
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ СЃС‚Р°РЅРґР°СЂС‚РЅС‹С… РјРѕРґРµР»РµР№ СЃС‡РµС‚С‡РёРєР°
 import javax.swing.*;
 import java.awt.*;
 
 public class UsingSpinnerModels extends JFrame {
-  // набор данных для счетчика
+  // РЅР°Р±РѕСЂ РґР°РЅРЅС‹С… РґР»СЏ СЃС‡РµС‚С‡РёРєР°
   private String[] data = {
-    "Холодно", "Прохладно", "Тепло", "Жарко"
+    "РҐРѕР»РѕРґРЅРѕ", "РџСЂРѕС…Р»Р°РґРЅРѕ", "РўРµРїР»Рѕ", "Р–Р°СЂРєРѕ"
   };
   public UsingSpinnerModels() {
     super("UsingSpinnerModels");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // модель счетчика для выбора из набора данных
+    // РјРѕРґРµР»СЊ СЃС‡РµС‚С‡РёРєР° РґР»СЏ РІС‹Р±РѕСЂР° РёР· РЅР°Р±РѕСЂР° РґР°РЅРЅС‹С…
     SpinnerModel list = new SpinnerListModel(data);
     JSpinner spinner1 = new JSpinner(list);
-    // модель счетчика для выбора целых чисел
+    // РјРѕРґРµР»СЊ СЃС‡РµС‚С‡РёРєР° РґР»СЏ РІС‹Р±РѕСЂР° С†РµР»С‹С… С‡РёСЃРµР»
     SpinnerModel numbers = new SpinnerNumberModel(
       4, 0, 100, 1);
     JSpinner spinner2 = new JSpinner(numbers);
-    // добавим счетчики в панель содержимого
+    // РґРѕР±Р°РІРёРј СЃС‡РµС‚С‡РёРєРё РІ РїР°РЅРµР»СЊ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ
     setLayout(new FlowLayout());
     add(spinner1);
     add(spinner2);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(400, 300);
     setVisible(true);
   }

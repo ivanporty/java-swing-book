@@ -1,5 +1,5 @@
 // SimpleSliders.java
-// Простые ползунки
+// РџСЂРѕСЃС‚С‹Рµ РїРѕР»Р·СѓРЅРєРё
 import javax.swing.*;
 import java.awt.*;
 
@@ -7,23 +7,23 @@ public class SimpleSliders extends JFrame {
   public SimpleSliders() {
     super("SimpleSliders");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем несколько ползунков
+    // СЃРѕР·РґР°РµРј РЅРµСЃРєРѕР»СЊРєРѕ РїРѕР»Р·СѓРЅРєРѕРІ
     JSlider s1 = new JSlider(0, 100);
     JSlider s2 = new JSlider(
         JSlider.VERTICAL, 0, 200, 50);
-    // настройка внешнего вида
+    // РЅР°СЃС‚СЂРѕР№РєР° РІРЅРµС€РЅРµРіРѕ РІРёРґР°
     s2.setPaintTicks(true);
     s2.setMajorTickSpacing(50);
     s2.setMinorTickSpacing(10);
     JSlider s3 = new JSlider(0, 50, 40);
     s3.setPaintLabels(true);
     s3.setMajorTickSpacing(10);
-    // добавим их в панель содержимого
+    // РґРѕР±Р°РІРёРј РёС… РІ РїР°РЅРµР»СЊ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ
     setLayout(new FlowLayout());
     add(s1);
     add(s2);
     add(s3);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(300, 300);
     setVisible(true);
   }

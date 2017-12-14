@@ -1,5 +1,5 @@
 // ToggleButtons.java
-// Использование выключателей JToggleButton
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РІС‹РєР»СЋС‡Р°С‚РµР»РµР№ JToggleButton
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -8,12 +8,12 @@ public class ToggleButtons extends JFrame {
   public ToggleButtons() {
     super("ToggleButtons");
     setDefaultCloseOperation( EXIT_ON_CLOSE );
-    // используем последовательное расположение
+    // РёСЃРїРѕР»СЊР·СѓРµРј РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕРµ СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ
     setLayout(new FlowLayout());
-    // создадим пару кнопок JToggleButton
-    button1 = new JToggleButton("Первая", true);
-    button2 = new JToggleButton("Вторая", false);
-    // добавим слушатель события о смене состояния
+    // СЃРѕР·РґР°РґРёРј РїР°СЂСѓ РєРЅРѕРїРѕРє JToggleButton
+    button1 = new JToggleButton("РџРµСЂРІР°СЏ", true);
+    button2 = new JToggleButton("Р’С‚РѕСЂР°СЏ", false);
+    // РґРѕР±Р°РІРёРј СЃР»СѓС€Р°С‚РµР»СЊ СЃРѕР±С‹С‚РёСЏ Рѕ СЃРјРµРЅРµ СЃРѕСЃС‚РѕСЏРЅРёСЏ
     button2.addItemListener(new ItemListener() {
       public void itemStateChanged(ItemEvent e) {
         button1.setSelected(
@@ -22,11 +22,11 @@ public class ToggleButtons extends JFrame {
     });
     add(button1);
     add(button2);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     pack();
     setVisible(true);
   }
-  // ссылки на используемые кнопки
+  // СЃСЃС‹Р»РєРё РЅР° РёСЃРїРѕР»СЊР·СѓРµРјС‹Рµ РєРЅРѕРїРєРё
   private JToggleButton button1, button2;
   public static void main(String[] args) {
     SwingUtilities.invokeLater(

@@ -1,5 +1,5 @@
 // UsingEventQueue.java
-// Использование очереди событий
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РѕС‡РµСЂРµРґРё СЃРѕР±С‹С‚РёР№
 
 import java.awt.*;
 import java.awt.event.*;
@@ -8,22 +8,22 @@ import javax.swing.*;
 public class UsingEventQueue extends JFrame {
   public UsingEventQueue() {
     super("UsingEventQueue");
-    // выход при закрытии окна
+    // РІС‹С…РѕРґ РїСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР°
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // кнопка и ее слушатель
-    JButton button = new JButton("Генерировать событие");
+    // РєРЅРѕРїРєР° Рё РµРµ СЃР»СѓС€Р°С‚РµР»СЊ
+    JButton button = new JButton("Р“РµРЅРµСЂРёСЂРѕРІР°С‚СЊ СЃРѕР±С‹С‚РёРµ");
     button.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        // генерируем событие закрытия окна
+        // РіРµРЅРµСЂРёСЂСѓРµРј СЃРѕР±С‹С‚РёРµ Р·Р°РєСЂС‹С‚РёСЏ РѕРєРЅР°
         getToolkit().getSystemEventQueue().postEvent(
             new WindowEvent(UsingEventQueue.this,
                 WindowEvent.WINDOW_CLOSING));
       }
     });
-    // добавим кнопку в панель содержимого
+    // РґРѕР±Р°РІРёРј РєРЅРѕРїРєСѓ РІ РїР°РЅРµР»СЊ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ
     setLayout(new FlowLayout());
     add(button);
-    // выведем окно на экран
+    // РІС‹РІРµРґРµРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(400, 300);
     setVisible(true);
   }

@@ -1,16 +1,16 @@
 // FirstEvents.java
-// События - нажатия клавиш на клавиатуре
+// РЎРѕР±С‹С‚РёСЏ - РЅР°Р¶Р°С‚РёСЏ РєР»Р°РІРёС€ РЅР° РєР»Р°РІРёР°С‚СѓСЂРµ
 import javax.swing.*;
 import java.awt.event.*;
 
 public class FirstEvents extends JFrame {
   public FirstEvents() {
     super("FirstEvents");
-    // при закрытии окна - выход
+    // РїСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР° - РІС‹С…РѕРґ
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // регистрируем нашего слушателя
+    // СЂРµРіРёСЃС‚СЂРёСЂСѓРµРј РЅР°С€РµРіРѕ СЃР»СѓС€Р°С‚РµР»СЏ
     addKeyListener(new KeyL());
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(200, 200);
     setVisible(true);
   }
@@ -25,19 +25,19 @@ public class FirstEvents extends JFrame {
   }
 }
 
-// этот класс будет получать извещения о событиях
+// СЌС‚РѕС‚ РєР»Р°СЃСЃ Р±СѓРґРµС‚ РїРѕР»СѓС‡Р°С‚СЊ РёР·РІРµС‰РµРЅРёСЏ Рѕ СЃРѕР±С‹С‚РёСЏС…
 class KeyL implements KeyListener {
-  // печать символа
+  // РїРµС‡Р°С‚СЊ СЃРёРјРІРѕР»Р°
   public void keyTyped(KeyEvent k) {
     System.out.println(k);
   }
 
-  // нажатие клавиши
+  // РЅР°Р¶Р°С‚РёРµ РєР»Р°РІРёС€Рё
   public void keyPressed(KeyEvent k) {
     System.out.println(k);
   }
 
-  // отпускание нажатой клавиши
+  // РѕС‚РїСѓСЃРєР°РЅРёРµ РЅР°Р¶Р°С‚РѕР№ РєР»Р°РІРёС€Рё
   public void keyReleased(KeyEvent k) {
     System.out.println(k);
   }

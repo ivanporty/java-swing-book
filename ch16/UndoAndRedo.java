@@ -1,37 +1,37 @@
 // UndoAndRedo.java
-// Поддержка отмены и повтора операций
-// в текстовых компонентах Swing
+// РџРѕРґРґРµСЂР¶РєР° РѕС‚РјРµРЅС‹ Рё РїРѕРІС‚РѕСЂР° РѕРїРµСЂР°С†РёР№
+// РІ С‚РµРєСЃС‚РѕРІС‹С… РєРѕРјРїРѕРЅРµРЅС‚Р°С… Swing
 import javax.swing.*;
 import javax.swing.undo.*;
 import java.awt.event.*;
 import java.awt.*;
 
 public class UndoAndRedo extends JFrame {
-  // поддержка отмены/повтора операций
+  // РїРѕРґРґРµСЂР¶РєР° РѕС‚РјРµРЅС‹/РїРѕРІС‚РѕСЂР° РѕРїРµСЂР°С†РёР№
   private UndoManager undoManager = new UndoManager();
   public UndoAndRedo() {
     super("UndoAndRedo");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // панель инструментов
+    // РїР°РЅРµР»СЊ РёРЅСЃС‚СЂСѓРјРµРЅС‚РѕРІ
     JToolBar toolBar = new JToolBar();
     toolBar.add(new UndoAction());
     toolBar.add(new RedoAction());
-    // текстовое поле
+    // С‚РµРєСЃС‚РѕРІРѕРµ РїРѕР»Рµ
     JTextArea textArea = new JTextArea();
-    // добавляем слушателя операций
+    // РґРѕР±Р°РІР»СЏРµРј СЃР»СѓС€Р°С‚РµР»СЏ РѕРїРµСЂР°С†РёР№
     textArea.getDocument().
         addUndoableEditListener(undoManager);
-    // добавляем компоненты в окно
+    // РґРѕР±Р°РІР»СЏРµРј РєРѕРјРїРѕРЅРµРЅС‚С‹ РІ РѕРєРЅРѕ
     add(toolBar, "North");
     add(new JScrollPane(textArea));
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(400, 300);
     setVisible(true);
   }
-  // команда - отмена операции
+  // РєРѕРјР°РЅРґР° - РѕС‚РјРµРЅР° РѕРїРµСЂР°С†РёРё
   class UndoAction extends AbstractAction {
     public UndoAction() {
-      // настройка команды
+      // РЅР°СЃС‚СЂРѕР№РєР° РєРѕРјР°РЅРґС‹
       putValue(AbstractAction.SMALL_ICON,
           new ImageIcon("undo16.gif"));
     }
@@ -40,10 +40,10 @@ public class UndoAndRedo extends JFrame {
         undoManager.undo();
     }
   }
-  // команда - повтор операции
+  // РєРѕРјР°РЅРґР° - РїРѕРІС‚РѕСЂ РѕРїРµСЂР°С†РёРё
   class RedoAction extends AbstractAction {
     public RedoAction() {
-      // настройка команды
+      // РЅР°СЃС‚СЂРѕР№РєР° РєРѕРјР°РЅРґС‹
       putValue(AbstractAction.SMALL_ICON,
           new ImageIcon("redo16.gif"));
     }

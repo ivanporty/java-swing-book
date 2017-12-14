@@ -1,47 +1,47 @@
 // SimpleTables.java
-// Простые таблицы с помощью удобных конструкторов
+// РџСЂРѕСЃС‚С‹Рµ С‚Р°Р±Р»РёС†С‹ СЃ РїРѕРјРѕС‰СЊСЋ СѓРґРѕР±РЅС‹С… РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂРѕРІ
 import javax.swing.*;
 import java.util.*;
 import java.awt.*;
 
 public class SimpleTables extends JFrame {
-  // данные для таблиц
+  // РґР°РЅРЅС‹Рµ РґР»СЏ С‚Р°Р±Р»РёС†
   private Object[][] colors = new String[][] {
-      { "Красный", "Зеленый", "Синий" },
-      { "Желтый", "Оранжевый", "Белый" },
+      { "РљСЂР°СЃРЅС‹Р№", "Р—РµР»РµРЅС‹Р№", "РЎРёРЅРёР№" },
+      { "Р–РµР»С‚С‹Р№", "РћСЂР°РЅР¶РµРІС‹Р№", "Р‘РµР»С‹Р№" },
   };
-  // названия заголовков столбцов
+  // РЅР°Р·РІР°РЅРёСЏ Р·Р°РіРѕР»РѕРІРєРѕРІ СЃС‚РѕР»Р±С†РѕРІ
   private Object[] colorsHeader = new String[] {
-      "Цвет", "Еще цвет", "Тоже цвет"
+      "Р¦РІРµС‚", "Р•С‰Рµ С†РІРµС‚", "РўРѕР¶Рµ С†РІРµС‚"
   };
   public SimpleTables() {
     super("SimpleTables");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // несколько простых таблиц
+    // РЅРµСЃРєРѕР»СЊРєРѕ РїСЂРѕСЃС‚С‹С… С‚Р°Р±Р»РёС†
     JTable table1 = new JTable(colors, colorsHeader);
     JTable table2 = new JTable(5, 5);
-    // таблица на основе вектора, состоящего из векторов
+    // С‚Р°Р±Р»РёС†Р° РЅР° РѕСЃРЅРѕРІРµ РІРµРєС‚РѕСЂР°, СЃРѕСЃС‚РѕСЏС‰РµРіРѕ РёР· РІРµРєС‚РѕСЂРѕРІ
     Vector<Vector<String>> data =
         new Vector<Vector<String>>();
     Vector<String> row1 = new Vector<String>();
     Vector<String> row2 = new Vector<String>();
-    // вектор с заголовками столбцов
+    // РІРµРєС‚РѕСЂ СЃ Р·Р°РіРѕР»РѕРІРєР°РјРё СЃС‚РѕР»Р±С†РѕРІ
     Vector<String> columnNames = new Vector<String>();
-    // наполнение данными
+    // РЅР°РїРѕР»РЅРµРЅРёРµ РґР°РЅРЅС‹РјРё
     for (int i=0; i<3; i++) {
-      row1.add("Ячейка 1." + i);
-      row2.add("Ячейка 2." + i);
-      columnNames.add("Столбец #" + i);
+      row1.add("РЇС‡РµР№РєР° 1." + i);
+      row2.add("РЇС‡РµР№РєР° 2." + i);
+      columnNames.add("РЎС‚РѕР»Р±РµС† #" + i);
     }
     data.add(row1);
     data.add(row2);
     JTable table3 = new JTable(data, columnNames);
-    // добавляем таблицы в панель с тремя рядами
+    // РґРѕР±Р°РІР»СЏРµРј С‚Р°Р±Р»РёС†С‹ РІ РїР°РЅРµР»СЊ СЃ С‚СЂРµРјСЏ СЂСЏРґР°РјРё
     setLayout(new GridLayout(3, 1));
     add(new JScrollPane(table1));
     add(new JScrollPane(table2));
     add(table3);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(350, 400);
     setVisible(true);
   }

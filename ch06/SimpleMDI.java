@@ -1,5 +1,5 @@
 // SimpleMDI.java
-// Демонстрация внутренних окон Swing
+// Р”РµРјРѕРЅСЃС‚СЂР°С†РёСЏ РІРЅСѓС‚СЂРµРЅРЅРёС… РѕРєРѕРЅ Swing
 import javax.swing.*;
 
 public class SimpleMDI extends JFrame {
@@ -7,29 +7,29 @@ public class SimpleMDI extends JFrame {
     super("SimpleMDI");
     setSize(400, 300);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем рабочий стол Swing
+    // СЃРѕР·РґР°РµРј СЂР°Р±РѕС‡РёР№ СЃС‚РѕР» Swing
     JDesktopPane desktopPane = new JDesktopPane();
-    // добавляем его в центр окна
+    // РґРѕР±Р°РІР»СЏРµРј РµРіРѕ РІ С†РµРЅС‚СЂ РѕРєРЅР°
     add(desktopPane);
-    // создаем несколько внутренних окон
+    // СЃРѕР·РґР°РµРј РЅРµСЃРєРѕР»СЊРєРѕ РІРЅСѓС‚СЂРµРЅРЅРёС… РѕРєРѕРЅ
     JInternalFrame frame1 =
-        new JInternalFrame("Окно 1", true);
+        new JInternalFrame("РћРєРЅРѕ 1", true);
     JInternalFrame frame2 =
-        new JInternalFrame("Окно 2", true, true, true, true);
+        new JInternalFrame("РћРєРЅРѕ 2", true, true, true, true);
     JInternalFrame frame3 =
-        new JInternalFrame("Палитра", false, true);
-    // смена типа окна на "палитру"
+        new JInternalFrame("РџР°Р»РёС‚СЂР°", false, true);
+    // СЃРјРµРЅР° С‚РёРїР° РѕРєРЅР° РЅР° "РїР°Р»РёС‚СЂСѓ"
     frame3.putClientProperty("JInternalFrame.isPalette", true);
-    // добавляем внутренние окна на рабочий стол
+    // РґРѕР±Р°РІР»СЏРµРј РІРЅСѓС‚СЂРµРЅРЅРёРµ РѕРєРЅР° РЅР° СЂР°Р±РѕС‡РёР№ СЃС‚РѕР»
     desktopPane.add(frame1);
     desktopPane.add(frame2);
     desktopPane.add(frame3);
-    // задаем размеры и расположения, делаем окна видимыми
+    // Р·Р°РґР°РµРј СЂР°Р·РјРµСЂС‹ Рё СЂР°СЃРїРѕР»РѕР¶РµРЅРёСЏ, РґРµР»Р°РµРј РѕРєРЅР° РІРёРґРёРјС‹РјРё
     frame1.setSize(200, 100);
     frame1.setLocation(80, 100); frame1.setVisible(true);
     frame2.setSize(200, 60); frame2.setVisible(true);
     frame3.setSize(100, 200); frame3.setVisible(true);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setVisible(true);
   }
   public static void main(String[] args) {

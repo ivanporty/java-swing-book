@@ -1,50 +1,50 @@
 // UsingDefaultTableModel.java
-// Использование стандартной модели при создании таблицы
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ СЃС‚Р°РЅРґР°СЂС‚РЅРѕР№ РјРѕРґРµР»Рё РїСЂРё СЃРѕР·РґР°РЅРёРё С‚Р°Р±Р»РёС†С‹
 import javax.swing.*;
 import javax.swing.table.*;
 import java.awt.event.*;
 import java.awt.*;
 
 public class UsingDefaultTableModel extends JFrame {
-  // наша модель
+  // РЅР°С€Р° РјРѕРґРµР»СЊ
   private DefaultTableModel dtm;
   public UsingDefaultTableModel() {
     super("UsingDefaultTableModel");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем стандартную модель
+    // СЃРѕР·РґР°РµРј СЃС‚Р°РЅРґР°СЂС‚РЅСѓСЋ РјРѕРґРµР»СЊ
     dtm = new DefaultTableModel();
-    // задаем названия стоблцов
+    // Р·Р°РґР°РµРј РЅР°Р·РІР°РЅРёСЏ СЃС‚РѕР±Р»С†РѕРІ
     dtm.setColumnIdentifiers(
-        new String[] {"Номер", "Товар", "Цена"});
-    // наполняем модель данными
-    dtm.addRow(new String[] {"№1", "Блокнот", "5.5"});
-    dtm.addRow(new String[] {"№2", "Телефон", "175"});
-    dtm.addRow(new String[] {"№3", "Карандаш", "1.2"});
-    // передаем модель в таблицу
+        new String[] {"РќРѕРјРµСЂ", "РўРѕРІР°СЂ", "Р¦РµРЅР°"});
+    // РЅР°РїРѕР»РЅСЏРµРј РјРѕРґРµР»СЊ РґР°РЅРЅС‹РјРё
+    dtm.addRow(new String[] {"в„–1", "Р‘Р»РѕРєРЅРѕС‚", "5.5"});
+    dtm.addRow(new String[] {"в„–2", "РўРµР»РµС„РѕРЅ", "175"});
+    dtm.addRow(new String[] {"в„–3", "РљР°СЂР°РЅРґР°С€", "1.2"});
+    // РїРµСЂРµРґР°РµРј РјРѕРґРµР»СЊ РІ С‚Р°Р±Р»РёС†Сѓ
     JTable table = new JTable(dtm);
-    // данные могут меняться динамически
-    JButton add = new JButton("Добавить");
+    // РґР°РЅРЅС‹Рµ РјРѕРіСѓС‚ РјРµРЅСЏС‚СЊСЃСЏ РґРёРЅР°РјРёС‡РµСЃРєРё
+    JButton add = new JButton("Р”РѕР±Р°РІРёС‚СЊ");
     add.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        // добавляем новые данные
+        // РґРѕР±Р°РІР»СЏРµРј РЅРѕРІС‹Рµ РґР°РЅРЅС‹Рµ
         dtm.addRow(
-            new String[] {"?", "Новинка!", "Супер Цена!"});
+            new String[] {"?", "РќРѕРІРёРЅРєР°!", "РЎСѓРїРµСЂ Р¦РµРЅР°!"});
       }
     });
-    JButton remove = new JButton("Удалить");
+    JButton remove = new JButton("РЈРґР°Р»РёС‚СЊ");
     remove.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        // удаляем последнюю строку (отсчет с нуля)
+        // СѓРґР°Р»СЏРµРј РїРѕСЃР»РµРґРЅСЋСЋ СЃС‚СЂРѕРєСѓ (РѕС‚СЃС‡РµС‚ СЃ РЅСѓР»СЏ)
         dtm.removeRow(dtm.getRowCount() - 1);
       }
     });
-    // добавляем кнопки и таблицу
+    // РґРѕР±Р°РІР»СЏРµРј РєРЅРѕРїРєРё Рё С‚Р°Р±Р»РёС†Сѓ
     add(new JScrollPane(table));
     JPanel buttons = new JPanel();
     buttons.add(add);
     buttons.add(remove);
     add(buttons, "South");
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(300, 300);
     setVisible(true);
   }

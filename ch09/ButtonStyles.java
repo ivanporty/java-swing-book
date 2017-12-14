@@ -1,6 +1,6 @@
 // ButtonStyles.java
-// Изменение внешнего вида кнопок JButton
-// с помощью значков, цветов, рамок и т. п.
+// РР·РјРµРЅРµРЅРёРµ РІРЅРµС€РЅРµРіРѕ РІРёРґР° РєРЅРѕРїРѕРє JButton
+// СЃ РїРѕРјРѕС‰СЊСЋ Р·РЅР°С‡РєРѕРІ, С†РІРµС‚РѕРІ, СЂР°РјРѕРє Рё С‚. Рї.
 import javax.swing.*;
 import java.awt.*;
 
@@ -8,13 +8,13 @@ public class ButtonStyles extends JFrame {
   public ButtonStyles() {
     super("ButtonStyles");
     setDefaultCloseOperation( EXIT_ON_CLOSE );
-    // используем последовательное расположение
+    // РёСЃРїРѕР»СЊР·СѓРµРј РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕРµ СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ
     setLayout(
         new FlowLayout( FlowLayout.LEFT, 10, 10));
-    // самая простая кнопка
-    JButton button = new JButton("Обычная кнопка");
+    // СЃР°РјР°СЏ РїСЂРѕСЃС‚Р°СЏ РєРЅРѕРїРєР°
+    JButton button = new JButton("РћР±С‹С‡РЅР°СЏ РєРЅРѕРїРєР°");
     add(button);
-    // кнопка со значками на все случаи жизни
+    // РєРЅРѕРїРєР° СЃРѕ Р·РЅР°С‡РєР°РјРё РЅР° РІСЃРµ СЃР»СѓС‡Р°Рё Р¶РёР·РЅРё
     button = new JButton();
     button.setIcon(new ImageIcon("images/b1.gif"));
     button.setRolloverIcon(
@@ -23,19 +23,19 @@ public class ButtonStyles extends JFrame {
         new ImageIcon("images/b1p.gif"));
     button.setDisabledIcon(
         new ImageIcon("images/b1d.gif"));
-    // для такой кнопки лучше убрать
-    // все ненужные рамки и закраску
+    // РґР»СЏ С‚Р°РєРѕР№ РєРЅРѕРїРєРё Р»СѓС‡С€Рµ СѓР±СЂР°С‚СЊ
+    // РІСЃРµ РЅРµРЅСѓР¶РЅС‹Рµ СЂР°РјРєРё Рё Р·Р°РєСЂР°СЃРєСѓ
     button.setBorderPainted(false);
     button.setFocusPainted(false);
     button.setContentAreaFilled(false);
     add(button);
-    // кнопка с измененным цветом и HTML-текстом
+    // РєРЅРѕРїРєР° СЃ РёР·РјРµРЅРµРЅРЅС‹Рј С†РІРµС‚РѕРј Рё HTML-С‚РµРєСЃС‚РѕРј
     button = new JButton(
-        "<html><h2><font color=\"yellow\">Зеленая кнопка");
+        "<html><h2><font color=\"yellow\">Р—РµР»РµРЅР°СЏ РєРЅРѕРїРєР°");
     button.setBackground(Color.green);
     add(button);
-    // изменение выравнивания текста и изображения
-    button = new JButton("Изменение выравнивания",
+    // РёР·РјРµРЅРµРЅРёРµ РІС‹СЂР°РІРЅРёРІР°РЅРёСЏ С‚РµРєСЃС‚Р° Рё РёР·РѕР±СЂР°Р¶РµРЅРёСЏ
+    button = new JButton("РР·РјРµРЅРµРЅРёРµ РІС‹СЂР°РІРЅРёРІР°РЅРёСЏ",
         new ImageIcon("images/button.gif"));
     button.setMargin(new Insets(10, 10, 10, 10));
     button.setVerticalAlignment(SwingConstants.TOP);
@@ -43,14 +43,14 @@ public class ButtonStyles extends JFrame {
     button.setHorizontalTextPosition(SwingConstants.LEFT);
     button.setVerticalTextPosition(SwingConstants.BOTTOM);
     button.setIconTextGap(10);
-    // сделаем кнопку большой, чтобы увидеть выравнивание
+    // СЃРґРµР»Р°РµРј РєРЅРѕРїРєСѓ Р±РѕР»СЊС€РѕР№, С‡С‚РѕР±С‹ СѓРІРёРґРµС‚СЊ РІС‹СЂР°РІРЅРёРІР°РЅРёРµ
     button.setPreferredSize(new Dimension(300, 100));
     add(button);
-    // отключенная кнопка
-    button = new JButton("Выключено");
+    // РѕС‚РєР»СЋС‡РµРЅРЅР°СЏ РєРЅРѕРїРєР°
+    button = new JButton("Р’С‹РєР»СЋС‡РµРЅРѕ");
     button.setEnabled(false);
     add(button);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(400, 350);
     setVisible(true);
   }

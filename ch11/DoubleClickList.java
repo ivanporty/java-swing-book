@@ -1,35 +1,35 @@
 // DoubleClickList.java
-// Получение элемента списка по точке экрана
+// РџРѕР»СѓС‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° СЃРїРёСЃРєР° РїРѕ С‚РѕС‡РєРµ СЌРєСЂР°РЅР°
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 
 public class DoubleClickList extends JFrame {
-  // данные списка
-  private String[] data = { "Стейк", "Лобстер",
-      "Борщ", "Севрюга"};
+  // РґР°РЅРЅС‹Рµ СЃРїРёСЃРєР°
+  private String[] data = { "РЎС‚РµР№Рє", "Р›РѕР±СЃС‚РµСЂ",
+      "Р‘РѕСЂС‰", "РЎРµРІСЂСЋРіР°"};
   private JList list;
   public DoubleClickList() {
     super("DoubleClickList");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем список
+    // СЃРѕР·РґР°РµРј СЃРїРёСЃРѕРє
     list = new JList(data);
     list.setSelectionMode(
         ListSelectionModel.SINGLE_SELECTION);
-    // добавим cлушателя событий от мыши
+    // РґРѕР±Р°РІРёРј cР»СѓС€Р°С‚РµР»СЏ СЃРѕР±С‹С‚РёР№ РѕС‚ РјС‹С€Рё
     list.addMouseListener(new MouseAdapter() {
       public void mousePressed(MouseEvent e) {
         if ( e.getClickCount() == 2 ) {
-          // получаем элемент и покажем его
+          // РїРѕР»СѓС‡Р°РµРј СЌР»РµРјРµРЅС‚ Рё РїРѕРєР°Р¶РµРј РµРіРѕ
           int pos =
               list.locationToIndex(e.getPoint());
           JOptionPane.showMessageDialog(
-              list, "Уже готовится: " +
+              list, "РЈР¶Рµ РіРѕС‚РѕРІРёС‚СЃСЏ: " +
                   list.getModel().getElementAt(pos));
         }
       }
     });
-    // выведем окно на экран
+    // РІС‹РІРµРґРµРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     add(new JScrollPane(list));
     setSize(300, 200);
     setVisible(true);

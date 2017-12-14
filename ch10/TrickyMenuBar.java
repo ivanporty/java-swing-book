@@ -1,5 +1,5 @@
 // TrickyMenuBar.java
-// Полоска меню JMenuBar может многое
+// РџРѕР»РѕСЃРєР° РјРµРЅСЋ JMenuBar РјРѕР¶РµС‚ РјРЅРѕРіРѕРµ
 import javax.swing.*;
 import java.awt.*;
 
@@ -7,25 +7,25 @@ public class TrickyMenuBar extends JFrame {
   public TrickyMenuBar() {
     super("TrickyMenuBar");
     setDefaultCloseOperation( EXIT_ON_CLOSE );
-    // создаем главную полоску меню
+    // СЃРѕР·РґР°РµРј РіР»Р°РІРЅСѓСЋ РїРѕР»РѕСЃРєСѓ РјРµРЅСЋ
     JMenuBar menuBar = new JMenuBar();
-    // добавляем в нее выпадающие меню
-    menuBar.add(new JMenu("Файл"));
-    menuBar.add(new JMenu("Правка"));
-    // мы знаем, что используется блочное
-    // расположение, так что заполнитель
-    // вполне уместен
+    // РґРѕР±Р°РІР»СЏРµРј РІ РЅРµРµ РІС‹РїР°РґР°СЋС‰РёРµ РјРµРЅСЋ
+    menuBar.add(new JMenu("Р¤Р°Р№Р»"));
+    menuBar.add(new JMenu("РџСЂР°РІРєР°"));
+    // РјС‹ Р·РЅР°РµРј, С‡С‚Рѕ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ Р±Р»РѕС‡РЅРѕРµ
+    // СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ, С‚Р°Рє С‡С‚Рѕ Р·Р°РїРѕР»РЅРёС‚РµР»СЊ
+    // РІРїРѕР»РЅРµ СѓРјРµСЃС‚РµРЅ
     menuBar.add(Box.createHorizontalGlue());
-    // теперь поместим в полоску меню
-    // не выпадающее меню, а надпись со значком
+    // С‚РµРїРµСЂСЊ РїРѕРјРµСЃС‚РёРј РІ РїРѕР»РѕСЃРєСѓ РјРµРЅСЋ
+    // РЅРµ РІС‹РїР°РґР°СЋС‰РµРµ РјРµРЅСЋ, Р° РЅР°РґРїРёСЃСЊ СЃРѕ Р·РЅР°С‡РєРѕРј
     JLabel icon = new JLabel(
         new ImageIcon("images/download.gif"));
     icon.setBorder(
         BorderFactory.createLoweredBevelBorder());
     menuBar.add(icon);
-    // помещаем меню в наше окно
+    // РїРѕРјРµС‰Р°РµРј РјРµРЅСЋ РІ РЅР°С€Рµ РѕРєРЅРѕ
     setJMenuBar(menuBar);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(300, 200);
     setVisible(true);
   }

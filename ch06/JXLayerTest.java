@@ -1,5 +1,5 @@
 // JXLayerTest.java
-// Пример использования слоев JXLayer
+// РџСЂРёРјРµСЂ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ СЃР»РѕРµРІ JXLayer
 import org.jdesktop.jxlayer.JXLayer;
 import org.jdesktop.jxlayer.plaf.BufferedLayerUI;
 import javax.swing.*;
@@ -9,24 +9,24 @@ import java.awt.event.MouseEvent;
 public class JXLayerTest extends JFrame {
   public JXLayerTest() {
     super("JXLayerTest");
-    // выход при закрытии окна
+    // РІС‹С…РѕРґ РїСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР°
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создадим простое содержимое
+    // СЃРѕР·РґР°РґРёРј РїСЂРѕСЃС‚РѕРµ СЃРѕРґРµСЂР¶РёРјРѕРµ
     JPanel p = new JPanel();
     p.add(new JTextField(10));
-    p.add(new JButton("ОК"));
-    // поместим содержимое в слой
+    p.add(new JButton("РћРљ"));
+    // РїРѕРјРµСЃС‚РёРј СЃРѕРґРµСЂР¶РёРјРѕРµ РІ СЃР»РѕР№
     JXLayer<JPanel> layer = new JXLayer<JPanel>(p);
-    // создадим слой реагирующий на события
+    // СЃРѕР·РґР°РґРёРј СЃР»РѕР№ СЂРµР°РіРёСЂСѓСЋС‰РёР№ РЅР° СЃРѕР±С‹С‚РёСЏ
     layer.setUI(new BufferedLayerUI<JPanel>() {
       private int lastX, lastY;
-      // прорисовка слоя
+      // РїСЂРѕСЂРёСЃРѕРІРєР° СЃР»РѕСЏ
       public void paint(Graphics g, JComponent c) {
         super.paint(g, c);
         g.setColor(Color.RED);
         g.fillOval(lastX, lastY, 15, 15);
       }
-      // получение событий в пределах слоя
+      // РїРѕР»СѓС‡РµРЅРёРµ СЃРѕР±С‹С‚РёР№ РІ РїСЂРµРґРµР»Р°С… СЃР»РѕСЏ
       protected void processMouseMotionEvent(MouseEvent e,
                JXLayer<? extends JPanel> layer) {
         lastX = SwingUtilities.convertMouseEvent(
@@ -36,9 +36,9 @@ public class JXLayerTest extends JFrame {
         repaint();
       }
     });
-    // JXLayer необходимо добавлять в контейнер
+    // JXLayer РЅРµРѕР±С…РѕРґРёРјРѕ РґРѕР±Р°РІР»СЏС‚СЊ РІ РєРѕРЅС‚РµР№РЅРµСЂ
     add(layer);
-    // выведем окно на экран
+    // РІС‹РІРµРґРµРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(400, 150);
     setVisible(true);
   }

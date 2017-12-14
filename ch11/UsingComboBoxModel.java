@@ -1,40 +1,40 @@
 // UsingComboBoxModel.java
-// Использование стандартной модели раскрывающихся списков
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ СЃС‚Р°РЅРґР°СЂС‚РЅРѕР№ РјРѕРґРµР»Рё СЂР°СЃРєСЂС‹РІР°СЋС‰РёС…СЃСЏ СЃРїРёСЃРєРѕРІ
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 
 public class UsingComboBoxModel extends JFrame {
-  // наша стандартная модель
+  // РЅР°С€Р° СЃС‚Р°РЅРґР°СЂС‚РЅР°СЏ РјРѕРґРµР»СЊ
   private DefaultComboBoxModel cbm;
   public UsingComboBoxModel() {
     super("UsingComboBoxModel");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем стандартную модель и наполняем ее данными
+    // СЃРѕР·РґР°РµРј СЃС‚Р°РЅРґР°СЂС‚РЅСѓСЋ РјРѕРґРµР»СЊ Рё РЅР°РїРѕР»РЅСЏРµРј РµРµ РґР°РЅРЅС‹РјРё
     cbm = new DefaultComboBoxModel();
     for (int i=0; i<10; i++) {
-      cbm.addElement("Элемент списка №: " + i);
+      cbm.addElement("Р­Р»РµРјРµРЅС‚ СЃРїРёСЃРєР° в„–: " + i);
     }
-    // сменяем выбранный элемент
+    // СЃРјРµРЅСЏРµРј РІС‹Р±СЂР°РЅРЅС‹Р№ СЌР»РµРјРµРЅС‚
     cbm.setSelectedItem(cbm.getElementAt(4));
-    // список на основе нашей модели
+    // СЃРїРёСЃРѕРє РЅР° РѕСЃРЅРѕРІРµ РЅР°С€РµР№ РјРѕРґРµР»Рё
     JComboBox combo = new JComboBox(cbm);
     combo.setMaximumRowCount(5);
-    // стандартная модель позволяет
-    // динамически манипулировать данными
-    JButton add = new JButton("Добавить");
+    // СЃС‚Р°РЅРґР°СЂС‚РЅР°СЏ РјРѕРґРµР»СЊ РїРѕР·РІРѕР»СЏРµС‚
+    // РґРёРЅР°РјРёС‡РµСЃРєРё РјР°РЅРёРїСѓР»РёСЂРѕРІР°С‚СЊ РґР°РЅРЅС‹РјРё
+    JButton add = new JButton("Р”РѕР±Р°РІРёС‚СЊ");
     add.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        // случайно выбираем позицию
+        // СЃР»СѓС‡Р°Р№РЅРѕ РІС‹Р±РёСЂР°РµРј РїРѕР·РёС†РёСЋ
         int pos = (int) (Math.random()*cbm.getSize());
-        cbm.insertElementAt("Новинка!", pos);
+        cbm.insertElementAt("РќРѕРІРёРЅРєР°!", pos);
       }
     });
-    // добавляем список и кнопку в панель
+    // РґРѕР±Р°РІР»СЏРµРј СЃРїРёСЃРѕРє Рё РєРЅРѕРїРєСѓ РІ РїР°РЅРµР»СЊ
     setLayout(new FlowLayout());
     add(combo);
     add(add);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(400, 200);
     setVisible(true);
   }

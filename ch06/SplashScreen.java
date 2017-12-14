@@ -1,25 +1,25 @@
 // SplashScreen.java
-// Создание заставки для приложения
+// РЎРѕР·РґР°РЅРёРµ Р·Р°СЃС‚Р°РІРєРё РґР»СЏ РїСЂРёР»РѕР¶РµРЅРёСЏ
 import javax.swing.*;
 import java.awt.*;
 
 public class SplashScreen extends JWindow {
 	public SplashScreen() {
 		super();
-    // размер и положение окна на экране
+    // СЂР°Р·РјРµСЂ Рё РїРѕР»РѕР¶РµРЅРёРµ РѕРєРЅР° РЅР° СЌРєСЂР°РЅРµ
 		setLocation(200, 100);
 		setSize(300, 300);
-		// снимаем экранную копию
+		// СЃРЅРёРјР°РµРј СЌРєСЂР°РЅРЅСѓСЋ РєРѕРїРёСЋ
 		try {
 			Robot robot = new Robot();
 			capture = robot.createScreenCapture(
 				new Rectangle(200, 100, 500, 400));
 		} catch (Exception ex) { ex.printStackTrace(); }
-		// добавляем компонент-заставку
+		// РґРѕР±Р°РІР»СЏРµРј РєРѕРјРїРѕРЅРµРЅС‚-Р·Р°СЃС‚Р°РІРєСѓ
 		getContentPane().add(new Splash());
-		// выводим окно на экран
+		// РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
 		setVisible(true);
-		// заканчиваем работу по истечении некоторого времени
+		// Р·Р°РєР°РЅС‡РёРІР°РµРј СЂР°Р±РѕС‚Сѓ РїРѕ РёСЃС‚РµС‡РµРЅРёРё РЅРµРєРѕС‚РѕСЂРѕРіРѕ РІСЂРµРјРµРЅРё
 /*
 		try {
 			Thread.sleep(10000);
@@ -27,16 +27,16 @@ public class SplashScreen extends JWindow {
 */
 		//System.exit(0);
 	}
-	// необходимые нам изображения
+	// РЅРµРѕР±С…РѕРґРёРјС‹Рµ РЅР°Рј РёР·РѕР±СЂР°Р¶РµРЅРёСЏ
 	private Image capture;
 	private Image splash = 
 		getToolkit().getImage("splash.gif");
-	// компонент рисует заставку
+	// РєРѕРјРїРѕРЅРµРЅС‚ СЂРёСЃСѓРµС‚ Р·Р°СЃС‚Р°РІРєСѓ
 	class Splash extends JComponent {
 		public void paintComponent(Graphics g) {
-			// рисуем копию экрана
+			// СЂРёСЃСѓРµРј РєРѕРїРёСЋ СЌРєСЂР°РЅР°
 			g.drawImage(capture, 0, 0, this);
-			// и поверх нее - рисунок с заставкой
+			// Рё РїРѕРІРµСЂС… РЅРµРµ - СЂРёСЃСѓРЅРѕРє СЃ Р·Р°СЃС‚Р°РІРєРѕР№
 			g.drawImage(splash, 0, 0, this);
 		}
 	}

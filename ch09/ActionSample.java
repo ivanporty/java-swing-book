@@ -1,5 +1,5 @@
 // ActionSample.java
-// Использование архитектуры Action
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ Р°СЂС…РёС‚РµРєС‚СѓСЂС‹ Action
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -8,35 +8,35 @@ public class ActionSample extends JFrame {
   public ActionSample() {
     super("ActionSample");
     setDefaultCloseOperation( EXIT_ON_CLOSE );
-    // используем последовательное расположение
+    // РёСЃРїРѕР»СЊР·СѓРµРј РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕРµ СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ
     setLayout(new FlowLayout());
-    // создадим пару кнопок, выполняющих
-    // одно действие
+    // СЃРѕР·РґР°РґРёРј РїР°СЂСѓ РєРЅРѕРїРѕРє, РІС‹РїРѕР»РЅСЏСЋС‰РёС…
+    // РѕРґРЅРѕ РґРµР№СЃС‚РІРёРµ
     Action action = new SimpleAction();
     JButton button1 = new JButton(action);
     JButton button2 = new JButton(action);
     add(button1);
     add(button2);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(300, 100);
     setVisible(true);
   }
-  // этот внутренний класс инкапсулирует нашу команду
+  // СЌС‚РѕС‚ РІРЅСѓС‚СЂРµРЅРЅРёР№ РєР»Р°СЃСЃ РёРЅРєР°РїСЃСѓР»РёСЂСѓРµС‚ РЅР°С€Сѓ РєРѕРјР°РЅРґСѓ
   class SimpleAction extends AbstractAction {
     SimpleAction() {
-      // установим параметры команды
-      putValue(NAME, "Привет, Action!");
-      putValue(SHORT_DESCRIPTION, "Это подсказка");
+      // СѓСЃС‚Р°РЅРѕРІРёРј РїР°СЂР°РјРµС‚СЂС‹ РєРѕРјР°РЅРґС‹
+      putValue(NAME, "РџСЂРёРІРµС‚, Action!");
+      putValue(SHORT_DESCRIPTION, "Р­С‚Рѕ РїРѕРґСЃРєР°Р·РєР°");
       putValue(MNEMONIC_KEY, new Integer('A'));
     }
-    // в этом методе обрабатывается событие, как
-    // и в прежнем методе ActionListener
+    // РІ СЌС‚РѕРј РјРµС‚РѕРґРµ РѕР±СЂР°Р±Р°С‚С‹РІР°РµС‚СЃСЏ СЃРѕР±С‹С‚РёРµ, РєР°Рє
+    // Рё РІ РїСЂРµР¶РЅРµРј РјРµС‚РѕРґРµ ActionListener
     public void actionPerformed(ActionEvent e) {
-      // можно выключить команду, не зная, к
-      // каким компонентам она присоединена
+      // РјРѕР¶РЅРѕ РІС‹РєР»СЋС‡РёС‚СЊ РєРѕРјР°РЅРґСѓ, РЅРµ Р·РЅР°СЏ, Рє
+      // РєР°РєРёРј РєРѕРјРїРѕРЅРµРЅС‚Р°Рј РѕРЅР° РїСЂРёСЃРѕРµРґРёРЅРµРЅР°
       setEnabled(false);
-      // изменим надпись
-      putValue(NAME, "Прощай, Action!");
+      // РёР·РјРµРЅРёРј РЅР°РґРїРёСЃСЊ
+      putValue(NAME, "РџСЂРѕС‰Р°Р№, Action!");
     }
   }
   public static void main(String[] args) {

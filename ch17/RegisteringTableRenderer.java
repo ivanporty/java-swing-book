@@ -1,6 +1,6 @@
 // RegisteringTableRenderer.java
-// Регистрация в таблице собственного
-// объекта для отображения
+// Р РµРіРёСЃС‚СЂР°С†РёСЏ РІ С‚Р°Р±Р»РёС†Рµ СЃРѕР±СЃС‚РІРµРЅРЅРѕРіРѕ
+// РѕР±СЉРµРєС‚Р° РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ
 import javax.swing.*;
 import javax.swing.table.*;
 import com.porty.swing.*;
@@ -10,50 +10,50 @@ public class RegisteringTableRenderer extends JFrame {
   public RegisteringTableRenderer() {
     super("RegisteringTableRenderer");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем таблицы на основе нашей модели
+    // СЃРѕР·РґР°РµРј С‚Р°Р±Р»РёС†С‹ РЅР° РѕСЃРЅРѕРІРµ РЅР°С€РµР№ РјРѕРґРµР»Рё
     JTable table = new JTable(new SpecialModel());
-    // регистрируем объект для прорисовки новых данных
+    // СЂРµРіРёСЃС‚СЂРёСЂСѓРµРј РѕР±СЉРµРєС‚ РґР»СЏ РїСЂРѕСЂРёСЃРѕРІРєРё РЅРѕРІС‹С… РґР°РЅРЅС‹С…
     table.setDefaultRenderer(ImageListElement.class,
         new ImageTableCellRenderer());
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     add(new JScrollPane(table));
     pack();
     setVisible(true);
   }
-  // модель таблицы
+  // РјРѕРґРµР»СЊ С‚Р°Р±Р»РёС†С‹
   class SpecialModel extends AbstractTableModel {
-    // значки
+    // Р·РЅР°С‡РєРё
     private Icon
         image1 = new ImageIcon("clip1.gif"),
         image2 = new ImageIcon("clip2.gif");
-    // названия столбцов
+    // РЅР°Р·РІР°РЅРёСЏ СЃС‚РѕР»Р±С†РѕРІ
     private String[] columnNames = {
-        "Компания", "Адрес"
+        "РљРѕРјРїР°РЅРёСЏ", "РђРґСЂРµСЃ"
     };
-    // данные таблицы
+    // РґР°РЅРЅС‹Рµ С‚Р°Р±Р»РёС†С‹
     private Object[][] data = {
         { new ImageListElement(image1, "MegaWorks"),
-            "<html><font color=\"red\">Париж" },
+            "<html><font color=\"red\">РџР°СЂРёР¶" },
         { new ImageListElement(image2, "TerraMedia"),
-            "<html><b>С.-Петербург" }
+            "<html><b>РЎ.-РџРµС‚РµСЂР±СѓСЂРі" }
     };
-    // количество столбцов
+    // РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚РѕР»Р±С†РѕРІ
     public int getColumnCount() {
       return columnNames.length;
     }
-    // названия столбцов
+    // РЅР°Р·РІР°РЅРёСЏ СЃС‚РѕР»Р±С†РѕРІ
     public String getColumnName(int column) {
       return columnNames[column];
     }
-    // количество строк
+    // РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє
     public int getRowCount() {
       return data.length;
     }
-    // тип данных столбца
+    // С‚РёРї РґР°РЅРЅС‹С… СЃС‚РѕР»Р±С†Р°
     public Class getColumnClass(int column) {
       return data[0][column].getClass();
     }
-    // значение в ячейке
+    // Р·РЅР°С‡РµРЅРёРµ РІ СЏС‡РµР№РєРµ
     public Object getValueAt(int row, int column) {
       return data[row][column];
     }

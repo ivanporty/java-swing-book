@@ -1,5 +1,5 @@
 // com/porty/swing/ImageTableCellRenderer.java
-// Объект для прорисовки значка и текста в таблице
+// РћР±СЉРµРєС‚ РґР»СЏ РїСЂРѕСЂРёСЃРѕРІРєРё Р·РЅР°С‡РєР° Рё С‚РµРєСЃС‚Р° РІ С‚Р°Р±Р»РёС†Рµ
 package com.porty.swing;
 import javax.swing.*;
 import javax.swing.table.*;
@@ -7,19 +7,19 @@ import java.awt.*;
 
 public class ImageTableCellRenderer
     extends DefaultTableCellRenderer {
-  // метод возвращает компонент для прорисовки
+  // РјРµС‚РѕРґ РІРѕР·РІСЂР°С‰Р°РµС‚ РєРѕРјРїРѕРЅРµРЅС‚ РґР»СЏ РїСЂРѕСЂРёСЃРѕРІРєРё
   public Component getTableCellRendererComponent(
       JTable table, Object value, boolean isSelected,
       boolean hasFocus, int row, int column) {
-    // получаем объект нужного типа
+    // РїРѕР»СѓС‡Р°РµРј РѕР±СЉРµРєС‚ РЅСѓР¶РЅРѕРіРѕ С‚РёРїР°
     if ( value instanceof ImageListElement ) {
       ImageListElement imageCell = (ImageListElement)value;
-      // получаем настроенную надпись от базового класса
+      // РїРѕР»СѓС‡Р°РµРј РЅР°СЃС‚СЂРѕРµРЅРЅСѓСЋ РЅР°РґРїРёСЃСЊ РѕС‚ Р±Р°Р·РѕРІРѕРіРѕ РєР»Р°СЃСЃР°
       JLabel label = (JLabel)super.
           getTableCellRendererComponent(table,
               imageCell.getText(), isSelected, hasFocus,
               row, column);
-      // устанавливаем значок и подсказку
+      // СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј Р·РЅР°С‡РѕРє Рё РїРѕРґСЃРєР°Р·РєСѓ
       label.setIcon(imageCell.getIcon());
       label.setToolTipText(imageCell.getText());
       return label;

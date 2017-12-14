@@ -1,27 +1,27 @@
 // ImageList.java
-// Список, используюший новый рисующий объект
+// РЎРїРёСЃРѕРє, РёСЃРїРѕР»СЊР·СѓСЋС€РёР№ РЅРѕРІС‹Р№ СЂРёСЃСѓСЋС‰РёР№ РѕР±СЉРµРєС‚
 import javax.swing.*;
 import com.porty.swing.*;
 
 import java.awt.*;
 
 public class ImageList {
-  // данные списка
+  // РґР°РЅРЅС‹Рµ СЃРїРёСЃРєР°
   private static Icon bullet = new ImageIcon("bullet.gif");
   private static Object[] data = {
-      new ImageListElement(bullet, "Первый"),
-      new ImageListElement(bullet, "Второй"),
+      new ImageListElement(bullet, "РџРµСЂРІС‹Р№"),
+      new ImageListElement(bullet, "Р’С‚РѕСЂРѕР№"),
       new ImageListElement(bullet,
-          "<html><h4><font color=green>И третий!")
+          "<html><h4><font color=green>Р С‚СЂРµС‚РёР№!")
   };
   public static void main(String[] args) {
     SwingUtilities.invokeLater(
         new Runnable() {
           public void run() {
-            // создаем список и настраиваем его
+            // СЃРѕР·РґР°РµРј СЃРїРёСЃРѕРє Рё РЅР°СЃС‚СЂР°РёРІР°РµРј РµРіРѕ
             JList list = new JList(data);
             list.setCellRenderer(new ImageListCellRenderer());
-            // добавляем в окно
+            // РґРѕР±Р°РІР»СЏРµРј РІ РѕРєРЅРѕ
             JFrame frame = new JFrame("ImageList");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setSize(200, 200);

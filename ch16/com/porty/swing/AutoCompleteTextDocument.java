@@ -1,5 +1,5 @@
 // com/porty/swing/AutoCompleteTextDocument.java
-// Модель документа с поддержкой автозаполнения
+// РњРѕРґРµР»СЊ РґРѕРєСѓРјРµРЅС‚Р° СЃ РїРѕРґРґРµСЂР¶РєРѕР№ Р°РІС‚РѕР·Р°РїРѕР»РЅРµРЅРёСЏ
 package com.porty.swing;
 
 import javax.swing.text.*;
@@ -7,63 +7,63 @@ import javax.swing.*;
 import java.util.*;
 
 public class AutoCompleteTextDocument extends PlainDocument {
-  // текстовый компонент в котором работает документ
+  // С‚РµРєСЃС‚РѕРІС‹Р№ РєРѕРјРїРѕРЅРµРЅС‚ РІ РєРѕС‚РѕСЂРѕРј СЂР°Р±РѕС‚Р°РµС‚ РґРѕРєСѓРјРµРЅС‚
   private JTextComponent comp;
-  // список слов для автозаполнения
+  // СЃРїРёСЃРѕРє СЃР»РѕРІ РґР»СЏ Р°РІС‚РѕР·Р°РїРѕР»РЅРµРЅРёСЏ
   private List<String> words = new ArrayList<String>();
-  // конструктор требует текстовый компонент
+  // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ С‚СЂРµР±СѓРµС‚ С‚РµРєСЃС‚РѕРІС‹Р№ РєРѕРјРїРѕРЅРµРЅС‚
   public AutoCompleteTextDocument(JTextComponent comp) {
     this.comp = comp;
     comp.setDocument(this);
   }
-  // добавляет слово в список
+  // РґРѕР±Р°РІР»СЏРµС‚ СЃР»РѕРІРѕ РІ СЃРїРёСЃРѕРє
   public void addWord(String word) {
     words.add(word);
   }
-  // свойство, управляющее началом автозаполнения
+  // СЃРІРѕР№СЃС‚РІРѕ, СѓРїСЂР°РІР»СЏСЋС‰РµРµ РЅР°С‡Р°Р»РѕРј Р°РІС‚РѕР·Р°РїРѕР»РЅРµРЅРёСЏ
   private int beforeCompletion = 3;
   public void setBeforeCompletion(int value) {
     beforeCompletion = value;
   }
 
-  // вызывается при вставке в документ нового текста
+  // РІС‹Р·С‹РІР°РµС‚СЃСЏ РїСЂРё РІСЃС‚Р°РІРєРµ РІ РґРѕРєСѓРјРµРЅС‚ РЅРѕРІРѕРіРѕ С‚РµРєСЃС‚Р°
   @Override
   public void insertString(int offs, String str, AttributeSet a)
       throws BadLocationException {
-    // текущая позиция в тексте
+    // С‚РµРєСѓС‰Р°СЏ РїРѕР·РёС†РёСЏ РІ С‚РµРєСЃС‚Рµ
     int end = offs + str.length();
-    // определяем позиции текущего слова
+    // РѕРїСЂРµРґРµР»СЏРµРј РїРѕР·РёС†РёРё С‚РµРєСѓС‰РµРіРѕ СЃР»РѕРІР°
     final int wordStart = Utilities.getWordStart(comp, offs);
-    // длина текущего слова
+    // РґР»РёРЅР° С‚РµРєСѓС‰РµРіРѕ СЃР»РѕРІР°
     int wordLength = end - wordStart;
-    // проверим, можно ли завершать слово
+    // РїСЂРѕРІРµСЂРёРј, РјРѕР¶РЅРѕ Р»Рё Р·Р°РІРµСЂС€Р°С‚СЊ СЃР»РѕРІРѕ
     if ( wordLength >= beforeCompletion) {
-      // получаем текущее слово
+      // РїРѕР»СѓС‡Р°РµРј С‚РµРєСѓС‰РµРµ СЃР»РѕРІРѕ
       String word = getText(wordStart, offs - wordStart) + str;
-      // пытаемся найти его полный вариант в списке
+      // РїС‹С‚Р°РµРјСЃСЏ РЅР°Р№С‚Рё РµРіРѕ РїРѕР»РЅС‹Р№ РІР°СЂРёР°РЅС‚ РІ СЃРїРёСЃРєРµ
       String wholeWord = "";
       for (String next : words) {
         if (next.startsWith(word)) {
-          // слово найдено
+          // СЃР»РѕРІРѕ РЅР°Р№РґРµРЅРѕ
           wholeWord = next;
           break;
         }
       }
-      // если слово найдено
+      // РµСЃР»Рё СЃР»РѕРІРѕ РЅР°Р№РґРµРЅРѕ
       if ( wholeWord.length() > 0) {
-        // вырезаем часть для автозаполнения
+        // РІС‹СЂРµР·Р°РµРј С‡Р°СЃС‚СЊ РґР»СЏ Р°РІС‚РѕР·Р°РїРѕР»РЅРµРЅРёСЏ
         final String toComplete =
             wholeWord.substring(wordLength);
-        // позиции для выделения этой части
+        // РїРѕР·РёС†РёРё РґР»СЏ РІС‹РґРµР»РµРЅРёСЏ СЌС‚РѕР№ С‡Р°СЃС‚Рё
         final int startPos = offs + str.length();
         final int endPos = end + toComplete.length();
-        // добавляем добавку к тексту
+        // РґРѕР±Р°РІР»СЏРµРј РґРѕР±Р°РІРєСѓ Рє С‚РµРєСЃС‚Сѓ
         str = str + toComplete;
-        // отложенная задача для выделения добавки
+        // РѕС‚Р»РѕР¶РµРЅРЅР°СЏ Р·Р°РґР°С‡Р° РґР»СЏ РІС‹РґРµР»РµРЅРёСЏ РґРѕР±Р°РІРєРё
         SwingUtilities.invokeLater(new Runnable() {
           public void run() {
             try {
-              // выделим добавленную часть
+              // РІС‹РґРµР»РёРј РґРѕР±Р°РІР»РµРЅРЅСѓСЋ С‡Р°СЃС‚СЊ
               comp.setSelectionStart(startPos);
               comp.setSelectionEnd(endPos);
             } catch (Exception ex) {
@@ -73,7 +73,7 @@ public class AutoCompleteTextDocument extends PlainDocument {
         });
       }
     }
-    // родительский метод добавит текст
+    // СЂРѕРґРёС‚РµР»СЊСЃРєРёР№ РјРµС‚РѕРґ РґРѕР±Р°РІРёС‚ С‚РµРєСЃС‚
     super.insertString(offs, str, a);
   }
 }

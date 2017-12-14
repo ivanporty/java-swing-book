@@ -1,5 +1,5 @@
 // TestXMLMenuLoader.java
-// Проверка загрузки системы меню из файла XML
+// РџСЂРѕРІРµСЂРєР° Р·Р°РіСЂСѓР·РєРё СЃРёСЃС‚РµРјС‹ РјРµРЅСЋ РёР· С„Р°Р№Р»Р° XML
 import javax.swing.*;
 import com.porty.swing.*;
 import java.io.*;
@@ -10,17 +10,17 @@ public class TestXMLMenuLoader extends JFrame {
   public TestXMLMenuLoader() {
     super("TestXMLMenuLoader");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // открываем файл XML с описанием меню
+    // РѕС‚РєСЂС‹РІР°РµРј С„Р°Р№Р» XML СЃ РѕРїРёСЃР°РЅРёРµРј РјРµРЅСЋ
     try {
       InputStream stream =
           new FileInputStream("menu.xml");
-      // загружаем меню
+      // Р·Р°РіСЂСѓР¶Р°РµРј РјРµРЅСЋ
       XMLMenuLoader loader =
           new XMLMenuLoader(stream);
       loader.parse();
-      // устанавливаем строку меню
+      // СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј СЃС‚СЂРѕРєСѓ РјРµРЅСЋ
       setJMenuBar(loader.getMenuBar("mainMenu"));
-      // быстрое присоединение слушателя
+      // Р±С‹СЃС‚СЂРѕРµ РїСЂРёСЃРѕРµРґРёРЅРµРЅРёРµ СЃР»СѓС€Р°С‚РµР»СЏ
       loader.addActionListener("exit",
           new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -30,7 +30,7 @@ public class TestXMLMenuLoader extends JFrame {
     } catch (Exception ex) {
       ex.printStackTrace();
     }
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(300, 200);
     setVisible(true);
   }

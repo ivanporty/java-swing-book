@@ -1,27 +1,27 @@
 // ToolTipsTuning.java
-// Настройка подсказок
+// РќР°СЃС‚СЂРѕР№РєР° РїРѕРґСЃРєР°Р·РѕРє
 import javax.swing.*;
 
 public class ToolTipsTuning extends JFrame {
   public ToolTipsTuning() {
     super("ToolTipsTuning");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // добавим кнопки с подсказками
+    // РґРѕР±Р°РІРёРј РєРЅРѕРїРєРё СЃ РїРѕРґСЃРєР°Р·РєР°РјРё
     JPanel contents = new JPanel();
-    JButton b1 = new JButton("Первая");
-    b1.setToolTipText("Подсказка для первой");
-    JButton b2 = new JButton("Вторая");
-    b2.setToolTipText("Подсказка для второй");
+    JButton b1 = new JButton("РџРµСЂРІР°СЏ");
+    b1.setToolTipText("РџРѕРґСЃРєР°Р·РєР° РґР»СЏ РїРµСЂРІРѕР№");
+    JButton b2 = new JButton("Р’С‚РѕСЂР°СЏ");
+    b2.setToolTipText("РџРѕРґСЃРєР°Р·РєР° РґР»СЏ РІС‚РѕСЂРѕР№");
     contents.add(b1);
     contents.add(b2);
-    // настройка подсказок
+    // РЅР°СЃС‚СЂРѕР№РєР° РїРѕРґСЃРєР°Р·РѕРє
     ToolTipManager ttm =
         ToolTipManager.sharedInstance();
     ttm.setLightWeightPopupEnabled(false);
     ttm.setInitialDelay(1000);
     ttm.setDismissDelay(500);
     ttm.setReshowDelay(1000);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     add(contents);
     setSize(200, 100);
     setVisible(true);

@@ -1,5 +1,5 @@
 // com/porty/swing/SimpleButton.java
-// Пример компонента со своим собственным событием
+// РџСЂРёРјРµСЂ РєРѕРјРїРѕРЅРµРЅС‚Р° СЃРѕ СЃРІРѕРёРј СЃРѕР±СЃС‚РІРµРЅРЅС‹Рј СЃРѕР±С‹С‚РёРµРј
 package com.porty.swing;
 
 import javax.swing.*;
@@ -10,44 +10,44 @@ import java.util.*;
 import com.porty.swing.event.*;
 
 public class SimpleButton extends JComponent {
-  // список слушателей
+  // СЃРїРёСЃРѕРє СЃР»СѓС€Р°С‚РµР»РµР№
   private ArrayList<ButtonPressListener>
       listenerList = new ArrayList<ButtonPressListener>();
-  // один объект-событие на все случаи жизни
+  // РѕРґРёРЅ РѕР±СЉРµРєС‚-СЃРѕР±С‹С‚РёРµ РЅР° РІСЃРµ СЃР»СѓС‡Р°Рё Р¶РёР·РЅРё
   private ButtonPressEvent event =
       new ButtonPressEvent(this);
 
-  // конструктор - присоединяет к кнопке слушателя
-  // событий от мыши
+  // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ - РїСЂРёСЃРѕРµРґРёРЅСЏРµС‚ Рє РєРЅРѕРїРєРµ СЃР»СѓС€Р°С‚РµР»СЏ
+  // СЃРѕР±С‹С‚РёР№ РѕС‚ РјС‹С€Рё
   public SimpleButton() {
     addMouseListener(new PressL());
-    // зададим размеры компонента
+    // Р·Р°РґР°РґРёРј СЂР°Р·РјРµСЂС‹ РєРѕРјРїРѕРЅРµРЅС‚Р°
     setPreferredSize(new Dimension(100, 100));
   }
 
-  // присоединяет слушателя нажатия кнопки
+  // РїСЂРёСЃРѕРµРґРёРЅСЏРµС‚ СЃР»СѓС€Р°С‚РµР»СЏ РЅР°Р¶Р°С‚РёСЏ РєРЅРѕРїРєРё
   public void addButtonPressListener(
       ButtonPressListener l) {
     listenerList.add(l);
   }
 
-  // отсоединяет слушателя нажатия кнопки
+  // РѕС‚СЃРѕРµРґРёРЅСЏРµС‚ СЃР»СѓС€Р°С‚РµР»СЏ РЅР°Р¶Р°С‚РёСЏ РєРЅРѕРїРєРё
   public void removeButtonPressListener(
       ButtonPressListener l) {
     listenerList.remove(l);
   }
 
-  // прорисовывает кнопку
+  // РїСЂРѕСЂРёСЃРѕРІС‹РІР°РµС‚ РєРЅРѕРїРєСѓ
   public void paintComponent(Graphics g) {
-    // зальем зеленым цветом
+    // Р·Р°Р»СЊРµРј Р·РµР»РµРЅС‹Рј С†РІРµС‚РѕРј
     g.setColor(Color.green);
     g.fillRect(0, 0, getWidth(), getHeight());
-    // рамка
+    // СЂР°РјРєР°
     g.setColor(Color.black);
     g.draw3DRect(0, 0, getWidth(), getHeight(), true);
   }
 
-  // оповещает слушателей о событии
+  // РѕРїРѕРІРµС‰Р°РµС‚ СЃР»СѓС€Р°С‚РµР»РµР№ Рѕ СЃРѕР±С‹С‚РёРё
   protected void fireButtonPressed() {
     for (ButtonPressListener l :
         listenerList) {
@@ -55,11 +55,11 @@ public class SimpleButton extends JComponent {
     }
   }
 
-  // внутренний класс, следит за нажатиями мыши
+  // РІРЅСѓС‚СЂРµРЅРЅРёР№ РєР»Р°СЃСЃ, СЃР»РµРґРёС‚ Р·Р° РЅР°Р¶Р°С‚РёСЏРјРё РјС‹С€Рё
   class PressL extends MouseAdapter {
-    // нажатие мыши в области кнопки
+    // РЅР°Р¶Р°С‚РёРµ РјС‹С€Рё РІ РѕР±Р»Р°СЃС‚Рё РєРЅРѕРїРєРё
     public void mousePressed(MouseEvent e) {
-      // оповестим слушателей
+      // РѕРїРѕРІРµСЃС‚РёРј СЃР»СѓС€Р°С‚РµР»РµР№
       fireButtonPressed();
     }
   }

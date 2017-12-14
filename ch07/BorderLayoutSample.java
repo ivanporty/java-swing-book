@@ -1,5 +1,5 @@
 // BorderLayoutSample.java
-// Полярное расположение
+// РџРѕР»СЏСЂРЅРѕРµ СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ
 import javax.swing.*;
 import java.awt.*;
 
@@ -8,17 +8,17 @@ public class BorderLayoutSample extends JFrame {
     super("BorderLayoutSample");
     setSize(400, 300);
     setDefaultCloseOperation( EXIT_ON_CLOSE );
-    // добавляем компоненты
-    // в качестве параметров можно использовать строки
-    add(new JButton("Север"), "North");
-    add(new JButton("Юг"), "South");
-    // … или константы из класса BorderLayout
-    add(new JLabel("Запад"), BorderLayout.WEST);
-    add(new JLabel("Восток"), BorderLayout.EAST);
-    // если параметр не указывать вовсе, компонент
-    // автоматически добавится в центр
-    add(new JButton("Центр"));
-    // выводим окно на экран
+    // РґРѕР±Р°РІР»СЏРµРј РєРѕРјРїРѕРЅРµРЅС‚С‹
+    // РІ РєР°С‡РµСЃС‚РІРµ РїР°СЂР°РјРµС‚СЂРѕРІ РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ СЃС‚СЂРѕРєРё
+    add(new JButton("РЎРµРІРµСЂ"), "North");
+    add(new JButton("Р®Рі"), "South");
+    // вЂ¦ РёР»Рё РєРѕРЅСЃС‚Р°РЅС‚С‹ РёР· РєР»Р°СЃСЃР° BorderLayout
+    add(new JLabel("Р—Р°РїР°Рґ"), BorderLayout.WEST);
+    add(new JLabel("Р’РѕСЃС‚РѕРє"), BorderLayout.EAST);
+    // РµСЃР»Рё РїР°СЂР°РјРµС‚СЂ РЅРµ СѓРєР°Р·С‹РІР°С‚СЊ РІРѕРІСЃРµ, РєРѕРјРїРѕРЅРµРЅС‚
+    // Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё РґРѕР±Р°РІРёС‚СЃСЏ РІ С†РµРЅС‚СЂ
+    add(new JButton("Р¦РµРЅС‚СЂ"));
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setVisible(true);
   }
   public static void main(String[] args) {

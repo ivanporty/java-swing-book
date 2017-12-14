@@ -1,39 +1,39 @@
 // LayeredTest.java
-// Возможности многослойной панели
+// Р’РѕР·РјРѕР¶РЅРѕСЃС‚Рё РјРЅРѕРіРѕСЃР»РѕР№РЅРѕР№ РїР°РЅРµР»Рё
 import javax.swing.*;
 import java.awt.*;
 
 public class LayeredTest extends JFrame {
   public LayeredTest() {
     super("LayeredTest");
-    // выход при закрытии окна
+    // РІС‹С…РѕРґ РїСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР°
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // получаем многослойную панель
+    // РїРѕР»СѓС‡Р°РµРј РјРЅРѕРіРѕСЃР»РѕР№РЅСѓСЋ РїР°РЅРµР»СЊ
     JLayeredPane lp = getLayeredPane();
-    // три фигуры
+    // С‚СЂРё С„РёРіСѓСЂС‹
     Figure fg1 = new Figure(Color.red, 0, "POPUP");
     Figure fg2 = new Figure(Color.blue, 0, "PALETTE1");
     Figure fg3 = new Figure(Color.green, 1, "PALETTE2");
-    // расположение фигур в окне
+    // СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ С„РёРіСѓСЂ РІ РѕРєРЅРµ
     fg1.setBounds(10, 10, 120, 120);
     fg2.setBounds(60, 80, 160, 180);
     fg3.setBounds(90, 15, 250, 180);
-    // добавляем в различные слои
+    // РґРѕР±Р°РІР»СЏРµРј РІ СЂР°Р·Р»РёС‡РЅС‹Рµ СЃР»РѕРё
     lp.add(fg1, JLayeredPane.POPUP_LAYER);
     lp.add(fg2, JLayeredPane.PALETTE_LAYER);
     lp.add(fg3, JLayeredPane.PALETTE_LAYER);
-    // смена позиции одной из фигур
+    // СЃРјРµРЅР° РїРѕР·РёС†РёРё РѕРґРЅРѕР№ РёР· С„РёРіСѓСЂ
     lp.setPosition(fg3, 0);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(300, 200);
     setVisible(true);
   }
-  // класс, позволяющий рисовать два типа фигур с текстом
+  // РєР»Р°СЃСЃ, РїРѕР·РІРѕР»СЏСЋС‰РёР№ СЂРёСЃРѕРІР°С‚СЊ РґРІР° С‚РёРїР° С„РёРіСѓСЂ СЃ С‚РµРєСЃС‚РѕРј
   class Figure extends JComponent {
     private Color color;
     private int type;
     private String text;
-    // параметры: цвет и тип фигуры
+    // РїР°СЂР°РјРµС‚СЂС‹: С†РІРµС‚ Рё С‚РёРї С„РёРіСѓСЂС‹
     Figure(Color color, int type, String text) {
       this.color = color;
       this.type = type;
@@ -41,7 +41,7 @@ public class LayeredTest extends JFrame {
       setOpaque(false);
     }
     public void paintComponent(Graphics g) {
-      // прорисовка фигуры
+      // РїСЂРѕСЂРёСЃРѕРІРєР° С„РёРіСѓСЂС‹
       g.setColor(color);
       switch (type) {
         case 0: g.fillOval(0, 0, 90, 90); break;

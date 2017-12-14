@@ -1,5 +1,5 @@
 // TreeExpansionEvents.java
-// События при развертывании узлов дерева
+// РЎРѕР±С‹С‚РёСЏ РїСЂРё СЂР°Р·РІРµСЂС‚С‹РІР°РЅРёРё СѓР·Р»РѕРІ РґРµСЂРµРІР°
 import javax.swing.*;
 import javax.swing.event.TreeExpansionListener;
 import javax.swing.event.TreeWillExpandListener;
@@ -14,9 +14,9 @@ public class TreeExpansionEvents extends JFrame {
   public TreeExpansionEvents() {
     super("TreeExpansionEvents");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем дерево на основе модели
+    // СЃРѕР·РґР°РµРј РґРµСЂРµРІРѕ РЅР° РѕСЃРЅРѕРІРµ РјРѕРґРµР»Рё
     JTree tree = new JTree(createTreeModel());
-    // добавляем слушателей
+    // РґРѕР±Р°РІР»СЏРµРј СЃР»СѓС€Р°С‚РµР»РµР№
     TreeListener listener = new TreeListener();
     tree.addTreeExpansionListener(listener);
     tree.addTreeWillExpandListener(listener);
@@ -24,47 +24,47 @@ public class TreeExpansionEvents extends JFrame {
     setSize(400, 300);
     setVisible(true);
   }
-  // листья дерева храним в массивах
+  // Р»РёСЃС‚СЊСЏ РґРµСЂРµРІР° С…СЂР°РЅРёРј РІ РјР°СЃСЃРёРІР°С…
   private String[] langs = {
       "<html><b>Java", "<html><pre>Scala", "Ruby" };
   private String[] ides = {
       "IDEA", "<html><i>Eclipse", "NetBeans" };
-  // создание несложной модели дерева
+  // СЃРѕР·РґР°РЅРёРµ РЅРµСЃР»РѕР¶РЅРѕР№ РјРѕРґРµР»Рё РґРµСЂРµРІР°
   private TreeModel createTreeModel() {
-    // корень нашего дерева
+    // РєРѕСЂРµРЅСЊ РЅР°С€РµРіРѕ РґРµСЂРµРІР°
     DefaultMutableTreeNode root =
         new DefaultMutableTreeNode(
-            "<html><font color=blue>Создание кода");
-    // основные ветви
+            "<html><font color=blue>РЎРѕР·РґР°РЅРёРµ РєРѕРґР°");
+    // РѕСЃРЅРѕРІРЅС‹Рµ РІРµС‚РІРё
     DefaultMutableTreeNode lang =
-        new DefaultMutableTreeNode("Языки");
+        new DefaultMutableTreeNode("РЇР·С‹РєРё");
     DefaultMutableTreeNode ide =
-        new DefaultMutableTreeNode("Среды");
+        new DefaultMutableTreeNode("РЎСЂРµРґС‹");
     root.add(lang);
     root.add(ide);
-    // присоединяем листья
+    // РїСЂРёСЃРѕРµРґРёРЅСЏРµРј Р»РёСЃС‚СЊСЏ
     for (int i=0; i<langs.length; i++) {
       lang.add(new DefaultMutableTreeNode(langs[i]));
       ide.add(new DefaultMutableTreeNode(ides[i]));
     }
-    // создаем стандартную модель
+    // СЃРѕР·РґР°РµРј СЃС‚Р°РЅРґР°СЂС‚РЅСѓСЋ РјРѕРґРµР»СЊ
     return new DefaultTreeModel(root);
   }
-  // слушатель событий о развертывании узлов
+  // СЃР»СѓС€Р°С‚РµР»СЊ СЃРѕР±С‹С‚РёР№ Рѕ СЂР°Р·РІРµСЂС‚С‹РІР°РЅРёРё СѓР·Р»РѕРІ
   class TreeListener implements TreeExpansionListener,
       TreeWillExpandListener {
     public void treeExpanded(TreeExpansionEvent event) {
-      System.out.println("Узел развернут: " + event.getPath());
+      System.out.println("РЈР·РµР» СЂР°Р·РІРµСЂРЅСѓС‚: " + event.getPath());
     }
     public void treeCollapsed(TreeExpansionEvent event) {
-      System.out.println("Узел свернут: " + event.getPath());
+      System.out.println("РЈР·РµР» СЃРІРµСЂРЅСѓС‚: " + event.getPath());
     }
     public void treeWillExpand(TreeExpansionEvent event)
         throws ExpandVetoException { }
     public void treeWillCollapse(TreeExpansionEvent event)
         throws ExpandVetoException {
       if ( event.getPath().getLastPathComponent().
-          toString().equals("Языки") )
+          toString().equals("РЇР·С‹РєРё") )
         throw new ExpandVetoException(event);
     }
   }

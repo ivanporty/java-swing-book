@@ -1,5 +1,5 @@
 // com/porty/swing/XMLMenuLoader.java
-// Инструмент для загрузки меню из файла XML
+// РРЅСЃС‚СЂСѓРјРµРЅС‚ РґР»СЏ Р·Р°РіСЂСѓР·РєРё РјРµРЅСЋ РёР· С„Р°Р№Р»Р° XML
 package com.porty.swing;
 
 import javax.swing.*;
@@ -11,19 +11,19 @@ import java.awt.event.*;
 import java.util.*;
 
 public class XMLMenuLoader {
-  // источник данных XML
+  // РёСЃС‚РѕС‡РЅРёРє РґР°РЅРЅС‹С… XML
   private InputSource source;
-  // анализатор XML
+  // Р°РЅР°Р»РёР·Р°С‚РѕСЂ XML
   private SAXParser parser;
-  // обработчик XML
+  // РѕР±СЂР°Р±РѕС‚С‡РёРє XML
   private DefaultHandler documentHandler;
-  // хранилище для всех частей системы меню
+  // С…СЂР°РЅРёР»РёС‰Рµ РґР»СЏ РІСЃРµС… С‡Р°СЃС‚РµР№ СЃРёСЃС‚РµРјС‹ РјРµРЅСЋ
   private Map<String, JComponent> menuStorage
       = new HashMap<String, JComponent>();
 
-  // конструктор, требует задать поток данных с меню
+  // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ, С‚СЂРµР±СѓРµС‚ Р·Р°РґР°С‚СЊ РїРѕС‚РѕРє РґР°РЅРЅС‹С… СЃ РјРµРЅСЋ
   public XMLMenuLoader(InputStream stream) {
-    // настраиваем источник данных XML
+    // РЅР°СЃС‚СЂР°РёРІР°РµРј РёСЃС‚РѕС‡РЅРёРє РґР°РЅРЅС‹С… XML
     try {
       Reader reader = new InputStreamReader(stream, "UTF-8");
       source = new InputSource(reader);
@@ -32,44 +32,44 @@ public class XMLMenuLoader {
     } catch (Exception ex) {
       throw new RuntimeException(ex);
     }
-    // создаем обработчик XML
+    // СЃРѕР·РґР°РµРј РѕР±СЂР°Р±РѕС‚С‡РёРє XML
     documentHandler = new XMLParser();
   }
 
-  // считывает XML и создает систему меню
+  // СЃС‡РёС‚С‹РІР°РµС‚ XML Рё СЃРѕР·РґР°РµС‚ СЃРёСЃС‚РµРјСѓ РјРµРЅСЋ
   public void parse() throws Exception {
     parser.parse(source, documentHandler);
   }
 
-  // позволяет получить строку меню
+  // РїРѕР·РІРѕР»СЏРµС‚ РїРѕР»СѓС‡РёС‚СЊ СЃС‚СЂРѕРєСѓ РјРµРЅСЋ
   public JMenuBar getMenuBar(String name) {
     return (JMenuBar) menuStorage.get(name);
   }
-  // позволяет получить выпадающее меню
+  // РїРѕР·РІРѕР»СЏРµС‚ РїРѕР»СѓС‡РёС‚СЊ РІС‹РїР°РґР°СЋС‰РµРµ РјРµРЅСЋ
   public JMenu getMenu(String name) {
     return (JMenu) menuStorage.get(name);
   }
-  // позволяет получить элемент меню
+  // РїРѕР·РІРѕР»СЏРµС‚ РїРѕР»СѓС‡РёС‚СЊ СЌР»РµРјРµРЅС‚ РјРµРЅСЋ
   public JMenuItem getMenuItem(String name) {
     return (JMenuItem) menuStorage.get(name);
   }
-  // удобный метод для быстрого добавления
-  // слушателя событий
+  // СѓРґРѕР±РЅС‹Р№ РјРµС‚РѕРґ РґР»СЏ Р±С‹СЃС‚СЂРѕРіРѕ РґРѕР±Р°РІР»РµРЅРёСЏ
+  // СЃР»СѓС€Р°С‚РµР»СЏ СЃРѕР±С‹С‚РёР№
   public void addActionListener(String name, ActionListener listener) {
     getMenuItem(name).addActionListener(listener);
   }
 
-  // текущая строка меню
+  // С‚РµРєСѓС‰Р°СЏ СЃС‚СЂРѕРєР° РјРµРЅСЋ
   private JMenuBar currentMenuBar;
-  // список для упорядочения выпадающих меню
+  // СЃРїРёСЃРѕРє РґР»СЏ СѓРїРѕСЂСЏРґРѕС‡РµРЅРёСЏ РІС‹РїР°РґР°СЋС‰РёС… РјРµРЅСЋ
   private LinkedList<JMenu> menus = new LinkedList<JMenu>();
 
-  // обработчик XML
+  // РѕР±СЂР°Р±РѕС‚С‡РёРє XML
   class XMLParser extends DefaultHandler {
-    // новый узел XML
+    // РЅРѕРІС‹Р№ СѓР·РµР» XML
     public void startElement(String uri, String localName,
                              String qName, Attributes attributes) {
-      // определяем тип узла
+      // РѕРїСЂРµРґРµР»СЏРµРј С‚РёРї СѓР·Р»Р°
       if (qName.equals("menubar"))
         parseMenuBar(attributes);
       else if (qName.equals("menu"))
@@ -77,62 +77,62 @@ public class XMLMenuLoader {
       else if (qName.equals("menuitem"))
         parseMenuItem(attributes);
     }
-    // конец узла, используется для смены выпадающих меню
+    // РєРѕРЅРµС† СѓР·Р»Р°, РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ СЃРјРµРЅС‹ РІС‹РїР°РґР°СЋС‰РёС… РјРµРЅСЋ
     public void endElement(String uri, String localName,
                            String qName) {
       if (qName.equals("menu")) menus.removeFirst();
     }
-    // создает новую строку меню
+    // СЃРѕР·РґР°РµС‚ РЅРѕРІСѓСЋ СЃС‚СЂРѕРєСѓ РјРµРЅСЋ
     protected void parseMenuBar(Attributes attrs) {
       JMenuBar menuBar = new JMenuBar();
-      // определяем имя
+      // РѕРїСЂРµРґРµР»СЏРµРј РёРјСЏ
       String name = attrs.getValue("name");
       menuStorage.put(name, menuBar);
       currentMenuBar = menuBar;
     }
-    // создает новое выпадающее меню
+    // СЃРѕР·РґР°РµС‚ РЅРѕРІРѕРµ РІС‹РїР°РґР°СЋС‰РµРµ РјРµРЅСЋ
     protected void parseMenu(Attributes attrs) {
-      // создаем меню
+      // СЃРѕР·РґР°РµРј РјРµРЅСЋ
       JMenu menu = new JMenu();
       String name = attrs.getValue("name");
-      // настраиваем общие атрибуты
+      // РЅР°СЃС‚СЂР°РёРІР°РµРј РѕР±С‰РёРµ Р°С‚СЂРёР±СѓС‚С‹
       adjustProperties(menu, attrs);
       menuStorage.put(name, menu);
-      // добавляем меню к предыдущему выпадающему
-      // меню или к строке меню
+      // РґРѕР±Р°РІР»СЏРµРј РјРµРЅСЋ Рє РїСЂРµРґС‹РґСѓС‰РµРјСѓ РІС‹РїР°РґР°СЋС‰РµРјСѓ
+      // РјРµРЅСЋ РёР»Рё Рє СЃС‚СЂРѕРєРµ РјРµРЅСЋ
       if ( menus.size() != 0 ) {
         menus.getFirst().add(menu);
       } else {
         currentMenuBar.add(menu);
       }
-      // добавляем в список выпадающих меню
+      // РґРѕР±Р°РІР»СЏРµРј РІ СЃРїРёСЃРѕРє РІС‹РїР°РґР°СЋС‰РёС… РјРµРЅСЋ
       menus.addFirst(menu);
     }
-    // новый пункт меню
+    // РЅРѕРІС‹Р№ РїСѓРЅРєС‚ РјРµРЅСЋ
     protected void parseMenuItem(Attributes attrs) {
-      // проверяем, не разделитель ли это
+      // РїСЂРѕРІРµСЂСЏРµРј, РЅРµ СЂР°Р·РґРµР»РёС‚РµР»СЊ Р»Рё СЌС‚Рѕ
       String name = attrs.getValue("name");
       if (name.equals("separator")) {
         menus.getFirst().addSeparator();
         return;
       }
-      // создаем пункт меню
+      // СЃРѕР·РґР°РµРј РїСѓРЅРєС‚ РјРµРЅСЋ
       JMenuItem menuItem = new JMenuItem();
-      // настраиваем свойства
+      // РЅР°СЃС‚СЂР°РёРІР°РµРј СЃРІРѕР№СЃС‚РІР°
       adjustProperties(menuItem, attrs);
       menuStorage.put(name, menuItem);
-      // добавляем к текущему выпадающему меню
+      // РґРѕР±Р°РІР»СЏРµРј Рє С‚РµРєСѓС‰РµРјСѓ РІС‹РїР°РґР°СЋС‰РµРјСѓ РјРµРЅСЋ
       menus.getFirst().add(menuItem);
     }
-    // настройка общих атрибутов пунктов меню
+    // РЅР°СЃС‚СЂРѕР№РєР° РѕР±С‰РёС… Р°С‚СЂРёР±СѓС‚РѕРІ РїСѓРЅРєС‚РѕРІ РјРµРЅСЋ
     private void adjustProperties(
         JMenuItem menuItem, Attributes attrs) {
-      // получаем поддерживаемые атрибуты
+      // РїРѕР»СѓС‡Р°РµРј РїРѕРґРґРµСЂР¶РёРІР°РµРјС‹Рµ Р°С‚СЂРёР±СѓС‚С‹
       String text = attrs.getValue("text");
       String mnemonic = attrs.getValue("mnemonic");
       String accelerator = attrs.getValue("accelerator");
       String enabled = attrs.getValue("enabled");
-      // настраиваем свойства меню
+      // РЅР°СЃС‚СЂР°РёРІР°РµРј СЃРІРѕР№СЃС‚РІР° РјРµРЅСЋ
       menuItem.setText(text);
       if (mnemonic != null) {
         menuItem.setMnemonic(mnemonic.charAt(0));

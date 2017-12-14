@@ -1,49 +1,49 @@
 // ComboBoxEvents.java
-// События раскрывающихся списков
+// РЎРѕР±С‹С‚РёСЏ СЂР°СЃРєСЂС‹РІР°СЋС‰РёС…СЃСЏ СЃРїРёСЃРєРѕРІ
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 
 public class ComboBoxEvents extends JFrame {
-  // данные для списков
-  private String[] data = { "США", "Италия",
-      "Швейцария", "Таиланд" };
+  // РґР°РЅРЅС‹Рµ РґР»СЏ СЃРїРёСЃРєРѕРІ
+  private String[] data = { "РЎРЁРђ", "РС‚Р°Р»РёСЏ",
+      "РЁРІРµР№С†Р°СЂРёСЏ", "РўР°РёР»Р°РЅРґ" };
   public ComboBoxEvents() {
     super("ComboBoxEvents");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // первый список
+    // РїРµСЂРІС‹Р№ СЃРїРёСЃРѕРє
     JComboBox combo1 = new JComboBox(data);
-    // слушатель смены выбранного элемента
+    // СЃР»СѓС€Р°С‚РµР»СЊ СЃРјРµРЅС‹ РІС‹Р±СЂР°РЅРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
     combo1.addItemListener(new ItemListener() {
       public void itemStateChanged(ItemEvent e) {
-        // выясняем, что случилось
+        // РІС‹СЏСЃРЅСЏРµРј, С‡С‚Рѕ СЃР»СѓС‡РёР»РѕСЃСЊ
         if ( e.getStateChange() ==
             ItemEvent.SELECTED ) {
-          // покажем выбранный элемент
+          // РїРѕРєР°Р¶РµРј РІС‹Р±СЂР°РЅРЅС‹Р№ СЌР»РµРјРµРЅС‚
           Object item = e.getItem();
           JOptionPane.showMessageDialog(
               ComboBoxEvents.this, item);
         }
       }
     });
-    // список, позволяющий редактирование
+    // СЃРїРёСЃРѕРє, РїРѕР·РІРѕР»СЏСЋС‰РёР№ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ
     final JComboBox combo2 = new JComboBox(data);
     combo2.setEditable(true);
-    // слушатель окончания редактирования
+    // СЃР»СѓС€Р°С‚РµР»СЊ РѕРєРѕРЅС‡Р°РЅРёСЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ
     combo2.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        // покажем выбор пользователя
+        // РїРѕРєР°Р¶РµРј РІС‹Р±РѕСЂ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
         Object item = combo2.getModel().
             getSelectedItem();
         JOptionPane.showMessageDialog(
             ComboBoxEvents.this, item);
       }
     });
-    // добавим списки в окно
+    // РґРѕР±Р°РІРёРј СЃРїРёСЃРєРё РІ РѕРєРЅРѕ
     setLayout(new FlowLayout());
     add(combo1);
     add(combo2);
-    // выведем окно на экран
+    // РІС‹РІРµРґРµРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(350, 250);
     setVisible(true);
   }

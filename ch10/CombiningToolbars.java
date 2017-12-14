@@ -1,6 +1,6 @@
 // CombiningToolbars.java
-// Создание комбинированных панелей
-// инструментов
+// РЎРѕР·РґР°РЅРёРµ РєРѕРјР±РёРЅРёСЂРѕРІР°РЅРЅС‹С… РїР°РЅРµР»РµР№
+// РёРЅСЃС‚СЂСѓРјРµРЅС‚РѕРІ
 import javax.swing.*;
 import com.porty.swing.*;
 import java.awt.event.*;
@@ -9,61 +9,61 @@ public class CombiningToolbars extends JFrame {
   public CombiningToolbars() {
     super("CombiningToolbars");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // несколько панелей инструментов
+    // РЅРµСЃРєРѕР»СЊРєРѕ РїР°РЅРµР»РµР№ РёРЅСЃС‚СЂСѓРјРµРЅС‚РѕРІ
     JToolBar toolbar1 = new JToolBar();
     toolbar1.add(new OpenAction());
     toolbar1.add(new SaveAction());
     toolbar1.addSeparator();
-    toolbar1.add(new JButton("Стиль"));
+    toolbar1.add(new JButton("РЎС‚РёР»СЊ"));
     JToolBar toolbar2 = new JToolBar();
-    toolbar2.add(new JButton("Формат"));
+    toolbar2.add(new JButton("Р¤РѕСЂРјР°С‚"));
     toolbar2.add(new JComboBox(new String[] {
-        "Красный", "Зеленый"}));
+        "РљСЂР°СЃРЅС‹Р№", "Р—РµР»РµРЅС‹Р№"}));
     JToolBar toolbar3 = new JToolBar();
-    toolbar3.add(new JButton("Обычный"));
-    toolbar3.add(new JButton("Полужирный"));
-    toolbar3.add(new JButton("Подчеркнутый"));
-    // выравнивание содержимого
+    toolbar3.add(new JButton("РћР±С‹С‡РЅС‹Р№"));
+    toolbar3.add(new JButton("РџРѕР»СѓР¶РёСЂРЅС‹Р№"));
+    toolbar3.add(new JButton("РџРѕРґС‡РµСЂРєРЅСѓС‚С‹Р№"));
+    // РІС‹СЂР°РІРЅРёРІР°РЅРёРµ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ
     toolbar2.add(Box.createGlue());
-    // добавим две панели инструментов сюда
+    // РґРѕР±Р°РІРёРј РґРІРµ РїР°РЅРµР»Рё РёРЅСЃС‚СЂСѓРјРµРЅС‚РѕРІ СЃСЋРґР°
     JPanel first =
         BoxLayoutUtils.createHorizontalPanel();
     first.add(toolbar1);
     first.add(Box.createHorizontalStrut(5));
     first.add(toolbar2);
-    // комбинируем полученные панели
+    // РєРѕРјР±РёРЅРёСЂСѓРµРј РїРѕР»СѓС‡РµРЅРЅС‹Рµ РїР°РЅРµР»Рё
     JPanel all =
         BoxLayoutUtils.createVerticalPanel();
     all.add(first);
     all.add(toolbar3);
-    // выравнивание содержимого
+    // РІС‹СЂР°РІРЅРёРІР°РЅРёРµ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ
     BoxLayoutUtils.setGroupAlignmentX(
         JComponent.LEFT_ALIGNMENT, first, toolbar3);
-    // добавим полученное на север окна
+    // РґРѕР±Р°РІРёРј РїРѕР»СѓС‡РµРЅРЅРѕРµ РЅР° СЃРµРІРµСЂ РѕРєРЅР°
     add(all, "North");
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(400, 300);
     setVisible(true);
   }
-  // несколько команд для панелей инструментов
+  // РЅРµСЃРєРѕР»СЊРєРѕ РєРѕРјР°РЅРґ РґР»СЏ РїР°РЅРµР»РµР№ РёРЅСЃС‚СЂСѓРјРµРЅС‚РѕРІ
   class OpenAction extends AbstractAction {
     public OpenAction() {
-      // настроим значок команды
+      // РЅР°СЃС‚СЂРѕРёРј Р·РЅР°С‡РѕРє РєРѕРјР°РЅРґС‹
       putValue(AbstractAction.SMALL_ICON,
           new ImageIcon("images/Open16.gif"));
     }
     public void actionPerformed(ActionEvent e) {
-      // ничего не делаем
+      // РЅРёС‡РµРіРѕ РЅРµ РґРµР»Р°РµРј
     }
   }
   class SaveAction extends AbstractAction {
     public SaveAction() {
-      // настроим значок команды
+      // РЅР°СЃС‚СЂРѕРёРј Р·РЅР°С‡РѕРє РєРѕРјР°РЅРґС‹
       putValue(AbstractAction.SMALL_ICON,
           new ImageIcon("images/Save16.gif"));
     }
     public void actionPerformed(ActionEvent e) {
-      // ничего не делаем
+      // РЅРёС‡РµРіРѕ РЅРµ РґРµР»Р°РµРј
     }
   }
   public static void main(String[] args) {

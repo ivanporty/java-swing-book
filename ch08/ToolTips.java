@@ -1,5 +1,5 @@
 // ToolTips.java
-// Подсказки в Swing
+// РџРѕРґСЃРєР°Р·РєРё РІ Swing
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -8,27 +8,27 @@ public class ToolTips extends JFrame {
   public ToolTips() {
     super("ToolTips");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // добавим несколько кнопок с подсказками
-    JButton b1 = new JButton("Один");
-    b1.setToolTipText("Это первая кнопка");
+    // РґРѕР±Р°РІРёРј РЅРµСЃРєРѕР»СЊРєРѕ РєРЅРѕРїРѕРє СЃ РїРѕРґСЃРєР°Р·РєР°РјРё
+    JButton b1 = new JButton("РћРґРёРЅ");
+    b1.setToolTipText("Р­С‚Рѕ РїРµСЂРІР°СЏ РєРЅРѕРїРєР°");
     JButton b2 = new JButton() {
       public Point getToolTipLocation(MouseEvent e) {
         return new Point(10, 10);
       }
       public String getToolTipText(MouseEvent e) {
         if ( e.getY() > 10 ) {
-          return "Нижняя часть кнопки!";
+          return "РќРёР¶РЅСЏСЏ С‡Р°СЃС‚СЊ РєРЅРѕРїРєРё!";
         }
         return super.getToolTipText(e);
       }
     };
-    b2.setText("Два");
-    b2.setToolTipText("<html><h3>Это вторая кнопка.<ul>" +
-        "Она:<li>Ничего не делает<li>Но ее можно нажать!");
+    b2.setText("Р”РІР°");
+    b2.setToolTipText("<html><h3>Р­С‚Рѕ РІС‚РѕСЂР°СЏ РєРЅРѕРїРєР°.<ul>" +
+        "РћРЅР°:<li>РќРёС‡РµРіРѕ РЅРµ РґРµР»Р°РµС‚<li>РќРѕ РµРµ РјРѕР¶РЅРѕ РЅР°Р¶Р°С‚СЊ!");
     JPanel contents = new JPanel();
     contents.add(b1);
     contents.add(b2);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     add(contents);
     setSize(400, 150);
     setVisible(true);

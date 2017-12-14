@@ -1,5 +1,5 @@
 // MenuSystem.java
-// Создание системы меню в Swing
+// РЎРѕР·РґР°РЅРёРµ СЃРёСЃС‚РµРјС‹ РјРµРЅСЋ РІ Swing
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.*;
@@ -8,69 +8,69 @@ public class MenuSystem extends JFrame {
   public MenuSystem() {
     super("MenuSystem");
     setDefaultCloseOperation( EXIT_ON_CLOSE );
-    // создаем строку главного меню
+    // СЃРѕР·РґР°РµРј СЃС‚СЂРѕРєСѓ РіР»Р°РІРЅРѕРіРѕ РјРµРЅСЋ
     JMenuBar menuBar = new JMenuBar();
-    // добавляем в нее выпадающие меню
+    // РґРѕР±Р°РІР»СЏРµРј РІ РЅРµРµ РІС‹РїР°РґР°СЋС‰РёРµ РјРµРЅСЋ
     menuBar.add(createFileMenu());
     menuBar.add(createWhoMenu());
-    // и устанавливаем ее в качестве
-    // меню нашего окна
+    // Рё СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј РµРµ РІ РєР°С‡РµСЃС‚РІРµ
+    // РјРµРЅСЋ РЅР°С€РµРіРѕ РѕРєРЅР°
     setJMenuBar(menuBar);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(300, 200);
     setVisible(true);
   }
-  // создает меню "Файл"
+  // СЃРѕР·РґР°РµС‚ РјРµРЅСЋ "Р¤Р°Р№Р»"
   private JMenu createFileMenu() {
-    // создадим выпадающее меню, которое будет
-    // содержать обычные пункты меню
-    JMenu file = new JMenu("Файл");
-    // пункт меню (со значком)
+    // СЃРѕР·РґР°РґРёРј РІС‹РїР°РґР°СЋС‰РµРµ РјРµРЅСЋ, РєРѕС‚РѕСЂРѕРµ Р±СѓРґРµС‚
+    // СЃРѕРґРµСЂР¶Р°С‚СЊ РѕР±С‹С‡РЅС‹Рµ РїСѓРЅРєС‚С‹ РјРµРЅСЋ
+    JMenu file = new JMenu("Р¤Р°Р№Р»");
+    // РїСѓРЅРєС‚ РјРµРЅСЋ (СЃРѕ Р·РЅР°С‡РєРѕРј)
     JMenuItem open =
-        new JMenuItem("Открыть",
+        new JMenuItem("РћС‚РєСЂС‹С‚СЊ",
             new ImageIcon("images/open16.gif"));
-    // пункт меню из команды
+    // РїСѓРЅРєС‚ РјРµРЅСЋ РёР· РєРѕРјР°РЅРґС‹
     JMenuItem exit = new JMenuItem(new ExitAction());
-    // добавим все в меню
+    // РґРѕР±Р°РІРёРј РІСЃРµ РІ РјРµРЅСЋ
     file.add(open);
-    // разделитель
+    // СЂР°Р·РґРµР»РёС‚РµР»СЊ
     file.addSeparator();
     file.add(exit);
     return file;
   }
-  // создадим забавное меню
+  // СЃРѕР·РґР°РґРёРј Р·Р°Р±Р°РІРЅРѕРµ РјРµРЅСЋ
   private JMenu createWhoMenu() {
-    // создадим выпадающее меню
-    JMenu who = new JMenu("Кто ВЫ ?");
-    // меню-флажки
+    // СЃРѕР·РґР°РґРёРј РІС‹РїР°РґР°СЋС‰РµРµ РјРµРЅСЋ
+    JMenu who = new JMenu("РљС‚Рѕ Р’Р« ?");
+    // РјРµРЅСЋ-С„Р»Р°Р¶РєРё
     JCheckBoxMenuItem clever =
-        new JCheckBoxMenuItem("Умный");
+        new JCheckBoxMenuItem("РЈРјРЅС‹Р№");
     JCheckBoxMenuItem smart =
-        new JCheckBoxMenuItem("Красивый");
+        new JCheckBoxMenuItem("РљСЂР°СЃРёРІС‹Р№");
     JCheckBoxMenuItem tender =
-        new JCheckBoxMenuItem("Нежный");
-    // меню-переключатели
+        new JCheckBoxMenuItem("РќРµР¶РЅС‹Р№");
+    // РјРµРЅСЋ-РїРµСЂРµРєР»СЋС‡Р°С‚РµР»Рё
     JRadioButtonMenuItem male =
-        new JRadioButtonMenuItem("Мужчина");
+        new JRadioButtonMenuItem("РњСѓР¶С‡РёРЅР°");
     JRadioButtonMenuItem female =
-        new JRadioButtonMenuItem("Женщина");
-    // организуем переключатели в логическую группу
+        new JRadioButtonMenuItem("Р–РµРЅС‰РёРЅР°");
+    // РѕСЂРіР°РЅРёР·СѓРµРј РїРµСЂРµРєР»СЋС‡Р°С‚РµР»Рё РІ Р»РѕРіРёС‡РµСЃРєСѓСЋ РіСЂСѓРїРїСѓ
     ButtonGroup bg = new ButtonGroup();
     bg.add(male); bg.add(female);
-    // добавим все в меню
+    // РґРѕР±Р°РІРёРј РІСЃРµ РІ РјРµРЅСЋ
     who.add(clever);
     who.add(smart);
     who.add(tender);
-    // разделитель можно создать и явно
+    // СЂР°Р·РґРµР»РёС‚РµР»СЊ РјРѕР¶РЅРѕ СЃРѕР·РґР°С‚СЊ Рё СЏРІРЅРѕ
     who.add( new JSeparator());
     who.add(male);
     who.add(female);
     return who;
   }
-  // команда выхода из приложения
+  // РєРѕРјР°РЅРґР° РІС‹С…РѕРґР° РёР· РїСЂРёР»РѕР¶РµРЅРёСЏ
   class ExitAction extends AbstractAction {
     ExitAction() {
-      putValue(NAME, "Выход");
+      putValue(NAME, "Р’С‹С…РѕРґ");
     }
     public void actionPerformed(ActionEvent e) {
       System.exit(0);

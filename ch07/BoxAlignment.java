@@ -1,6 +1,6 @@
 // BoxAlignment.java
-// Как блочное расположение обеспечивает выравнивание
-// компонентов по осям
+// РљР°Рє Р±Р»РѕС‡РЅРѕРµ СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ РѕР±РµСЃРїРµС‡РёРІР°РµС‚ РІС‹СЂР°РІРЅРёРІР°РЅРёРµ
+// РєРѕРјРїРѕРЅРµРЅС‚РѕРІ РїРѕ РѕСЃСЏРј
 import javax.swing.*;
 import com.porty.swing.BoxLayoutUtils;
 
@@ -9,23 +9,23 @@ public class BoxAlignment extends JFrame {
 		super("BoxAlignment");
 		setSize(400, 150);
 		setDefaultCloseOperation( EXIT_ON_CLOSE );    
-		// вертикальная панель
+		// РІРµСЂС‚РёРєР°Р»СЊРЅР°СЏ РїР°РЅРµР»СЊ
 		JPanel pv = BoxLayoutUtils.createVerticalPanel();
-		// кнопка с выравниванием по левой границе
-		JButton jb = new JButton("Левая граница");
+		// РєРЅРѕРїРєР° СЃ РІС‹СЂР°РІРЅРёРІР°РЅРёРµРј РїРѕ Р»РµРІРѕР№ РіСЂР°РЅРёС†Рµ
+		JButton jb = new JButton("Р›РµРІР°СЏ РіСЂР°РЅРёС†Р°");
 		jb.setAlignmentX(LEFT_ALIGNMENT);
 		pv.add(jb);
-		// копка с центральным выравниванием
-		jb = new JButton("Выравнивание по центру");
+		// РєРѕРїРєР° СЃ С†РµРЅС‚СЂР°Р»СЊРЅС‹Рј РІС‹СЂР°РІРЅРёРІР°РЅРёРµРј
+		jb = new JButton("Р’С‹СЂР°РІРЅРёРІР°РЅРёРµ РїРѕ С†РµРЅС‚СЂСѓ");
 		jb.setAlignmentX(CENTER_ALIGNMENT);
 		pv.add(jb);
-		// наконец, кнопка с выравниванием по правому краю
-		jb = new JButton("Правая граница");
+		// РЅР°РєРѕРЅРµС†, РєРЅРѕРїРєР° СЃ РІС‹СЂР°РІРЅРёРІР°РЅРёРµРј РїРѕ РїСЂР°РІРѕРјСѓ РєСЂР°СЋ
+		jb = new JButton("РџСЂР°РІР°СЏ РіСЂР°РЅРёС†Р°");
 		jb.setAlignmentX(RIGHT_ALIGNMENT);
 		pv.add(jb);
-		// добавляем панель в центр окна
+		// РґРѕР±Р°РІР»СЏРµРј РїР°РЅРµР»СЊ РІ С†РµРЅС‚СЂ РѕРєРЅР°
 		add(pv);
-		// выводим окно на экран
+		// РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
 		setVisible(true);
 	}  
 	public static void main(String[] args) {

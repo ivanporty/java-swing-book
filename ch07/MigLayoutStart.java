@@ -1,21 +1,21 @@
 // MigLayoutStart.java
-// Знакомство с MigLayout
+// Р—РЅР°РєРѕРјСЃС‚РІРѕ СЃ MigLayout
 import net.miginfocom.swing.MigLayout;
 import javax.swing.*;
 
 public class MigLayoutStart extends JFrame {
   public MigLayoutStart() {
     super("MigLayoutStart");
-    // выход при закрытии окна
+    // РІС‹С…РѕРґ РїСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР°
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // устанавливаем менеджер расположения
+    // СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј РјРµРЅРµРґР¶РµСЂ СЂР°СЃРїРѕР»РѕР¶РµРЅРёСЏ
     setLayout(new MigLayout());
-    // добавляем компоненты с описанием ячеек
-    add(new JLabel("Имя:"), "gap, sg 1");
+    // РґРѕР±Р°РІР»СЏРµРј РєРѕРјРїРѕРЅРµРЅС‚С‹ СЃ РѕРїРёСЃР°РЅРёРµРј СЏС‡РµРµРє
+    add(new JLabel("РРјСЏ:"), "gap, sg 1");
     add(new JTextField(10), "wrap");
-    add(new JLabel("Фамилия:"), "gap, sg 1");
+    add(new JLabel("Р¤Р°РјРёР»РёСЏ:"), "gap, sg 1");
     add(new JTextField(10), "wrap");
-    // выведем окно на экран
+    // РІС‹РІРµРґРµРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     pack();
     setVisible(true);
   }

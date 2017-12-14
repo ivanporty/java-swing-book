@@ -1,32 +1,32 @@
 // DatabaseTable.java
-// Таблица, работающая с базой данных
-// посредством специальной модели
+// РўР°Р±Р»РёС†Р°, СЂР°Р±РѕС‚Р°СЋС‰Р°СЏ СЃ Р±Р°Р·РѕР№ РґР°РЅРЅС‹С…
+// РїРѕСЃСЂРµРґСЃС‚РІРѕРј СЃРїРµС†РёР°Р»СЊРЅРѕР№ РјРѕРґРµР»Рё
 import java.sql.*;
 import java.awt.*;
 import javax.swing.*;
 import com.porty.swing.*;
 
 public class DatabaseTable {
-  // параметры подключения
+  // РїР°СЂР°РјРµС‚СЂС‹ РїРѕРґРєР»СЋС‡РµРЅРёСЏ
   private static String
       dsn = "jdbc:odbc:Library",
       uid = "",
       pwd = "";
   public static void main(String[] args) throws Exception {
-    // инициализация JDBC
+    // РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ JDBC
     Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-    // объект-соединение с БД
+    // РѕР±СЉРµРєС‚-СЃРѕРµРґРёРЅРµРЅРёРµ СЃ Р‘Р”
     Connection conn = DriverManager.getConnection(dsn, uid, pwd);
     Statement st = conn.createStatement();
-    // выполняем запрос
+    // РІС‹РїРѕР»РЅСЏРµРј Р·Р°РїСЂРѕСЃ
     ResultSet rs = st.executeQuery(
         "select * from readers.csv");
-    // наша модель
+    // РЅР°С€Р° РјРѕРґРµР»СЊ
     final DatabaseTableModel dbm =
         new DatabaseTableModel(true);
-    // считываем данные в таблицу
+    // СЃС‡РёС‚С‹РІР°РµРј РґР°РЅРЅС‹Рµ РІ С‚Р°Р±Р»РёС†Сѓ
     dbm.setDataSource(rs);
-    // таблица и окно
+    // С‚Р°Р±Р»РёС†Р° Рё РѕРєРЅРѕ
     SwingUtilities.invokeLater(
         new Runnable() {
           public void run() {

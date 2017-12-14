@@ -1,31 +1,31 @@
 // UsingDefaultTreeModel.java
-// Использование стандартной модели дерева и 
-// узлов DefaultMutableTreeNode
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ СЃС‚Р°РЅРґР°СЂС‚РЅРѕР№ РјРѕРґРµР»Рё РґРµСЂРµРІР° Рё 
+// СѓР·Р»РѕРІ DefaultMutableTreeNode
 import javax.swing.*;
 import javax.swing.tree.*;
 import java.awt.*;
 
 public class UsingDefaultTreeModel extends JFrame {
-  // для удобства листья будем хранить в массивах
-  private String[] drinks =  { "Коктейль", "Сок", "Морс" };
-  private String[] fruits =  { "Яблоки", "Апельсины" };
+  // РґР»СЏ СѓРґРѕР±СЃС‚РІР° Р»РёСЃС‚СЊСЏ Р±СѓРґРµРј С…СЂР°РЅРёС‚СЊ РІ РјР°СЃСЃРёРІР°С…
+  private String[] drinks =  { "РљРѕРєС‚РµР№Р»СЊ", "РЎРѕРє", "РњРѕСЂСЃ" };
+  private String[] fruits =  { "РЇР±Р»РѕРєРё", "РђРїРµР»СЊСЃРёРЅС‹" };
   public UsingDefaultTreeModel() {
     super("UsingDefaultTreeModel");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем нашу древовидную структуру
+    // СЃРѕР·РґР°РµРј РЅР°С€Сѓ РґСЂРµРІРѕРІРёРґРЅСѓСЋ СЃС‚СЂСѓРєС‚СѓСЂСѓ
     DefaultMutableTreeNode root =
-        new DefaultMutableTreeNode("Корень дерева");
-    // основные ветви
+        new DefaultMutableTreeNode("РљРѕСЂРµРЅСЊ РґРµСЂРµРІР°");
+    // РѕСЃРЅРѕРІРЅС‹Рµ РІРµС‚РІРё
     DefaultMutableTreeNode drink =
-        new DefaultMutableTreeNode("Напитки");
+        new DefaultMutableTreeNode("РќР°РїРёС‚РєРё");
     DefaultMutableTreeNode fruit =
-        new DefaultMutableTreeNode("Фрукты");
-    // добавляем ветви
+        new DefaultMutableTreeNode("Р¤СЂСѓРєС‚С‹");
+    // РґРѕР±Р°РІР»СЏРµРј РІРµС‚РІРё
     root.add(drink);
     root.add(fruit);
-    // специальный конструктор
-    root.add(new DefaultMutableTreeNode("Десерт", true));
-    // добавляем листья
+    // СЃРїРµС†РёР°Р»СЊРЅС‹Р№ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
+    root.add(new DefaultMutableTreeNode("Р”РµСЃРµСЂС‚", true));
+    // РґРѕР±Р°РІР»СЏРµРј Р»РёСЃС‚СЊСЏ
     for (String _drink : drinks) {
       drink.add(
           new DefaultMutableTreeNode(_drink, false));
@@ -34,14 +34,14 @@ public class UsingDefaultTreeModel extends JFrame {
       fruit.add(
           new DefaultMutableTreeNode(_fruit, false));
     }
-    // создаем стандартную модель и дерево
+    // СЃРѕР·РґР°РµРј СЃС‚Р°РЅРґР°СЂС‚РЅСѓСЋ РјРѕРґРµР»СЊ Рё РґРµСЂРµРІРѕ
     DefaultTreeModel dtm1 =
         new DefaultTreeModel(root, true);
     JTree tree1 = new JTree(dtm1);
-    // модель можно создать, начиная с любого узла
+    // РјРѕРґРµР»СЊ РјРѕР¶РЅРѕ СЃРѕР·РґР°С‚СЊ, РЅР°С‡РёРЅР°СЏ СЃ Р»СЋР±РѕРіРѕ СѓР·Р»Р°
     DefaultTreeModel dtm2 = new DefaultTreeModel(drink);
     JTree tree2 = new JTree(dtm2);
-    // добавляем деревья в окно и показываем его
+    // РґРѕР±Р°РІР»СЏРµРј РґРµСЂРµРІСЊСЏ РІ РѕРєРЅРѕ Рё РїРѕРєР°Р·С‹РІР°РµРј РµРіРѕ
     setLayout(new GridLayout(1, 2));
     add(new JScrollPane(tree1));
     add(new JScrollPane(tree2));

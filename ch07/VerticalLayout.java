@@ -1,57 +1,57 @@
 // VerticalLayout.java
-// Простой менеджер расположения, располагает
-// компоненты в вертикальный ряд с отступами
+// РџСЂРѕСЃС‚РѕР№ РјРµРЅРµРґР¶РµСЂ СЂР°СЃРїРѕР»РѕР¶РµРЅРёСЏ, СЂР°СЃРїРѕР»Р°РіР°РµС‚
+// РєРѕРјРїРѕРЅРµРЅС‚С‹ РІ РІРµСЂС‚РёРєР°Р»СЊРЅС‹Р№ СЂСЏРґ СЃ РѕС‚СЃС‚СѓРїР°РјРё
 import java.awt.*;
 import javax.swing.*;
 
 public class VerticalLayout implements LayoutManager {
-  // отступ между компонентами
+  // РѕС‚СЃС‚СѓРї РјРµР¶РґСѓ РєРѕРјРїРѕРЅРµРЅС‚Р°РјРё
   public int GAP = 5;
-  // сигнал расположить компоненты в контейнере
+  // СЃРёРіРЅР°Р» СЂР°СЃРїРѕР»РѕР¶РёС‚СЊ РєРѕРјРїРѕРЅРµРЅС‚С‹ РІ РєРѕРЅС‚РµР№РЅРµСЂРµ
   public void layoutContainer(Container c) {
     Component comps[] = c.getComponents();
     int currentY = GAP;
     for (Component comp : comps) {
-      // предпочтительный размер компонента
+      // РїСЂРµРґРїРѕС‡С‚РёС‚РµР»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ РєРѕРјРїРѕРЅРµРЅС‚Р°
       Dimension pref = comp.getPreferredSize();
-      // указываем положение компонента на экране
+      // СѓРєР°Р·С‹РІР°РµРј РїРѕР»РѕР¶РµРЅРёРµ РєРѕРјРїРѕРЅРµРЅС‚Р° РЅР° СЌРєСЂР°РЅРµ
       comp.setBounds(GAP, currentY,
           pref.width, pref.height);
-      // промежуток между компонентами
+      // РїСЂРѕРјРµР¶СѓС‚РѕРє РјРµР¶РґСѓ РєРѕРјРїРѕРЅРµРЅС‚Р°РјРё
       currentY += GAP;
       currentY += pref.height;
     }
   }
-  // эти два метода нам не понадобятся
+  // СЌС‚Рё РґРІР° РјРµС‚РѕРґР° РЅР°Рј РЅРµ РїРѕРЅР°РґРѕР±СЏС‚СЃСЏ
   public void addLayoutComponent(
       String name, Component comp) {
   }
   public void removeLayoutComponent(
       Component comp) {
   }
-  // минимальный размер для контейнера
+  // РјРёРЅРёРјР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ РґР»СЏ РєРѕРЅС‚РµР№РЅРµСЂР°
   public Dimension minimumLayoutSize(Container c) {
     return calculateBestSize(c);
   }
-  // предпочтительный размер для контейнера
+  // РїСЂРµРґРїРѕС‡С‚РёС‚РµР»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ РґР»СЏ РєРѕРЅС‚РµР№РЅРµСЂР°
   public Dimension preferredLayoutSize(Container c) {
     return calculateBestSize(c);
   }
 
   private Dimension size = new Dimension();
-  // вычисляет оптимальный размер контейнера
+  // РІС‹С‡РёСЃР»СЏРµС‚ РѕРїС‚РёРјР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ РєРѕРЅС‚РµР№РЅРµСЂР°
   private Dimension calculateBestSize(Container c) {
-    // сначала вычислим длину контейнера
+    // СЃРЅР°С‡Р°Р»Р° РІС‹С‡РёСЃР»РёРј РґР»РёРЅСѓ РєРѕРЅС‚РµР№РЅРµСЂР°
     Component[] comps = c.getComponents();
     int maxWidth = 0;
     for (Component comp : comps) {
       int width = comp.getWidth();
-      // поиск компонента с максимальной длиной
+      // РїРѕРёСЃРє РєРѕРјРїРѕРЅРµРЅС‚Р° СЃ РјР°РєСЃРёРјР°Р»СЊРЅРѕР№ РґР»РёРЅРѕР№
       if (width > maxWidth) maxWidth = width;
     }
-    // длина контейнера с учетом левого отступа
+    // РґР»РёРЅР° РєРѕРЅС‚РµР№РЅРµСЂР° СЃ СѓС‡РµС‚РѕРј Р»РµРІРѕРіРѕ РѕС‚СЃС‚СѓРїР°
     size.width = maxWidth + GAP;
-    // вычисляем высоту контейнера
+    // РІС‹С‡РёСЃР»СЏРµРј РІС‹СЃРѕС‚Сѓ РєРѕРЅС‚РµР№РЅРµСЂР°
     int height = 0;
     for (Component comp : comps) {
       height += GAP;
@@ -61,7 +61,7 @@ public class VerticalLayout implements LayoutManager {
     return size;
   }
 
-  // проверим работу нового менеджера
+  // РїСЂРѕРІРµСЂРёРј СЂР°Р±РѕС‚Сѓ РЅРѕРІРѕРіРѕ РјРµРЅРµРґР¶РµСЂР°
   public static void main(String[] args) {
     SwingUtilities.invokeLater(
         new Runnable() {
@@ -69,12 +69,12 @@ public class VerticalLayout implements LayoutManager {
             JFrame frame = new JFrame("VerticalLayout");
             frame.setDefaultCloseOperation(
                 JFrame.EXIT_ON_CLOSE);
-            // панель будет использовать новое расположение
+            // РїР°РЅРµР»СЊ Р±СѓРґРµС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РЅРѕРІРѕРµ СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ
             JPanel contents = new JPanel(
                 new VerticalLayout());
-            // добавим пару кнопок и текстовое поле
-            contents.add(new JButton("Один"));
-            contents.add(new JButton("Два"));
+            // РґРѕР±Р°РІРёРј РїР°СЂСѓ РєРЅРѕРїРѕРє Рё С‚РµРєСЃС‚РѕРІРѕРµ РїРѕР»Рµ
+            contents.add(new JButton("РћРґРёРЅ"));
+            contents.add(new JButton("Р”РІР°"));
             contents.add(new JTextField(30));
             frame.add(contents);
             frame.setVisible(true);

@@ -1,5 +1,5 @@
 // Checkboxes.java
-// Использование флажков JCheckBox
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ С„Р»Р°Р¶РєРѕРІ JCheckBox
 import javax.swing.*;
 import java.awt.*;
 
@@ -7,25 +7,25 @@ public class Checkboxes extends JFrame {
   public Checkboxes() {
     super("Checkboxes");
     setDefaultCloseOperation( EXIT_ON_CLOSE );
-    // используем последовательное расположение
+    // РёСЃРїРѕР»СЊР·СѓРµРј РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕРµ СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ
     setLayout(new FlowLayout());
-    // отдельный флажок
-    JCheckBox ch = new JCheckBox("Я люблю JFC", true);
-    // группа связанных флажков в своей
-    // собственной панели
+    // РѕС‚РґРµР»СЊРЅС‹Р№ С„Р»Р°Р¶РѕРє
+    JCheckBox ch = new JCheckBox("РЇ Р»СЋР±Р»СЋ JFC", true);
+    // РіСЂСѓРїРїР° СЃРІСЏР·Р°РЅРЅС‹С… С„Р»Р°Р¶РєРѕРІ РІ СЃРІРѕРµР№
+    // СЃРѕР±СЃС‚РІРµРЅРЅРѕР№ РїР°РЅРµР»Рё
     JPanel panel = new JPanel(new GridLayout(0, 1, 0, 5));
     panel.setBorder(
-        BorderFactory.createTitledBorder("Мороженое"));
-    String[] names = { "Крем-брюле",
-        "Ром с изюмом", "Шоколадное" };
+        BorderFactory.createTitledBorder("РњРѕСЂРѕР¶РµРЅРѕРµ"));
+    String[] names = { "РљСЂРµРј-Р±СЂСЋР»Рµ",
+        "Р РѕРј СЃ РёР·СЋРјРѕРј", "РЁРѕРєРѕР»Р°РґРЅРѕРµ" };
     for (String name : names) {
       JCheckBox check = new JCheckBox(name);
       panel.add(check);
     }
-    // добавляем все в контейнер
+    // РґРѕР±Р°РІР»СЏРµРј РІСЃРµ РІ РєРѕРЅС‚РµР№РЅРµСЂ
     add(ch);
     add(panel);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     pack();
     setVisible(true);
   }

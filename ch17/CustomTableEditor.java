@@ -1,6 +1,6 @@
 // CustomTableEditor.java
-// Применение специализированного редактора
-// для ячеек таблицы
+// РџСЂРёРјРµРЅРµРЅРёРµ СЃРїРµС†РёР°Р»РёР·РёСЂРѕРІР°РЅРЅРѕРіРѕ СЂРµРґР°РєС‚РѕСЂР°
+// РґР»СЏ СЏС‡РµРµРє С‚Р°Р±Р»РёС†С‹
 import javax.swing.*;
 import javax.swing.table.*;
 import java.util.*;
@@ -8,31 +8,31 @@ import java.awt.*;
 import com.porty.swing.*;
 
 public class CustomTableEditor extends JFrame {
-  // заголовок столбцов таблицы
+  // Р·Р°РіРѕР»РѕРІРѕРє СЃС‚РѕР»Р±С†РѕРІ С‚Р°Р±Р»РёС†С‹
   private String[] columns = {
-      "Операция", "Дата" };
-  // данные таблицы
+      "РћРїРµСЂР°С†РёСЏ", "Р”Р°С‚Р°" };
+  // РґР°РЅРЅС‹Рµ С‚Р°Р±Р»РёС†С‹
   private Object[][] data = {
-      { "Покупка", new Date() },
-      { "Продажа", new Date() }
+      { "РџРѕРєСѓРїРєР°", new Date() },
+      { "РџСЂРѕРґР°Р¶Р°", new Date() }
   };
   public CustomTableEditor() {
     super("CustomTableEditor");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем таблицу на основе стандартной модели
+    // СЃРѕР·РґР°РµРј С‚Р°Р±Р»РёС†Сѓ РЅР° РѕСЃРЅРѕРІРµ СЃС‚Р°РЅРґР°СЂС‚РЅРѕР№ РјРѕРґРµР»Рё
     DefaultTableModel model =
         new DefaultTableModel(data, columns) {
-          // необходимо указать тип столбца
+          // РЅРµРѕР±С…РѕРґРёРјРѕ СѓРєР°Р·Р°С‚СЊ С‚РёРї СЃС‚РѕР»Р±С†Р°
           public Class getColumnClass(int column) {
             return data[0][column].getClass();
           }
         };
     JTable table = new JTable(model);
     table.setRowHeight(20);
-    // указываем редактор для дат
+    // СѓРєР°Р·С‹РІР°РµРј СЂРµРґР°РєС‚РѕСЂ РґР»СЏ РґР°С‚
     table.setDefaultEditor(
         Date.class, new DateCellEditor());
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     getContentPane().add(new JScrollPane(table));
     setSize(400, 300);
     setVisible(true);

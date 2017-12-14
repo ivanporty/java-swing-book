@@ -1,36 +1,36 @@
 // LowLevelEvents.java
-// Наблюдение за основными низкоуровневыми событиями 
+// РќР°Р±Р»СЋРґРµРЅРёРµ Р·Р° РѕСЃРЅРѕРІРЅС‹РјРё РЅРёР·РєРѕСѓСЂРѕРІРЅРµРІС‹РјРё СЃРѕР±С‹С‚РёСЏРјРё 
 
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 
 public class LowLevelEvents extends JFrame {
-  // сюда мы будем выводить информацию
+  // СЃСЋРґР° РјС‹ Р±СѓРґРµРј РІС‹РІРѕРґРёС‚СЊ РёРЅС„РѕСЂРјР°С†РёСЋ
   private JTextArea out;
 
   public LowLevelEvents() {
     super("LowLevelEvents");
-    // при закрытии окна - выход
+    // РїСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР° - РІС‹С…РѕРґ
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // добавим текстовое поле
+    // РґРѕР±Р°РІРёРј С‚РµРєСЃС‚РѕРІРѕРµ РїРѕР»Рµ
     add(new JScrollPane(out = new JTextArea()));
-    // и кнопку
-    JButton button = new JButton("Источник событий");
+    // Рё РєРЅРѕРїРєСѓ
+    JButton button = new JButton("РСЃС‚РѕС‡РЅРёРє СЃРѕР±С‹С‚РёР№");
     add(button, "South");
-    // регистрируем нащего слушателя
+    // СЂРµРіРёСЃС‚СЂРёСЂСѓРµРј РЅР°С‰РµРіРѕ СЃР»СѓС€Р°С‚РµР»СЏ
     OurListener ol = new OurListener();
     button.addKeyListener(ol);
     button.addMouseListener(ol);
     button.addMouseMotionListener(ol);
     button.addMouseWheelListener(ol);
     button.addFocusListener(ol);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(400, 300);
     setVisible(true);
   }
 
-  // внутренний класс - слушатель событий
+  // РІРЅСѓС‚СЂРµРЅРЅРёР№ РєР»Р°СЃСЃ - СЃР»СѓС€Р°С‚РµР»СЊ СЃРѕР±С‹С‚РёР№
   class OurListener implements MouseListener, KeyListener,
       MouseMotionListener, MouseWheelListener,
       FocusListener {

@@ -1,5 +1,5 @@
 // ConsumingEvents.java
-// Поглощение событий
+// РџРѕРіР»РѕС‰РµРЅРёРµ СЃРѕР±С‹С‚РёР№
 
 import java.awt.*;
 import java.awt.event.*;
@@ -8,16 +8,16 @@ import javax.swing.*;
 public class ConsumingEvents extends JFrame {
   public ConsumingEvents() {
     super("ConsumingEvents");
-    // при закрытии окна - выход
+    // РїСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР° - РІС‹С…РѕРґ
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // слушатель, поглощающий печатание символов
+    // СЃР»СѓС€Р°С‚РµР»СЊ, РїРѕРіР»РѕС‰Р°СЋС‰РёР№ РїРµС‡Р°С‚Р°РЅРёРµ СЃРёРјРІРѕР»РѕРІ
     KeyListener kl = new KeyAdapter() {
       @Override
       public void keyTyped(KeyEvent e) {
         e.consume();
       }
     };
-    // добавляем текстовые поля
+    // РґРѕР±Р°РІР»СЏРµРј С‚РµРєСЃС‚РѕРІС‹Рµ РїРѕР»СЏ
     setLayout(new FlowLayout());
     JTextField swingField = new JTextField(10);
     swingField.addKeyListener(kl);
@@ -25,17 +25,17 @@ public class ConsumingEvents extends JFrame {
     TextField awtField = new TextField(10);
     add(awtField);
     awtField.addKeyListener(kl);
-    // кнопка
-    JButton button = new JButton("Жмите!");
+    // РєРЅРѕРїРєР°
+    JButton button = new JButton("Р–РјРёС‚Рµ!");
     add(button);
-    // слушатель пытается поглотить события от мыши
+    // СЃР»СѓС€Р°С‚РµР»СЊ РїС‹С‚Р°РµС‚СЃСЏ РїРѕРіР»РѕС‚РёС‚СЊ СЃРѕР±С‹С‚РёСЏ РѕС‚ РјС‹С€Рё
     button.addMouseListener(new MouseAdapter() {
       @Override
       public void mousePressed(MouseEvent e) {
         e.consume();
       }
     });
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(300, 200);
     setVisible(true);
   }

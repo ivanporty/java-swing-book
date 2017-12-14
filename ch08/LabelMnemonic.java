@@ -1,5 +1,5 @@
 // LabelMnemonic.java
-// Использование надписей для вывода мнемоник
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РЅР°РґРїРёСЃРµР№ РґР»СЏ РІС‹РІРѕРґР° РјРЅРµРјРѕРЅРёРє
 import javax.swing.*;
 import java.awt.*;
 
@@ -7,19 +7,19 @@ public class LabelMnemonic extends JFrame {
   public LabelMnemonic() {
     super("LabelMnemonic");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // добавим пару текстовых полей
+    // РґРѕР±Р°РІРёРј РїР°СЂСѓ С‚РµРєСЃС‚РѕРІС‹С… РїРѕР»РµР№
     JPanel contents = new JPanel(new GridLayout(2,2));
     JTextField tf = new JTextField(10);
-    JLabel label = new JLabel("Ваше имя:");
-    // настройка мнемоники
+    JLabel label = new JLabel("Р’Р°С€Рµ РёРјСЏ:");
+    // РЅР°СЃС‚СЂРѕР№РєР° РјРЅРµРјРѕРЅРёРєРё
     label.setLabelFor(tf);
-    label.setDisplayedMnemonic('И');
-    // добавляем компоненты в таблицу
-    contents.add(new JLabel("Ваша фамилия:"));
+    label.setDisplayedMnemonic('Р');
+    // РґРѕР±Р°РІР»СЏРµРј РєРѕРјРїРѕРЅРµРЅС‚С‹ РІ С‚Р°Р±Р»РёС†Сѓ
+    contents.add(new JLabel("Р’Р°С€Р° С„Р°РјРёР»РёСЏ:"));
     contents.add(new JTextField(10));
     contents.add(label);
     contents.add(tf);
-    // выведем окно на экран
+    // РІС‹РІРµРґРµРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setContentPane(contents);
     pack();
     setVisible(true);

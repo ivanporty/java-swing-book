@@ -1,5 +1,5 @@
 // WindowDecorations.java
-// Специальное оформление окон Swing
+// РЎРїРµС†РёР°Р»СЊРЅРѕРµ РѕС„РѕСЂРјР»РµРЅРёРµ РѕРєРѕРЅ Swing
 import javax.swing.*;
 
 public class WindowDecorations {
@@ -7,21 +7,21 @@ public class WindowDecorations {
     SwingUtilities.invokeLater(
         new Runnable() {
           public void run() {
-            // включим украшения для окон
+            // РІРєР»СЋС‡РёРј СѓРєСЂР°С€РµРЅРёСЏ РґР»СЏ РѕРєРѕРЅ
             JFrame.setDefaultLookAndFeelDecorated(true);
             JDialog.setDefaultLookAndFeelDecorated(true);
-            // окно с рамкой
-            JFrame frame = new JFrame("Окно с рамкой");
+            // РѕРєРЅРѕ СЃ СЂР°РјРєРѕР№
+            JFrame frame = new JFrame("РћРєРЅРѕ СЃ СЂР°РјРєРѕР№");
             frame.setDefaultCloseOperation(
                 JFrame.EXIT_ON_CLOSE);
             frame.setSize(200, 200);
             frame.setVisible(true);
-            // диалоговое окно
-            JDialog dialog = new JDialog(frame, "Диалог");
+            // РґРёР°Р»РѕРіРѕРІРѕРµ РѕРєРЅРѕ
+            JDialog dialog = new JDialog(frame, "Р”РёР°Р»РѕРі");
             dialog.setDefaultCloseOperation(
                 JDialog.DISPOSE_ON_CLOSE);
             dialog.setSize(150, 100);
-            // так можно задавать тип оформления окна
+            // С‚Р°Рє РјРѕР¶РЅРѕ Р·Р°РґР°РІР°С‚СЊ С‚РёРї РѕС„РѕСЂРјР»РµРЅРёСЏ РѕРєРЅР°
             dialog.getRootPane().setWindowDecorationStyle(
                 JRootPane.INFORMATION_DIALOG);
             dialog.setVisible(true);

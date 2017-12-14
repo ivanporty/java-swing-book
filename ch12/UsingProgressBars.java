@@ -1,54 +1,54 @@
 // UsingProgressBars.java
-// Использование основных возможностей 
-// компонента JProgressBar
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РѕСЃРЅРѕРІРЅС‹С… РІРѕР·РјРѕР¶РЅРѕСЃС‚РµР№ 
+// РєРѕРјРїРѕРЅРµРЅС‚Р° JProgressBar
 import javax.swing.*;
 import java.awt.*;
 
 public class UsingProgressBars extends JFrame {
-  // максимальное значение (100%)
+  // РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ (100%)
   private int MAX = 100;
-  // будем использовать общую модель
+  // Р±СѓРґРµРј РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РѕР±С‰СѓСЋ РјРѕРґРµР»СЊ
   private BoundedRangeModel model;
   public UsingProgressBars() {
     super("UsingProgressBars");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем стандартную модель
+    // СЃРѕР·РґР°РµРј СЃС‚Р°РЅРґР°СЂС‚РЅСѓСЋ РјРѕРґРµР»СЊ
     model = new DefaultBoundedRangeModel(5, 0, 0, MAX);
-    // горизонтальный индикатор
+    // РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅС‹Р№ РёРЅРґРёРєР°С‚РѕСЂ
     JProgressBar progress1 = new JProgressBar(model);
     progress1.setStringPainted(true);
-    // вертикальный индикатор
+    // РІРµСЂС‚РёРєР°Р»СЊРЅС‹Р№ РёРЅРґРёРєР°С‚РѕСЂ
     JProgressBar progress2 =
         new JProgressBar(JProgressBar.VERTICAL);
     progress2.setModel(model);
     progress2.setStringPainted(true);
-    progress2.setString("Немного терпения...");
-    // добавляем индикаторы в окно
+    progress2.setString("РќРµРјРЅРѕРіРѕ С‚РµСЂРїРµРЅРёСЏ...");
+    // РґРѕР±Р°РІР»СЏРµРј РёРЅРґРёРєР°С‚РѕСЂС‹ РІ РѕРєРЅРѕ
     setLayout(new FlowLayout());
     add(progress1);
     add(progress2);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(400, 300);
     setVisible(true);
-    // запускаем "процесс"
+    // Р·Р°РїСѓСЃРєР°РµРј "РїСЂРѕС†РµСЃСЃ"
     new LongProcess().execute();
   }
-  // эмуляция долгого процесса
+  // СЌРјСѓР»СЏС†РёСЏ РґРѕР»РіРѕРіРѕ РїСЂРѕС†РµСЃСЃР°
   class LongProcess extends SwingWorker<String,Integer> {
-    // работаем до завершения процесса
+    // СЂР°Р±РѕС‚Р°РµРј РґРѕ Р·Р°РІРµСЂС€РµРЅРёСЏ РїСЂРѕС†РµСЃСЃР°
     protected String doInBackground() throws Exception {
       int current = 5;
       while ( current <= MAX ) {
-        // обновляем внешний вид
+        // РѕР±РЅРѕРІР»СЏРµРј РІРЅРµС€РЅРёР№ РІРёРґ
         publish(current++);
-        // случайная задержка
+        // СЃР»СѓС‡Р°Р№РЅР°СЏ Р·Р°РґРµСЂР¶РєР°
         Thread.sleep((int)(Math.random()*1000));
       }
-      return "Готово";
+      return "Р“РѕС‚РѕРІРѕ";
     }
-    // выполняется в потоке рассылки событий
+    // РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ РІ РїРѕС‚РѕРєРµ СЂР°СЃСЃС‹Р»РєРё СЃРѕР±С‹С‚РёР№
     public void process(java.util.List<Integer> chunks) {
-      // увеличиваем текущее значение
+      // СѓРІРµР»РёС‡РёРІР°РµРј С‚РµРєСѓС‰РµРµ Р·РЅР°С‡РµРЅРёРµ
       model.setValue(chunks.get(0));
     }
   }

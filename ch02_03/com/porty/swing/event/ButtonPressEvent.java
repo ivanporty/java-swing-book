@@ -1,11 +1,11 @@
 // com/porty/swing/event/ButtonPressEvent.java
-// Класс события для кнопки SimpleButton
+// РљР»Р°СЃСЃ СЃРѕР±С‹С‚РёСЏ РґР»СЏ РєРЅРѕРїРєРё SimpleButton
 package com.porty.swing.event;
 
 import java.util.EventObject;
 
 public class ButtonPressEvent extends EventObject {
-  // конструктор. Требует задать источник события
+  // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ. РўСЂРµР±СѓРµС‚ Р·Р°РґР°С‚СЊ РёСЃС‚РѕС‡РЅРёРє СЃРѕР±С‹С‚РёСЏ
   public ButtonPressEvent(Object source) {
     super(source);
   }

@@ -1,5 +1,5 @@
 // Box1.java
-// Блочное расположение
+// Р‘Р»РѕС‡РЅРѕРµ СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ
 import javax.swing.*;
 import java.awt.*;
 
@@ -8,38 +8,38 @@ public class Box1 extends JFrame {
 		super("Box1 - Y");
 		setSize(400, 200);
 		setDefaultCloseOperation( EXIT_ON_CLOSE );
-		// получаем панель содержимого
+		// РїРѕР»СѓС‡Р°РµРј РїР°РЅРµР»СЊ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ
 		Container c = getContentPane();
-		// устанавливаем блочное расположение по
-		// оси Y (столбиком)
+		// СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј Р±Р»РѕС‡РЅРѕРµ СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ РїРѕ
+		// РѕСЃРё Y (СЃС‚РѕР»Р±РёРєРѕРј)
 		BoxLayout boxy = new BoxLayout(c, BoxLayout.Y_AXIS);
 		c.setLayout(boxy);
-		// добавляем компоненты
-		c.add( new JButton("Один"));
-		c.add( new JButton("Два"));
-		c.add( new JButton("Три"));
-		// выводим окно на экран
+		// РґРѕР±Р°РІР»СЏРµРј РєРѕРјРїРѕРЅРµРЅС‚С‹
+		c.add( new JButton("РћРґРёРЅ"));
+		c.add( new JButton("Р”РІР°"));
+		c.add( new JButton("РўСЂРё"));
+		// РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
 		setVisible(true);
 	}
 	static class Box2 extends JFrame {
 		public Box2() {
 			super("Box2 - X");
-			// устанавливаем размер и позицию окна
+			// СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј СЂР°Р·РјРµСЂ Рё РїРѕР·РёС†РёСЋ РѕРєРЅР°
 			setSize(400, 200);
 			setLocation(100, 100);
 			setDefaultCloseOperation( EXIT_ON_CLOSE  );
-			// получаем  панель содержимого
+			// РїРѕР»СѓС‡Р°РµРј  РїР°РЅРµР»СЊ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ
 			Container c  = getContentPane();
-			// устанавливаем блочное расположение по
-			// оси X (полоской)
+			// СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј Р±Р»РѕС‡РЅРѕРµ СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ РїРѕ
+			// РѕСЃРё X (РїРѕР»РѕСЃРєРѕР№)
 			BoxLayout boxx = 
 				new BoxLayout(c, BoxLayout.X_AXIS);
 			c.setLayout(boxx);
-			// добавляем компоненты
-			c.add( new JButton("Один"));
-			c.add( new JButton("Два"));
-			c.add( new JButton("Три"));
-			// выводим окно на экран
+			// РґРѕР±Р°РІР»СЏРµРј РєРѕРјРїРѕРЅРµРЅС‚С‹
+			c.add( new JButton("РћРґРёРЅ"));
+			c.add( new JButton("Р”РІР°"));
+			c.add( new JButton("РўСЂРё"));
+			// РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
 			setVisible(true);
 		}    
 	}

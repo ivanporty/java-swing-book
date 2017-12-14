@@ -1,5 +1,5 @@
 // ShapedWindows.java
-// Полупрозрачные окна произвольных форм
+// РџРѕР»СѓРїСЂРѕР·СЂР°С‡РЅС‹Рµ РѕРєРЅР° РїСЂРѕРёР·РІРѕР»СЊРЅС‹С… С„РѕСЂРј
 import javax.swing.*;
 import java.awt.FlowLayout;
 import java.awt.geom.RoundRectangle2D;
@@ -8,17 +8,17 @@ public class ShapedWindows extends JFrame {
   public ShapedWindows() {
     super("ShapedWindows");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // размер окна
+    // СЂР°Р·РјРµСЂ РѕРєРЅР°
     setSize(300, 200);
-    // несколько компонентов в ряд
+    // РЅРµСЃРєРѕР»СЊРєРѕ РєРѕРјРїРѕРЅРµРЅС‚РѕРІ РІ СЂСЏРґ
     setLayout(new FlowLayout());
-    add(new JLabel("Текст:"));
+    add(new JLabel("РўРµРєСЃС‚:"));
     add(new JTextField(15));
-    // задаем округлую форму
+    // Р·Р°РґР°РµРј РѕРєСЂСѓРіР»СѓСЋ С„РѕСЂРјСѓ
     RoundRectangle2D.Float roundedShape =
         new RoundRectangle2D.Float(0, 0, 300, 200, 70, 70);
     setShape(roundedShape);
-    // задаем прозрачность
+    // Р·Р°РґР°РµРј РїСЂРѕР·СЂР°С‡РЅРѕСЃС‚СЊ
     setOpacity(0.7f);
     setVisible(true);
   }

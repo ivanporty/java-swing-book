@@ -1,5 +1,5 @@
 // FilteringFiles.java
-// Фильтры файлов в компоненте JFileChooser
+// Р¤РёР»СЊС‚СЂС‹ С„Р°Р№Р»РѕРІ РІ РєРѕРјРїРѕРЅРµРЅС‚Рµ JFileChooser
 import javax.swing.*;
 import javax.swing.filechooser.*;
 import java.awt.*;
@@ -8,35 +8,35 @@ public class FilteringFiles extends JFrame {
   public FilteringFiles() {
     super("FilteringFiles");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(300, 200);
     setVisible(true);
-    // настраиваем компонент для выбора файла
+    // РЅР°СЃС‚СЂР°РёРІР°РµРј РєРѕРјРїРѕРЅРµРЅС‚ РґР»СЏ РІС‹Р±РѕСЂР° С„Р°Р№Р»Р°
     JFileChooser chooser = new JFileChooser();
-    chooser.setDialogTitle("Выберите текстовый файл");
-    // присоединяем фильтр
+    chooser.setDialogTitle("Р’С‹Р±РµСЂРёС‚Рµ С‚РµРєСЃС‚РѕРІС‹Р№ С„Р°Р№Р»");
+    // РїСЂРёСЃРѕРµРґРёРЅСЏРµРј С„РёР»СЊС‚СЂ
     chooser.addChoosableFileFilter(
         new TextFilesFilter());
     chooser.setFileFilter(
         new TextFilesFilter());
-    // выводим диалоговое окно на экран
+    // РІС‹РІРѕРґРёРј РґРёР°Р»РѕРіРѕРІРѕРµ РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     int res = chooser.showOpenDialog(this);
     if ( res == JFileChooser.APPROVE_OPTION )
       JOptionPane.showMessageDialog(
           this, chooser.getSelectedFile());
   }
-  // фильтр, отбирающий текстовые файлы
+  // С„РёР»СЊС‚СЂ, РѕС‚Р±РёСЂР°СЋС‰РёР№ С‚РµРєСЃС‚РѕРІС‹Рµ С„Р°Р№Р»С‹
   class TextFilesFilter extends FileFilter {
-    // принимает файл или отказывает ему
+    // РїСЂРёРЅРёРјР°РµС‚ С„Р°Р№Р» РёР»Рё РѕС‚РєР°Р·С‹РІР°РµС‚ РµРјСѓ
     public boolean accept(java.io.File file) {
-      // все каталоги принимаем
+      // РІСЃРµ РєР°С‚Р°Р»РѕРіРё РїСЂРёРЅРёРјР°РµРј
       if ( file.isDirectory() ) return true;
-      // для файлов смотрим на расширение
+      // РґР»СЏ С„Р°Р№Р»РѕРІ СЃРјРѕС‚СЂРёРј РЅР° СЂР°СЃС€РёСЂРµРЅРёРµ
       return ( file.getName().endsWith(".txt") );
     }
-    // возвращает описание фильтра
+    // РІРѕР·РІСЂР°С‰Р°РµС‚ РѕРїРёСЃР°РЅРёРµ С„РёР»СЊС‚СЂР°
     public String getDescription() {
-      return "Текстовые файлы (*.txt)";
+      return "РўРµРєСЃС‚РѕРІС‹Рµ С„Р°Р№Р»С‹ (*.txt)";
     }
   }
   public static void main(String[] args) {

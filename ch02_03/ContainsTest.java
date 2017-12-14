@@ -1,5 +1,5 @@
 // ContainsTest.java
-// Изменение поведения мыши и метод contains()
+// РР·РјРµРЅРµРЅРёРµ РїРѕРІРµРґРµРЅРёСЏ РјС‹С€Рё Рё РјРµС‚РѕРґ contains()
 
 import javax.swing.*;
 import java.awt.*;
@@ -7,17 +7,17 @@ import java.awt.*;
 public class ContainsTest extends JFrame {
   public ContainsTest() {
     super("ContainsTest");
-    // при закрытии окна - выход
+    // РїСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР° - РІС‹С…РѕРґ
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // добавим кнопку и переопределим метод
-    JButton button = new JButton("Невидима") {
+    // РґРѕР±Р°РІРёРј РєРЅРѕРїРєСѓ Рё РїРµСЂРµРѕРїСЂРµРґРµР»РёРј РјРµС‚РѕРґ
+    JButton button = new JButton("РќРµРІРёРґРёРјР°") {
       @Override
       public boolean contains(int x, int y) {
-        // не содержим ни одной точки
+        // РЅРµ СЃРѕРґРµСЂР¶РёРј РЅРё РѕРґРЅРѕР№ С‚РѕС‡РєРё
         return false;
       }
     };
-    // настроим панель содержимого и выведем окно на экран
+    // РЅР°СЃС‚СЂРѕРёРј РїР°РЅРµР»СЊ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ Рё РІС‹РІРµРґРµРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setLayout(new FlowLayout());
     add(button);
     setSize(300, 200);

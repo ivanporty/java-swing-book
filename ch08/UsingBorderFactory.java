@@ -1,17 +1,17 @@
 // UsingBorderFactory.java
-// Фабрика рамок BorderFactory
+// Р¤Р°Р±СЂРёРєР° СЂР°РјРѕРє BorderFactory
 import javax.swing.*;
 
 public class UsingBorderFactory extends JFrame {
   public UsingBorderFactory() {
     super("UsingBorderFactory");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // рамка для панели содержимого
+    // СЂР°РјРєР° РґР»СЏ РїР°РЅРµР»Рё СЃРѕРґРµСЂР¶РёРјРѕРіРѕ
     JPanel cp = (JPanel)getContentPane();
     cp.setBorder(BorderFactory.createTitledBorder(
         BorderFactory.createRaisedBevelBorder(),
-        "Сделано на фабрике рамок"));
-    // выводим окно на экран
+        "РЎРґРµР»Р°РЅРѕ РЅР° С„Р°Р±СЂРёРєРµ СЂР°РјРѕРє"));
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(300, 200);
     setVisible(true);
   }

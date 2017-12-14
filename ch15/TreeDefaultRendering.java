@@ -1,6 +1,6 @@
 // TreeDefaultRendering.java
-// Использование возможностей стандартного
-// отображащего объекта DefaultTreeCellRenderer
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РІРѕР·РјРѕР¶РЅРѕСЃС‚РµР№ СЃС‚Р°РЅРґР°СЂС‚РЅРѕРіРѕ
+// РѕС‚РѕР±СЂР°Р¶Р°С‰РµРіРѕ РѕР±СЉРµРєС‚Р° DefaultTreeCellRenderer
 import javax.swing.*;
 import javax.swing.tree.*;
 import java.awt.*;
@@ -9,9 +9,9 @@ public class TreeDefaultRendering extends JFrame {
   public TreeDefaultRendering() {
     super("TreeDefaultRendering");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем дерево на основе незатейливой модели
+    // СЃРѕР·РґР°РµРј РґРµСЂРµРІРѕ РЅР° РѕСЃРЅРѕРІРµ РЅРµР·Р°С‚РµР№Р»РёРІРѕР№ РјРѕРґРµР»Рё
     JTree tree = new JTree(createTreeModel());
-    // создадем и настраиваем отображающий объект
+    // СЃРѕР·РґР°РґРµРј Рё РЅР°СЃС‚СЂР°РёРІР°РµРј РѕС‚РѕР±СЂР°Р¶Р°СЋС‰РёР№ РѕР±СЉРµРєС‚
     DefaultTreeCellRenderer renderer =
         new DefaultTreeCellRenderer();
     renderer.setLeafIcon(new ImageIcon("Leaf.gif"));
@@ -19,37 +19,37 @@ public class TreeDefaultRendering extends JFrame {
         new ImageIcon("NodeClosed.gif"));
     renderer.setOpenIcon(
         new ImageIcon("NodeOpened.gif"));
-    // передаем его дереву
+    // РїРµСЂРµРґР°РµРј РµРіРѕ РґРµСЂРµРІСѓ
     tree.setCellRenderer(renderer);
-    // добавляем дерево и выводим окно на экран
+    // РґРѕР±Р°РІР»СЏРµРј РґРµСЂРµРІРѕ Рё РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     add(new JScrollPane(tree));
     setSize(400, 300);
     setVisible(true);
   }
-  // листья дерева храним в массивах
+  // Р»РёСЃС‚СЊСЏ РґРµСЂРµРІР° С…СЂР°РЅРёРј РІ РјР°СЃСЃРёРІР°С…
   private String[] langs = {
       "<html><b>Java", "<html><pre>Scala", "Ruby" };
   private String[] ides = {
       "IDEA", "<html><i>Eclipse", "NetBeans" };
-  // создание несложной модели дерева
+  // СЃРѕР·РґР°РЅРёРµ РЅРµСЃР»РѕР¶РЅРѕР№ РјРѕРґРµР»Рё РґРµСЂРµРІР°
   private TreeModel createTreeModel() {
-    // корень нашего дерева
+    // РєРѕСЂРµРЅСЊ РЅР°С€РµРіРѕ РґРµСЂРµРІР°
     DefaultMutableTreeNode root =
         new DefaultMutableTreeNode(
-            "<html><font color=blue>Создание кода");
-    // основные ветви
+            "<html><font color=blue>РЎРѕР·РґР°РЅРёРµ РєРѕРґР°");
+    // РѕСЃРЅРѕРІРЅС‹Рµ РІРµС‚РІРё
     DefaultMutableTreeNode lang =
-        new DefaultMutableTreeNode("Языки");
+        new DefaultMutableTreeNode("РЇР·С‹РєРё");
     DefaultMutableTreeNode ide =
-        new DefaultMutableTreeNode("Среды");
+        new DefaultMutableTreeNode("РЎСЂРµРґС‹");
     root.add(lang);
     root.add(ide);
-    // присоединяем листья
+    // РїСЂРёСЃРѕРµРґРёРЅСЏРµРј Р»РёСЃС‚СЊСЏ
     for (int i=0; i<langs.length; i++) {
       lang.add(new DefaultMutableTreeNode(langs[i]));
       ide.add(new DefaultMutableTreeNode(ides[i]));
     }
-    // создаем стандартную модель
+    // СЃРѕР·РґР°РµРј СЃС‚Р°РЅРґР°СЂС‚РЅСѓСЋ РјРѕРґРµР»СЊ
     return new DefaultTreeModel(root);
   }
   public static void main(String[] args) {

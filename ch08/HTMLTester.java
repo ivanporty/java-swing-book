@@ -1,6 +1,6 @@
 // HTMLTester.java
-// Позволяет легко просмотреть результат
-// использования HTML на компонентах Swing
+// РџРѕР·РІРѕР»СЏРµС‚ Р»РµРіРєРѕ РїСЂРѕСЃРјРѕС‚СЂРµС‚СЊ СЂРµР·СѓР»СЊС‚Р°С‚
+// РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ HTML РЅР° РєРѕРјРїРѕРЅРµРЅС‚Р°С… Swing
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -9,10 +9,10 @@ public class HTMLTester extends JFrame {
   public HTMLTester() {
     super("HTMLTester");
     setDefaultCloseOperation( EXIT_ON_CLOSE );
-    // создадим интерфейс и настроим события
+    // СЃРѕР·РґР°РґРёРј РёРЅС‚РµСЂС„РµР№СЃ Рё РЅР°СЃС‚СЂРѕРёРј СЃРѕР±С‹С‚РёСЏ
     createGUI();
     attachListeners();
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(400, 300);
     setVisible(true);
   }
@@ -20,29 +20,29 @@ public class HTMLTester extends JFrame {
   private JLabel result;
   private JButton update;
   private void createGUI() {
-    // в качестве основы используем таблицу
+    // РІ РєР°С‡РµСЃС‚РІРµ РѕСЃРЅРѕРІС‹ РёСЃРїРѕР»СЊР·СѓРµРј С‚Р°Р±Р»РёС†Сѓ
     JPanel p = new JPanel(new GridLayout(1, 2, 5, 5));
     p.setBorder(
         BorderFactory.createEmptyBorder(12, 12, 12, 12));
-    // полярное расположение
+    // РїРѕР»СЏСЂРЅРѕРµ СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ
     JPanel vertical = new JPanel(new BorderLayout());
-    // настройка текстового поля
+    // РЅР°СЃС‚СЂРѕР№РєР° С‚РµРєСЃС‚РѕРІРѕРіРѕ РїРѕР»СЏ
     JScrollPane scroller = new JScrollPane(
         html = new JTextArea());
     html.setLineWrap(true);
     html.append("<html>");
-    // добавляем текстовое поле и надпись
-    vertical.add(new JLabel("Код HTML:"), "North");
+    // РґРѕР±Р°РІР»СЏРµРј С‚РµРєСЃС‚РѕРІРѕРµ РїРѕР»Рµ Рё РЅР°РґРїРёСЃСЊ
+    vertical.add(new JLabel("РљРѕРґ HTML:"), "North");
     vertical.add(scroller);
-    // кнопка обновления текста
-    update = new JButton("Обновить");
+    // РєРЅРѕРїРєР° РѕР±РЅРѕРІР»РµРЅРёСЏ С‚РµРєСЃС‚Р°
+    update = new JButton("РћР±РЅРѕРІРёС‚СЊ");
     getContentPane().add(update, "South");
-    // надпись с результатом
+    // РЅР°РґРїРёСЃСЊ СЃ СЂРµР·СѓР»СЊС‚Р°С‚РѕРј
     JPanel resultPanel = new JPanel(new BorderLayout());
     result = new JLabel();
-    resultPanel.add(new JLabel("Результат:"), "North");
+    resultPanel.add(new JLabel("Р РµР·СѓР»СЊС‚Р°С‚:"), "North");
     resultPanel.add(new JScrollPane(result));
-    // окончательная укладка панелей
+    // РѕРєРѕРЅС‡Р°С‚РµР»СЊРЅР°СЏ СѓРєР»Р°РґРєР° РїР°РЅРµР»РµР№
     p.add(vertical);
     p.add(resultPanel);
     getContentPane().add(p);
@@ -50,7 +50,7 @@ public class HTMLTester extends JFrame {
   private void attachListeners() {
     update.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        // устанавливаем в надписи новый текст
+        // СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј РІ РЅР°РґРїРёСЃРё РЅРѕРІС‹Р№ С‚РµРєСЃС‚
         result.setText(html.getText());
       }
     });

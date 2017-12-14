@@ -1,38 +1,38 @@
 // SimpleTablesLook.java
-// Небольшое изменение внешнего вида таблиц
+// РќРµР±РѕР»СЊС€РѕРµ РёР·РјРµРЅРµРЅРёРµ РІРЅРµС€РЅРµРіРѕ РІРёРґР° С‚Р°Р±Р»РёС†
 import javax.swing.*;
 import java.awt.*;
 
 public class SimpleTablesLook extends JFrame {
-  // данные и заголовки для таблицы
+  // РґР°РЅРЅС‹Рµ Рё Р·Р°РіРѕР»РѕРІРєРё РґР»СЏ С‚Р°Р±Р»РёС†С‹
   private Object[][] data = new String[][] {
-      { "Мощная", "Синий", "Спортивный" },
-      { "Экономичная", "Красный", "Классика" }
+      { "РњРѕС‰РЅР°СЏ", "РЎРёРЅРёР№", "РЎРїРѕСЂС‚РёРІРЅС‹Р№" },
+      { "Р­РєРѕРЅРѕРјРёС‡РЅР°СЏ", "РљСЂР°СЃРЅС‹Р№", "РљР»Р°СЃСЃРёРєР°" }
   };
   private Object[] columns = new String[] {
-      "Модель", "Цвет", "Дизайн"
+      "РњРѕРґРµР»СЊ", "Р¦РІРµС‚", "Р”РёР·Р°Р№РЅ"
   };
   public SimpleTablesLook() {
     super("SimpleTablesLook");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // таблица с разными расстояниями между ячейками
+    // С‚Р°Р±Р»РёС†Р° СЃ СЂР°Р·РЅС‹РјРё СЂР°СЃСЃС‚РѕСЏРЅРёСЏРјРё РјРµР¶РґСѓ СЏС‡РµР№РєР°РјРё
     JTable table1 = new JTable(data, columns);
-    // настройка расстояний и цветов
+    // РЅР°СЃС‚СЂРѕР№РєР° СЂР°СЃСЃС‚РѕСЏРЅРёР№ Рё С†РІРµС‚РѕРІ
     table1.setRowHeight(40);
     table1.setIntercellSpacing(new Dimension(10, 10));
     table1.setGridColor(Color.green);
     table1.setShowVerticalLines(false);
-    // таблица с разными цветами
+    // С‚Р°Р±Р»РёС†Р° СЃ СЂР°Р·РЅС‹РјРё С†РІРµС‚Р°РјРё
     JTable table2 = new JTable(data, columns);
     table2.setForeground(Color.red);
     table2.setSelectionForeground(Color.yellow);
     table2.setSelectionBackground(Color.blue);
     table2.setShowGrid(false);
-    // добавляем таблицы в панель из двух ячеек
+    // РґРѕР±Р°РІР»СЏРµРј С‚Р°Р±Р»РёС†С‹ РІ РїР°РЅРµР»СЊ РёР· РґРІСѓС… СЏС‡РµРµРє
     setLayout(new GridLayout(1, 2, 5, 5));
     add(new JScrollPane(table1));
     add(new JScrollPane(table2));
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(600, 200);
     setVisible(true);
   }

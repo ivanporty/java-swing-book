@@ -1,7 +1,7 @@
 // BoxStruts.java
-// Использование распорок при блочном расположении
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ СЂР°СЃРїРѕСЂРѕРє РїСЂРё Р±Р»РѕС‡РЅРѕРј СЂР°СЃРїРѕР»РѕР¶РµРЅРёРё
 import javax.swing.*;
-// используем наш новый класс
+// РёСЃРїРѕР»СЊР·СѓРµРј РЅР°С€ РЅРѕРІС‹Р№ РєР»Р°СЃСЃ
 import com.porty.swing.BoxLayoutUtils;
 
 public class BoxStruts extends JFrame {
@@ -9,27 +9,27 @@ public class BoxStruts extends JFrame {
 		super("BoxStruts");
 		setSize(250, 200);
 		setDefaultCloseOperation( EXIT_ON_CLOSE );
-		// панель с вертикальным блочным расположением
+		// РїР°РЅРµР»СЊ СЃ РІРµСЂС‚РёРєР°Р»СЊРЅС‹Рј Р±Р»РѕС‡РЅС‹Рј СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµРј
 		JPanel p = BoxLayoutUtils.createVerticalPanel();
-		p.add(new JButton("Один"));
-		// создание вертикальной распорки
+		p.add(new JButton("РћРґРёРЅ"));
+		// СЃРѕР·РґР°РЅРёРµ РІРµСЂС‚РёРєР°Р»СЊРЅРѕР№ СЂР°СЃРїРѕСЂРєРё
 		p.add(Box.createVerticalStrut(15));
-		// новый компонент и распорка другого размера
-		p.add(new JButton("Два"));
+		// РЅРѕРІС‹Р№ РєРѕРјРїРѕРЅРµРЅС‚ Рё СЂР°СЃРїРѕСЂРєР° РґСЂСѓРіРѕРіРѕ СЂР°Р·РјРµСЂР°
+		p.add(new JButton("Р”РІР°"));
 		p.add(Box.createVerticalStrut(5));
-		p.add(new JButton("Три"));
-		// панель с горизонтальным блочным расположением
+		p.add(new JButton("РўСЂРё"));
+		// РїР°РЅРµР»СЊ СЃ РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅС‹Рј Р±Р»РѕС‡РЅС‹Рј СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµРј
 		JPanel p2 = BoxLayoutUtils.createHorizontalPanel();
-		// распорки можно ставить и перед компонентами
+		// СЂР°СЃРїРѕСЂРєРё РјРѕР¶РЅРѕ СЃС‚Р°РІРёС‚СЊ Рё РїРµСЂРµРґ РєРѕРјРїРѕРЅРµРЅС‚Р°РјРё
 		p2.add(Box.createHorizontalStrut(10));
-		p2.add(new JButton("Один"));
-		// создание горизонтальной распорки
+		p2.add(new JButton("РћРґРёРЅ"));
+		// СЃРѕР·РґР°РЅРёРµ РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅРѕР№ СЂР°СЃРїРѕСЂРєРё
 		p2.add(Box.createHorizontalStrut(25));
-		p2.add(new JButton("Два"));
-		// добавляем панели на север и юг окна
+		p2.add(new JButton("Р”РІР°"));
+		// РґРѕР±Р°РІР»СЏРµРј РїР°РЅРµР»Рё РЅР° СЃРµРІРµСЂ Рё СЋРі РѕРєРЅР°
 		add(p, "North");
 		add(p2, "South");
-		// выводим окно на экран
+		// РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
 		setVisible(true);
 	}  
 	public static void main(String[] args) {

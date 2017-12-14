@@ -1,5 +1,5 @@
 // TestCheckBoxTree.java
-// Проверка дерева с поддержкой флажков
+// РџСЂРѕРІРµСЂРєР° РґРµСЂРµРІР° СЃ РїРѕРґРґРµСЂР¶РєРѕР№ С„Р»Р°Р¶РєРѕРІ
 import com.porty.swing.*;
 import javax.swing.*;
 import javax.swing.tree.*;
@@ -9,39 +9,39 @@ public class TestCheckBoxTree extends JFrame {
   public TestCheckBoxTree() {
     super("TestCheckBoxTree");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем модель и дерево
+    // СЃРѕР·РґР°РµРј РјРѕРґРµР»СЊ Рё РґРµСЂРµРІРѕ
     TreeModel model = createTreeModel();
     CheckBoxTree tree = new CheckBoxTree(model);
-    // добавляем дерево в окно
+    // РґРѕР±Р°РІР»СЏРµРј РґРµСЂРµРІРѕ РІ РѕРєРЅРѕ
     add(new JScrollPane(tree));
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(400, 300);
     setVisible(true);
   }
-  // листья дерева храним в массивах
+  // Р»РёСЃС‚СЊСЏ РґРµСЂРµРІР° С…СЂР°РЅРёРј РІ РјР°СЃСЃРёРІР°С…
   private String[] langs = { "Java", "Scala", "Ruby" };
   private String[] ides =
       { "IDEA", "Eclipse", "NetBeans" };
-  // создание несложной модели дерева
+  // СЃРѕР·РґР°РЅРёРµ РЅРµСЃР»РѕР¶РЅРѕР№ РјРѕРґРµР»Рё РґРµСЂРµРІР°
   private TreeModel createTreeModel() {
-    // корень нашего дерева
+    // РєРѕСЂРµРЅСЊ РЅР°С€РµРіРѕ РґРµСЂРµРІР°
     DefaultMutableTreeNode root =
-        new DefaultMutableTreeNode("Создание кода");
-    // основные ветви
+        new DefaultMutableTreeNode("РЎРѕР·РґР°РЅРёРµ РєРѕРґР°");
+    // РѕСЃРЅРѕРІРЅС‹Рµ РІРµС‚РІРё
     DefaultMutableTreeNode lang =
-        new DefaultMutableTreeNode("Языки");
+        new DefaultMutableTreeNode("РЇР·С‹РєРё");
     DefaultMutableTreeNode ide =
-        new DefaultMutableTreeNode("Среды");
+        new DefaultMutableTreeNode("РЎСЂРµРґС‹");
     root.add(lang);
     root.add(ide);
-    // присоединяем листья с данными для флажков
+    // РїСЂРёСЃРѕРµРґРёРЅСЏРµРј Р»РёСЃС‚СЊСЏ СЃ РґР°РЅРЅС‹РјРё РґР»СЏ С„Р»Р°Р¶РєРѕРІ
     for (int i=0; i<langs.length; i++) {
       lang.add(new DefaultMutableTreeNode(
           new CheckBoxListElement(false, langs[i])));
       ide.add(new DefaultMutableTreeNode(
           new CheckBoxListElement(false, ides[i])));
     }
-    // создаем стандартную модель
+    // СЃРѕР·РґР°РµРј СЃС‚Р°РЅРґР°СЂС‚РЅСѓСЋ РјРѕРґРµР»СЊ
     return new DefaultTreeModel(root);
   }
   public static void main(String[] args) {

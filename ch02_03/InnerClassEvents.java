@@ -1,5 +1,5 @@
 // InnerClassEvents.java
-// Внутренние классы для обработки событий
+// Р’РЅСѓС‚СЂРµРЅРЅРёРµ РєР»Р°СЃСЃС‹ РґР»СЏ РѕР±СЂР°Р±РѕС‚РєРё СЃРѕР±С‹С‚РёР№
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,22 +11,22 @@ public class InnerClassEvents extends JFrame {
 
   public InnerClassEvents() {
     super("InnerClassEvents");
-    // при закрытии окна - выход
+    // РїСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР° - РІС‹С…РѕРґ
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // последовательное расположение
+    // РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕРµ СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ
     setLayout(new FlowLayout());
-    // добавим текстовое поле
+    // РґРѕР±Р°РІРёРј С‚РµРєСЃС‚РѕРІРѕРµ РїРѕР»Рµ
     add(text = new JTextField(10));
-    // и кнопку
-    add(button = new JButton("Нажмите"));
-    // будем следить за нажатиями кнопки
+    // Рё РєРЅРѕРїРєСѓ
+    add(button = new JButton("РќР°Р¶РјРёС‚Рµ"));
+    // Р±СѓРґРµРј СЃР»РµРґРёС‚СЊ Р·Р° РЅР°Р¶Р°С‚РёСЏРјРё РєРЅРѕРїРєРё
     button.addActionListener(new ButtonL());
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     pack();
     setVisible(true);
   }
 
-  // класс - слушатель нажатия на кнопку
+  // РєР»Р°СЃСЃ - СЃР»СѓС€Р°С‚РµР»СЊ РЅР°Р¶Р°С‚РёСЏ РЅР° РєРЅРѕРїРєСѓ
   class ButtonL implements ActionListener {
     public void actionPerformed(ActionEvent e) {
       System.out.println(text.getText());

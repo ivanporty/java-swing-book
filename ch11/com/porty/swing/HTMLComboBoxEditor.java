@@ -1,6 +1,6 @@
 // com/porty/swing/HTMLComboBoxEditor.java
-// Полнофункциональный редактор для списка
-// JComboBox, использующего HTML
+// РџРѕР»РЅРѕС„СѓРЅРєС†РёРѕРЅР°Р»СЊРЅС‹Р№ СЂРµРґР°РєС‚РѕСЂ РґР»СЏ СЃРїРёСЃРєР°
+// JComboBox, РёСЃРїРѕР»СЊР·СѓСЋС‰РµРіРѕ HTML
 package com.porty.swing;
 import javax.swing.*;
 import java.awt.*;
@@ -8,7 +8,7 @@ import java.awt.event.*;
 
 public class HTMLComboBoxEditor
     implements ComboBoxEditor {
-  // редактор для HTML
+  // СЂРµРґР°РєС‚РѕСЂ РґР»СЏ HTML
   private JEditorPane htmlEditor;
   public HTMLComboBoxEditor() {
     htmlEditor =
@@ -16,27 +16,27 @@ public class HTMLComboBoxEditor
     htmlEditor.setBorder(BorderFactory.
         createEtchedBorder());
   }
-  // возвращает редактор
+  // РІРѕР·РІСЂР°С‰Р°РµС‚ СЂРµРґР°РєС‚РѕСЂ
   public Component getEditorComponent() {
     return htmlEditor;
   }
-  // сигнал выбрать весь текст и приступить
-  // к редактированию
+  // СЃРёРіРЅР°Р» РІС‹Р±СЂР°С‚СЊ РІРµСЃСЊ С‚РµРєСЃС‚ Рё РїСЂРёСЃС‚СѓРїРёС‚СЊ
+  // Рє СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЋ
   public void selectAll() {
     htmlEditor.selectAll();
     htmlEditor.requestFocus();
   }
-  // возвращает редактируемый элемент
+  // РІРѕР·РІСЂР°С‰Р°РµС‚ СЂРµРґР°РєС‚РёСЂСѓРµРјС‹Р№ СЌР»РµРјРµРЅС‚
   public Object getItem() {
     return htmlEditor.getText();
   }
-  // получает новый элемент для редактирования
+  // РїРѕР»СѓС‡Р°РµС‚ РЅРѕРІС‹Р№ СЌР»РµРјРµРЅС‚ РґР»СЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ
   public void setItem(Object item) {
     htmlEditor.setText(item.toString());
   }
-  // методы для присоединения слушателей
-  // ActionListener, который оповещаются
-  // об окончании редактирования
+  // РјРµС‚РѕРґС‹ РґР»СЏ РїСЂРёСЃРѕРµРґРёРЅРµРЅРёСЏ СЃР»СѓС€Р°С‚РµР»РµР№
+  // ActionListener, РєРѕС‚РѕСЂС‹Р№ РѕРїРѕРІРµС‰Р°СЋС‚СЃСЏ
+  // РѕР± РѕРєРѕРЅС‡Р°РЅРёРё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ
   public void addActionListener(
       ActionListener e) { }
   public void removeActionListener(

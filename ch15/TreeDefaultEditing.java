@@ -1,57 +1,57 @@
 // TreeDefaultEditing.java
-// Стандартные редакторы для деревьев
+// РЎС‚Р°РЅРґР°СЂС‚РЅС‹Рµ СЂРµРґР°РєС‚РѕСЂС‹ РґР»СЏ РґРµСЂРµРІСЊРµРІ
 import javax.swing.*;
 import javax.swing.tree.*;
 import java.awt.*;
 
 public class TreeDefaultEditing extends JFrame {
-  // листья дерева храним в массивах
+  // Р»РёСЃС‚СЊСЏ РґРµСЂРµРІР° С…СЂР°РЅРёРј РІ РјР°СЃСЃРёРІР°С…
   private String[] basics = {
-      "Красный", "Зеленый", "Синий" };
+      "РљСЂР°СЃРЅС‹Р№", "Р—РµР»РµРЅС‹Р№", "РЎРёРЅРёР№" };
   private String[] extendeds = {
-      "Желтый", "Голубой", "Розовый" };
+      "Р–РµР»С‚С‹Р№", "Р“РѕР»СѓР±РѕР№", "Р РѕР·РѕРІС‹Р№" };
   public TreeDefaultEditing() {
     super("TreeDefaultEditing");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем дерево на основе простой модели
+    // СЃРѕР·РґР°РµРј РґРµСЂРµРІРѕ РЅР° РѕСЃРЅРѕРІРµ РїСЂРѕСЃС‚РѕР№ РјРѕРґРµР»Рё
     JTree tree = new JTree(createTreeModel());
-    // включаем редактирование
+    // РІРєР»СЋС‡Р°РµРј СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ
     tree.setEditable(true);
-    // "настоящий" редактор
+    // "РЅР°СЃС‚РѕСЏС‰РёР№" СЂРµРґР°РєС‚РѕСЂ
     JComboBox combo = new JComboBox(
-        new String[] {"Красный", "Зеленый"});
+        new String[] {"РљСЂР°СЃРЅС‹Р№", "Р—РµР»РµРЅС‹Р№"});
     DefaultCellEditor editor = new DefaultCellEditor(combo);
-    // специальный редактор для дерева
+    // СЃРїРµС†РёР°Р»СЊРЅС‹Р№ СЂРµРґР°РєС‚РѕСЂ РґР»СЏ РґРµСЂРµРІР°
     DefaultTreeCellRenderer renderer =
         new DefaultTreeCellRenderer();
     DefaultTreeCellEditor treeEditor =
         new DefaultTreeCellEditor(tree, renderer, editor);
-    // присоединяем редактор к дереву
+    // РїСЂРёСЃРѕРµРґРёРЅСЏРµРј СЂРµРґР°РєС‚РѕСЂ Рє РґРµСЂРµРІСѓ
     tree.setCellEditor(treeEditor);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     add(new JScrollPane(tree));
     setSize(400, 300);
     setVisible(true);
   }
-  // создание несложной модели дерева
+  // СЃРѕР·РґР°РЅРёРµ РЅРµСЃР»РѕР¶РЅРѕР№ РјРѕРґРµР»Рё РґРµСЂРµРІР°
   private TreeModel createTreeModel() {
-    // корень нашего дерева
+    // РєРѕСЂРµРЅСЊ РЅР°С€РµРіРѕ РґРµСЂРµРІР°
     DefaultMutableTreeNode root =
-        new DefaultMutableTreeNode("Цвета");
-    // основные ветви
+        new DefaultMutableTreeNode("Р¦РІРµС‚Р°");
+    // РѕСЃРЅРѕРІРЅС‹Рµ РІРµС‚РІРё
     DefaultMutableTreeNode basic =
-        new DefaultMutableTreeNode("Основные");
+        new DefaultMutableTreeNode("РћСЃРЅРѕРІРЅС‹Рµ");
     DefaultMutableTreeNode extended =
-        new DefaultMutableTreeNode("Дополнительные");
+        new DefaultMutableTreeNode("Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ");
     root.add(basic);
     root.add(extended);
-    // присоединяем листья
+    // РїСЂРёСЃРѕРµРґРёРЅСЏРµРј Р»РёСЃС‚СЊСЏ
     for (int i=0; i<basics.length; i++) {
       basic.add(new DefaultMutableTreeNode(basics[i]));
       extended.add(
           new DefaultMutableTreeNode(extendeds[i]));
     }
-    // создаем стандартную модель
+    // СЃРѕР·РґР°РµРј СЃС‚Р°РЅРґР°СЂС‚РЅСѓСЋ РјРѕРґРµР»СЊ
     return new DefaultTreeModel(root);
   }
   public static void main(String[] args) {

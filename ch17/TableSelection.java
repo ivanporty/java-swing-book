@@ -1,36 +1,36 @@
 // TableSelection.java
-// Режимы выделения ячеек таблицы
+// Р РµР¶РёРјС‹ РІС‹РґРµР»РµРЅРёСЏ СЏС‡РµРµРє С‚Р°Р±Р»РёС†С‹
 import javax.swing.*;
 import javax.swing.table.*;
 import java.awt.*;
 
 public class TableSelection extends JFrame {
-  // названия столбцов таблицы
+  // РЅР°Р·РІР°РЅРёСЏ СЃС‚РѕР»Р±С†РѕРІ С‚Р°Р±Р»РёС†С‹
   private String[] columnNames = {
-      "Название", "Вкус", "Цвет"
+      "РќР°Р·РІР°РЅРёРµ", "Р’РєСѓСЃ", "Р¦РІРµС‚"
   };
-  // данные для таблицы
+  // РґР°РЅРЅС‹Рµ РґР»СЏ С‚Р°Р±Р»РёС†С‹
   private String[][] data = {
-      { "Апельсин", "Кисло-сладкий", "Оранжевый"},
-      { "Арбуз", "Сладкий", "Темно-зеленый"},
-      { "Лимон", "Кислый", "Желтый"}
+      { "РђРїРµР»СЊСЃРёРЅ", "РљРёСЃР»Рѕ-СЃР»Р°РґРєРёР№", "РћСЂР°РЅР¶РµРІС‹Р№"},
+      { "РђСЂР±СѓР·", "РЎР»Р°РґРєРёР№", "РўРµРјРЅРѕ-Р·РµР»РµРЅС‹Р№"},
+      { "Р›РёРјРѕРЅ", "РљРёСЃР»С‹Р№", "Р–РµР»С‚С‹Р№"}
   };
   public TableSelection() {
     super("TableSelection");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем пару таблиц с одинаковыми данными
-    // первая таблица - выделение по строкам
+    // СЃРѕР·РґР°РµРј РїР°СЂСѓ С‚Р°Р±Р»РёС† СЃ РѕРґРёРЅР°РєРѕРІС‹РјРё РґР°РЅРЅС‹РјРё
+    // РїРµСЂРІР°СЏ С‚Р°Р±Р»РёС†Р° - РІС‹РґРµР»РµРЅРёРµ РїРѕ СЃС‚СЂРѕРєР°Рј
     JTable table1 = new JTable(data, columnNames);
     table1.getSelectionModel().setSelectionMode(
         ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-    // вторая таблица - выделение по столбцам
+    // РІС‚РѕСЂР°СЏ С‚Р°Р±Р»РёС†Р° - РІС‹РґРµР»РµРЅРёРµ РїРѕ СЃС‚РѕР»Р±С†Р°Рј
     JTable table2 = new JTable(data, columnNames);
     table2.setRowSelectionAllowed(false);
     TableColumnModel cm = table2.getColumnModel();
     cm.setColumnSelectionAllowed(true);
     cm.getSelectionModel().setSelectionMode(
         ListSelectionModel.SINGLE_SELECTION);
-    // добавляем таблицы и выводим окно на экран
+    // РґРѕР±Р°РІР»СЏРµРј С‚Р°Р±Р»РёС†С‹ Рё РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setLayout(new GridLayout(1, 2));
     add(new JScrollPane(table1));
     add(new JScrollPane(table2));

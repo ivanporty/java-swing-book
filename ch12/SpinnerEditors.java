@@ -1,35 +1,35 @@
 // SpinnerEditors.java
-// Стандартные редакторы счетчиков
+// РЎС‚Р°РЅРґР°СЂС‚РЅС‹Рµ СЂРµРґР°РєС‚РѕСЂС‹ СЃС‡РµС‚С‡РёРєРѕРІ
 import javax.swing.*;
 import java.util.*;
 import java.awt.*;
 
 public class SpinnerEditors extends JFrame {
-  // данные для первого счетчика
+  // РґР°РЅРЅС‹Рµ РґР»СЏ РїРµСЂРІРѕРіРѕ СЃС‡РµС‚С‡РёРєР°
   private String[] data = {
-      "Первый", "Второй", "Последний"
+      "РџРµСЂРІС‹Р№", "Р’С‚РѕСЂРѕР№", "РџРѕСЃР»РµРґРЅРёР№"
   };
   public SpinnerEditors() {
     super("SpinnerEditors");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // счетчик на основе массива
+    // СЃС‡РµС‚С‡РёРє РЅР° РѕСЃРЅРѕРІРµ РјР°СЃСЃРёРІР°
     JSpinner spinner1 = new JSpinner(
         new SpinnerListModel(data));
-    // настраиваем редактор
+    // РЅР°СЃС‚СЂР°РёРІР°РµРј СЂРµРґР°РєС‚РѕСЂ
     ((JSpinner.ListEditor)spinner1.getEditor()).
         getTextField().setColumns(15);
-    // выбор дат
+    // РІС‹Р±РѕСЂ РґР°С‚
     SpinnerDateModel dates = new SpinnerDateModel(
         new Date(), null, null, Calendar.DAY_OF_MONTH);
     JSpinner spinner2 = new JSpinner(dates);
-    // настраиваем редактор
+    // РЅР°СЃС‚СЂР°РёРІР°РµРј СЂРµРґР°РєС‚РѕСЂ
     ((JSpinner.DateEditor)spinner2.getEditor()).
         getTextField().setEditable(false);
-    // добавляем счетчики в панель содержимого
+    // РґРѕР±Р°РІР»СЏРµРј СЃС‡РµС‚С‡РёРєРё РІ РїР°РЅРµР»СЊ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ
     setLayout(new FlowLayout());
     add(spinner1);
     add(spinner2);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(400, 300);
     setVisible(true);
   }

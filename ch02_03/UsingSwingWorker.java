@@ -1,5 +1,5 @@
 // UsingSwingWorker.java
-// Класс SwingWorker для отзывчивости интерфейса
+// РљР»Р°СЃСЃ SwingWorker РґР»СЏ РѕС‚Р·С‹РІС‡РёРІРѕСЃС‚Рё РёРЅС‚РµСЂС„РµР№СЃР°
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,18 +11,18 @@ public class UsingSwingWorker extends JFrame {
 
   public UsingSwingWorker() {
     super("UsingSwingWorker");
-    // при закрытии окна - выход
+    // РїСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР° - РІС‹С…РѕРґ
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // добавим кнопку со слушателем
-    button = new JButton("Выполнить сложную работу");
+    // РґРѕР±Р°РІРёРј РєРЅРѕРїРєСѓ СЃРѕ СЃР»СѓС€Р°С‚РµР»РµРј
+    button = new JButton("Р’С‹РїРѕР»РЅРёС‚СЊ СЃР»РѕР¶РЅСѓСЋ СЂР°Р±РѕС‚Сѓ");
     button.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        // запустим отдельную долгую работу
+        // Р·Р°РїСѓСЃС‚РёРј РѕС‚РґРµР»СЊРЅСѓСЋ РґРѕР»РіСѓСЋ СЂР°Р±РѕС‚Сѓ
         new ComplexJob().execute();
-        button.setText("Подождите...");
+        button.setText("РџРѕРґРѕР¶РґРёС‚Рµ...");
       }
     });
-    // настроим панель содержимого и выведем окно на экран
+    // РЅР°СЃС‚СЂРѕРёРј РїР°РЅРµР»СЊ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ Рё РІС‹РІРµРґРµРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setLayout(new FlowLayout());
     add(new JTextField(20));
     add(button);
@@ -30,26 +30,26 @@ public class UsingSwingWorker extends JFrame {
     setVisible(true);
   }
 
-  // класс, выполняющий "сложную работу"
+  // РєР»Р°СЃСЃ, РІС‹РїРѕР»РЅСЏСЋС‰РёР№ "СЃР»РѕР¶РЅСѓСЋ СЂР°Р±РѕС‚Сѓ"
   class ComplexJob extends SwingWorker<String, String> {
-    // здесь выполняется работа, это отдельный поток!
+    // Р·РґРµСЃСЊ РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ СЂР°Р±РѕС‚Р°, СЌС‚Рѕ РѕС‚РґРµР»СЊРЅС‹Р№ РїРѕС‚РѕРє!
     public String doInBackground() throws Exception {
       Thread.sleep(2000);
-      // публикуем промежуточные результаты
-      publish("Половина работы закончена...");
+      // РїСѓР±Р»РёРєСѓРµРј РїСЂРѕРјРµР¶СѓС‚РѕС‡РЅС‹Рµ СЂРµР·СѓР»СЊС‚Р°С‚С‹
+      publish("РџРѕР»РѕРІРёРЅР° СЂР°Р±РѕС‚С‹ Р·Р°РєРѕРЅС‡РµРЅР°...");
       Thread.sleep(2000);
       return "";
     }
 
-    // обработка промежуточных результатов
-    // это поток рассылки событий!
+    // РѕР±СЂР°Р±РѕС‚РєР° РїСЂРѕРјРµР¶СѓС‚РѕС‡РЅС‹С… СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ
+    // СЌС‚Рѕ РїРѕС‚РѕРє СЂР°СЃСЃС‹Р»РєРё СЃРѕР±С‹С‚РёР№!
     public void process(List<String> chunks) {
       button.setText(chunks.get(0));
     }
 
-    // окончание работы - и вновь это поток рассылки
+    // РѕРєРѕРЅС‡Р°РЅРёРµ СЂР°Р±РѕС‚С‹ - Рё РІРЅРѕРІСЊ СЌС‚Рѕ РїРѕС‚РѕРє СЂР°СЃСЃС‹Р»РєРё
     public void done() {
-      button.setText("Работа завершена");
+      button.setText("Р Р°Р±РѕС‚Р° Р·Р°РІРµСЂС€РµРЅР°");
     }
   }
 

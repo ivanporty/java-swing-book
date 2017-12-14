@@ -1,6 +1,6 @@
 // PreviewingFiles.java
-// Предварительный просмотр файлов
-// в компоненте JFileChooser
+// РџСЂРµРґРІР°СЂРёС‚РµР»СЊРЅС‹Р№ РїСЂРѕСЃРјРѕС‚СЂ С„Р°Р№Р»РѕРІ
+// РІ РєРѕРјРїРѕРЅРµРЅС‚Рµ JFileChooser
 import javax.swing.*;
 import javax.swing.filechooser.*;
 import java.beans.*;
@@ -10,36 +10,36 @@ public class PreviewingFiles extends JFrame {
   public PreviewingFiles() {
     super("PreviewingFiles");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(300, 200);
     setVisible(true);
-    // настраиваем компонент для выбора файла
+    // РЅР°СЃС‚СЂР°РёРІР°РµРј РєРѕРјРїРѕРЅРµРЅС‚ РґР»СЏ РІС‹Р±РѕСЂР° С„Р°Р№Р»Р°
     JFileChooser chooser = new JFileChooser();
-    chooser.setDialogTitle("Выберите изображение");
-    // присоединяем фильтр
+    chooser.setDialogTitle("Р’С‹Р±РµСЂРёС‚Рµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ");
+    // РїСЂРёСЃРѕРµРґРёРЅСЏРµРј С„РёР»СЊС‚СЂ
     chooser.setFileFilter(new ImageFilesFilter());
-    // убираем универсальный фильтр
+    // СѓР±РёСЂР°РµРј СѓРЅРёРІРµСЂСЃР°Р»СЊРЅС‹Р№ С„РёР»СЊС‚СЂ
     chooser.setAcceptAllFileFilterUsed(false);
-    // присоединяем дополнительный компонент
+    // РїСЂРёСЃРѕРµРґРёРЅСЏРµРј РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ РєРѕРјРїРѕРЅРµРЅС‚
     Previewer previewer = new Previewer();
     chooser.setAccessory(previewer);
-    // регистрируем в качестве слушателя
+    // СЂРµРіРёСЃС‚СЂРёСЂСѓРµРј РІ РєР°С‡РµСЃС‚РІРµ СЃР»СѓС€Р°С‚РµР»СЏ
     chooser.addPropertyChangeListener(previewer);
-    // выводим диалоговое окно на экран
+    // РІС‹РІРѕРґРёРј РґРёР°Р»РѕРіРѕРІРѕРµ РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     int res = chooser.showOpenDialog(this);
     if ( res == JFileChooser.APPROVE_OPTION )
       JOptionPane.showMessageDialog(
           this, chooser.getSelectedFile());
   }
-  // компонент для предварительного просмотра
+  // РєРѕРјРїРѕРЅРµРЅС‚ РґР»СЏ РїСЂРµРґРІР°СЂРёС‚РµР»СЊРЅРѕРіРѕ РїСЂРѕСЃРјРѕС‚СЂР°
   class Previewer extends JPanel
       implements PropertyChangeListener {
     private JLabel label;
     public Previewer() {
-      // настраиваем контейнер
+      // РЅР°СЃС‚СЂР°РёРІР°РµРј РєРѕРЅС‚РµР№РЅРµСЂ
       setLayout(new BorderLayout());
       setPreferredSize(new Dimension(200, 200));
-      // создаем надпись в панели прокрутки
+      // СЃРѕР·РґР°РµРј РЅР°РґРїРёСЃСЊ РІ РїР°РЅРµР»Рё РїСЂРѕРєСЂСѓС‚РєРё
       label = new JLabel();
       JScrollPane scroller = new JScrollPane(label);
       add(scroller);
@@ -47,28 +47,28 @@ public class PreviewingFiles extends JFrame {
     public void propertyChange(PropertyChangeEvent e) {
       if ( e.getPropertyName().equals(
           JFileChooser.SELECTED_FILE_CHANGED_PROPERTY)) {
-        // сменился выбранный файл, покажем его
+        // СЃРјРµРЅРёР»СЃСЏ РІС‹Р±СЂР°РЅРЅС‹Р№ С„Р°Р№Р», РїРѕРєР°Р¶РµРј РµРіРѕ
         if ( e.getNewValue() != null )
           label.setIcon(new ImageIcon(
               e.getNewValue().toString()));
       }
     }
   }
-  // фильтр, отбирающий файлы с изображениями
+  // С„РёР»СЊС‚СЂ, РѕС‚Р±РёСЂР°СЋС‰РёР№ С„Р°Р№Р»С‹ СЃ РёР·РѕР±СЂР°Р¶РµРЅРёСЏРјРё
   class ImageFilesFilter extends FileFilter {
-    // принимает файл или отказывает ему
+    // РїСЂРёРЅРёРјР°РµС‚ С„Р°Р№Р» РёР»Рё РѕС‚РєР°Р·С‹РІР°РµС‚ РµРјСѓ
     public boolean accept(java.io.File file) {
-      // все каталоги принимаем
+      // РІСЃРµ РєР°С‚Р°Р»РѕРіРё РїСЂРёРЅРёРјР°РµРј
       if ( file.isDirectory() ) return true;
-      // имя файла не будет учитывать регистр
+      // РёРјСЏ С„Р°Р№Р»Р° РЅРµ Р±СѓРґРµС‚ СѓС‡РёС‚С‹РІР°С‚СЊ СЂРµРіРёСЃС‚СЂ
       String name = file.getName().toLowerCase();
-      // для файлов смотрим на расширение
+      // РґР»СЏ С„Р°Р№Р»РѕРІ СЃРјРѕС‚СЂРёРј РЅР° СЂР°СЃС€РёСЂРµРЅРёРµ
       return ( name.endsWith(".jpg") ||
           name.endsWith(".gif") || name.endsWith(".png") );
     }
-    // возвращает описание фильтра
+    // РІРѕР·РІСЂР°С‰Р°РµС‚ РѕРїРёСЃР°РЅРёРµ С„РёР»СЊС‚СЂР°
     public String getDescription() {
-      return "Изображения (*.jpg, *.gif, *.png)";
+      return "РР·РѕР±СЂР°Р¶РµРЅРёСЏ (*.jpg, *.gif, *.png)";
     }
   }
   public static void main(String[] args) {

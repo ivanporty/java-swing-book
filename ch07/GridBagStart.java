@@ -1,29 +1,29 @@
 // GridBagStart.java
-// Первые опыты с расположением GridBagLayout
+// РџРµСЂРІС‹Рµ РѕРїС‹С‚С‹ СЃ СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµРј GridBagLayout
 import java.awt.*;
 import javax.swing.*;
 
 public class GridBagStart extends JFrame {
   public GridBagStart() {
     super("GridBagStart");
-    // выход при закрытии окна
+    // РІС‹С…РѕРґ РїСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР°
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // устанавливаем расположение компонентов
+    // СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ РєРѕРјРїРѕРЅРµРЅС‚РѕРІ
     setLayout(new GridBagLayout());
-    // добавляем две кнопки, ячейки по умолчанию
-    add(new JButton("Привет"));
-    add(new JButton("Отмена"));
-    // настройка ячейки для текстового поля
+    // РґРѕР±Р°РІР»СЏРµРј РґРІРµ РєРЅРѕРїРєРё, СЏС‡РµР№РєРё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+    add(new JButton("РџСЂРёРІРµС‚"));
+    add(new JButton("РћС‚РјРµРЅР°"));
+    // РЅР°СЃС‚СЂРѕР№РєР° СЏС‡РµР№РєРё РґР»СЏ С‚РµРєСЃС‚РѕРІРѕРіРѕ РїРѕР»СЏ
     GridBagConstraints textFieldConstraints =
         new GridBagConstraints();
-    // заполнение ячейки по горизонтали
+    // Р·Р°РїРѕР»РЅРµРЅРёРµ СЏС‡РµР№РєРё РїРѕ РіРѕСЂРёР·РѕРЅС‚Р°Р»Рё
     textFieldConstraints.fill = GridBagConstraints.HORIZONTAL;
-    // просим занять все оставшиеся ячейки
+    // РїСЂРѕСЃРёРј Р·Р°РЅСЏС‚СЊ РІСЃРµ РѕСЃС‚Р°РІС€РёРµСЃСЏ СЏС‡РµР№РєРё
     textFieldConstraints.gridwidth =
         GridBagConstraints.REMAINDER;
     textFieldConstraints.weightx = 1.0f;
     add(new JTextField(10), textFieldConstraints);
-    // выведем окно на экран
+    // РІС‹РІРµРґРµРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(400, 200);
     setVisible(true);
   }

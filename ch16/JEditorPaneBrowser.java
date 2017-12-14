@@ -1,80 +1,80 @@
 // JEditorPaneBrowser.java
-// Простой браузер на основе редактора JEditorPane
+// РџСЂРѕСЃС‚РѕР№ Р±СЂР°СѓР·РµСЂ РЅР° РѕСЃРЅРѕРІРµ СЂРµРґР°РєС‚РѕСЂР° JEditorPane
 import javax.swing.*;
 import javax.swing.event.*;
 import java.awt.*;
 import java.awt.event.*;
 
 public class JEditorPaneBrowser extends JFrame {
-  // наш редактор
+  // РЅР°С€ СЂРµРґР°РєС‚РѕСЂ
   private JEditorPane editor;
-  // текстовое поле с адресом
+  // С‚РµРєСЃС‚РѕРІРѕРµ РїРѕР»Рµ СЃ Р°РґСЂРµСЃРѕРј
   private JTextField address;
   public JEditorPaneBrowser() {
     super("JEditorPaneBrowser");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем пользовательский интерфейс
+    // СЃРѕР·РґР°РµРј РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёР№ РёРЅС‚РµСЂС„РµР№СЃ
     createGUI();
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(500, 400);
     setVisible(true);
   }
-  // настройка пользовательского интерфейса
+  // РЅР°СЃС‚СЂРѕР№РєР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРѕРіРѕ РёРЅС‚РµСЂС„РµР№СЃР°
   private void createGUI() {
-    // панель с адресной строкой
+    // РїР°РЅРµР»СЊ СЃ Р°РґСЂРµСЃРЅРѕР№ СЃС‚СЂРѕРєРѕР№
     JPanel addressPanel = new JPanel();
     addressPanel.setLayout(
         new FlowLayout(FlowLayout.LEFT));
     addressPanel.setBorder(BorderFactory.
         createEmptyBorder(5, 5, 5, 5));
-    // поле для адреса
+    // РїРѕР»Рµ РґР»СЏ Р°РґСЂРµСЃР°
     address = new JTextField(30);
-    // слушатель окончания ввода
+    // СЃР»СѓС€Р°С‚РµР»СЊ РѕРєРѕРЅС‡Р°РЅРёСЏ РІРІРѕРґР°
     address.addActionListener(new NewAddressAction());
-    addressPanel.add(new JLabel("Адрес:"));
+    addressPanel.add(new JLabel("РђРґСЂРµСЃ:"));
     addressPanel.add(address);
-    // настраиваем редактор
+    // РЅР°СЃС‚СЂР°РёРІР°РµРј СЂРµРґР°РєС‚РѕСЂ
     try {
-      // пути к ресурсам нужно записывать
-      // полностью, вместе с протоколами
+      // РїСѓС‚Рё Рє СЂРµСЃСѓСЂСЃР°Рј РЅСѓР¶РЅРѕ Р·Р°РїРёСЃС‹РІР°С‚СЊ
+      // РїРѕР»РЅРѕСЃС‚СЊСЋ, РІРјРµСЃС‚Рµ СЃ РїСЂРѕС‚РѕРєРѕР»Р°РјРё
       editor = new JEditorPane("http://java.sun.com");
     } catch (Exception ex) {
       JOptionPane.showMessageDialog(
-          this, "Адрес недоступен");
+          this, "РђРґСЂРµСЃ РЅРµРґРѕСЃС‚СѓРїРµРЅ");
     }
     editor.setContentType("text/html");
     editor.setEditable(false);
-    // поддержка ссылок
+    // РїРѕРґРґРµСЂР¶РєР° СЃСЃС‹Р»РѕРє
     editor.addHyperlinkListener(new HyperlinkL());
-    // добавляем все в окно
+    // РґРѕР±Р°РІР»СЏРµРј РІСЃРµ РІ РѕРєРЅРѕ
     add(addressPanel, "North");
     add(new JScrollPane(editor));
   }
-  // слушатель, получающий уведомления о вводе нового адреса
+  // СЃР»СѓС€Р°С‚РµР»СЊ, РїРѕР»СѓС‡Р°СЋС‰РёР№ СѓРІРµРґРѕРјР»РµРЅРёСЏ Рѕ РІРІРѕРґРµ РЅРѕРІРѕРіРѕ Р°РґСЂРµСЃР°
   class NewAddressAction implements ActionListener {
     public void actionPerformed(ActionEvent e) {
-      // переходим по адресу
+      // РїРµСЂРµС…РѕРґРёРј РїРѕ Р°РґСЂРµСЃСѓ
       String newAddress = address.getText();
       try {
         editor.setPage(newAddress);
       } catch (Exception ex) {
         JOptionPane.showMessageDialog(
-            JEditorPaneBrowser.this,"Адрес недоступен");
+            JEditorPaneBrowser.this,"РђРґСЂРµСЃ РЅРµРґРѕСЃС‚СѓРїРµРЅ");
       }
     }
   }
-  // слушатель, обеспечивающий поддержку ссылок
+  // СЃР»СѓС€Р°С‚РµР»СЊ, РѕР±РµСЃРїРµС‡РёРІР°СЋС‰РёР№ РїРѕРґРґРµСЂР¶РєСѓ СЃСЃС‹Р»РѕРє
   class HyperlinkL implements HyperlinkListener {
     public void hyperlinkUpdate(HyperlinkEvent he) {
-      // нужный ли это тип события
+      // РЅСѓР¶РЅС‹Р№ Р»Рё СЌС‚Рѕ С‚РёРї СЃРѕР±С‹С‚РёСЏ
       if ( he.getEventType() ==
           HyperlinkEvent.EventType.ACTIVATED ) {
-        // переходим по адресу
+        // РїРµСЂРµС…РѕРґРёРј РїРѕ Р°РґСЂРµСЃСѓ
         try {
           editor.setPage(he.getURL());
         } catch (Exception ex) {
           JOptionPane.showMessageDialog(
-              JEditorPaneBrowser.this,"Адрес недоступен");
+              JEditorPaneBrowser.this,"РђРґСЂРµСЃ РЅРµРґРѕСЃС‚СѓРїРµРЅ");
         }
       }
     }

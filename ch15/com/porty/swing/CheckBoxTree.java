@@ -1,5 +1,5 @@
 // com/porty/swing/CheckBoxTree.java
-// Дерево, способное отображать в качестве узлов флажки
+// Р”РµСЂРµРІРѕ, СЃРїРѕСЃРѕР±РЅРѕРµ РѕС‚РѕР±СЂР°Р¶Р°С‚СЊ РІ РєР°С‡РµСЃС‚РІРµ СѓР·Р»РѕРІ С„Р»Р°Р¶РєРё
 package com.porty.swing;
 
 import java.awt.*;
@@ -8,67 +8,67 @@ import javax.swing.*;
 import javax.swing.tree.*;
 
 public class CheckBoxTree extends JTree {
-  // конструктор на основе модели
+  // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РЅР° РѕСЃРЅРѕРІРµ РјРѕРґРµР»Рё
   public CheckBoxTree(TreeModel model) {
     super(model);
-    // задаем собственный отображающий объект
+    // Р·Р°РґР°РµРј СЃРѕР±СЃС‚РІРµРЅРЅС‹Р№ РѕС‚РѕР±СЂР°Р¶Р°СЋС‰РёР№ РѕР±СЉРµРєС‚
     setCellRenderer(new CheckBoxRenderer());
-    // следим за щелчками мыши
+    // СЃР»РµРґРёРј Р·Р° С‰РµР»С‡РєР°РјРё РјС‹С€Рё
     addMouseListener(new MouseL());
   }
-  // стандартный объект для отображения узлов
+  // СЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№ РѕР±СЉРµРєС‚ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ СѓР·Р»РѕРІ
   private DefaultTreeCellRenderer renderer =
       new DefaultTreeCellRenderer();
-  // флажок для отображения узлов дерева
+  // С„Р»Р°Р¶РѕРє РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ СѓР·Р»РѕРІ РґРµСЂРµРІР°
   class CheckBoxRenderer extends JCheckBox
       implements TreeCellRenderer {
     public CheckBoxRenderer() {
-      // делаем флажок прозрачным
+      // РґРµР»Р°РµРј С„Р»Р°Р¶РѕРє РїСЂРѕР·СЂР°С‡РЅС‹Рј
       setOpaque(false);
     }
-    // данный метод должен вернуть компонент для узла
+    // РґР°РЅРЅС‹Р№ РјРµС‚РѕРґ РґРѕР»Р¶РµРЅ РІРµСЂРЅСѓС‚СЊ РєРѕРјРїРѕРЅРµРЅС‚ РґР»СЏ СѓР·Р»Р°
     public Component getTreeCellRendererComponent(
         JTree tree, Object value, boolean selected,
         boolean expanded, boolean leaf, int row,
         boolean hasFocus) {
-      // проверяем, что используется стандартная модель
+      // РїСЂРѕРІРµСЂСЏРµРј, С‡С‚Рѕ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ СЃС‚Р°РЅРґР°СЂС‚РЅР°СЏ РјРѕРґРµР»СЊ
       if (!(value instanceof DefaultMutableTreeNode)) {
-        // если нет, то используем стандартный объект
+        // РµСЃР»Рё РЅРµС‚, С‚Рѕ РёСЃРїРѕР»СЊР·СѓРµРј СЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№ РѕР±СЉРµРєС‚
         return renderer.getTreeCellRendererComponent(
             tree, value, selected, expanded,
             leaf, row, hasFocus);
       }
       Object data = ((DefaultMutableTreeNode)value).
           getUserObject();
-      // проверяем, подходит ли нам тип данных узла
+      // РїСЂРѕРІРµСЂСЏРµРј, РїРѕРґС…РѕРґРёС‚ Р»Рё РЅР°Рј С‚РёРї РґР°РЅРЅС‹С… СѓР·Р»Р°
       if ( data instanceof CheckBoxListElement ) {
         CheckBoxListElement element =
             (CheckBoxListElement)data;
-        // настраиваем флажок
+        // РЅР°СЃС‚СЂР°РёРІР°РµРј С„Р»Р°Р¶РѕРє
         setSelected(element.isSelected());
         setText(element.getText());
         return this;
       }
-      // иначе задействуем стандартный объект
+      // РёРЅР°С‡Рµ Р·Р°РґРµР№СЃС‚РІСѓРµРј СЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№ РѕР±СЉРµРєС‚
       return renderer.getTreeCellRendererComponent(tree,
           value, selected, expanded, leaf, row, hasFocus);
     }
   }
-  // класс, следящий за щелчками мыши
+  // РєР»Р°СЃСЃ, СЃР»РµРґСЏС‰РёР№ Р·Р° С‰РµР»С‡РєР°РјРё РјС‹С€Рё
   class MouseL extends MouseAdapter {
     public void mousePressed(MouseEvent e) {
-      // получим путь к узлу
+      // РїРѕР»СѓС‡РёРј РїСѓС‚СЊ Рє СѓР·Р»Сѓ
       TreePath path = getClosestPathForLocation(
           e.getX(), e.getY());
       if ( path == null ) return;
-      // проверим, подходят ли нам данные узла
+      // РїСЂРѕРІРµСЂРёРј, РїРѕРґС…РѕРґСЏС‚ Р»Рё РЅР°Рј РґР°РЅРЅС‹Рµ СѓР·Р»Р°
       Object _node = path.getLastPathComponent();
       if (_node instanceof DefaultMutableTreeNode) {
         DefaultMutableTreeNode node =
             (DefaultMutableTreeNode)_node;
         Object data = node.getUserObject();
         if ( data instanceof CheckBoxListElement ) {
-          // меняем состояние флажка
+          // РјРµРЅСЏРµРј СЃРѕСЃС‚РѕСЏРЅРёРµ С„Р»Р°Р¶РєР°
           CheckBoxListElement element =
               (CheckBoxListElement)data;
           element.setSelected(! element.isSelected());

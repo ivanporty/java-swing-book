@@ -1,44 +1,44 @@
 // SpinnerLabelEditor.java
-// Редактор счетчика JSpinner на основе надписи
+// Р РµРґР°РєС‚РѕСЂ СЃС‡РµС‚С‡РёРєР° JSpinner РЅР° РѕСЃРЅРѕРІРµ РЅР°РґРїРёСЃРё
 import javax.swing.*;
 import javax.swing.event.*;
 import java.awt.*;
 
 public class SpinnerLabelEditor extends JFrame {
-  // данные для списка
+  // РґР°РЅРЅС‹Рµ РґР»СЏ СЃРїРёСЃРєР°
   private String[] data = {
-      "Красный", "Зеленый", "Синий"
+      "РљСЂР°СЃРЅС‹Р№", "Р—РµР»РµРЅС‹Р№", "РЎРёРЅРёР№"
   };
   public SpinnerLabelEditor() {
     super("SpinnerLabelEditor");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем счетчик
+    // СЃРѕР·РґР°РµРј СЃС‡РµС‚С‡РёРє
     JSpinner spinner = new JSpinner(
         new SpinnerListModel(data));
-    // присоединяем наш редактор
+    // РїСЂРёСЃРѕРµРґРёРЅСЏРµРј РЅР°С€ СЂРµРґР°РєС‚РѕСЂ
     LabelEditor editor = new LabelEditor();
     spinner.setEditor(editor);
-    // регистрируем слушателя
+    // СЂРµРіРёСЃС‚СЂРёСЂСѓРµРј СЃР»СѓС€Р°С‚РµР»СЏ
     spinner.addChangeListener(editor);
-    // для появления на экране необходимо
-    // чтобы до редактора дошло событие
+    // РґР»СЏ РїРѕСЏРІР»РµРЅРёСЏ РЅР° СЌРєСЂР°РЅРµ РЅРµРѕР±С…РѕРґРёРјРѕ
+    // С‡С‚РѕР±С‹ РґРѕ СЂРµРґР°РєС‚РѕСЂР° РґРѕС€Р»Рѕ СЃРѕР±С‹С‚РёРµ
     spinner.getModel().setValue(data[1]);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setLayout(new FlowLayout());
     add(spinner);
     setSize(300, 200);
     setVisible(true);
   }
-  // специальный редактор для счетчика
+  // СЃРїРµС†РёР°Р»СЊРЅС‹Р№ СЂРµРґР°РєС‚РѕСЂ РґР»СЏ СЃС‡РµС‚С‡РёРєР°
   class LabelEditor extends JLabel
       implements ChangeListener {
-    // метод слушателя событий
+    // РјРµС‚РѕРґ СЃР»СѓС€Р°С‚РµР»СЏ СЃРѕР±С‹С‚РёР№
     public void stateChanged(ChangeEvent e) {
-      // получаем счетчик
+      // РїРѕР»СѓС‡Р°РµРј СЃС‡РµС‚С‡РёРє
       JSpinner spinner = (JSpinner)e.getSource();
-      // получаем текущий элемент
+      // РїРѕР»СѓС‡Р°РµРј С‚РµРєСѓС‰РёР№ СЌР»РµРјРµРЅС‚
       Object value = spinner.getValue();
-      // устанавливаем новое значение
+      // СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј РЅРѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ
       if ( value.equals(data[0]) ) {
         setText("<html><h2><font color=\"red\">"
             + value);
@@ -52,7 +52,7 @@ public class SpinnerLabelEditor extends JFrame {
             + value);
       }
     }
-    // размер редактора
+    // СЂР°Р·РјРµСЂ СЂРµРґР°РєС‚РѕСЂР°
     public Dimension getPreferredSize() {
       return new Dimension(100, 30);
     }

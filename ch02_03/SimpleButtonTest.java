@@ -1,5 +1,5 @@
 // SimpleButtonTest.java
-// Обработка события нового компонента
+// РћР±СЂР°Р±РѕС‚РєР° СЃРѕР±С‹С‚РёСЏ РЅРѕРІРѕРіРѕ РєРѕРјРїРѕРЅРµРЅС‚Р°
 
 import javax.swing.*;
 
@@ -12,22 +12,22 @@ public class SimpleButtonTest extends JFrame {
   public SimpleButtonTest() {
     super("SimpleButtonTest");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем кнопку и присоединим слушателей
+    // СЃРѕР·РґР°РµРј РєРЅРѕРїРєСѓ Рё РїСЂРёСЃРѕРµРґРёРЅРёРј СЃР»СѓС€Р°С‚РµР»РµР№
     SimpleButton button = new SimpleButton();
-    // анонимный класс
+    // Р°РЅРѕРЅРёРјРЅС‹Р№ РєР»Р°СЃСЃ
     button.addButtonPressListener(
         new ButtonPressListener() {
           public void buttonPressed(ButtonPressEvent e) {
             System.out.println("1!");
           }
         });
-    // внутренний класс
+    // РІРЅСѓС‚СЂРµРЅРЅРёР№ РєР»Р°СЃСЃ
     button.addButtonPressListener(new ButtonL());
-    // добавим кнопку в окно
+    // РґРѕР±Р°РІРёРј РєРЅРѕРїРєСѓ РІ РѕРєРЅРѕ
     JPanel contents = new JPanel();
     contents.add(button);
     setContentPane(contents);
-    // выведем окно на экран
+    // РІС‹РІРµРґРµРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(400, 300);
     setVisible(true);
   }

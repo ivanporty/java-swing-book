@@ -1,5 +1,5 @@
 // BoxRigidAreas.java
-// Пример использования фиксированных областей
+// РџСЂРёРјРµСЂ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ С„РёРєСЃРёСЂРѕРІР°РЅРЅС‹С… РѕР±Р»Р°СЃС‚РµР№
 import javax.swing.*;
 import com.porty.swing.BoxLayoutUtils;
 import java.awt.*;
@@ -9,20 +9,20 @@ public class BoxRigidAreas extends JFrame {
     super("BoxRigidAreas");
     setSize(250, 200);
     setDefaultCloseOperation( EXIT_ON_CLOSE );
-    // вертикальная панель
+    // РІРµСЂС‚РёРєР°Р»СЊРЅР°СЏ РїР°РЅРµР»СЊ
     JPanel pVert = BoxLayoutUtils.createVerticalPanel();
-    pVert.add(new JButton("Один"));
-    // горизонтальная панель
+    pVert.add(new JButton("РћРґРёРЅ"));
+    // РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅР°СЏ РїР°РЅРµР»СЊ
     JPanel pHor = BoxLayoutUtils.createHorizontalPanel();
-    pHor.add(new JButton("Два"));
-    // размер пространства задается в виде объекта
-    // Dimension из пакета java.awt
+    pHor.add(new JButton("Р”РІР°"));
+    // СЂР°Р·РјРµСЂ РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІР° Р·Р°РґР°РµС‚СЃСЏ РІ РІРёРґРµ РѕР±СЉРµРєС‚Р°
+    // Dimension РёР· РїР°РєРµС‚Р° java.awt
     pHor.add(Box.createRigidArea(new Dimension(50,120)));
-    pHor.add(new JButton("Три"));
+    pHor.add(new JButton("РўСЂРё"));
     pVert.add(pHor);
-    // добавляем вертикальную панель в центр окна
+    // РґРѕР±Р°РІР»СЏРµРј РІРµСЂС‚РёРєР°Р»СЊРЅСѓСЋ РїР°РЅРµР»СЊ РІ С†РµРЅС‚СЂ РѕРєРЅР°
     add(pVert);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setVisible(true);
   }
   public static void main(String[] args) {

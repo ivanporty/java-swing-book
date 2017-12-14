@@ -1,7 +1,7 @@
 // LoginDialog.java
-// Этапы создание первоклассного
-// пользовательского интерфейса на примере
-// диалогового окна входа в систему
+// Р­С‚Р°РїС‹ СЃРѕР·РґР°РЅРёРµ РїРµСЂРІРѕРєР»Р°СЃСЃРЅРѕРіРѕ
+// РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРѕРіРѕ РёРЅС‚РµСЂС„РµР№СЃР° РЅР° РїСЂРёРјРµСЂРµ
+// РґРёР°Р»РѕРіРѕРІРѕРіРѕ РѕРєРЅР° РІС…РѕРґР° РІ СЃРёСЃС‚РµРјСѓ
 import javax.swing.*;
 import java.awt.*;
 import com.porty.swing.BoxLayoutUtils;
@@ -9,86 +9,86 @@ import com.porty.swing.GUITools;
 
 public class LoginDialog extends JDialog {
   public LoginDialog(JFrame parent) {
-    super(parent, "Вход в систему");
-    // удаление окна при закрытии
+    super(parent, "Р’С…РѕРґ РІ СЃРёСЃС‚РµРјСѓ");
+    // СѓРґР°Р»РµРЅРёРµ РѕРєРЅР° РїСЂРё Р·Р°РєСЂС‹С‚РёРё
     setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-    // добавляем расположение в центр окна
+    // РґРѕР±Р°РІР»СЏРµРј СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ РІ С†РµРЅС‚СЂ РѕРєРЅР°
     add(createGUI());
-    // задаем предпочтительный размер
+    // Р·Р°РґР°РµРј РїСЂРµРґРїРѕС‡С‚РёС‚РµР»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ
     pack();
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setVisible(true);
   }
 
-  // этот метод будет возвращать панель с
-  // созданным расположением
+  // СЌС‚РѕС‚ РјРµС‚РѕРґ Р±СѓРґРµС‚ РІРѕР·РІСЂР°С‰Р°С‚СЊ РїР°РЅРµР»СЊ СЃ
+  // СЃРѕР·РґР°РЅРЅС‹Рј СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµРј
   private JPanel createGUI() {
-    // 1. Создается панель, которая будет содержать
-    // все остальные элементы и панели расположения
+    // 1. РЎРѕР·РґР°РµС‚СЃСЏ РїР°РЅРµР»СЊ, РєРѕС‚РѕСЂР°СЏ Р±СѓРґРµС‚ СЃРѕРґРµСЂР¶Р°С‚СЊ
+    // РІСЃРµ РѕСЃС‚Р°Р»СЊРЅС‹Рµ СЌР»РµРјРµРЅС‚С‹ Рё РїР°РЅРµР»Рё СЂР°СЃРїРѕР»РѕР¶РµРЅРёСЏ
     JPanel main =
         BoxLayoutUtils.createVerticalPanel();
-    // Чтобы интерфейс отвечал требованиям Java,
-    // необходимо отделить его содержимое от
-    // границ окна на 12 пикселов.
-    // Для этого используем пустую рамку
+    // Р§С‚РѕР±С‹ РёРЅС‚РµСЂС„РµР№СЃ РѕС‚РІРµС‡Р°Р» С‚СЂРµР±РѕРІР°РЅРёСЏРј Java,
+    // РЅРµРѕР±С…РѕРґРёРјРѕ РѕС‚РґРµР»РёС‚СЊ РµРіРѕ СЃРѕРґРµСЂР¶РёРјРѕРµ РѕС‚
+    // РіСЂР°РЅРёС† РѕРєРЅР° РЅР° 12 РїРёРєСЃРµР»РѕРІ.
+    // Р”Р»СЏ СЌС‚РѕРіРѕ РёСЃРїРѕР»СЊР·СѓРµРј РїСѓСЃС‚СѓСЋ СЂР°РјРєСѓ
     main.setBorder(
         BorderFactory.createEmptyBorder(12,12,12,12));
-    // 2. Поочередно создаются "полосы", на которые
-    // был разбит интерфейс на этапе анализа
-    // а) первое текстовое поле и надпись к нему
+    // 2. РџРѕРѕС‡РµСЂРµРґРЅРѕ СЃРѕР·РґР°СЋС‚СЃСЏ "РїРѕР»РѕСЃС‹", РЅР° РєРѕС‚РѕСЂС‹Рµ
+    // Р±С‹Р» СЂР°Р·Р±РёС‚ РёРЅС‚РµСЂС„РµР№СЃ РЅР° СЌС‚Р°РїРµ Р°РЅР°Р»РёР·Р°
+    // Р°) РїРµСЂРІРѕРµ С‚РµРєСЃС‚РѕРІРѕРµ РїРѕР»Рµ Рё РЅР°РґРїРёСЃСЊ Рє РЅРµРјСѓ
     JPanel name =
         BoxLayoutUtils.createHorizontalPanel();
-    JLabel nameLabel = new JLabel("Имя:");
+    JLabel nameLabel = new JLabel("РРјСЏ:");
     name.add(nameLabel);
     name.add(BoxLayoutUtils.createHorizontalStrut(12));
     JTextField nameField = new JTextField(15);
     name.add(nameField);
-    // б) второе текстовое поле и надпись к нему
+    // Р±) РІС‚РѕСЂРѕРµ С‚РµРєСЃС‚РѕРІРѕРµ РїРѕР»Рµ Рё РЅР°РґРїРёСЃСЊ Рє РЅРµРјСѓ
     JPanel password =
         BoxLayoutUtils.createHorizontalPanel();
-    JLabel passwrdLabel = new JLabel("Пароль:");
+    JLabel passwrdLabel = new JLabel("РџР°СЂРѕР»СЊ:");
     password.add(passwrdLabel);
     password.add(BoxLayoutUtils.createHorizontalStrut(12));
     JTextField passwrdField = new JTextField(15);
     password.add(passwrdField);
-    // в) ряд кнопок
+    // РІ) СЂСЏРґ РєРЅРѕРїРѕРє
     JPanel flow = new JPanel( new FlowLayout(
         FlowLayout.RIGHT, 0, 0) );
     JPanel grid = new JPanel( new GridLayout(
         1,2,5,0) );
     JButton ok = new JButton("OK");
-    JButton cancel = new JButton("Отмена");
+    JButton cancel = new JButton("РћС‚РјРµРЅР°");
     grid.add(ok);
     grid.add(cancel);
     flow.add(grid);
-    // 3. Проводятся необходимые действия по
-    // выравниванию компонентов, уточнению их
-    // размеров, приданию одинаковых размеров
-    // а) согласованное выравнивание
-    // вложенных панелей
+    // 3. РџСЂРѕРІРѕРґСЏС‚СЃСЏ РЅРµРѕР±С…РѕРґРёРјС‹Рµ РґРµР№СЃС‚РІРёСЏ РїРѕ
+    // РІС‹СЂР°РІРЅРёРІР°РЅРёСЋ РєРѕРјРїРѕРЅРµРЅС‚РѕРІ, СѓС‚РѕС‡РЅРµРЅРёСЋ РёС…
+    // СЂР°Р·РјРµСЂРѕРІ, РїСЂРёРґР°РЅРёСЋ РѕРґРёРЅР°РєРѕРІС‹С… СЂР°Р·РјРµСЂРѕРІ
+    // Р°) СЃРѕРіР»Р°СЃРѕРІР°РЅРЅРѕРµ РІС‹СЂР°РІРЅРёРІР°РЅРёРµ
+    // РІР»РѕР¶РµРЅРЅС‹С… РїР°РЅРµР»РµР№
     BoxLayoutUtils.setGroupAlignmentX(
         Component.LEFT_ALIGNMENT,
         name, password, main, flow);
-    // б) центральное выравнивание надписей
-    // и текстовых полей
+    // Р±) С†РµРЅС‚СЂР°Р»СЊРЅРѕРµ РІС‹СЂР°РІРЅРёРІР°РЅРёРµ РЅР°РґРїРёСЃРµР№
+    // Рё С‚РµРєСЃС‚РѕРІС‹С… РїРѕР»РµР№
     BoxLayoutUtils.setGroupAlignmentY(
         Component.CENTER_ALIGNMENT,
         nameField, passwrdField, nameLabel, passwrdLabel);
-    // в) одинаковые размеры надписей к текстовым полям
+    // РІ) РѕРґРёРЅР°РєРѕРІС‹Рµ СЂР°Р·РјРµСЂС‹ РЅР°РґРїРёСЃРµР№ Рє С‚РµРєСЃС‚РѕРІС‹Рј РїРѕР»СЏРј
     GUITools.makeSameSize(nameLabel, passwrdLabel);
-    // д) устранение "бесконечной" высоты текстовых полей
+    // Рґ) СѓСЃС‚СЂР°РЅРµРЅРёРµ "Р±РµСЃРєРѕРЅРµС‡РЅРѕР№" РІС‹СЃРѕС‚С‹ С‚РµРєСЃС‚РѕРІС‹С… РїРѕР»РµР№
     GUITools.fixTextFieldSize(nameField);
     GUITools.fixTextFieldSize(passwrdField);
-    // 4. Окончательный "сбор" полос в интерфейс
+    // 4. РћРєРѕРЅС‡Р°С‚РµР»СЊРЅС‹Р№ "СЃР±РѕСЂ" РїРѕР»РѕСЃ РІ РёРЅС‚РµСЂС„РµР№СЃ
     main.add(name);
     main.add(BoxLayoutUtils.createVerticalStrut(12));
     main.add(password);
     main.add(BoxLayoutUtils.createVerticalStrut(17));
     main.add(flow);
-    // готово
+    // РіРѕС‚РѕРІРѕ
     return main;
   }
-  // тестовый метод для проверки диалогового окна
+  // С‚РµСЃС‚РѕРІС‹Р№ РјРµС‚РѕРґ РґР»СЏ РїСЂРѕРІРµСЂРєРё РґРёР°Р»РѕРіРѕРІРѕРіРѕ РѕРєРЅР°
   public static void main(String[] args) {
     SwingUtilities.invokeLater(new Runnable() {
       public void run() {

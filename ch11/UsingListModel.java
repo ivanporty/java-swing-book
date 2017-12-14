@@ -1,35 +1,35 @@
 // UsingListModel.java
-// Использование стандартной модели списка
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ СЃС‚Р°РЅРґР°СЂС‚РЅРѕР№ РјРѕРґРµР»Рё СЃРїРёСЃРєР°
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 
 public class UsingListModel extends JFrame {
-  // наша модель
+  // РЅР°С€Р° РјРѕРґРµР»СЊ
   private DefaultListModel dlm;
   public UsingListModel() {
     super("UsingListModel");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // заполним модель данными
+    // Р·Р°РїРѕР»РЅРёРј РјРѕРґРµР»СЊ РґР°РЅРЅС‹РјРё
     dlm = new DefaultListModel();
-    dlm.add(0, "Кое-что");
-    dlm.add(0, "Кое-что еще");
-    dlm.add(0, "Еще немного");
-    // создаем кнопку и пару списков
-    JButton add = new JButton("Обновить");
+    dlm.add(0, "РљРѕРµ-С‡С‚Рѕ");
+    dlm.add(0, "РљРѕРµ-С‡С‚Рѕ РµС‰Рµ");
+    dlm.add(0, "Р•С‰Рµ РЅРµРјРЅРѕРіРѕ");
+    // СЃРѕР·РґР°РµРј РєРЅРѕРїРєСѓ Рё РїР°СЂСѓ СЃРїРёСЃРєРѕРІ
+    JButton add = new JButton("РћР±РЅРѕРІРёС‚СЊ");
     add.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        dlm.add(0, "Новинка!");
+        dlm.add(0, "РќРѕРІРёРЅРєР°!");
       }
     });
     JList list1 = new JList(dlm);
     JList list2 = new JList(dlm);
-    // добавляем компоненты
+    // РґРѕР±Р°РІР»СЏРµРј РєРѕРјРїРѕРЅРµРЅС‚С‹
     setLayout(new FlowLayout());
     add(add);
     add(new JScrollPane(list1));
     add(new JScrollPane(list2));
-    // выведем окно на экран
+    // РІС‹РІРµРґРµРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(400, 200);
     setVisible(true);
   }

@@ -1,32 +1,32 @@
 // UsingSplitPanes.java
-// Использование разделяемых панелей
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ СЂР°Р·РґРµР»СЏРµРјС‹С… РїР°РЅРµР»РµР№
 import javax.swing.*;
 import java.awt.*;
 
 public class UsingSplitPanes extends JFrame {
-  // этот значок будем использовать в надписях
+  // СЌС‚РѕС‚ Р·РЅР°С‡РѕРє Р±СѓРґРµРј РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РІ РЅР°РґРїРёСЃСЏС…
   private Icon icon = new ImageIcon("image.jpg");
   public UsingSplitPanes() {
     super("UsingSplitPanes");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // первая разделяемая панель
+    // РїРµСЂРІР°СЏ СЂР°Р·РґРµР»СЏРµРјР°СЏ РїР°РЅРµР»СЊ
     JSplitPane splitMain = new JSplitPane();
     splitMain.setOneTouchExpandable(true);
-    // размер полосы
+    // СЂР°Р·РјРµСЂ РїРѕР»РѕСЃС‹
     splitMain.setDividerSize(20);
-    // вертикальная разделяемая панель
+    // РІРµСЂС‚РёРєР°Р»СЊРЅР°СЏ СЂР°Р·РґРµР»СЏРµРјР°СЏ РїР°РЅРµР»СЊ
     JSplitPane split2 = new JSplitPane(
         JSplitPane.VERTICAL_SPLIT, true);
-    // настроим ее компоненты
+    // РЅР°СЃС‚СЂРѕРёРј РµРµ РєРѕРјРїРѕРЅРµРЅС‚С‹
     split2.setTopComponent(
         new JScrollPane(new JLabel(icon)));
     split2.setBottomComponent(
         new JScrollPane(new JLabel(icon)));
-    // настроим компоненты первой панели
+    // РЅР°СЃС‚СЂРѕРёРј РєРѕРјРїРѕРЅРµРЅС‚С‹ РїРµСЂРІРѕР№ РїР°РЅРµР»Рё
     splitMain.setLeftComponent(
         new JScrollPane(new JLabel(icon)));
     splitMain.setRightComponent(split2);
-    // добавим панель и выведем окно на экран
+    // РґРѕР±Р°РІРёРј РїР°РЅРµР»СЊ Рё РІС‹РІРµРґРµРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     add(splitMain);
     setSize(600, 400);
     setVisible(true);

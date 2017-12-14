@@ -1,5 +1,5 @@
 // RadioButtons.java
-// Использование переключателей
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РїРµСЂРµРєР»СЋС‡Р°С‚РµР»РµР№
 import javax.swing.*;
 import java.awt.*;
 
@@ -7,27 +7,27 @@ public class RadioButtons extends JFrame {
   public RadioButtons() {
     super("RadioButtons");
     setDefaultCloseOperation( EXIT_ON_CLOSE );
-    // используем последовательное расположение
+    // РёСЃРїРѕР»СЊР·СѓРµРј РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕРµ СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ
     setLayout(new FlowLayout());
-    // отдельный переключатель
-    JRadioButton r = new JRadioButton("Сам по себе");
-    // группа связанных переключателей в своей
-    // собственной панели
+    // РѕС‚РґРµР»СЊРЅС‹Р№ РїРµСЂРµРєР»СЋС‡Р°С‚РµР»СЊ
+    JRadioButton r = new JRadioButton("РЎР°Рј РїРѕ СЃРµР±Рµ");
+    // РіСЂСѓРїРїР° СЃРІСЏР·Р°РЅРЅС‹С… РїРµСЂРµРєР»СЋС‡Р°С‚РµР»РµР№ РІ СЃРІРѕРµР№
+    // СЃРѕР±СЃС‚РІРµРЅРЅРѕР№ РїР°РЅРµР»Рё
     JPanel panel = new JPanel(new GridLayout(0, 1, 0, 5));
     panel.setBorder(
-        BorderFactory.createTitledBorder("Внешний вид"));
+        BorderFactory.createTitledBorder("Р’РЅРµС€РЅРёР№ РІРёРґ"));
     ButtonGroup bg = new ButtonGroup();
-    String[] names = { "Внешний вид Java",
+    String[] names = { "Р’РЅРµС€РЅРёР№ РІРёРґ Java",
         "MS Windows", "Aqua (Mac)" };
     for (String name : names) {
       JRadioButton radio = new JRadioButton(name);
       panel.add(radio);
       bg.add(radio);
     }
-    // добавляем все в контейнер
+    // РґРѕР±Р°РІР»СЏРµРј РІСЃРµ РІ РєРѕРЅС‚РµР№РЅРµСЂ
     add(r);
     add(panel);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     pack();
     setVisible(true);
   }

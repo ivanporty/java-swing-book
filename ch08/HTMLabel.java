@@ -1,28 +1,28 @@
 // HTMLabel.java
-// Использование в надписях языка HTML
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РІ РЅР°РґРїРёСЃСЏС… СЏР·С‹РєР° HTML
 import javax.swing.*;
 
 public class HTMLabel extends JFrame {
   private String html1 =
-      "<html><b>Слава</b><font size=5 color=red> HTML";
+      "<html><b>РЎР»Р°РІР°</b><font size=5 color=red> HTML";
   private String html2 =
       "<html><font size=4 color=blue>" +
-          "<ul>Список:<li>Один<li>Два";
+          "<ul>РЎРїРёСЃРѕРє:<li>РћРґРёРЅ<li>Р”РІР°";
   private String html3 =
-      "<html><body bgcolor=white><h2>Любой цвет фона";
+      "<html><body bgcolor=white><h2>Р›СЋР±РѕР№ С†РІРµС‚ С„РѕРЅР°";
   private String html4 =
-      "<html><h2>Изображения:<img src=\"file:monkey.gif\">";
+      "<html><h2>РР·РѕР±СЂР°Р¶РµРЅРёСЏ:<img src=\"file:monkey.gif\">";
   public HTMLabel() {
     super("HTMLabel");
-    // при закрытии окна выход
+    // РїСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР° РІС‹С…РѕРґ
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // добавляем надписи
+    // РґРѕР±Р°РІР»СЏРµРј РЅР°РґРїРёСЃРё
     JPanel contents = new JPanel();
     contents.add(new JLabel(html1));
     contents.add(new JLabel(html2));
     contents.add(new JLabel(html3));
     contents.add(new JLabel(html4));
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     add(contents);
     setSize(400, 300);
     setVisible(true);

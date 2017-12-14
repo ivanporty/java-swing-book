@@ -1,5 +1,5 @@
 // FlowLayoutSample.java
-// Последовательное расположение
+// РџРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕРµ СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ
 import java.awt.*;
 import javax.swing.*;
 
@@ -8,14 +8,14 @@ public class FlowLayoutSample extends JFrame {
 		super("FlowLayoutSample");
 		setSize(400, 200);
 		setDefaultCloseOperation( EXIT_ON_CLOSE );
-		// устанавливаем последовательное расположение с
-		// выравниванием компонентов по центру
+		// СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕРµ СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ СЃ
+		// РІС‹СЂР°РІРЅРёРІР°РЅРёРµРј РєРѕРјРїРѕРЅРµРЅС‚РѕРІ РїРѕ С†РµРЅС‚СЂСѓ
 		setLayout( new FlowLayout( FlowLayout.CENTER ));
-		// добавляем компоненты
-		add( new JButton("Один"));
-		add( new JButton("Два"));
-		add( new JButton("Три"));
-		// выводим окно на экран
+		// РґРѕР±Р°РІР»СЏРµРј РєРѕРјРїРѕРЅРµРЅС‚С‹
+		add( new JButton("РћРґРёРЅ"));
+		add( new JButton("Р”РІР°"));
+		add( new JButton("РўСЂРё"));
+		// РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
 		setVisible(true);
 	}  
 	public static void main(String[] args) {

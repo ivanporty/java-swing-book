@@ -1,5 +1,5 @@
 // SimpleTrees.java
-// Создание самых простых деревьев
+// РЎРѕР·РґР°РЅРёРµ СЃР°РјС‹С… РїСЂРѕСЃС‚С‹С… РґРµСЂРµРІСЊРµРІ
 import javax.swing.*;
 import java.util.*;
 import java.awt.*;
@@ -8,30 +8,30 @@ public class SimpleTrees extends JFrame {
   public SimpleTrees() {
     super("SimpleTrees");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создание дерева на основе массива
-    Object[] data = new Object[] { "Первый", "Второй",
-        "Третий", new String[] { "Чей-то потомок",
-            "Еще потомок" }
+    // СЃРѕР·РґР°РЅРёРµ РґРµСЂРµРІР° РЅР° РѕСЃРЅРѕРІРµ РјР°СЃСЃРёРІР°
+    Object[] data = new Object[] { "РџРµСЂРІС‹Р№", "Р’С‚РѕСЂРѕР№",
+        "РўСЂРµС‚РёР№", new String[] { "Р§РµР№-С‚Рѕ РїРѕС‚РѕРјРѕРє",
+            "Р•С‰Рµ РїРѕС‚РѕРјРѕРє" }
     };
     JTree tree1 = new JTree(data);
-    // дерево на основе вектора
+    // РґРµСЂРµРІРѕ РЅР° РѕСЃРЅРѕРІРµ РІРµРєС‚РѕСЂР°
     Vector<String> vector = new Vector<String>();
-    for (int i=0; i<5; i++) vector.add("Лист № " + i);
+    for (int i=0; i<5; i++) vector.add("Р›РёСЃС‚ в„– " + i);
     JTree tree2 = new JTree(vector);
-    // дерево на основе таблицы
+    // РґРµСЂРµРІРѕ РЅР° РѕСЃРЅРѕРІРµ С‚Р°Р±Р»РёС†С‹
     Hashtable<String,String> table =
         new Hashtable<String,String>();
-    table.put("Одна", "пара");
-    table.put("Еще одна", "тоже пара");
+    table.put("РћРґРЅР°", "РїР°СЂР°");
+    table.put("Р•С‰Рµ РѕРґРЅР°", "С‚РѕР¶Рµ РїР°СЂР°");
     JTree tree3 = new JTree(table);
-    // можно включить показ корня дерева
+    // РјРѕР¶РЅРѕ РІРєР»СЋС‡РёС‚СЊ РїРѕРєР°Р· РєРѕСЂРЅСЏ РґРµСЂРµРІР°
     tree3.setRootVisible(true);
-    // добавим деревья одно за одним
+    // РґРѕР±Р°РІРёРј РґРµСЂРµРІСЊСЏ РѕРґРЅРѕ Р·Р° РѕРґРЅРёРј
     setLayout(new FlowLayout());
     add(tree1);
     add(tree2);
     add(tree3);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(400, 300);
     setVisible(true);
 

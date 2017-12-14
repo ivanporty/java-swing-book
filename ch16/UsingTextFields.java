@@ -1,35 +1,35 @@
 // UsingTextFields.java
-// Использование текстовых полей Swing
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ С‚РµРєСЃС‚РѕРІС‹С… РїРѕР»РµР№ Swing
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
 public class UsingTextFields extends JFrame {
-  // наши поля
+  // РЅР°С€Рё РїРѕР»СЏ
   private JTextField smallField, bigField;
   public UsingTextFields() {
     super("UsingTextFields");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем текстовые поля
+    // СЃРѕР·РґР°РµРј С‚РµРєСЃС‚РѕРІС‹Рµ РїРѕР»СЏ
     smallField = new JTextField(10);
-    bigField = new JTextField("Текст поля", 25);
-    // дополнительные настройки
+    bigField = new JTextField("РўРµРєСЃС‚ РїРѕР»СЏ", 25);
+    // РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РЅР°СЃС‚СЂРѕР№РєРё
     bigField.setFont(new Font("Verdana", Font.PLAIN, 16));
     bigField.setHorizontalAlignment(JTextField.RIGHT);
-    // слушатель окончания ввода
+    // СЃР»СѓС€Р°С‚РµР»СЊ РѕРєРѕРЅС‡Р°РЅРёСЏ РІРІРѕРґР°
     smallField.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        // показываем введенный текст
+        // РїРѕРєР°Р·С‹РІР°РµРј РІРІРµРґРµРЅРЅС‹Р№ С‚РµРєСЃС‚
         JOptionPane.showMessageDialog(
             UsingTextFields.this,
-            "Ваше слово: " +
+            "Р’Р°С€Рµ СЃР»РѕРІРѕ: " +
                 smallField.getText());
       }
     });
-    // поле с паролем
+    // РїРѕР»Рµ СЃ РїР°СЂРѕР»РµРј
     JPasswordField password = new JPasswordField(15);
     password.setEchoChar('$');
-    // добавляем поля в окно и выводим его на экран
+    // РґРѕР±Р°РІР»СЏРµРј РїРѕР»СЏ РІ РѕРєРЅРѕ Рё РІС‹РІРѕРґРёРј РµРіРѕ РЅР° СЌРєСЂР°РЅ
     setLayout(new FlowLayout());
     add(smallField);
     add(bigField);

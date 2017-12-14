@@ -1,5 +1,5 @@
 // ContentPaneAdd.java
-// Замена панели содержимого
+// Р—Р°РјРµРЅР° РїР°РЅРµР»Рё СЃРѕРґРµСЂР¶РёРјРѕРіРѕ
 import javax.swing.*;
 import java.awt.*;
 
@@ -7,13 +7,13 @@ public class ContentPaneAdd extends JFrame {
   public ContentPaneAdd() {
     super("ContentPaneAdd");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создадим панель с двумя кнопками
+    // СЃРѕР·РґР°РґРёРј РїР°РЅРµР»СЊ СЃ РґРІСѓРјСЏ РєРЅРѕРїРєР°РјРё
     JPanel contents = new JPanel();
-    contents.add(new JButton("Один"));
-    contents.add(new JButton("Два"));
-    // заменим панель содержимого
+    contents.add(new JButton("РћРґРёРЅ"));
+    contents.add(new JButton("Р”РІР°"));
+    // Р·Р°РјРµРЅРёРј РїР°РЅРµР»СЊ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ
     setContentPane(contents);
-    // выведем окно на экран
+    // РІС‹РІРµРґРµРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(200, 100);
     setVisible(true);
   }

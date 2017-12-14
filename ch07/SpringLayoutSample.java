@@ -1,5 +1,5 @@
 // SpringLayoutSample.java
-// Работа менеджера SpringLayout
+// Р Р°Р±РѕС‚Р° РјРµРЅРµРґР¶РµСЂР° SpringLayout
 import javax.swing.*;
 import java.awt.*;
 
@@ -7,19 +7,19 @@ public class SpringLayoutSample extends JFrame {
 	public SpringLayoutSample() {
 		super("SpringLayoutSample");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		// панель с использованием SpringLayout
+		// РїР°РЅРµР»СЊ СЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµРј SpringLayout
 		SpringLayout sl = new SpringLayout();
 		JPanel contents = new JPanel(sl);		
-		// добавим пару компонентов
+		// РґРѕР±Р°РІРёРј РїР°СЂСѓ РєРѕРјРїРѕРЅРµРЅС‚РѕРІ
     JButton button1, button2;
-		contents.add(button1 = new JButton("Первая"));
-		contents.add(button2 = new JButton("Последняя"));
-		// настроим распорки
+		contents.add(button1 = new JButton("РџРµСЂРІР°СЏ"));
+		contents.add(button2 = new JButton("РџРѕСЃР»РµРґРЅСЏСЏ"));
+		// РЅР°СЃС‚СЂРѕРёРј СЂР°СЃРїРѕСЂРєРё
 		sl.putConstraint(SpringLayout.WEST, button1, 
 			5, SpringLayout.WEST, contents);
 		sl.putConstraint(SpringLayout.WEST, button2, 5,
 			SpringLayout.EAST, button1);		
-		// выведем окно на экран
+		// РІС‹РІРµРґРµРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
 		setContentPane(contents);
 		setSize(300, 200);
 		setVisible(true);

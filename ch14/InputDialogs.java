@@ -1,53 +1,53 @@
 // InputDialogs.java
-// Стандартные диалоговые окна JOptionPane для ввода данных
+// РЎС‚Р°РЅРґР°СЂС‚РЅС‹Рµ РґРёР°Р»РѕРіРѕРІС‹Рµ РѕРєРЅР° JOptionPane РґР»СЏ РІРІРѕРґР° РґР°РЅРЅС‹С…
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 
 public class InputDialogs extends JFrame {
-  // значок для одного из сообщений
+  // Р·РЅР°С‡РѕРє РґР»СЏ РѕРґРЅРѕРіРѕ РёР· СЃРѕРѕР±С‰РµРЅРёР№
   private ImageIcon icon = new ImageIcon("question.gif");
-  // данные для выбора
-  private String[] values = {"Белый","Красный","Зеленый" };
+  // РґР°РЅРЅС‹Рµ РґР»СЏ РІС‹Р±РѕСЂР°
+  private String[] values = {"Р‘РµР»С‹Р№","РљСЂР°СЃРЅС‹Р№","Р—РµР»РµРЅС‹Р№" };
   public InputDialogs() {
     super("InputDialogs");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // после щелчков на кнопках выводятся сообщения
-    JButton input1 = new JButton("2 и 3 параметра");
+    // РїРѕСЃР»Рµ С‰РµР»С‡РєРѕРІ РЅР° РєРЅРѕРїРєР°С… РІС‹РІРѕРґСЏС‚СЃСЏ СЃРѕРѕР±С‰РµРЅРёСЏ
+    JButton input1 = new JButton("2 Рё 3 РїР°СЂР°РјРµС‚СЂР°");
     input1.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        // ввод строки в текстовом поле
+        // РІРІРѕРґ СЃС‚СЂРѕРєРё РІ С‚РµРєСЃС‚РѕРІРѕРј РїРѕР»Рµ
         String res = JOptionPane.showInputDialog(
             InputDialogs.this,
-            "<html><h2>Светит ли солнце?");
+            "<html><h2>РЎРІРµС‚РёС‚ Р»Рё СЃРѕР»РЅС†Рµ?");
         res = JOptionPane.showInputDialog(
             InputDialogs.this,
-            "Ваш ответ был таким?", res);
+            "Р’Р°С€ РѕС‚РІРµС‚ Р±С‹Р» С‚Р°РєРёРј?", res);
       }
     });
-    JButton input2 = new JButton("4 параметра");
+    JButton input2 = new JButton("4 РїР°СЂР°РјРµС‚СЂР°");
     input2.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        // позволяет задавать тип и заголовок
+        // РїРѕР·РІРѕР»СЏРµС‚ Р·Р°РґР°РІР°С‚СЊ С‚РёРї Рё Р·Р°РіРѕР»РѕРІРѕРє
         String res = JOptionPane.showInputDialog(
             InputDialogs.this, new String[] {
-            "Пароль введен неверно!", "Повторите ввод:"},
-            "Пароль", JOptionPane.WARNING_MESSAGE);
+            "РџР°СЂРѕР»СЊ РІРІРµРґРµРЅ РЅРµРІРµСЂРЅРѕ!", "РџРѕРІС‚РѕСЂРёС‚Рµ РІРІРѕРґ:"},
+            "РџР°СЂРѕР»СЊ", JOptionPane.WARNING_MESSAGE);
       }
     });
-    JButton input3 = new JButton("7 параметров");
+    JButton input3 = new JButton("7 РїР°СЂР°РјРµС‚СЂРѕРІ");
     input3.addActionListener(new ActionListener() {
-      // выбор из нескольких альтернатив
+      // РІС‹Р±РѕСЂ РёР· РЅРµСЃРєРѕР»СЊРєРёС… Р°Р»СЊС‚РµСЂРЅР°С‚РёРІ
       public void actionPerformed(ActionEvent e) {
         Object res = JOptionPane.showInputDialog(
-            InputDialogs.this,"Выберите любимый цвет:",
-            "Выбор цвета", JOptionPane.QUESTION_MESSAGE,
+            InputDialogs.this,"Р’С‹Р±РµСЂРёС‚Рµ Р»СЋР±РёРјС‹Р№ С†РІРµС‚:",
+            "Р’С‹Р±РѕСЂ С†РІРµС‚Р°", JOptionPane.QUESTION_MESSAGE,
             icon, values, values[0]);
         JOptionPane.showMessageDialog(
             InputDialogs.this, res);
       }
     });
-    // добавляем кнопки в окно
+    // РґРѕР±Р°РІР»СЏРµРј РєРЅРѕРїРєРё РІ РѕРєРЅРѕ
     setLayout(new FlowLayout());
     add(input1);
     add(input2);

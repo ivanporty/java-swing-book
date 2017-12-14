@@ -1,5 +1,5 @@
 // Labels.java
-// Настройка содержимого надписей
+// РќР°СЃС‚СЂРѕР№РєР° СЃРѕРґРµСЂР¶РёРјРѕРіРѕ РЅР°РґРїРёСЃРµР№
 import java.awt.*;
 import javax.swing.*;
 
@@ -7,32 +7,32 @@ public class Labels extends JFrame
     implements SwingConstants {
   public Labels() {
     super("Labels");
-    // при закрытии окна заканчиваем работу
+    // РїСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР° Р·Р°РєР°РЅС‡РёРІР°РµРј СЂР°Р±РѕС‚Сѓ
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // самая простая надпись
+    // СЃР°РјР°СЏ РїСЂРѕСЃС‚Р°СЏ РЅР°РґРїРёСЃСЊ
     JPanel contents = new JPanel();
-    JLabel l1 = new JLabel("Ваше имя:");
+    JLabel l1 = new JLabel("Р’Р°С€Рµ РёРјСЏ:");
     JTextField name = new JTextField(20);
     contents.add(l1);
     contents.add(name);
-    // надпись со значком
+    // РЅР°РґРїРёСЃСЊ СЃРѕ Р·РЅР°С‡РєРѕРј
     JLabel l2 = new JLabel(new ImageIcon("monkey.gif"));
     adjustLabel(l2);
     l2.setHorizontalAlignment(LEFT);
     contents.add(l2);
-    // надпись с нестандартным выравниванием
-    JLabel l3 = new JLabel("Текст и значок",
+    // РЅР°РґРїРёСЃСЊ СЃ РЅРµСЃС‚Р°РЅРґР°СЂС‚РЅС‹Рј РІС‹СЂР°РІРЅРёРІР°РЅРёРµРј
+    JLabel l3 = new JLabel("РўРµРєСЃС‚ Рё Р·РЅР°С‡РѕРє",
         new ImageIcon("bulb.gif"), RIGHT);
     adjustLabel(l3);
     l3.setVerticalTextPosition(BOTTOM);
     l3.setHorizontalTextPosition(LEFT);
     contents.add(l3);
-    // вывод окна на экран
+    // РІС‹РІРѕРґ РѕРєРЅР° РЅР° СЌРєСЂР°РЅ
     setContentPane(contents);
     setSize(320, 300);
     setVisible(true);
   }
-  // метод производит специальную настройку надписи
+  // РјРµС‚РѕРґ РїСЂРѕРёР·РІРѕРґРёС‚ СЃРїРµС†РёР°Р»СЊРЅСѓСЋ РЅР°СЃС‚СЂРѕР№РєСѓ РЅР°РґРїРёСЃРё
   private void adjustLabel(JLabel l) {
     l.setOpaque(true);
     l.setBackground(Color.white);

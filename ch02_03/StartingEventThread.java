@@ -1,50 +1,50 @@
 // StartingEventThread.java
-// Проверка момента запуска потока рассылки событий
+// РџСЂРѕРІРµСЂРєР° РјРѕРјРµРЅС‚Р° Р·Р°РїСѓСЃРєР° РїРѕС‚РѕРєР° СЂР°СЃСЃС‹Р»РєРё СЃРѕР±С‹С‚РёР№
 
 import javax.swing.*;
 import java.awt.*;
 
 public class StartingEventThread {
   public static void main(String[] args) {
-    // заменяем системную очередь событий своей
+    // Р·Р°РјРµРЅСЏРµРј СЃРёСЃС‚РµРјРЅСѓСЋ РѕС‡РµСЂРµРґСЊ СЃРѕР±С‹С‚РёР№ СЃРІРѕРµР№
     Toolkit.getDefaultToolkit().
         getSystemEventQueue().push(new CustomQueue());
-    // создаем окно
-    JFrame frame = new JFrame("Тест");
+    // СЃРѕР·РґР°РµРј РѕРєРЅРѕ
+    JFrame frame = new JFrame("РўРµСЃС‚");
     System.out.println("(1) JFrame()");
-    // добавляем флажок
-    JCheckBox checkBox = new JCheckBox("Тест");
+    // РґРѕР±Р°РІР»СЏРµРј С„Р»Р°Р¶РѕРє
+    JCheckBox checkBox = new JCheckBox("РўРµСЃС‚");
     frame.add(checkBox, "South");
-    System.out.println("(2) Добавлен флажок");
-    // создаем список
+    System.out.println("(2) Р”РѕР±Р°РІР»РµРЅ С„Р»Р°Р¶РѕРє");
+    // СЃРѕР·РґР°РµРј СЃРїРёСЃРѕРє
     DefaultListModel model = new DefaultListModel();
     JList list = new JList(model);
     frame.add(list);
-    System.out.println("(3) Добавлен список");
-    // обновляем модель
-    model.addElement("Тест");
-    System.out.println("(4) Обновление модели");
-    // окончательно выводим интерфейс на экран
+    System.out.println("(3) Р”РѕР±Р°РІР»РµРЅ СЃРїРёСЃРѕРє");
+    // РѕР±РЅРѕРІР»СЏРµРј РјРѕРґРµР»СЊ
+    model.addElement("РўРµСЃС‚");
+    System.out.println("(4) РћР±РЅРѕРІР»РµРЅРёРµ РјРѕРґРµР»Рё");
+    // РѕРєРѕРЅС‡Р°С‚РµР»СЊРЅРѕ РІС‹РІРѕРґРёРј РёРЅС‚РµСЂС„РµР№СЃ РЅР° СЌРєСЂР°РЅ
     frame.setVisible(true);
-    System.out.println("(5) Интерфейс построен");
+    System.out.println("(5) РРЅС‚РµСЂС„РµР№СЃ РїРѕСЃС‚СЂРѕРµРЅ");
   }
 
-  // специальная очередь событий, сообщающая
-  // отладочную информацию о событиях и потоках
+  // СЃРїРµС†РёР°Р»СЊРЅР°СЏ РѕС‡РµСЂРµРґСЊ СЃРѕР±С‹С‚РёР№, СЃРѕРѕР±С‰Р°СЋС‰Р°СЏ
+  // РѕС‚Р»Р°РґРѕС‡РЅСѓСЋ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ СЃРѕР±С‹С‚РёСЏС… Рё РїРѕС‚РѕРєР°С…
   static class CustomQueue extends EventQueue {
-    // метод кладет событие в очередь
+    // РјРµС‚РѕРґ РєР»Р°РґРµС‚ СЃРѕР±С‹С‚РёРµ РІ РѕС‡РµСЂРµРґСЊ
     public void postEvent(AWTEvent event) {
-      System.out.println("post(), поток: " +
+      System.out.println("post(), РїРѕС‚РѕРє: " +
           Thread.currentThread().toString());
-      System.out.println("post(), событие: " + event);
+      System.out.println("post(), СЃРѕР±С‹С‚РёРµ: " + event);
       super.postEvent(event);
     }
 
-    // метод распределяет событие по компонентам
+    // РјРµС‚РѕРґ СЂР°СЃРїСЂРµРґРµР»СЏРµС‚ СЃРѕР±С‹С‚РёРµ РїРѕ РєРѕРјРїРѕРЅРµРЅС‚Р°Рј
     protected void dispatchEvent(AWTEvent event) {
-      System.out.println("dispatch(), поток: " +
+      System.out.println("dispatch(), РїРѕС‚РѕРє: " +
           Thread.currentThread().toString());
-      System.out.println("dispatch(), событие: " + event);
+      System.out.println("dispatch(), СЃРѕР±С‹С‚РёРµ: " + event);
       super.dispatchEvent(event);
     }
   }

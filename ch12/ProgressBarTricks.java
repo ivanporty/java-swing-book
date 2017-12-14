@@ -1,34 +1,34 @@
 // ProgressBarTricks.java
-// Небольшие хитрости индикаторов процесса
+// РќРµР±РѕР»СЊС€РёРµ С…РёС‚СЂРѕСЃС‚Рё РёРЅРґРёРєР°С‚РѕСЂРѕРІ РїСЂРѕС†РµСЃСЃР°
 import javax.swing.*;
 import java.awt.*;
 
 public class ProgressBarTricks extends JFrame {
-  // максимальное значение индикатора
+  // РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РёРЅРґРёРєР°С‚РѕСЂР°
   private final int MAX = 100;
   public ProgressBarTricks() {
     super("ProgressBarTricks");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // настроим параметры для UI-представителей
+    // РЅР°СЃС‚СЂРѕРёРј РїР°СЂР°РјРµС‚СЂС‹ РґР»СЏ UI-РїСЂРµРґСЃС‚Р°РІРёС‚РµР»РµР№
     UIManager.put("ProgressBar.cellSpacing", 2);
     UIManager.put("ProgressBar.cellLength", 6);
-    // стандартная модель
+    // СЃС‚Р°РЅРґР°СЂС‚РЅР°СЏ РјРѕРґРµР»СЊ
     final DefaultBoundedRangeModel model =
         new DefaultBoundedRangeModel(0, 0, 0, MAX);
-    // создадим простой индикатор процесса
-    // на основе полученной модели
+    // СЃРѕР·РґР°РґРёРј РїСЂРѕСЃС‚РѕР№ РёРЅРґРёРєР°С‚РѕСЂ РїСЂРѕС†РµСЃСЃР°
+    // РЅР° РѕСЃРЅРѕРІРµ РїРѕР»СѓС‡РµРЅРЅРѕР№ РјРѕРґРµР»Рё
     JProgressBar progress = new JProgressBar(model);
-    // добавим его в окно
+    // РґРѕР±Р°РІРёРј РµРіРѕ РІ РѕРєРЅРѕ
     setLayout(new FlowLayout());
     add(progress);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(300, 200);
     setVisible(true);
-    // создадим "процесс"
+    // СЃРѕР·РґР°РґРёРј "РїСЂРѕС†РµСЃСЃ"
     Thread process = new Thread(new Runnable() {
       public void run() {
-        // увеличиваем текущее значение модели до
-        // достижения максимального значения
+        // СѓРІРµР»РёС‡РёРІР°РµРј С‚РµРєСѓС‰РµРµ Р·РЅР°С‡РµРЅРёРµ РјРѕРґРµР»Рё РґРѕ
+        // РґРѕСЃС‚РёР¶РµРЅРёСЏ РјР°РєСЃРёРјР°Р»СЊРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ
         int value = 0;
         while ( ++value <= MAX ) {
           final int passValue = value;
@@ -42,7 +42,7 @@ public class ProgressBarTricks extends JFrame {
         }
       }
     });
-    // запустим поток
+    // Р·Р°РїСѓСЃС‚РёРј РїРѕС‚РѕРє
     process.start();
   }
   public static void main(String[] args) {

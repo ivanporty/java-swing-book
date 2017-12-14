@@ -1,6 +1,6 @@
 // TestAutoCompletion.java
-// Проверка работы текстового поля с
-// автоматическим заполнением
+// РџСЂРѕРІРµСЂРєР° СЂР°Р±РѕС‚С‹ С‚РµРєСЃС‚РѕРІРѕРіРѕ РїРѕР»СЏ СЃ
+// Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРёРј Р·Р°РїРѕР»РЅРµРЅРёРµРј
 import com.porty.swing.*;
 import javax.swing.*;
 import java.awt.*;
@@ -9,19 +9,19 @@ public class TestAutoCompletion extends JFrame {
   public TestAutoCompletion() {
     super("TestAutoCompletion");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем и настраиваем поле
+    // СЃРѕР·РґР°РµРј Рё РЅР°СЃС‚СЂР°РёРІР°РµРј РїРѕР»Рµ
     JTextField field =
         new JTextField();
     field.setColumns(15);
-    // слова для автозаполнения
+    // СЃР»РѕРІР° РґР»СЏ Р°РІС‚РѕР·Р°РїРѕР»РЅРµРЅРёСЏ
     AutoCompleteTextDocument doc =
         new AutoCompleteTextDocument(field);
-    doc.addWord("прекрасный");
-    doc.addWord("великолепный");
-    // добавляем поле в окно
+    doc.addWord("РїСЂРµРєСЂР°СЃРЅС‹Р№");
+    doc.addWord("РІРµР»РёРєРѕР»РµРїРЅС‹Р№");
+    // РґРѕР±Р°РІР»СЏРµРј РїРѕР»Рµ РІ РѕРєРЅРѕ
     setLayout(new FlowLayout());
     add(field);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(300, 200);
     setVisible(true);
   }

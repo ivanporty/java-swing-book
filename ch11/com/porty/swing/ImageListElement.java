@@ -1,19 +1,19 @@
 // com/porty/swing/ImageListElement.java
-// Класс, хранящий значок и текст элемента
+// РљР»Р°СЃСЃ, С…СЂР°РЅСЏС‰РёР№ Р·РЅР°С‡РѕРє Рё С‚РµРєСЃС‚ СЌР»РµРјРµРЅС‚Р°
 package com.porty.swing;
 
 import javax.swing.*;
 
 public class ImageListElement {
-  // значок и текст
+  // Р·РЅР°С‡РѕРє Рё С‚РµРєСЃС‚
   private Icon icon;
   private String text;
-	// удобный конструктор
+	// СѓРґРѕР±РЅС‹Р№ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 	public ImageListElement(Icon icon, String text) {
 		this.icon = icon;
 		this.text = text;
 	}
-  // методы для доступа к значку и тексту
+  // РјРµС‚РѕРґС‹ РґР»СЏ РґРѕСЃС‚СѓРїР° Рє Р·РЅР°С‡РєСѓ Рё С‚РµРєСЃС‚Сѓ
   public Icon getIcon() {  return icon; }
   public String getText() { return text; }
   public void setIcon(Icon icon) { this.icon = icon; }

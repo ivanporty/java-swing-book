@@ -1,5 +1,5 @@
 // DialogWindows.java
-// Диалоговые окна в Swing
+// Р”РёР°Р»РѕРіРѕРІС‹Рµ РѕРєРЅР° РІ Swing
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
@@ -7,28 +7,28 @@ import java.awt.*;
 public class DialogWindows extends JFrame {
   public DialogWindows() {
     super("DialogWindows");
-    // выход при закрытии
+    // РІС‹С…РѕРґ РїСЂРё Р·Р°РєСЂС‹С‚РёРё
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // пара кнопок, вызывающих создание диалоговых окон
-    JButton button1 = new JButton("Обычное окно");
+    // РїР°СЂР° РєРЅРѕРїРѕРє, РІС‹Р·С‹РІР°СЋС‰РёС… СЃРѕР·РґР°РЅРёРµ РґРёР°Р»РѕРіРѕРІС‹С… РѕРєРѕРЅ
+    JButton button1 = new JButton("РћР±С‹С‡РЅРѕРµ РѕРєРЅРѕ");
     button1.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         JDialog dialog =
-          createDialog("Немодальное",
+          createDialog("РќРµРјРѕРґР°Р»СЊРЅРѕРµ",
               Dialog.ModalityType.MODELESS);
         dialog.setVisible(true);
       }
       });
-    JButton button2 = new JButton("Модальное окно");
+    JButton button2 = new JButton("РњРѕРґР°Р»СЊРЅРѕРµ РѕРєРЅРѕ");
     button2.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         JDialog dialog =
-          createDialog("Модальное",
+          createDialog("РњРѕРґР°Р»СЊРЅРѕРµ",
               Dialog.ModalityType.APPLICATION_MODAL);
         dialog.setVisible(true);
       }
       });
-    // создаем панель содержимого и выводим окно на экран
+    // СЃРѕР·РґР°РµРј РїР°РЅРµР»СЊ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ Рё РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     JPanel contents = new JPanel();
     contents.add(button1);
     contents.add(button2);
@@ -36,7 +36,7 @@ public class DialogWindows extends JFrame {
     setSize(350, 100);
     setVisible(true);
   }
-  // создает диалоговое окно
+  // СЃРѕР·РґР°РµС‚ РґРёР°Р»РѕРіРѕРІРѕРµ РѕРєРЅРѕ
   private JDialog createDialog(String title, Dialog.ModalityType modal){
     JDialog dialog = new JDialog(this, title, modal);
     dialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);

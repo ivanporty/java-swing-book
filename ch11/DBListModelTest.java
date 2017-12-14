@@ -1,6 +1,6 @@
 // DBListModelTest.java
-// Использование модели списка 
-// для работы с базами данных
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РјРѕРґРµР»Рё СЃРїРёСЃРєР° 
+// РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ Р±Р°Р·Р°РјРё РґР°РЅРЅС‹С…
 import javax.swing.*;
 import java.sql.*;
 import java.awt.*;
@@ -8,31 +8,31 @@ import java.awt.*;
 import com.porty.swing.*;
 
 public class DBListModelTest {
-  // параметры базы данных
+  // РїР°СЂР°РјРµС‚СЂС‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…
   private static String
       dsn = "jdbc:odbc:Library",
       uid = "",
       pwd = "",
       query = "select * from readers.csv";
   public static void main(String[] args) throws Exception {
-    // инициализация JDBC
+    // РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ JDBC
     Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-    // объект-соединение с базой данных
+    // РѕР±СЉРµРєС‚-СЃРѕРµРґРёРЅРµРЅРёРµ СЃ Р±Р°Р·РѕР№ РґР°РЅРЅС‹С…
     Connection conn = DriverManager.getConnection(dsn, uid, pwd);
     Statement st = conn.createStatement();
     ResultSet rs = st.executeQuery(query);
-    // создаем модель
+    // СЃРѕР·РґР°РµРј РјРѕРґРµР»СЊ
     final DatabaseListModel dblm = new DatabaseListModel();
-    // загружаем данные
+    // Р·Р°РіСЂСѓР¶Р°РµРј РґР°РЅРЅС‹Рµ
     dblm.setDataSource(rs, "surname");
     rs.close();
-    // интерфейс создаем в потоке рассылки событий
+    // РёРЅС‚РµСЂС„РµР№СЃ СЃРѕР·РґР°РµРј РІ РїРѕС‚РѕРєРµ СЂР°СЃСЃС‹Р»РєРё СЃРѕР±С‹С‚РёР№
     SwingUtilities.invokeLater(
         new Runnable() {
           public void run() {
-            // присоединяем список
+            // РїСЂРёСЃРѕРµРґРёРЅСЏРµРј СЃРїРёСЃРѕРє
             JList list = new JList(dblm);
-            // помещаем список в окно
+            // РїРѕРјРµС‰Р°РµРј СЃРїРёСЃРѕРє РІ РѕРєРЅРѕ
             JFrame frame = new JFrame("DBList");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setSize(200, 200);

@@ -1,19 +1,19 @@
 // SwingApplet.java
-// Простой апплет с использованием Swing
+// РџСЂРѕСЃС‚РѕР№ Р°РїРїР»РµС‚ СЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµРј Swing
 import javax.swing.*;
 import java.awt.*;
 
 public class SwingApplet extends JApplet {
-  // этот метод вызывается при создании апплета
+  // СЌС‚РѕС‚ РјРµС‚РѕРґ РІС‹Р·С‹РІР°РµС‚СЃСЏ РїСЂРё СЃРѕР·РґР°РЅРёРё Р°РїРїР»РµС‚Р°
   @Override
   public void init() {
-    // создание интерфейса
+    // СЃРѕР·РґР°РЅРёРµ РёРЅС‚РµСЂС„РµР№СЃР°
     SwingUtilities.invokeLater(
         new Runnable() {
           public void run() {
             JPanel contents = new JPanel();
             contents.add(new JTextField(10));
-            contents.add(new JButton("Ввод"));
+            contents.add(new JButton("Р’РІРѕРґ"));
             setContentPane(contents);
         }});
   }

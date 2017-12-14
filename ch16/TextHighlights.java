@@ -1,5 +1,5 @@
 // TextHighlights.java
-// Дополнительное выделение текста
+// Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРµ РІС‹РґРµР»РµРЅРёРµ С‚РµРєСЃС‚Р°
 import javax.swing.*;
 import javax.swing.text.*;
 import java.awt.*;
@@ -8,11 +8,11 @@ public class TextHighlights extends JFrame {
   public TextHighlights() {
     super("TextHighlights");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем и настраиваем поле
+    // СЃРѕР·РґР°РµРј Рё РЅР°СЃС‚СЂР°РёРІР°РµРј РїРѕР»Рµ
     JTextArea area =
-        new JTextArea("Привет мир!");
+        new JTextArea("РџСЂРёРІРµС‚ РјРёСЂ!");
     try {
-      // добавим выделенный фрагмент желтого цвета
+      // РґРѕР±Р°РІРёРј РІС‹РґРµР»РµРЅРЅС‹Р№ С„СЂР°РіРјРµРЅС‚ Р¶РµР»С‚РѕРіРѕ С†РІРµС‚Р°
       Object reference =
           area.getHighlighter().
               addHighlight(0, 6,
@@ -21,9 +21,9 @@ public class TextHighlights extends JFrame {
     } catch (BadLocationException e) {
       e.printStackTrace();
     }
-    // добавляем поле в окно
+    // РґРѕР±Р°РІР»СЏРµРј РїРѕР»Рµ РІ РѕРєРЅРѕ
     add(new JScrollPane(area));
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(300, 200);
     setVisible(true);
   }

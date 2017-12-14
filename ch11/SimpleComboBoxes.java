@@ -1,30 +1,30 @@
 // SimpleComboBoxes.java
-// Создание простых раскрывающихся списков
+// РЎРѕР·РґР°РЅРёРµ РїСЂРѕСЃС‚С‹С… СЂР°СЃРєСЂС‹РІР°СЋС‰РёС…СЃСЏ СЃРїРёСЃРєРѕРІ
 import javax.swing.*;
 import java.util.*;
 import java.awt.*;
 
 public class SimpleComboBoxes extends JFrame {
-  // массив с элементами списка
+  // РјР°СЃСЃРёРІ СЃ СЌР»РµРјРµРЅС‚Р°РјРё СЃРїРёСЃРєР°
   public String[] elements = new String[] {
-      "Обаятельный", "Умный", "Нежный", "Сильный"
+      "РћР±Р°СЏС‚РµР»СЊРЅС‹Р№", "РЈРјРЅС‹Р№", "РќРµР¶РЅС‹Р№", "РЎРёР»СЊРЅС‹Р№"
   };
   public SimpleComboBoxes() {
     super("SimpleComboBoxes");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создадим пару раскрывающихся списков
+    // СЃРѕР·РґР°РґРёРј РїР°СЂСѓ СЂР°СЃРєСЂС‹РІР°СЋС‰РёС…СЃСЏ СЃРїРёСЃРєРѕРІ
     JComboBox combo1 = new JComboBox(elements);
-    // задаем прототип элемента списка
-    combo1.setPrototypeDisplayValue("Длинный элемент");
-    // второй раскрывающийся список
+    // Р·Р°РґР°РµРј РїСЂРѕС‚РѕС‚РёРї СЌР»РµРјРµРЅС‚Р° СЃРїРёСЃРєР°
+    combo1.setPrototypeDisplayValue("Р”Р»РёРЅРЅС‹Р№ СЌР»РµРјРµРЅС‚");
+    // РІС‚РѕСЂРѕР№ СЂР°СЃРєСЂС‹РІР°СЋС‰РёР№СЃСЏ СЃРїРёСЃРѕРє
     Vector<String> data = new Vector<String>();
     for (int i=0; i<10; i++)
-      data.add("Элемент №: " + i);
+      data.add("Р­Р»РµРјРµРЅС‚ в„–: " + i);
     JComboBox combo2 = new JComboBox(data);
-    // сделаем его редактируемым
+    // СЃРґРµР»Р°РµРј РµРіРѕ СЂРµРґР°РєС‚РёСЂСѓРµРјС‹Рј
     combo2.setEditable(true);
     combo2.setMaximumRowCount(6);
-    // добавим списки и выведем окно на экран
+    // РґРѕР±Р°РІРёРј СЃРїРёСЃРєРё Рё РІС‹РІРµРґРµРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setLayout(new FlowLayout());
     add(combo1);
     add(combo2);

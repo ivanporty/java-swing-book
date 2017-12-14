@@ -1,36 +1,36 @@
 // CustomListSelection.java
-// Реализация особого режима выделения
+// Р РµР°Р»РёР·Р°С†РёСЏ РѕСЃРѕР±РѕРіРѕ СЂРµР¶РёРјР° РІС‹РґРµР»РµРЅРёСЏ
 import javax.swing.*;
 import java.awt.*;
 
 public class CustomListSelection extends JFrame {
-  private String[] data = { "Мороженное", "Курица",
-      "Холодное", "Горячее"};
+  private String[] data = { "РњРѕСЂРѕР¶РµРЅРЅРѕРµ", "РљСѓСЂРёС†Р°",
+      "РҐРѕР»РѕРґРЅРѕРµ", "Р“РѕСЂСЏС‡РµРµ"};
   public CustomListSelection() {
     super("CustomListSelection");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // настроим список и добавим его в окно
+    // РЅР°СЃС‚СЂРѕРёРј СЃРїРёСЃРѕРє Рё РґРѕР±Р°РІРёРј РµРіРѕ РІ РѕРєРЅРѕ
     JList list = new JList(data);
     list.setSelectionModel(new CustomSelectionModel());
     add(new JScrollPane(list));
-    // выведем окно на экран
+    // РІС‹РІРµРґРµРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(300, 200);
     setVisible(true);
   }
-  // специальная модель выделения
+  // СЃРїРµС†РёР°Р»СЊРЅР°СЏ РјРѕРґРµР»СЊ РІС‹РґРµР»РµРЅРёСЏ
   class CustomSelectionModel
       extends DefaultListSelectionModel {
-    // добавление интервала выделения
+    // РґРѕР±Р°РІР»РµРЅРёРµ РёРЅС‚РµСЂРІР°Р»Р° РІС‹РґРµР»РµРЅРёСЏ
     public void addSelectionInterval(int idx0, int idx1) {
       super.addSelectionInterval(idx0, idx1);
       adjustSelection(idx0);
     }
-    // установка интервала выделения
+    // СѓСЃС‚Р°РЅРѕРІРєР° РёРЅС‚РµСЂРІР°Р»Р° РІС‹РґРµР»РµРЅРёСЏ
     public void setSelectionInterval(int idx0, int idx1) {
       super.setSelectionInterval(idx0, idx1);
       adjustSelection(idx0);
     }
-    // общий метод "подкрутки" выделения
+    // РѕР±С‰РёР№ РјРµС‚РѕРґ "РїРѕРґРєСЂСѓС‚РєРё" РІС‹РґРµР»РµРЅРёСЏ
     private void adjustSelection(int idx) {
       if ( idx == 0 )
         addSelectionInterval(2, 2);

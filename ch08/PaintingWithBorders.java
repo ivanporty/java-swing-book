@@ -1,5 +1,5 @@
 // PaintingWithBorders.java
-// Рисование компонента с учетом рамки
+// Р РёСЃРѕРІР°РЅРёРµ РєРѕРјРїРѕРЅРµРЅС‚Р° СЃ СѓС‡РµС‚РѕРј СЂР°РјРєРё
 import javax.swing.*;
 import javax.swing.border.AbstractBorder;
 import java.awt.*;
@@ -8,23 +8,23 @@ public class PaintingWithBorders extends JFrame {
   public PaintingWithBorders() {
     super("PaintingWithBorders");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // добавим к нашему компоненту рамку
+    // РґРѕР±Р°РІРёРј Рє РЅР°С€РµРјСѓ РєРѕРјРїРѕРЅРµРЅС‚Сѓ СЂР°РјРєСѓ
     CustomComponent cc = new CustomComponent();
     cc.setBorder(BorderFactory.
-        createTitledBorder("Рамка!"));
-    // добавим компонент в окно
+        createTitledBorder("Р Р°РјРєР°!"));
+    // РґРѕР±Р°РІРёРј РєРѕРјРїРѕРЅРµРЅС‚ РІ РѕРєРЅРѕ
     getContentPane().add(cc);
     setSize(400, 300);
     setVisible(true);
   }
-  // компонент со своей собственной процедурой прорисовки
+  // РєРѕРјРїРѕРЅРµРЅС‚ СЃРѕ СЃРІРѕРµР№ СЃРѕР±СЃС‚РІРµРЅРЅРѕР№ РїСЂРѕС†РµРґСѓСЂРѕР№ РїСЂРѕСЂРёСЃРѕРІРєРё
   class CustomComponent extends JComponent {
     public void paintComponent(Graphics g) {
-      // получаем подходящий прямоугольник
+      // РїРѕР»СѓС‡Р°РµРј РїРѕРґС…РѕРґСЏС‰РёР№ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє
       Rectangle rect = AbstractBorder.
           getInteriorRectangle(this, getBorder(),
               0, 0, getWidth(), getHeight());
-      // рисуем в нем
+      // СЂРёСЃСѓРµРј РІ РЅРµРј
       g.setColor(Color.white);
       g.fillRect(
           rect.x, rect.y, rect.width, rect.height);

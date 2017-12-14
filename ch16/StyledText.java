@@ -1,5 +1,5 @@
 // StyledText.java
-// Богатые возможности редактора JTextPane
+// Р‘РѕРіР°С‚С‹Рµ РІРѕР·РјРѕР¶РЅРѕСЃС‚Рё СЂРµРґР°РєС‚РѕСЂР° JTextPane
 import javax.swing.*;
 import javax.swing.text.*;
 import java.awt.*;
@@ -8,44 +8,44 @@ public class StyledText extends JFrame {
   public StyledText() {
     super("StyledText");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создадим редактор
+    // СЃРѕР·РґР°РґРёРј СЂРµРґР°РєС‚РѕСЂ
     JTextPane textPane = new JTextPane();
-    // создание документа и стилей
+    // СЃРѕР·РґР°РЅРёРµ РґРѕРєСѓРјРµРЅС‚Р° Рё СЃС‚РёР»РµР№
     createDocument(textPane);
-    // добавим редактор в окно
+    // РґРѕР±Р°РІРёРј СЂРµРґР°РєС‚РѕСЂ РІ РѕРєРЅРѕ
     add(new JScrollPane(textPane));
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(400, 300);
     setVisible(true);
   }
   private void createDocument(JTextPane tp) {
-    // настройка стилей
-    // стиль основного текста
+    // РЅР°СЃС‚СЂРѕР№РєР° СЃС‚РёР»РµР№
+    // СЃС‚РёР»СЊ РѕСЃРЅРѕРІРЅРѕРіРѕ С‚РµРєСЃС‚Р°
     Style normal = tp.addStyle("Normal", null);
     StyleConstants.setFontFamily(normal, "Verdana");
     StyleConstants.setFontSize(normal, 13);
-    // заголовок
+    // Р·Р°РіРѕР»РѕРІРѕРє
     Style heading = tp.addStyle("Heading", normal);
     StyleConstants.setFontSize(heading, 20);
     StyleConstants.setBold(heading, true);
-    // наполняем документ содержимым, используя стили
-    insertString("Незамысловатый Заголовок", tp, heading);
-    insertString("Далее идет обычное содержимое,", tp, normal);
-    insertString("помеченное стилем Normal.", tp, normal);
-    insertString("Еще Один Заголовок", tp, heading);
-    // меняем произольную часть текста
+    // РЅР°РїРѕР»РЅСЏРµРј РґРѕРєСѓРјРµРЅС‚ СЃРѕРґРµСЂР¶РёРјС‹Рј, РёСЃРїРѕР»СЊР·СѓСЏ СЃС‚РёР»Рё
+    insertString("РќРµР·Р°РјС‹СЃР»РѕРІР°С‚С‹Р№ Р—Р°РіРѕР»РѕРІРѕРє", tp, heading);
+    insertString("Р”Р°Р»РµРµ РёРґРµС‚ РѕР±С‹С‡РЅРѕРµ СЃРѕРґРµСЂР¶РёРјРѕРµ,", tp, normal);
+    insertString("РїРѕРјРµС‡РµРЅРЅРѕРµ СЃС‚РёР»РµРј Normal.", tp, normal);
+    insertString("Р•С‰Рµ РћРґРёРЅ Р—Р°РіРѕР»РѕРІРѕРє", tp, heading);
+    // РјРµРЅСЏРµРј РїСЂРѕРёР·РѕР»СЊРЅСѓСЋ С‡Р°СЃС‚СЊ С‚РµРєСЃС‚Р°
     SimpleAttributeSet red = new SimpleAttributeSet();
     StyleConstants.setForeground(red, Color.red);
     StyledDocument doc = tp.getStyledDocument();
     doc.setCharacterAttributes(5, 5, red, false);
-    // добавим компонент в конец текста
+    // РґРѕР±Р°РІРёРј РєРѕРјРїРѕРЅРµРЅС‚ РІ РєРѕРЅРµС† С‚РµРєСЃС‚Р°
     tp.setCaretPosition(doc.getLength());
-    JCheckBox check = new JCheckBox("Все возможно!");
+    JCheckBox check = new JCheckBox("Р’СЃРµ РІРѕР·РјРѕР¶РЅРѕ!");
     check.setOpaque(false);
     tp.insertComponent(check);
   }
-  // вставляет строку в конец документа с переносом,
-  // используя заданный стиль оформления
+  // РІСЃС‚Р°РІР»СЏРµС‚ СЃС‚СЂРѕРєСѓ РІ РєРѕРЅРµС† РґРѕРєСѓРјРµРЅС‚Р° СЃ РїРµСЂРµРЅРѕСЃРѕРј,
+  // РёСЃРїРѕР»СЊР·СѓСЏ Р·Р°РґР°РЅРЅС‹Р№ СЃС‚РёР»СЊ РѕС„РѕСЂРјР»РµРЅРёСЏ
   private void insertString(String s, JTextPane tp, Style style) {
     try {
       Document doc = tp.getDocument();

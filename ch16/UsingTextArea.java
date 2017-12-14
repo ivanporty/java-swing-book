@@ -1,5 +1,5 @@
 // UsingTextArea.java
-// Использование многострочных полей
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РјРЅРѕРіРѕСЃС‚СЂРѕС‡РЅС‹С… РїРѕР»РµР№
 import javax.swing.*;
 import java.awt.*;
 
@@ -7,21 +7,21 @@ public class UsingTextArea extends JFrame {
   public UsingTextArea() {
     super("UsingTextArea");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем пару многострочных полей
+    // СЃРѕР·РґР°РµРј РїР°СЂСѓ РјРЅРѕРіРѕСЃС‚СЂРѕС‡РЅС‹С… РїРѕР»РµР№
     JTextArea area1 = new JTextArea(
-        "Многострочное поле", 5, 10);
-    // нестандартный шрифт и табуляция
+        "РњРЅРѕРіРѕСЃС‚СЂРѕС‡РЅРѕРµ РїРѕР»Рµ", 5, 10);
+    // РЅРµСЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№ С€СЂРёС„С‚ Рё С‚Р°Р±СѓР»СЏС†РёСЏ
     area1.setFont(new Font("Dialog", Font.PLAIN, 14));
     area1.setTabSize(10);
     JTextArea area2 = new JTextArea(15, 10);
-    // параметры переноса слов
+    // РїР°СЂР°РјРµС‚СЂС‹ РїРµСЂРµРЅРѕСЃР° СЃР»РѕРІ
     area2.setLineWrap(true);
     area2.setWrapStyleWord(true);
-    // добавим поля в окно
+    // РґРѕР±Р°РІРёРј РїРѕР»СЏ РІ РѕРєРЅРѕ
     setLayout(new FlowLayout());
     add(new JScrollPane(area1));
     add(new JScrollPane(area2));
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(400, 300);
     setVisible(true);
   }

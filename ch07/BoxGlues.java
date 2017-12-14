@@ -1,5 +1,5 @@
 // BoxGlues.java
-// Использование заполнителей
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ Р·Р°РїРѕР»РЅРёС‚РµР»РµР№
 import javax.swing.*;
 import com.porty.swing.BoxLayoutUtils;
 
@@ -8,30 +8,30 @@ public class BoxGlues extends JFrame {
     super("BoxGlues");
     setSize(250, 200);
     setDefaultCloseOperation( EXIT_ON_CLOSE );
-    // панель с вертикальным блочным расположением
-    // в нее поместим все остальные панели
+    // РїР°РЅРµР»СЊ СЃ РІРµСЂС‚РёРєР°Р»СЊРЅС‹Рј Р±Р»РѕС‡РЅС‹Рј СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµРј
+    // РІ РЅРµРµ РїРѕРјРµСЃС‚РёРј РІСЃРµ РѕСЃС‚Р°Р»СЊРЅС‹Рµ РїР°РЅРµР»Рё
     JPanel main = BoxLayoutUtils.createVerticalPanel();
-    // вертикальная панель
+    // РІРµСЂС‚РёРєР°Р»СЊРЅР°СЏ РїР°РЅРµР»СЊ
     JPanel pVert = BoxLayoutUtils.createVerticalPanel();
-    // заполнитель перед компонентами отодвинет
-    // их вниз
+    // Р·Р°РїРѕР»РЅРёС‚РµР»СЊ РїРµСЂРµРґ РєРѕРјРїРѕРЅРµРЅС‚Р°РјРё РѕС‚РѕРґРІРёРЅРµС‚
+    // РёС… РІРЅРёР·
     pVert.add(Box.createVerticalGlue());
-    pVert.add(new JButton("Один"));
-    pVert.add(new JButton("Два"));
-    // горизонтальная панель
-    // теперь можно разместить компоненты по центру
+    pVert.add(new JButton("РћРґРёРЅ"));
+    pVert.add(new JButton("Р”РІР°"));
+    // РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅР°СЏ РїР°РЅРµР»СЊ
+    // С‚РµРїРµСЂСЊ РјРѕР¶РЅРѕ СЂР°Р·РјРµСЃС‚РёС‚СЊ РєРѕРјРїРѕРЅРµРЅС‚С‹ РїРѕ С†РµРЅС‚СЂСѓ
     JPanel pHor = BoxLayoutUtils.createHorizontalPanel();
     pHor.add(Box.createHorizontalGlue());
-    pHor.add(new JButton("Три"));
-    pHor.add(new JButton("Четыре"));
+    pHor.add(new JButton("РўСЂРё"));
+    pHor.add(new JButton("Р§РµС‚С‹СЂРµ"));
     pHor.add(Box.createHorizontalGlue());
-    // укладываем панели вертикально
+    // СѓРєР»Р°РґС‹РІР°РµРј РїР°РЅРµР»Рё РІРµСЂС‚РёРєР°Р»СЊРЅРѕ
     main.add(pVert);
     main.add(Box.createVerticalStrut(15));
     main.add(pHor);
-    // добавляем панель в центр окна
+    // РґРѕР±Р°РІР»СЏРµРј РїР°РЅРµР»СЊ РІ С†РµРЅС‚СЂ РѕРєРЅР°
     add(main);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setVisible(true);
   }
   public static void main(String[] args) {

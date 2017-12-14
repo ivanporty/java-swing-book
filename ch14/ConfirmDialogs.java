@@ -1,62 +1,62 @@
 // ConfirmDialogs.java
-// Стандартные диалоговые окна для получения от
-// пользователя подтверждения совершаемого действия
+// РЎС‚Р°РЅРґР°СЂС‚РЅС‹Рµ РґРёР°Р»РѕРіРѕРІС‹Рµ РѕРєРЅР° РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ РѕС‚
+// РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РїРѕРґС‚РІРµСЂР¶РґРµРЅРёСЏ СЃРѕРІРµСЂС€Р°РµРјРѕРіРѕ РґРµР№СЃС‚РІРёСЏ
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 
 public class ConfirmDialogs extends JFrame {
-  // значок для одного из сообщений
+  // Р·РЅР°С‡РѕРє РґР»СЏ РѕРґРЅРѕРіРѕ РёР· СЃРѕРѕР±С‰РµРЅРёР№
   private Icon icon = new ImageIcon("goblet.png");
   public ConfirmDialogs() {
     super("ConfirmDialogs");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // после щелчков на кнопках выводятся сообщения
-    JButton confirm1 = new JButton("2 и 4 параметра");
+    // РїРѕСЃР»Рµ С‰РµР»С‡РєРѕРІ РЅР° РєРЅРѕРїРєР°С… РІС‹РІРѕРґСЏС‚СЃСЏ СЃРѕРѕР±С‰РµРЅРёСЏ
+    JButton confirm1 = new JButton("2 Рё 4 РїР°СЂР°РјРµС‚СЂР°");
     confirm1.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        // диалоговое окно c 4-мя параметрами
+        // РґРёР°Р»РѕРіРѕРІРѕРµ РѕРєРЅРѕ c 4-РјСЏ РїР°СЂР°РјРµС‚СЂР°РјРё
         int res = JOptionPane.showConfirmDialog(
-            ConfirmDialogs.this, "Вы этого хотите?",
-            "Вопрос",
+            ConfirmDialogs.this, "Р’С‹ СЌС‚РѕРіРѕ С…РѕС‚РёС‚Рµ?",
+            "Р’РѕРїСЂРѕСЃ",
             JOptionPane.YES_NO_CANCEL_OPTION);
-        // простейшие диалоговые окна
+        // РїСЂРѕСЃС‚РµР№С€РёРµ РґРёР°Р»РѕРіРѕРІС‹Рµ РѕРєРЅР°
         if ( res == JOptionPane.YES_OPTION )
           JOptionPane.showConfirmDialog(
-              ConfirmDialogs.this, "Точно хотите?");
+              ConfirmDialogs.this, "РўРѕС‡РЅРѕ С…РѕС‚РёС‚Рµ?");
         if ( res == JOptionPane.NO_OPTION )
           JOptionPane.showConfirmDialog(
               ConfirmDialogs.this,
-              "Значит, не хотите?");
+              "Р—РЅР°С‡РёС‚, РЅРµ С…РѕС‚РёС‚Рµ?");
       }
     });
-    JButton confirm2 = new JButton("5 параметров");
+    JButton confirm2 = new JButton("5 РїР°СЂР°РјРµС‚СЂРѕРІ");
     confirm2.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         int res = JOptionPane.showConfirmDialog(
             ConfirmDialogs.this,
-            "Думайте тщательно, итак...",
-            "Может произойти ошибка!",
+            "Р”СѓРјР°Р№С‚Рµ С‚С‰Р°С‚РµР»СЊРЅРѕ, РёС‚Р°Рє...",
+            "РњРѕР¶РµС‚ РїСЂРѕРёР·РѕР№С‚Рё РѕС€РёР±РєР°!",
             JOptionPane.YES_NO_OPTION,
             JOptionPane.ERROR_MESSAGE);
       }
     });
-    JButton confirm3 = new JButton("6 параметров");
+    JButton confirm3 = new JButton("6 РїР°СЂР°РјРµС‚СЂРѕРІ");
     confirm3.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         int res = JOptionPane.showConfirmDialog(
-            ConfirmDialogs.this, "Вам нравится значок?",
-            "Полностью настроенное окно!",
+            ConfirmDialogs.this, "Р’Р°Рј РЅСЂР°РІРёС‚СЃСЏ Р·РЅР°С‡РѕРє?",
+            "РџРѕР»РЅРѕСЃС‚СЊСЋ РЅР°СЃС‚СЂРѕРµРЅРЅРѕРµ РѕРєРЅРѕ!",
             JOptionPane.YES_NO_OPTION,
             JOptionPane.ERROR_MESSAGE, icon);
       }
     });
-    // добавляем кнопки в окно
+    // РґРѕР±Р°РІР»СЏРµРј РєРЅРѕРїРєРё РІ РѕРєРЅРѕ
     setLayout(new FlowLayout());
     add(confirm1);
     add(confirm2);
     add(confirm3);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(300, 200);
     setVisible(true);
   }

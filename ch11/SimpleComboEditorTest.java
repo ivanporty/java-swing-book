@@ -1,29 +1,29 @@
 // SimpleComboEditorTest.java
-// Пример использование специального объекта для
-// редактирования
+// РџСЂРёРјРµСЂ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ СЃРїРµС†РёР°Р»СЊРЅРѕРіРѕ РѕР±СЉРµРєС‚Р° РґР»СЏ
+// СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ
 import javax.swing.*;
 import com.porty.swing.*;
 import java.awt.*;
 
 public class SimpleComboEditorTest
     extends JFrame {
-  // данные для раскрывающегося списка
+  // РґР°РЅРЅС‹Рµ РґР»СЏ СЂР°СЃРєСЂС‹РІР°СЋС‰РµРіРѕСЃСЏ СЃРїРёСЃРєР°
   private String[] data = {
-      "<html><font color=yellow>Желтый",
-      "<html><strike>Зачеркнутый",
-      "<html><font color=green>Зеленый",
-      "<html><em>С наклоном" };
+      "<html><font color=yellow>Р–РµР»С‚С‹Р№",
+      "<html><strike>Р—Р°С‡РµСЂРєРЅСѓС‚С‹Р№",
+      "<html><font color=green>Р—РµР»РµРЅС‹Р№",
+      "<html><em>РЎ РЅР°РєР»РѕРЅРѕРј" };
   public SimpleComboEditorTest() {
     super("SimpleComboEditorTest");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем список
+    // СЃРѕР·РґР°РµРј СЃРїРёСЃРѕРє
     JComboBox combo = new JComboBox(data);
     combo.setEditable(true);
     combo.setEditor(new SimpleHTMLComboBoxEditor());
-    // добавляем список в окно
+    // РґРѕР±Р°РІР»СЏРµРј СЃРїРёСЃРѕРє РІ РѕРєРЅРѕ
     setLayout(new FlowLayout());
     add(combo);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(330, 200);
     setVisible(true);
   }

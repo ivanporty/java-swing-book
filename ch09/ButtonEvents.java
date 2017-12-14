@@ -1,5 +1,5 @@
 // ButtonEvents.java
-// Обработка событий от кнопок JButton
+// РћР±СЂР°Р±РѕС‚РєР° СЃРѕР±С‹С‚РёР№ РѕС‚ РєРЅРѕРїРѕРє JButton
 import javax.swing.*;
 import javax.swing.event.*;
 import java.awt.*;
@@ -10,38 +10,38 @@ public class ButtonEvents extends JFrame {
   public ButtonEvents() {
     super("ButtonEvents");
     setDefaultCloseOperation( EXIT_ON_CLOSE );
-    // создаем кнопку и помещаем ее на север окна
-    JButton button = new JButton("Нажмите меня!");
+    // СЃРѕР·РґР°РµРј РєРЅРѕРїРєСѓ Рё РїРѕРјРµС‰Р°РµРј РµРµ РЅР° СЃРµРІРµСЂ РѕРєРЅР°
+    JButton button = new JButton("РќР°Р¶РјРёС‚Рµ РјРµРЅСЏ!");
     add(button, "North");
-    // поле для вывода сообщений о событиях
-    info = new JTextArea("Пока событий не было\n");
+    // РїРѕР»Рµ РґР»СЏ РІС‹РІРѕРґР° СЃРѕРѕР±С‰РµРЅРёР№ Рѕ СЃРѕР±С‹С‚РёСЏС…
+    info = new JTextArea("РџРѕРєР° СЃРѕР±С‹С‚РёР№ РЅРµ Р±С‹Р»Рѕ\n");
     add(new JScrollPane(info));
-    // привязываем к нашей кнопке слушателей событий
-    // слушатели описаны как внутренние классы
+    // РїСЂРёРІСЏР·С‹РІР°РµРј Рє РЅР°С€РµР№ РєРЅРѕРїРєРµ СЃР»СѓС€Р°С‚РµР»РµР№ СЃРѕР±С‹С‚РёР№
+    // СЃР»СѓС€Р°С‚РµР»Рё РѕРїРёСЃР°РЅС‹ РєР°Рє РІРЅСѓС‚СЂРµРЅРЅРёРµ РєР»Р°СЃСЃС‹
     button.addActionListener(new ActionL());
     button.addChangeListener(new ChangeL());
-    // присоединение слушателя прямо на месте
+    // РїСЂРёСЃРѕРµРґРёРЅРµРЅРёРµ СЃР»СѓС€Р°С‚РµР»СЏ РїСЂСЏРјРѕ РЅР° РјРµСЃС‚Рµ
     button.addItemListener(new ItemListener() {
       public void itemStateChanged(ItemEvent e) {
-        info.append("Это вы все равно не увидите");
+        info.append("Р­С‚Рѕ РІС‹ РІСЃРµ СЂР°РІРЅРѕ РЅРµ СѓРІРёРґРёС‚Рµ");
       }
     });
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(400, 300);
     setVisible(true);
   }
   class ActionL implements ActionListener {
     public void actionPerformed(ActionEvent e) {
       info.append(
-          "Получено сообщение о нажатии кнопки! От - "
+          "РџРѕР»СѓС‡РµРЅРѕ СЃРѕРѕР±С‰РµРЅРёРµ Рѕ РЅР°Р¶Р°С‚РёРё РєРЅРѕРїРєРё! РћС‚ - "
               + e.getActionCommand() + "\n");
     }
   }
   class ChangeL implements ChangeListener {
     public void stateChanged(ChangeEvent e) {
       info.append(
-          "Получено сообщение о смене состояния кнопки!\n");
-      // это источник события
+          "РџРѕР»СѓС‡РµРЅРѕ СЃРѕРѕР±С‰РµРЅРёРµ Рѕ СЃРјРµРЅРµ СЃРѕСЃС‚РѕСЏРЅРёСЏ РєРЅРѕРїРєРё!\n");
+      // СЌС‚Рѕ РёСЃС‚РѕС‡РЅРёРє СЃРѕР±С‹С‚РёСЏ
       Object src = e.getSource();
     }
   }

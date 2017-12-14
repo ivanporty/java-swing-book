@@ -1,25 +1,25 @@
 // ConfirmClosing.java
-// Подтверждение о выходе из приложения
+// РџРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ Рѕ РІС‹С…РѕРґРµ РёР· РїСЂРёР»РѕР¶РµРЅРёСЏ
 import javax.swing.*;
 import java.awt.event.*;
 
 public class ConfirmClosing extends JFrame {
   public ConfirmClosing() {
-    super("Приложение");
-    // отключаем операцию закрытия
+    super("РџСЂРёР»РѕР¶РµРЅРёРµ");
+    // РѕС‚РєР»СЋС‡Р°РµРј РѕРїРµСЂР°С†РёСЋ Р·Р°РєСЂС‹С‚РёСЏ
     setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-    // добавляем слушателя событий от окна
+    // РґРѕР±Р°РІР»СЏРµРј СЃР»СѓС€Р°С‚РµР»СЏ СЃРѕР±С‹С‚РёР№ РѕС‚ РѕРєРЅР°
     addWindowListener(new WindowAdapter() {
       @Override
       public void windowClosing(WindowEvent e) {
-        // потверждение выхода
+        // РїРѕС‚РІРµСЂР¶РґРµРЅРёРµ РІС‹С…РѕРґР°
         int res = JOptionPane.
-         showConfirmDialog(null, "Действительно выйти?");
+         showConfirmDialog(null, "Р”РµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ РІС‹Р№С‚Рё?");
         if ( res == JOptionPane.YES_OPTION )
          System.exit(0);
       }
       });
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(200, 100);
     setVisible(true);
   }

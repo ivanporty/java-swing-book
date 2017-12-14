@@ -1,5 +1,5 @@
 // GoodMenu.java
-// Клавиатурные комбинации и мнемоники для меню Swing
+// РљР»Р°РІРёР°С‚СѓСЂРЅС‹Рµ РєРѕРјР±РёРЅР°С†РёРё Рё РјРЅРµРјРѕРЅРёРєРё РґР»СЏ РјРµРЅСЋ Swing
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
@@ -8,55 +8,55 @@ public class GoodMenu extends JFrame {
   public GoodMenu() {
     super("GoodMenu");
     setDefaultCloseOperation( EXIT_ON_CLOSE );
-    // создаем строку главного меню
+    // СЃРѕР·РґР°РµРј СЃС‚СЂРѕРєСѓ РіР»Р°РІРЅРѕРіРѕ РјРµРЅСЋ
     JMenuBar menuBar = new JMenuBar();
-    // некоторые весьма часто встречающиеся
-    // выпадающие меню
+    // РЅРµРєРѕС‚РѕСЂС‹Рµ РІРµСЃСЊРјР° С‡Р°СЃС‚Рѕ РІСЃС‚СЂРµС‡Р°СЋС‰РёРµСЃСЏ
+    // РІС‹РїР°РґР°СЋС‰РёРµ РјРµРЅСЋ
     menuBar.add(createFileMenu());
     menuBar.add(createEditMenu());
-    // поместим меню в наше окно
+    // РїРѕРјРµСЃС‚РёРј РјРµРЅСЋ РІ РЅР°С€Рµ РѕРєРЅРѕ
     setJMenuBar(menuBar);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(300, 200);
     setVisible(true);
   }
-  // создает меню "Файл"
+  // СЃРѕР·РґР°РµС‚ РјРµРЅСЋ "Р¤Р°Р№Р»"
   private JMenu createFileMenu() {
-    // выпадающее меню
-    JMenu file = new JMenu("Файл");
-    file.setMnemonic('Ф');
-    // пункт меню "Открыть"
-    JMenuItem open = new JMenuItem("Открыть");
-    open.setMnemonic('О'); // русская буква
-    // установим клавишу быстрого доступа (латинская буква)
+    // РІС‹РїР°РґР°СЋС‰РµРµ РјРµРЅСЋ
+    JMenu file = new JMenu("Р¤Р°Р№Р»");
+    file.setMnemonic('Р¤');
+    // РїСѓРЅРєС‚ РјРµРЅСЋ "РћС‚РєСЂС‹С‚СЊ"
+    JMenuItem open = new JMenuItem("РћС‚РєСЂС‹С‚СЊ");
+    open.setMnemonic('Рћ'); // СЂСѓСЃСЃРєР°СЏ Р±СѓРєРІР°
+    // СѓСЃС‚Р°РЅРѕРІРёРј РєР»Р°РІРёС€Сѓ Р±С‹СЃС‚СЂРѕРіРѕ РґРѕСЃС‚СѓРїР° (Р»Р°С‚РёРЅСЃРєР°СЏ Р±СѓРєРІР°)
     open.setAccelerator(
       KeyStroke.getKeyStroke('O', KeyEvent.CTRL_MASK));
-    // пункт меню "Сохранить"
-    JMenuItem save = new JMenuItem("Сохранить");
-    save.setMnemonic('С');
+    // РїСѓРЅРєС‚ РјРµРЅСЋ "РЎРѕС…СЂР°РЅРёС‚СЊ"
+    JMenuItem save = new JMenuItem("РЎРѕС…СЂР°РЅРёС‚СЊ");
+    save.setMnemonic('РЎ');
     save.setAccelerator(
       KeyStroke.getKeyStroke('S', KeyEvent.CTRL_MASK));
-    // добавим все в меню
+    // РґРѕР±Р°РІРёРј РІСЃРµ РІ РјРµРЅСЋ
     file.add(open);
     file.add(save);
     return file;
   }
-  // создает меню "Правка"
+  // СЃРѕР·РґР°РµС‚ РјРµРЅСЋ "РџСЂР°РІРєР°"
   private JMenu createEditMenu() {
-    // выпадающее меню
-    JMenu edit = new JMenu("Правка");
-    edit.setMnemonic('П');
-    // пункт меню "Вырезать"
-    JMenuItem cut = new JMenuItem("Вырезать");
-    cut.setMnemonic('В');
+    // РІС‹РїР°РґР°СЋС‰РµРµ РјРµРЅСЋ
+    JMenu edit = new JMenu("РџСЂР°РІРєР°");
+    edit.setMnemonic('Рџ');
+    // РїСѓРЅРєС‚ РјРµРЅСЋ "Р’С‹СЂРµР·Р°С‚СЊ"
+    JMenuItem cut = new JMenuItem("Р’С‹СЂРµР·Р°С‚СЊ");
+    cut.setMnemonic('Р’');
     cut.setAccelerator(
       KeyStroke.getKeyStroke('X', KeyEvent.CTRL_MASK));
-    // пункт меню "Копировать"
-    JMenuItem copy = new JMenuItem("Копировать");
-    copy.setMnemonic('К');
-    // клавишу быстрого доступа можно создать и так
+    // РїСѓРЅРєС‚ РјРµРЅСЋ "РљРѕРїРёСЂРѕРІР°С‚СЊ"
+    JMenuItem copy = new JMenuItem("РљРѕРїРёСЂРѕРІР°С‚СЊ");
+    copy.setMnemonic('Рљ');
+    // РєР»Р°РІРёС€Сѓ Р±С‹СЃС‚СЂРѕРіРѕ РґРѕСЃС‚СѓРїР° РјРѕР¶РЅРѕ СЃРѕР·РґР°С‚СЊ Рё С‚Р°Рє
     copy.setAccelerator(KeyStroke.getKeyStroke("ctrl C"));
-    // готово
+    // РіРѕС‚РѕРІРѕ
     edit.add(cut);
     edit.add(copy);
     return edit;

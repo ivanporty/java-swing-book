@@ -1,45 +1,45 @@
 // MessageDialogs.java
-// Методы JOptionPane для вывода соообщений
+// РњРµС‚РѕРґС‹ JOptionPane РґР»СЏ РІС‹РІРѕРґР° СЃРѕРѕРѕР±С‰РµРЅРёР№
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 
 public class MessageDialogs extends JFrame {
-  // этот значок выведем в одном из сообщений
+  // СЌС‚РѕС‚ Р·РЅР°С‡РѕРє РІС‹РІРµРґРµРј РІ РѕРґРЅРѕРј РёР· СЃРѕРѕР±С‰РµРЅРёР№
   private ImageIcon icon = new ImageIcon("question.gif");
   public MessageDialogs() {
     super("MessageDialogs");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // кнопки, после щелчков на которых
-    // выводятся сообщения
-    JButton message1 = new JButton("2 параметра");
+    // РєРЅРѕРїРєРё, РїРѕСЃР»Рµ С‰РµР»С‡РєРѕРІ РЅР° РєРѕС‚РѕСЂС‹С…
+    // РІС‹РІРѕРґСЏС‚СЃСЏ СЃРѕРѕР±С‰РµРЅРёСЏ
+    JButton message1 = new JButton("2 РїР°СЂР°РјРµС‚СЂР°");
     message1.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         JOptionPane.showMessageDialog(
             MessageDialogs.this,
-            "<html><h2>Привет!<br>HTML есть и здесь!");
+            "<html><h2>РџСЂРёРІРµС‚!<br>HTML РµСЃС‚СЊ Рё Р·РґРµСЃСЊ!");
       }
     });
-    JButton message2 = new JButton("4 параметра");
+    JButton message2 = new JButton("4 РїР°СЂР°РјРµС‚СЂР°");
     message2.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         JOptionPane.showMessageDialog(
             MessageDialogs.this,new String[] {
-            "Сообщение может быть",
-            "записано массивом!" }, "Свой заголовок",
+            "РЎРѕРѕР±С‰РµРЅРёРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ",
+            "Р·Р°РїРёСЃР°РЅРѕ РјР°СЃСЃРёРІРѕРј!" }, "РЎРІРѕР№ Р·Р°РіРѕР»РѕРІРѕРє",
             JOptionPane.ERROR_MESSAGE);
       }
     });
-    JButton message3 = new JButton("5 параметров");
+    JButton message3 = new JButton("5 РїР°СЂР°РјРµС‚СЂРѕРІ");
     message3.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         JOptionPane.showMessageDialog(
             MessageDialogs.this,
-            "Настроено все что можно", "Свой заголовок",
+            "РќР°СЃС‚СЂРѕРµРЅРѕ РІСЃРµ С‡С‚Рѕ РјРѕР¶РЅРѕ", "РЎРІРѕР№ Р·Р°РіРѕР»РѕРІРѕРє",
             JOptionPane.INFORMATION_MESSAGE, icon);
       }
     });
-    // выведем окно на экран
+    // РІС‹РІРµРґРµРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setLayout(new FlowLayout());
     add(message1);
     add(message2);

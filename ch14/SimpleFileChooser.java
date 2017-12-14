@@ -1,52 +1,52 @@
 // SimpleFileChooser.java
-// Создание простых диалоговых окон 
-// открытия и сохранения файлов
+// РЎРѕР·РґР°РЅРёРµ РїСЂРѕСЃС‚С‹С… РґРёР°Р»РѕРіРѕРІС‹С… РѕРєРѕРЅ 
+// РѕС‚РєСЂС‹С‚РёСЏ Рё СЃРѕС…СЂР°РЅРµРЅРёСЏ С„Р°Р№Р»РѕРІ
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 
 public class SimpleFileChooser extends JFrame {
-  // создадим общий экземпляр JFileChooser
+  // СЃРѕР·РґР°РґРёРј РѕР±С‰РёР№ СЌРєР·РµРјРїР»СЏСЂ JFileChooser
   private JFileChooser fc = new JFileChooser();
   public SimpleFileChooser() {
     super("SimpleFileChooser");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // кнопка, создающая диалоговое окно для открытия файла
-    JButton open = new JButton("Открыть...");
+    // РєРЅРѕРїРєР°, СЃРѕР·РґР°СЋС‰Р°СЏ РґРёР°Р»РѕРіРѕРІРѕРµ РѕРєРЅРѕ РґР»СЏ РѕС‚РєСЂС‹С‚РёСЏ С„Р°Р№Р»Р°
+    JButton open = new JButton("РћС‚РєСЂС‹С‚СЊ...");
     open.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        fc.setDialogTitle("Выберите каталог");
-        // настроим для выбора каталога
+        fc.setDialogTitle("Р’С‹Р±РµСЂРёС‚Рµ РєР°С‚Р°Р»РѕРі");
+        // РЅР°СЃС‚СЂРѕРёРј РґР»СЏ РІС‹Р±РѕСЂР° РєР°С‚Р°Р»РѕРіР°
         fc.setFileSelectionMode(
             JFileChooser.DIRECTORIES_ONLY);
         int res = fc.showOpenDialog(
             SimpleFileChooser.this);
-        // если файл выбран, покажем его
+        // РµСЃР»Рё С„Р°Р№Р» РІС‹Р±СЂР°РЅ, РїРѕРєР°Р¶РµРј РµРіРѕ
         if ( res == JFileChooser.APPROVE_OPTION )
           JOptionPane.showMessageDialog(
               SimpleFileChooser.this,
               fc.getSelectedFile());
       }
     });
-    // кнопка, создающая диалоговое окно
-    // для сохранения файла
-    JButton save = new JButton("Сохранить...");
+    // РєРЅРѕРїРєР°, СЃРѕР·РґР°СЋС‰Р°СЏ РґРёР°Р»РѕРіРѕРІРѕРµ РѕРєРЅРѕ
+    // РґР»СЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ С„Р°Р№Р»Р°
+    JButton save = new JButton("РЎРѕС…СЂР°РЅРёС‚СЊ...");
     save.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        fc.setDialogTitle("Сохранение файла");
-        // настройка режима
+        fc.setDialogTitle("РЎРѕС…СЂР°РЅРµРЅРёРµ С„Р°Р№Р»Р°");
+        // РЅР°СЃС‚СЂРѕР№РєР° СЂРµР¶РёРјР°
         fc.setFileSelectionMode(
             JFileChooser.FILES_ONLY);
         int res = fc.showSaveDialog(
             SimpleFileChooser.this);
-        // сообщим об успехе
+        // СЃРѕРѕР±С‰РёРј РѕР± СѓСЃРїРµС…Рµ
         if ( res == JFileChooser.APPROVE_OPTION )
           JOptionPane.showMessageDialog(
               SimpleFileChooser.this,
-              "Файл сохранен");
+              "Р¤Р°Р№Р» СЃРѕС…СЂР°РЅРµРЅ");
       }
     });
-    // добавим кнопки и выведем окно на экран
+    // РґРѕР±Р°РІРёРј РєРЅРѕРїРєРё Рё РІС‹РІРµРґРµРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setLayout(new FlowLayout());
     add(open);
     add(save);

@@ -1,6 +1,6 @@
 // TreeSelectionModes.java
-// Использование стандартной модели выделения и
-// всех поддерживаемых ею режимов
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ СЃС‚Р°РЅРґР°СЂС‚РЅРѕР№ РјРѕРґРµР»Рё РІС‹РґРµР»РµРЅРёСЏ Рё
+// РІСЃРµС… РїРѕРґРґРµСЂР¶РёРІР°РµРјС‹С… РµСЋ СЂРµР¶РёРјРѕРІ
 import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.tree.*;
@@ -10,90 +10,90 @@ public class TreeSelectionModes extends JFrame {
   public TreeSelectionModes() {
     super("TreeSelectionModes");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создадим модель нашего дерева
+    // СЃРѕР·РґР°РґРёРј РјРѕРґРµР»СЊ РЅР°С€РµРіРѕ РґРµСЂРµРІР°
     TreeModel model = createTreeModel();
-    // дерево с одиночным режимом выделения
+    // РґРµСЂРµРІРѕ СЃ РѕРґРёРЅРѕС‡РЅС‹Рј СЂРµР¶РёРјРѕРј РІС‹РґРµР»РµРЅРёСЏ
     JTree tree1 = new JTree(model);
     tree1.getSelectionModel().setSelectionMode(
         TreeSelectionModel.SINGLE_TREE_SELECTION);
-    // дерево с выделением непрерывными интервалами
+    // РґРµСЂРµРІРѕ СЃ РІС‹РґРµР»РµРЅРёРµРј РЅРµРїСЂРµСЂС‹РІРЅС‹РјРё РёРЅС‚РµСЂРІР°Р»Р°РјРё
     JTree tree2 = new JTree(model);
     tree2.getSelectionModel().setSelectionMode(
         TreeSelectionModel.CONTIGUOUS_TREE_SELECTION);
-    // модель выделения можно хранить и отдельно
+    // РјРѕРґРµР»СЊ РІС‹РґРµР»РµРЅРёСЏ РјРѕР¶РЅРѕ С…СЂР°РЅРёС‚СЊ Рё РѕС‚РґРµР»СЊРЅРѕ
     TreeSelectionModel selModel =
         new DefaultTreeSelectionModel();
     selModel.setSelectionMode(
         TreeSelectionModel.DISCONTIGUOUS_TREE_SELECTION);
     JTree tree3 = new JTree(model);
     tree3.setSelectionModel(selModel);
-    // будем следить за выделением в последнем дереве
+    // Р±СѓРґРµРј СЃР»РµРґРёС‚СЊ Р·Р° РІС‹РґРµР»РµРЅРёРµРј РІ РїРѕСЃР»РµРґРЅРµРј РґРµСЂРµРІРµ
     tree3.addTreeSelectionListener(new SelectionL());
-    // размещаем деревья в панели
+    // СЂР°Р·РјРµС‰Р°РµРј РґРµСЂРµРІСЊСЏ РІ РїР°РЅРµР»Рё
     JPanel contents = new JPanel(new GridLayout(1, 3));
     contents.add(new JScrollPane(tree1));
     contents.add(new JScrollPane(tree2));
     contents.add(new JScrollPane(tree3));
     add(contents);
-    // добавляем текстовое поле
+    // РґРѕР±Р°РІР»СЏРµРј С‚РµРєСЃС‚РѕРІРѕРµ РїРѕР»Рµ
     add(new JScrollPane(log), "South");
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(500, 300);
     setVisible(true);
   }
-  // текстовое поле для информации
+  // С‚РµРєСЃС‚РѕРІРѕРµ РїРѕР»Рµ РґР»СЏ РёРЅС„РѕСЂРјР°С†РёРё
   private JTextArea log = new JTextArea(5, 20);
-  // листья дерева храним в массивах
+  // Р»РёСЃС‚СЊСЏ РґРµСЂРµРІР° С…СЂР°РЅРёРј РІ РјР°СЃСЃРёРІР°С…
   private String[] langs = { "Java", "Scala", "Ruby" };
   private String[] ides =
       { "IDEA", "Eclipse", "NetBeans" };
-  // создание несложной модели дерева
+  // СЃРѕР·РґР°РЅРёРµ РЅРµСЃР»РѕР¶РЅРѕР№ РјРѕРґРµР»Рё РґРµСЂРµРІР°
   private TreeModel createTreeModel() {
-    // корень нашего дерева
+    // РєРѕСЂРµРЅСЊ РЅР°С€РµРіРѕ РґРµСЂРµРІР°
     DefaultMutableTreeNode root =
-        new DefaultMutableTreeNode("Создание кода");
-    // основные ветви
+        new DefaultMutableTreeNode("РЎРѕР·РґР°РЅРёРµ РєРѕРґР°");
+    // РѕСЃРЅРѕРІРЅС‹Рµ РІРµС‚РІРё
     DefaultMutableTreeNode lang =
-        new DefaultMutableTreeNode("Языки");
+        new DefaultMutableTreeNode("РЇР·С‹РєРё");
     DefaultMutableTreeNode ide =
-        new DefaultMutableTreeNode("Среды");
+        new DefaultMutableTreeNode("РЎСЂРµРґС‹");
     root.add(lang);
     root.add(ide);
-    // присоединяем листья
+    // РїСЂРёСЃРѕРµРґРёРЅСЏРµРј Р»РёСЃС‚СЊСЏ
     for (int i=0; i<langs.length; i++) {
       lang.add(new DefaultMutableTreeNode(langs[i]));
       ide.add(new DefaultMutableTreeNode(ides[i]));
     }
-    // создаем стандартную модель
+    // СЃРѕР·РґР°РµРј СЃС‚Р°РЅРґР°СЂС‚РЅСѓСЋ РјРѕРґРµР»СЊ
     return new DefaultTreeModel(root);
   }
-  // этот слушатель следит за изменением выделения
+  // СЌС‚РѕС‚ СЃР»СѓС€Р°С‚РµР»СЊ СЃР»РµРґРёС‚ Р·Р° РёР·РјРµРЅРµРЅРёРµРј РІС‹РґРµР»РµРЅРёСЏ
   class SelectionL implements TreeSelectionListener {
     public void valueChanged(TreeSelectionEvent e)  {
-      // получаем источник события - дерево
+      // РїРѕР»СѓС‡Р°РµРј РёСЃС‚РѕС‡РЅРёРє СЃРѕР±С‹С‚РёСЏ - РґРµСЂРµРІРѕ
       JTree tree = (JTree)e.getSource();
-      // добавленные/удаленные пути
+      // РґРѕР±Р°РІР»РµРЅРЅС‹Рµ/СѓРґР°Р»РµРЅРЅС‹Рµ РїСѓС‚Рё
       TreePath[] paths = e.getPaths();
-      log.append("Изменено путей: " +
+      log.append("РР·РјРµРЅРµРЅРѕ РїСѓС‚РµР№: " +
           paths.length + "\n");
-      // выделенные элементы и их номера строк
+      // РІС‹РґРµР»РµРЅРЅС‹Рµ СЌР»РµРјРµРЅС‚С‹ Рё РёС… РЅРѕРјРµСЂР° СЃС‚СЂРѕРє
       TreePath[] selected = tree.getSelectionPaths();
       int[] rows = tree.getSelectionRows();
-      // последние элементы в пути
+      // РїРѕСЃР»РµРґРЅРёРµ СЌР»РµРјРµРЅС‚С‹ РІ РїСѓС‚Рё
       for (int i=0; i<selected.length; i++) {
-        log.append("Выделен: " +
+        log.append("Р’С‹РґРµР»РµРЅ: " +
             selected[i].getLastPathComponent() +
-            " на строке: " + rows[i] +  "\n");
+            " РЅР° СЃС‚СЂРѕРєРµ: " + rows[i] +  "\n");
       }
-      // полная информация о пути в дереве
+      // РїРѕР»РЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ РїСѓС‚Рё РІ РґРµСЂРµРІРµ
       if ( selected.length > 0 ) {
         TreePath path = selected[0];
         Object[] nodes = path.getPath();
         for (int i=0; i<nodes.length; i++) {
-          // путь состоит из узлов
+          // РїСѓС‚СЊ СЃРѕСЃС‚РѕРёС‚ РёР· СѓР·Р»РѕРІ
           DefaultMutableTreeNode node =
               (DefaultMutableTreeNode)nodes[i];
-          log.append("Отрезок пути " + i + " : " +
+          log.append("РћС‚СЂРµР·РѕРє РїСѓС‚Рё " + i + " : " +
               node.getUserObject() + " ");
         }
       }

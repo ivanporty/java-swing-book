@@ -1,41 +1,41 @@
 // DatabaseComboBox.java
-// Пример использования модели DatabaseComboBoxModel
+// РџСЂРёРјРµСЂ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РјРѕРґРµР»Рё DatabaseComboBoxModel
 import javax.swing.*;
 import com.porty.swing.DatabaseComboBoxModel;
 import java.sql.*;
 import java.awt.*;
 
 public class DatabaseComboBox extends JFrame {
-  // параметры подключения к базе данных
+  // РїР°СЂР°РјРµС‚СЂС‹ РїРѕРґРєР»СЋС‡РµРЅРёСЏ Рє Р±Р°Р·Рµ РґР°РЅРЅС‹С…
   private static String
       dsn = "jdbc:odbc:Library",
       uid = "",
       pwd = "";
-  // наша модель
+  // РЅР°С€Р° РјРѕРґРµР»СЊ
   private DatabaseComboBoxModel cbm;
   public DatabaseComboBox() {
     super("DatabaseComboBox");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // настраиваем соединение с базой данных
+    // РЅР°СЃС‚СЂР°РёРІР°РµРј СЃРѕРµРґРёРЅРµРЅРёРµ СЃ Р±Р°Р·РѕР№ РґР°РЅРЅС‹С…
     Connection conn = null;
     try {
       Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-      // объект-соединение с базой данных
+      // РѕР±СЉРµРєС‚-СЃРѕРµРґРёРЅРµРЅРёРµ СЃ Р±Р°Р·РѕР№ РґР°РЅРЅС‹С…
       conn = DriverManager.getConnection(dsn, uid, pwd);
       Statement st = conn.createStatement();
       ResultSet rs = st.executeQuery(
           "select * from readers.csv");
-      // передаем данные в модель
+      // РїРµСЂРµРґР°РµРј РґР°РЅРЅС‹Рµ РІ РјРѕРґРµР»СЊ
       cbm = new DatabaseComboBoxModel();
       cbm.setDataSource(rs, 2);
       rs.close();
     } catch (Exception ex) {
       throw new RuntimeException(ex);
     }
-    // присоединяем модель к списку
+    // РїСЂРёСЃРѕРµРґРёРЅСЏРµРј РјРѕРґРµР»СЊ Рє СЃРїРёСЃРєСѓ
     setLayout(new FlowLayout());
     add(new JComboBox(cbm));
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(300, 200);
     setVisible(true);
   }

@@ -1,5 +1,5 @@
 // SimpleTabbedPanes.java
-// Использование панелей с вкладками
+// РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РїР°РЅРµР»РµР№ СЃ РІРєР»Р°РґРєР°РјРё
 import javax.swing.*;
 import java.awt.*;
 
@@ -7,31 +7,31 @@ public class SimpleTabbedPanes extends JFrame {
   public SimpleTabbedPanes() {
     super("SimpleTabbedPanes");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // первая панель с вкладками
+    // РїРµСЂРІР°СЏ РїР°РЅРµР»СЊ СЃ РІРєР»Р°РґРєР°РјРё
     JTabbedPane tabsOne = new JTabbedPane(
         JTabbedPane.BOTTOM, JTabbedPane.SCROLL_TAB_LAYOUT);
-    // добавляем вкладки
+    // РґРѕР±Р°РІР»СЏРµРј РІРєР»Р°РґРєРё
     for (int i=1; i<8; i++) {
       JPanel tab = new JPanel();
-      tab.add(new JButton("Просто кнопка " + i));
-      tabsOne.addTab("Вкладка №: " + i, tab);
+      tab.add(new JButton("РџСЂРѕСЃС‚Рѕ РєРЅРѕРїРєР° " + i));
+      tabsOne.addTab("Р’РєР»Р°РґРєР° в„–: " + i, tab);
     }
-    // вторая панель с вкладками
+    // РІС‚РѕСЂР°СЏ РїР°РЅРµР»СЊ СЃ РІРєР»Р°РґРєР°РјРё
     JTabbedPane tabsTwo = new
         JTabbedPane(JTabbedPane.TOP);
-    // добавляем вкладки
+    // РґРѕР±Р°РІР»СЏРµРј РІРєР»Р°РґРєРё
     for (int i=1; i<8; i++) {
       JPanel tab = new JPanel();
-      tab.add(new JButton("Снова кнопка " + i));
-      tabsTwo.addTab("<html><i>Вкладка №: " + i,
+      tab.add(new JButton("РЎРЅРѕРІР° РєРЅРѕРїРєР° " + i));
+      tabsTwo.addTab("<html><i>Р’РєР»Р°РґРєР° в„–: " + i,
           new ImageIcon("icon.gif"),
-          tab, "Нажмите " + i + "!");
+          tab, "РќР°Р¶РјРёС‚Рµ " + i + "!");
     }
-    // добавляем вкладки в панель содержимого
+    // РґРѕР±Р°РІР»СЏРµРј РІРєР»Р°РґРєРё РІ РїР°РЅРµР»СЊ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ
     setLayout(new GridLayout());
     add(tabsOne);
     add(tabsTwo);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(600, 250);
     setVisible(true);
   }

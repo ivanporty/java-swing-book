@@ -1,5 +1,5 @@
 // SliderEvents.java
-// События ползунков
+// РЎРѕР±С‹С‚РёСЏ РїРѕР»Р·СѓРЅРєРѕРІ
 import javax.swing.*;
 import javax.swing.event.*;
 import java.awt.*;
@@ -8,28 +8,28 @@ public class SliderEvents extends JFrame {
   public SliderEvents() {
     super("SliderEvents");
     setDefaultCloseOperation( EXIT_ON_CLOSE );
-    // создаем ползунок и надписи
+    // СЃРѕР·РґР°РµРј РїРѕР»Р·СѓРЅРѕРє Рё РЅР°РґРїРёСЃРё
     JSlider slider = new JSlider(0, 900, 0);
     slider.setMajorTickSpacing(100);
     slider.setPaintTicks(true);
-    boost = new JLabel("Ускорение: ");
-    // присоединяем слушателя
+    boost = new JLabel("РЈСЃРєРѕСЂРµРЅРёРµ: ");
+    // РїСЂРёСЃРѕРµРґРёРЅСЏРµРј СЃР»СѓС€Р°С‚РµР»СЏ
     slider.addChangeListener(new ChangeListener() {
       public void stateChanged(ChangeEvent e) {
-        // меняем надпись
+        // РјРµРЅСЏРµРј РЅР°РґРїРёСЃСЊ
         int value =
             ((JSlider)e.getSource()).getValue();
         int percent = value/15;
-        boost.setText("Ускорение: " + percent + " %");
+        boost.setText("РЈСЃРєРѕСЂРµРЅРёРµ: " + percent + " %");
       }
     });
-    // добавляем компоненты в панель
+    // РґРѕР±Р°РІР»СЏРµРј РєРѕРјРїРѕРЅРµРЅС‚С‹ РІ РїР°РЅРµР»СЊ
     JPanel contents = new JPanel();
-    contents.add(new JLabel("Размер буфера:"));
+    contents.add(new JLabel("Р Р°Р·РјРµСЂ Р±СѓС„РµСЂР°:"));
     contents.add(slider);
     add(contents);
     add(boost, "South");
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(360, 100);
     setVisible(true);
   }

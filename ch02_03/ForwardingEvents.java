@@ -1,5 +1,5 @@
 // ForwardingEvents.java
-// Техника диспетчеризации событий
+// РўРµС…РЅРёРєР° РґРёСЃРїРµС‚С‡РµСЂРёР·Р°С†РёРё СЃРѕР±С‹С‚РёР№
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,41 +8,41 @@ import java.awt.event.*;
 public class ForwardingEvents extends JFrame {
   public ForwardingEvents() {
     super("ForwardingEvents");
-    // при закрытии окна - выход
+    // РїСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР° - РІС‹С…РѕРґ
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // последовательное расположение
+    // РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕРµ СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ
     getContentPane().setLayout(new FlowLayout());
-    // добавим пару кнопок
-    button1 = new JButton("ОК");
-    button2 = new JButton("Отмена");
+    // РґРѕР±Р°РІРёРј РїР°СЂСѓ РєРЅРѕРїРѕРє
+    button1 = new JButton("РћРљ");
+    button2 = new JButton("РћС‚РјРµРЅР°");
     getContentPane().add(button1);
     getContentPane().add(button2);
-    // будем следить за нажатиями кнопок
+    // Р±СѓРґРµРј СЃР»РµРґРёС‚СЊ Р·Р° РЅР°Р¶Р°С‚РёСЏРјРё РєРЅРѕРїРѕРє
     Forwarder forwarder = new Forwarder();
     button1.addActionListener(forwarder);
     button2.addActionListener(forwarder);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     pack();
     setVisible(true);
   }
 
   JButton button1, button2;
 
-  // класс - слушатель нажатия на кнопку
+  // РєР»Р°СЃСЃ - СЃР»СѓС€Р°С‚РµР»СЊ РЅР°Р¶Р°С‚РёСЏ РЅР° РєРЅРѕРїРєСѓ
   class Forwarder implements ActionListener {
     public void actionPerformed(ActionEvent e) {
-      // рассылаем события по методам
+      // СЂР°СЃСЃС‹Р»Р°РµРј СЃРѕР±С‹С‚РёСЏ РїРѕ РјРµС‚РѕРґР°Рј
       if (e.getSource() == button1) onOK(e);
       if (e.getSource() == button2) onCancel(e);
     }
   }
 
-  // обработка события от кнопки "ОК"
+  // РѕР±СЂР°Р±РѕС‚РєР° СЃРѕР±С‹С‚РёСЏ РѕС‚ РєРЅРѕРїРєРё "РћРљ"
   public void onOK(ActionEvent e) {
     System.out.println("onOK()");
   }
 
-  // обработка события от кнопки "Отмена"
+  // РѕР±СЂР°Р±РѕС‚РєР° СЃРѕР±С‹С‚РёСЏ РѕС‚ РєРЅРѕРїРєРё "РћС‚РјРµРЅР°"
   public void onCancel(ActionEvent e) {
     System.out.println("onCancel()");
   }

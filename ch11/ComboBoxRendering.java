@@ -1,40 +1,40 @@
 // ComboBoxRendering.java
-// Отображение элементов раскрывающегося списка
+// РћС‚РѕР±СЂР°Р¶РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ СЂР°СЃРєСЂС‹РІР°СЋС‰РµРіРѕСЃСЏ СЃРїРёСЃРєР°
 import javax.swing.*;
 import com.porty.swing.*;
 
 import java.awt.*;
 
 public class ComboBoxRendering extends JFrame {
-  // данные для первого списка
-  private String[] textData = { "<html><code>Первый",
-      "<html><b>Жирный", "<html><font color=red>Красный",
-      "<html><em>Выразительный" };
-  // значки
+  // РґР°РЅРЅС‹Рµ РґР»СЏ РїРµСЂРІРѕРіРѕ СЃРїРёСЃРєР°
+  private String[] textData = { "<html><code>РџРµСЂРІС‹Р№",
+      "<html><b>Р–РёСЂРЅС‹Р№", "<html><font color=red>РљСЂР°СЃРЅС‹Р№",
+      "<html><em>Р’С‹СЂР°Р·РёС‚РµР»СЊРЅС‹Р№" };
+  // Р·РЅР°С‡РєРё
   private ImageIcon bullet1 =
       new ImageIcon("Server16.gif");
   private ImageIcon bullet2 =
       new ImageIcon("Host16.gif");
-  // данные для второго списка со значками
+  // РґР°РЅРЅС‹Рµ РґР»СЏ РІС‚РѕСЂРѕРіРѕ СЃРїРёСЃРєР° СЃРѕ Р·РЅР°С‡РєР°РјРё
   private ImageListElement[] iconData = {
-      new ImageListElement(bullet1, "Основной Сервер"),
-      new ImageListElement(bullet1, "Дополнительный"),
+      new ImageListElement(bullet1, "РћСЃРЅРѕРІРЅРѕР№ РЎРµСЂРІРµСЂ"),
+      new ImageListElement(bullet1, "Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№"),
       new ImageListElement(bullet2,
-          "<html><b><em>Машина директора")
+          "<html><b><em>РњР°С€РёРЅР° РґРёСЂРµРєС‚РѕСЂР°")
   };
   public ComboBoxRendering() {
     super("ComboBoxRendering");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // создаем пару раскрывающихся списков
+    // СЃРѕР·РґР°РµРј РїР°СЂСѓ СЂР°СЃРєСЂС‹РІР°СЋС‰РёС…СЃСЏ СЃРїРёСЃРєРѕРІ
     JComboBox combo1 = new JComboBox(textData);
     JComboBox combo2 = new JComboBox(iconData);
-    // наш специальный отображающий объект
+    // РЅР°С€ СЃРїРµС†РёР°Р»СЊРЅС‹Р№ РѕС‚РѕР±СЂР°Р¶Р°СЋС‰РёР№ РѕР±СЉРµРєС‚
     combo2.setRenderer(new ImageListCellRenderer());
-    // добавляем списки в окно
+    // РґРѕР±Р°РІР»СЏРµРј СЃРїРёСЃРєРё РІ РѕРєРЅРѕ
     setLayout(new FlowLayout());
     add(combo1);
     add(combo2);
-    // выводим окно на экран
+    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
     setSize(350, 200);
     setVisible(true);
   }
