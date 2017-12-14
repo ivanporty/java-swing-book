@@ -1,5 +1,5 @@
 // PaintingOtherComponents.java
-// РџСЂРѕСЂРёСЃРѕРІРєР° РґСЂСѓРіРёС… РєРѕРјРїРѕРЅРµРЅС‚РѕРІ РєР°Рє РёР·РѕР±СЂР°Р¶РµРЅРёР№
+// Прорисовка других компонентов как изображений
 import javax.swing.*;
 import java.awt.*;
 
@@ -12,21 +12,21 @@ public class PaintingOtherComponents extends JFrame {
     setVisible(true);
   }
   class CustomPaintComponent extends JPanel {
-    // РєРЅРѕРїРєР° РґР»СЏ РїСЂРѕСЂРёСЃРѕРІРєРё
-    private JButton button = new JButton("РџСЂРёРІРµС‚!");
-    // РјРµС‚РѕРґ РґР»СЏ СЂРёСЃРѕРІР°РЅРёСЏ РІ Swing
+    // кнопка для прорисовки
+    private JButton button = new JButton("Привет!");
+    // метод для рисования в Swing
     protected void paintComponent(Graphics g) {
-      // РЅРµРѕР±С…РѕРґРёРјРѕ РІС‹Р·РІР°С‚СЊ РґР»СЏ РѕР±СЂР°Р±РѕС‚РєРё СЃРІРѕР№СЃС‚РІР° opaque
+      // необходимо вызвать для обработки свойства opaque
       super.paintComponent(g);
-      // СЂРёСЃСѓРµРј РєРЅРѕРїРєРё
+      // рисуем кнопки
       Graphics2D g2 = (Graphics2D) g;
       button.setSize(80, 30);
-      // РѕС‚РєР»СЋС‡РµРЅРёРµ РґРІРѕР№РЅРѕР№ Р±СѓС„РµСЂРёР·Р°С†РёРё - РЅРµ РІСЃРµРіРґР° РЅСѓР¶РЅРѕ
+      // отключение двойной буферизации - не всегда нужно
       button.setDoubleBuffered(false);
-      // РїРµСЂРµРјРµСЃС‚РёРј РїРѕР·РёС†РёСЋ СЂРёСЃРѕРІР°РЅРёСЏ
+      // переместим позицию рисования
       g2.translate(100, 100);
       for (int i=1; i<=8; i++) {
-        // РєСЂСѓС‡РµРЅРёРµ РєРЅРѕРїРєРё РїРѕ РєСЂСѓРіСѓ
+        // кручение кнопки по кругу
         g2.rotate(2*Math.PI / i);
         button.paint(g);
       }

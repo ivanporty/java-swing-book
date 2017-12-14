@@ -1,5 +1,5 @@
-// Р‘Р°Р·РѕРІР°СЏ РІР°Р»РёРґР°С†РёСЏ AWT - РїСЂРё РёР·РјРµРЅРµРЅРёРё СЂР°Р·РјРµСЂРѕРІ
-//  РёР»Рё РґСЂСѓРіРёС… РїР°СЂР°РјРµС‚СЂРѕРІ РѕСЃС‚Р°РµС‚СЃСЏ РІС‹Р·РІР°С‚СЊ validate()
+// Базовая валидация AWT - при изменении размеров
+//  или других параметров остается вызвать validate()
 import java.awt.*;
 
 public class AWTValidateShow extends Frame {
@@ -8,8 +8,8 @@ public class AWTValidateShow extends Frame {
   public AWTValidateShow() {
     setSize(400, 300);
     Panel contents = new Panel();
-    button = new Button("РўРµРєСЃС‚");
-    Button button2 = new Button("РўРµРєСЃС‚ 2");
+    button = new Button("Текст");
+    Button button2 = new Button("Текст 2");
     contents.add(button);
     contents.add(button2);
     add(contents);
@@ -19,12 +19,12 @@ public class AWTValidateShow extends Frame {
       throws InterruptedException {
     new AWTValidateShow().setVisible(true);
     Thread.sleep(2000);
-    button.setLabel("РћС‡РµРЅСЊ РґР»РёРЅРЅС‹Р№ С‚РµРєСЃС‚");
-    // РЎ СЌС‚РѕРіРѕ РјРѕРјРµРЅС‚Р° СЂР°Р·РјРµСЂ РїРѕРјРµРЅСЏР»СЃСЏ - РІС‹Р·РІР°РЅ invalidate()
-    // РјРѕР¶РЅРѕ РІС‹Р·С‹РІР°С‚СЊ validate() РІ РєРѕРЅС‚РµР№РЅРµСЂРµ
+    button.setLabel("Очень длинный текст");
+    // С этого момента размер поменялся - вызван invalidate()
+    // можно вызывать validate() в контейнере
     Thread.sleep(2000);
-    // Р±СѓРґРµС‚ Р·Р°РЅРѕРІРѕ СЂР°СЃРїРѕР»РѕР¶РµРЅ РІРµСЃСЊ РєРѕРЅС‚РµР№РЅРµСЂ
-    // Рё РІСЃРµ РµРіРѕ СЃРѕРґРµСЂР¶РёРјРѕРµ (РєРЅРѕРїРєР°)
+    // будет заново расположен весь контейнер
+    // и все его содержимое (кнопка)
     button.getParent().validate();
   }
 }

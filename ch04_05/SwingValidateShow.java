@@ -1,6 +1,6 @@
-// Р’Р°Р»РёРґР°С†РёСЏ Swing - Р±РѕР»СЊС€РёРЅСЃС‚РІРѕ РєРѕРјРїРѕРЅРµРЅС‚РѕРІ
-// РїРѕР·Р°Р±РѕС‚СЏС‚СЃСЏ Рѕ СЃРµР±Рµ СЃР°РјРё. Р’ РѕСЃС‚Р°Р»СЊРЅРѕРј РјРµС‚РѕРґ revalidate()
-// РїРѕР·РІРѕР»СЏРµС‚ РЅРµ Р·Р°РґСѓРјС‹РІР°С‚СЊСЃСЏ Рѕ РґРµС‚Р°Р»СЏС…
+// Валидация Swing - большинство компонентов
+// позаботятся о себе сами. В остальном метод revalidate()
+// позволяет не задумываться о деталях
 import javax.swing.*;
 
 public class SwingValidateShow extends JFrame {
@@ -10,8 +10,8 @@ public class SwingValidateShow extends JFrame {
     setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     setSize(400, 300);
     JPanel contents = new JPanel();
-    button = new JButton("РўРµРєСЃС‚");
-    JButton button2 = new JButton("РўРµРєСЃС‚ 2");
+    button = new JButton("Текст");
+    JButton button2 = new JButton("Текст 2");
     contents.add(button);
     contents.add(button2);
     add(contents);
@@ -25,23 +25,23 @@ public class SwingValidateShow extends JFrame {
       }
     });
     Thread.sleep(2000);
-    // РљРЅРѕРїРєР° РїСЂРё СЃРјРµРЅРµ РїР°СЂР°РјРµС‚СЂР° СЃР°РјР° РІС‹Р·РѕРІРµС‚
-    // revalidate() Рё РјС‹ СЃСЂР°Р·Сѓ Р¶Рµ СѓРІРёРґРёРј РёР·РјРµРЅРµРЅРёСЏ
+    // Кнопка при смене параметра сама вызовет
+    // revalidate() и мы сразу же увидим изменения
     SwingUtilities.invokeLater(new Runnable() {
       public void run() {
-        button.setText("РћС‡РµРЅСЊ РґР»РёРЅРЅС‹Р№ С‚РµРєСЃС‚");
+        button.setText("Очень длинный текст");
       }
     });
-    // РїСЂРё РґРѕР±Р°РІР»РµРЅРёРё РІ РєРѕРЅС‚РµР№РЅРµСЂ revalidate()
-    // Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё РЅРµ РІС‹Р·С‹РІР°РµС‚СЃСЏ
+    // при добавлении в контейнер revalidate()
+    // автоматически не вызывается
     SwingUtilities.invokeLater(new Runnable() {
       public void run() {
-        newButton = new JButton("РќРѕРІРёС‡РѕРє");
+        newButton = new JButton("Новичок");
         button.getParent().add(newButton);
       }
     });
     Thread.sleep(2000);
-    // revalidate() РјРѕР¶РµС‚ Р±С‹С‚СЊ РІС‹Р·РІР°РЅ РёР· Р»СЋР±РѕРіРѕ РїРѕС‚РѕРєР°
+    // revalidate() может быть вызван из любого потока
     newButton.revalidate();
   }
 }

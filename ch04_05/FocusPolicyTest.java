@@ -1,5 +1,5 @@
 // FocusPolicyTest.java
-// Р Р°Р·Р»РёС‡РЅС‹Рµ Р°Р»РіРѕСЂРёС‚РјС‹ РїРµСЂРµРґР°С‡Рё С„РѕРєСѓСЃР° РІРІРѕРґР°
+// Различные алгоритмы передачи фокуса ввода
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -7,23 +7,23 @@ import java.awt.event.*;
 public class FocusPolicyTest extends JFrame {
   public FocusPolicyTest() {
     super("FocusPolicyTest");
-    // РїСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР° РІС‹С…РѕРґ
+    // при закрытии окна выход
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // РґРѕР±Р°РІР»СЏРµРј С‚СЂРё РєРЅРѕРїРєРё
-    add(new JButton("Р›РµРІР°СЏ"), "West");
-    // РґРѕР±Р°РІР»СЏРµРј СЌС‚Сѓ РєРЅРѕРїРєСѓ РІС‚РѕСЂРѕР№, РЅРѕ РѕРЅР° Р±СѓРґРµС‚ РЅРёР¶Рµ
-    // РґРІСѓС… РґСЂСѓРіРёС… РєРЅРѕРїРѕРє
-    JButton button = new JButton("РЎРјРµРЅРёС‚СЊ");
+    // добавляем три кнопки
+    add(new JButton("Левая"), "West");
+    // добавляем эту кнопку второй, но она будет ниже
+    // двух других кнопок
+    JButton button = new JButton("Сменить");
     button.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        // РїСЂРё РЅР°Р¶Р°С‚РёРё СЃРјРµРЅРёРј Р°Р»РіРѕСЂРёС‚Рј РґР»СЏ РѕРєРЅР°
+        // при нажатии сменим алгоритм для окна
         setFocusTraversalPolicy(
             new ContainerOrderFocusTraversalPolicy());
       }
     });
     add(button, "South");
-    add(new JButton("РџСЂР°РІР°СЏ"), "East");
-    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
+    add(new JButton("Правая"), "East");
+    // выводим окно на экран
     setSize(200, 200);
     setVisible(true);
   }

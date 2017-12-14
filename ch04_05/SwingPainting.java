@@ -1,5 +1,5 @@
 // SwingPainting.java
-// Р Р°Р±РѕС‚Р° СЂРёСЃСѓСЋС‰РёС… РјРµС…Р°РЅРёР·РјРѕРІ Swing
+// Работа рисующих механизмов Swing
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,18 +8,18 @@ public class SwingPainting extends JFrame {
 
   public SwingPainting() {
     super("SwingPainting");
-    // РїСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР° Р·Р°РІРµСЂС€Р°РµРј СЂР°Р±РѕС‚Сѓ
+    // при закрытии окна завершаем работу
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // РґРѕР±Р°РІР»СЏРµРј РІ РїР°РЅРµР»СЊ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ РЅР°С€ РєРѕРјРїРѕРЅРµРЅС‚
+    // добавляем в панель содержимого наш компонент
     getContentPane().add(new SwingComponent());
-    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
+    // выводим окно на экран
     setSize(200, 200);
     setVisible(true);
   }
 
-  // РєРѕРјРїРѕРЅРµРЅС‚, РёСЃРїРѕР»СЊР·СѓСЋС‰РёР№ РІРѕР·РјРѕР¶РЅРѕСЃС‚Рё Swing
+  // компонент, использующий возможности Swing
   class SwingComponent extends JComponent {
-    // РїСЂРѕСЂРёСЃРѕРІРєР° РєРѕРјРїРѕРЅРµРЅС‚Р°
+    // прорисовка компонента
     public void paintComponent(Graphics g) {
       System.out.println("paintComponent");
       super.paintComponent(g);
@@ -27,13 +27,13 @@ public class SwingPainting extends JFrame {
       g.fillOval(10, 10, 50, 50);
     }
 
-    // РїСЂРѕСЂРёСЃРѕРІРєР° СЂР°РјРєРё
+    // прорисовка рамки
     public void paintBorder(Graphics g) {
       System.out.println("paintBorder");
       super.paintBorder(g);
     }
 
-    // РїСЂРѕСЂРёСЃРѕРІРєР° РїРѕС‚РѕРјРєРѕРІ
+    // прорисовка потомков
     public void paintChildren(Graphics g) {
       System.out.println("paintChildren");
       super.paintChildren(g);

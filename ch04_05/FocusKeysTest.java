@@ -1,5 +1,5 @@
 // FocusKeysTest.java
-// РќР°СЃС‚СЂРѕР№РєР° РєР»Р°РІРёС€ РїРµСЂРµС…РѕРґР° С„РѕРєСѓСЃР° РІРІРѕРґР°
+// Настройка клавиш перехода фокуса ввода
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -8,21 +8,21 @@ import java.util.HashSet;
 public class FocusKeysTest extends JFrame {
   public FocusKeysTest() {
     super("FocusKeysTest");
-    // РІС‹С…РѕРґ РїСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР°
+    // выход при закрытии окна
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // РґРѕР±Р°РІР»СЏРµРј РїР°СЂСѓ РєРЅРѕРїРѕРє
+    // добавляем пару кнопок
     setLayout(new FlowLayout());
-    // РѕСЃРѕР±Р°СЏ РєРЅРѕРїРєР°
-    JButton button = new JButton("РћСЃРѕР±Р°СЏ");
+    // особая кнопка
+    JButton button = new JButton("Особая");
     add(button);
-    add(new JButton("РћР±С‹С‡РЅР°СЏ"));
-    // РЅР°СЃС‚СЂРѕРёРј РєР»Р°РІРёС€Рё РїРµСЂРµС…РѕРґР° С„РѕРєСѓСЃР°
+    add(new JButton("Обычная"));
+    // настроим клавиши перехода фокуса
     HashSet<AWTKeyStroke> set = new HashSet<AWTKeyStroke>();
     set.add(AWTKeyStroke.getAWTKeyStroke(
         'Q', KeyEvent.CTRL_MASK));
     button.setFocusTraversalKeys(
         KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, set);
-    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
+    // выводим окно на экран
     setSize(200, 200);
     setVisible(true);
   }

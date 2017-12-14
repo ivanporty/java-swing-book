@@ -1,5 +1,5 @@
 // AWTPainting.java
-// РџСЂРѕС†РµСЃСЃ СЂРёСЃРѕРІР°РЅРёСЏ РІ AWT РѕС‡РµРЅСЊ РїСЂРѕСЃС‚
+// Процесс рисования в AWT очень прост
 
 import java.awt.*;
 import java.awt.event.*;
@@ -8,15 +8,15 @@ public class AWTPainting extends Frame {
 
   public AWTPainting() {
     super("AWTPainting");
-    // РІС‹С…РѕРґ РїСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР°
+    // выход при закрытии окна
     addWindowListener(new WindowAdapter() {
       public void windowClosing(WindowEvent e) {
         System.exit(0);
       }
     });
     setLayout(new FlowLayout());
-    // РїРѕРїСЂРѕР±СѓРµРј Р·Р°РєСЂР°СЃРёС‚СЊ С‡Р°СЃС‚СЊ РєРЅРѕРїРєРё
-    add(new Button("РџРµСЂРµСЂРёСЃСѓРµРј РєРЅРѕРїРєСѓ!") {
+    // попробуем закрасить часть кнопки
+    add(new Button("Перерисуем кнопку!") {
       public void paint(Graphics g) {
         g.setColor(Color.BLUE);
         g.fillRect(2, 2, getWidth() - 5, getHeight() - 5);
@@ -25,9 +25,9 @@ public class AWTPainting extends Frame {
     setSize(200, 200);
   }
 
-  // РІ СЌС‚РѕРј РјРµС‚РѕРґРµ РїСЂРѕРёР·РІРѕРґРёС‚СЃСЏ СЂРёСЃРѕРІР°РЅРёРµ
+  // в этом методе производится рисование
   public void paint(Graphics g) {
-    // Р·Р°РїРѕР»РЅСЏРµРј РІСЃРµ РєСЂР°СЃРЅС‹Рј С†РІРµС‚РѕРј
+    // заполняем все красным цветом
     g.setColor(Color.RED);
     g.fillRect(0, 0, getWidth(), getHeight());
   }
