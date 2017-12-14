@@ -1,36 +1,36 @@
 // HeadersAndCorners.java
-// Р—Р°РіРѕР»РѕРІРєРё Рё "СѓРіРѕР»РєРё" РїР°РЅРµР»Рё РїСЂРѕРєСЂСѓС‚РєРё JScrollPane
+// Заголовки и "уголки" панели прокрутки JScrollPane
 import javax.swing.*;
 import java.awt.*;
 
 public class HeadersAndCorners extends JFrame {
-  // РЅР°РґРїРёСЃСЊ СЃ Р±РѕР»СЊС€РёРј РёР·РѕР±СЂР°Р¶РµРЅРёРµРј
+  // надпись с большим изображением
   private JLabel label = new JLabel(
       new ImageIcon("image.jpg"));
   public HeadersAndCorners() {
     super("HeadersAndCorners");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // СЃРѕР·РґР°РµРј РїР°РЅРµР»СЊ РїСЂРѕРєСЂСѓС‚РєРё
+    // создаем панель прокрутки
     JScrollPane scroll = new JScrollPane(label);
-    // СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј Р·Р°РіРѕР»РѕРІРєРё
+    // устанавливаем заголовки
     scroll.setColumnHeaderView(new XHeader());
     scroll.setRowHeaderView(new YHeader());
-    // СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј Р»РµРІС‹Р№ РІРµСЂС…РЅРёР№ "СѓРіРѕР»РѕРє"
+    // устанавливаем левый верхний "уголок"
     scroll.setCorner(JScrollPane.UPPER_LEFT_CORNER,
         new JButton(new ImageIcon("Print16.gif")));
-    // РІС‹РІРѕРґРёРј РѕРєРЅРѕ РЅР° СЌРєСЂР°РЅ
+    // выводим окно на экран
     add(scroll);
     setSize(400, 300);
     setVisible(true);
   }
-  // Р·Р°РіРѕР»РѕРІРѕРє РїРѕ РѕСЃРё X
+  // заголовок по оси X
   class XHeader extends JPanel {
-    // СЂР°Р·РјРµСЂ Р·Р°РіРѕР»РѕРІРєР°
+    // размер заголовка
     public Dimension getPreferredSize() {
       return new Dimension(
           label.getPreferredSize().width, 20);
     }
-    // РїСЂРѕСЂРёСЃРѕРІС‹РІР°РµРј Р»РёРЅРµР№РєСѓ
+    // прорисовываем линейку
     public void paintComponent(Graphics g) {
       super.paintComponent(g);
       int width = getWidth();
@@ -39,14 +39,14 @@ public class HeadersAndCorners extends JFrame {
       }
     }
   }
-  // Р·Р°РіРѕР»РѕРІРѕРє РїРѕ РѕСЃРё Y
+  // заголовок по оси Y
   class YHeader extends JPanel {
-    // СЂР°Р·РјРµСЂ Р·Р°РіРѕР»РѕРІРєР°
+    // размер заголовка
     public Dimension getPreferredSize() {
       return new Dimension(
           20, label.getPreferredSize().height);
     }
-    // РїСЂРѕСЂРёСЃРѕРІС‹РІР°РµРј Р»РёРЅРµР№РєСѓ
+    // прорисовываем линейку
     public void paintComponent(Graphics g) {
       super.paintComponent(g);
       int height = getHeight();
