@@ -1,30 +1,30 @@
 // com/porty/swing/GridBagHelper.java
-// Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Р№ РєР»Р°СЃСЃ, РїРѕР·РІРѕР»СЏСЋС‰РёР№ РїРёСЃР°С‚СЊ
-// РєР°С‡РµСЃС‚РІРµРЅРЅС‹Р№ РєРѕРґ РґР»СЏ СЂР°СЃРїРѕР»РѕР¶РµРЅРёСЏ GridBagLayout
+// Вспомогательный класс, позволяющий писать
+// качественный код для расположения GridBagLayout
 package com.porty.swing;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class GridBagHelper {
-  // РєРѕРѕСЂРґРёРЅР°С‚С‹ С‚РµРєСѓС‰РµР№ СЏС‡РµР№РєРё
+  // координаты текущей ячейки
   private int gridx, gridy;
-  // РЅР°СЃС‚СЂР°РёРІР°РµРјС‹Р№ РѕР±СЉРµРєС‚ GridBagConstraints
+  // настраиваемый объект GridBagConstraints
   private GridBagConstraints constraints;
 
-  // РІРѕР·РІСЂР°С‰Р°РµС‚ РЅР°СЃС‚СЂРѕРµРЅРЅС‹Р№ РѕР±СЉРµРєС‚ GridBagConstraints
+  // возвращает настроенный объект GridBagConstraints
   public GridBagConstraints get() {
     return constraints;
   }
-  // РґРІРёРіР°РµС‚СЃСЏ РЅР° СЃР»РµРґСѓСЋС‰СѓСЋ СЏС‡РµР№РєСѓ
+  // двигается на следующую ячейку
   public GridBagHelper nextCell() {
     constraints = new GridBagConstraints();
     constraints.gridx = gridx++;
     constraints.gridy = gridy;
-    // РґР»СЏ СѓРґРѕР±СЃС‚РІР° РІРѕР·РІСЂР°С‰Р°РµРј СЃРµР±СЏ
+    // для удобства возвращаем себя
     return this;
   }
-  // РґРІРёРіР°РµС‚СЃСЏ РЅР° СЃР»РµРґСѓСЋС‰РёР№ СЂСЏРґ
+  // двигается на следующий ряд
   public GridBagHelper nextRow() {
     gridy++;
     gridx = 0;
@@ -32,17 +32,17 @@ public class GridBagHelper {
     constraints.gridy = gridy;
     return this;
   }
-  // СЂР°Р·РґРІРёРіР°РµС‚ СЏС‡РµР№РєСѓ РґРѕ РєРѕРЅС†Р° СЃС‚СЂРѕРєРё
+  // раздвигает ячейку до конца строки
   public GridBagHelper span() {
     constraints.gridwidth = GridBagConstraints.REMAINDER;
     return this;
   }
-  // Р·Р°РїРѕР»РЅСЏРµС‚ СЏС‡РµР№РєСѓ РїРѕ РіРѕСЂРёР·РѕРЅС‚Р°Р»Рё
+  // заполняет ячейку по горизонтали
   public GridBagHelper fillHorizontally() {
     constraints.fill = GridBagConstraints.HORIZONTAL;
     return this;
   }
-  // РІСЃС‚Р°РІР»СЏРµС‚ СЂР°СЃРїРѕСЂРєСѓ СЃРїСЂР°РІР°
+  // вставляет распорку справа
   public GridBagHelper gap(int size) {
     constraints.insets.right = size;
     return this;
