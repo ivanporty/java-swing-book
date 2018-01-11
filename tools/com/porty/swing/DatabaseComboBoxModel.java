@@ -1,5 +1,5 @@
 // com/porty/swing/DatabaseComboBoxModel.java
-// РњРѕРґРµР»СЊ СЂР°СЃРєСЂС‹РІР°СЋС‰РµРіРѕСЃСЏ СЃРїРёСЃРєР° РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ Р±Р°Р·Р°РјРё РґР°РЅРЅС‹С…
+// Модель раскрывающегося списка для работы с базами данных
 package com.porty.swing;
 
 import javax.swing.*;
@@ -7,14 +7,14 @@ import java.sql.*;
 
 public class DatabaseComboBoxModel
     extends DefaultComboBoxModel {
-  // РїРѕР»СѓС‡РµРЅРёРµ РґР°РЅРЅС‹С… РёР· Р·Р°РїСЂРѕСЃР° ResultSet
+  // получение данных из запроса ResultSet
   public void setDataSource(ResultSet rs, int column)
       throws SQLException {
-    // РѕС‡РёСЃС‚РёРј СЃРїРёСЃРѕРє
+    // очистим список
     removeAllElements();
-    // РґРѕР±Р°РІРёРј РЅРѕРІС‹Рµ СЌР»РµРјРµРЅС‚С‹ РёР· Р±Р°Р·С‹ РґР°РЅРЅС‹С…
+    // добавим новые элементы из базы данных
     while ( rs.next() ) {
-      // РїРѕР»СѓС‡Р°РµРј СЃС‚СЂРѕРєРё РёР· СЃС‚РѕР»Р±С†Р° column
+      // получаем строки из столбца column
       addElement(rs.getString(column));
     }
   }

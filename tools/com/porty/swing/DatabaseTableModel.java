@@ -1,6 +1,6 @@
 // com/porty/swing/DatabaseTableModel.java
-// РњРѕРґРµР»СЊ РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹, СЂР°Р±РѕС‚Р°СЋС‰Р°СЏ
-// СЃ Р·Р°РїСЂРѕСЃР°РјРё Рє Р±Р°Р·Р°Рј РґР°РЅРЅС‹С…
+// Модель данных таблицы, работающая
+// с запросами к базам данных
 package com.porty.swing;
 
 import javax.swing.table.*;
@@ -9,76 +9,76 @@ import java.util.*;
 
 public class DatabaseTableModel
     extends AbstractTableModel {
-  // Р·РґРµСЃСЊ РјС‹ Р±СѓРґРµРј С…СЂР°РЅРёС‚СЊ РЅР°Р·РІР°РЅРёСЏ СЃС‚РѕР»Р±С†РѕРІ
+  // здесь мы будем хранить названия столбцов
   private ArrayList<String> columnNames = new ArrayList<String>();
-  // СЃРїРёСЃРѕРє С‚РёРїРѕРІ СЃС‚РѕР»Р±С†РѕРІ
+  // список типов столбцов
   private ArrayList<Class> columnTypes = new ArrayList<Class>();
-  // С…СЂР°РЅРёР»РёС‰Рµ РґР»СЏ РїРѕР»СѓС‡РµРЅРЅС‹С… РґР°РЅРЅС‹С… РёР· Р±Р°Р·С‹ РґР°РЅРЅС‹С…
+  // хранилище для полученных данных из базы данных
   private ArrayList<ArrayList<Object>> data
       = new ArrayList<ArrayList<Object>>();
-  // РїСЂРёР·РЅР°Рє СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ С‚Р°Р±Р»РёС†С‹
+  // признак редактирования таблицы
   private boolean editable;
-  // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕР·РІРѕР»СЏРµС‚ Р·Р°РґР°С‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ
+  // конструктор позволяет задать возможность редактирования
   public DatabaseTableModel(boolean editable) {
     this.editable = editable;
   }
-  // РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє
+  // количество строк
   public int getRowCount() {
     return data.size();
   }
-  // РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚РѕР»Р±С†РѕРІ
+  // количество столбцов
   public int getColumnCount() {
     return columnNames.size();
   }
-  // С‚РёРї РґР°РЅРЅС‹С… СЃС‚РѕР»Р±С†Р°
+  // тип данных столбца
   public Class getColumnClass(int column) {
     return columnTypes.get(column);
   }
-  // РЅР°Р·РІР°РЅРёРµ СЃС‚РѕР»Р±С†Р°
+  // название столбца
   public String getColumnName(int column) {
     return columnNames.get(column);
   }
-  // РґР°РЅРЅС‹Рµ РІ СЏС‡РµР№РєРµ
+  // данные в ячейке
   public Object getValueAt(int row, int column) {
     return (data.get(row)).get(column);
   }
-  // РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ
+  // возможность редактирования
   public boolean isCellEditable(int row, int column) {
     return editable;
   }
-  // Р·Р°РјРµРЅР° Р·РЅР°С‡РµРЅРёСЏ СЏС‡РµР№РєРё
+  // замена значения ячейки
   public void setValueAt(
       Object value, int row, int column){
     (data.get(row)).set(column, value);
   }
-  // РїРѕР»СѓС‡РµРЅРёРµ РґР°РЅРЅС‹С… РёР· РѕР±СЉРµРєС‚Р° ResultSet
+  // получение данных из объекта ResultSet
   public void setDataSource(
       ResultSet rs) throws Exception {
-    // СѓРґР°Р»СЏРµРј РїСЂРµР¶РЅРёРµ РґР°РЅРЅС‹Рµ
+    // удаляем прежние данные
     data.clear();
     columnNames.clear();
     columnTypes.clear();
-    // РїРѕР»СѓС‡Р°РµРј РІСЃРїРѕРјРѕРіР°С‚РµР»СЊРЅСѓСЋ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ СЃС‚РѕР»Р±С†Р°С…
+    // получаем вспомогательную информацию о столбцах
     ResultSetMetaData rsmd = rs.getMetaData();
     int columnCount = rsmd.getColumnCount();
     for ( int i=0; i<columnCount; i++) {
-      // РЅР°Р·РІР°РЅРёРµ СЃС‚РѕР»Р±С†Р°
+      // название столбца
       columnNames.add(rsmd.getColumnName(i+1));
-      // С‚РёРї СЃС‚РѕР»Р±С†Р°
+      // тип столбца
       Class type =
           Class.forName(rsmd.getColumnClassName(i+1));
       columnTypes.add(type);
     }
-    // РїРѕР»СѓС‡Р°РµРј РґР°РЅРЅС‹Рµ
+    // получаем данные
     while ( rs.next() ) {
-      // Р·РґРµСЃСЊ Р±СѓРґРµРј С…СЂР°РЅРёС‚СЊ СЏС‡РµР№РєРё РѕРґРЅРѕР№ СЃС‚СЂРѕРєРё
+      // здесь будем хранить ячейки одной строки
       ArrayList<Object> row = new ArrayList<Object>();
       for ( int i=0; i<columnCount; i++) {
         row.add(rs.getObject(i+1));
       }
       data.add(row);
     }
-    // СЃРѕРѕР±С‰Р°РµРј РѕР± РёР·РјРµРЅРµРЅРёСЏС… РІ СЃС‚СЂСѓРєС‚СѓСЂРµ РґР°РЅРЅС‹С…
+    // сообщаем об изменениях в структуре данных
     fireTableStructureChanged();
   }
 }
