@@ -48,6 +48,11 @@ public class InvokeLater extends JFrame {
   }
 
   public static void main(String[] args) {
-    new InvokeLater();
+    SwingUtilities.invokeLater(
+        new Runnable() {
+          public void run() {
+            new InvokeLater();
+          }
+        });
   }
 }
