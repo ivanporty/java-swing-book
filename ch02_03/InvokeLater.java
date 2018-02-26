@@ -51,7 +51,7 @@ public class InvokeLater extends JFrame {
     SwingUtilities.invokeLater(
         new Runnable() {
           public void run() {
-            new UsingSwingWorker();
+            new InvokeLater();
           }
         });
   }
